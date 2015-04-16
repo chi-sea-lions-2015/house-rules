@@ -1,0 +1,2 @@
+module CommunalItemsHelper
+end

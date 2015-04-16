@@ -1,0 +1,2 @@
+class PropertyManagersController < ApplicationController
+end
