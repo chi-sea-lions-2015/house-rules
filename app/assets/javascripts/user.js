@@ -1,0 +1,1 @@
+var Accordion = require('react-foundation-apps/lib/accordion');
