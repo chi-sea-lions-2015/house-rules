@@ -3,6 +3,7 @@ class CreateHouses < ActiveRecord::Migration
     create_table :houses do |t|
       t.string :name
       t.references :property_manager, index: true, foreign_key: true
+      t.references :address, index: true, foreign_key: true
 
       t.timestamps null: false
     end
