@@ -16,9 +16,9 @@ class HousesController < ApplicationController
     @user = current_user
     @address = Address.new(address_params)
     if @address.save
-      @house = @user.houses.new(house_params)
+      @house = House.new(house_params)
       if @house.save
-        @user.housing_assignment.create(user: @user, house: @house)
+        @user.housing_assignments.create(user: @user, house: @house)
         redirect_to house_path(@house)
       else
         render "new"

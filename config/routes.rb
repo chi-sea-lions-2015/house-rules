@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :houses do
-    resources :property_managers
+    resources :property_managers, only: [:new, :create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
