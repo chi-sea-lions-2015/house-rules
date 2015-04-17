@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
 
-  facotry :user do
+  factory :user do
     first_name "Paul"
     last_name "Clegg"
     email "paul@paul.com"
@@ -69,5 +69,5 @@ FactoryGirl.define do
   factory :issue do
     reason "you suck"
     user
-
+  end
 end
