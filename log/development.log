@@ -11716,3 +11716,310 @@ Processing by HousesController#show as HTML
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
   Rendered houses/show.html.erb within layouts/application (1.4ms)
 Completed 200 OK in 93ms (Views: 60.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/login" for ::1 at 2015-04-17 17:14:45 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 158ms (Views: 156.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for ::1 at 2015-04-17 17:14:52 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 90ms (Views: 64.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users" for ::1 at 2015-04-17 17:15:03 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6P9mlFWtKPUl0WGvXOdERMY2i3Z2ZiUnSYIRkOClmqR62WfT8kEAkOfa+ImEDdSsVxIs8+j/dn1i5ZzUUoNMbA==", "user"=>{"first_name"=>"klerterlj", "last_name"=>"fkljreglkjr", "phone"=>"", "email"=>"jhfsdjkg@dgkhrwkj.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jhfsdjkg@dgkhrwkj.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "phone", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["first_name", "klerterlj"], ["last_name", "fkljreglkjr"], ["email", "jhfsdjkg@dgkhrwkj.com"], ["phone", ""], ["password_digest", "$2a$10$C4jQSTnfcYuVbU4lZvzpt.o7Vod0eJnsAmgCbKno6ol/dODgrUrGW"], ["created_at", "2015-04-17 22:15:03.711218"], ["updated_at", "2015-04-17 22:15:03.711218"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/houses
+Completed 302 Found in 80ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/houses" for ::1 at 2015-04-17 17:15:03 -0500
+Processing by HousesController#index as HTML
+  Rendered houses/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 154ms (Views: 153.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/houses/new" for ::1 at 2015-04-17 17:15:08 -0500
+Processing by HousesController#new as HTML
+  Rendered houses/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 81ms (Views: 68.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/houses" for ::1 at 2015-04-17 17:15:17 -0500
+Processing by HousesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zPoJ4IdepYlxtb4EuYmz0rxB9/ksEUbMADJJGPDU+DVe3AinILKN7LO+JyJhYyM6LWVQfLKIFZYrVcRcQvIu/Q==", "house"=>{"name"=>"COOL", "address"=>{"street"=>"thkryi", "city"=>"goiretyoieu", "state"=>"il", "zip_code"=>"60613"}}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "thkryi"], ["city", "goiretyoieu"], ["state", "il"], ["zip_code", 60613], ["created_at", "2015-04-17 22:15:17.287301"], ["updated_at", "2015-04-17 22:15:17.287301"]]
+  [1m[36m (15.1ms)[0m  [1mCOMMIT[0m
+Unpermitted parameter: address
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "houses" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "COOL"], ["created_at", "2015-04-17 22:15:17.306162"], ["updated_at", "2015-04-17 22:15:17.306162"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "housing_assignments" ("user_id", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 3], ["house_id", 3], ["created_at", "2015-04-17 22:15:17.327160"], ["updated_at", "2015-04-17 22:15:17.327160"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/houses/3
+Completed 302 Found in 59ms (ActiveRecord: 20.4ms)
+
+
+Started GET "/houses/3" for ::1 at 2015-04-17 17:15:17 -0500
+Processing by HousesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mHousingAssignment Load (0.5ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."user_id" = 3 AND "housing_assignments"."house_id" = 3
+  Rendered houses/show.html.erb within layouts/application (89.1ms)
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (undefined method `user_housing_assignment_path' for #<#<Class:0x007fe299bf9d88>:0x007fe298b6f9e0>):
+    1: <h2><%= @house.name %>!</h2>
+    2: <%= link_to "Add Property Management Info", new_house_property_manager_path(@house) %>
+    3: <br><br>
+    4: <%= link_to "Add Lease", user_housing_assignment_path(current_user, @assignment) %>
+  app/views/houses/show.html.erb:4:in `_app_views_houses_show_html_erb__2129929755551000003_70305599554120'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (80.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (99.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (17.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (34.2ms)
+
+
+Started GET "/houses/3" for ::1 at 2015-04-17 17:15:53 -0500
+Processing by HousesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered houses/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 67ms (Views: 64.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/chores.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/communal_items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/houses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/messages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/property_managers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/rules.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/addresses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-17 17:15:53 -0500
+
+
+Started GET "/assets/addresses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-17 17:15:54 -0500
+
+
+Started GET "/assets/chores.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-17 17:15:54 -0500
+
+
+Started GET "/assets/communal_items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-17 17:15:54 -0500
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-17 17:15:54 -0500
+
+
+Started GET "/assets/houses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-17 17:15:54 -0500
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-17 17:15:54 -0500
+
+
+Started GET "/assets/property_managers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-17 17:15:54 -0500
+
+
+Started GET "/assets/rules.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-17 17:15:54 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-17 17:15:54 -0500
+
+
+Started GET "/assets/application.self-276e9b08f8c910014294dc16d3d2ee290451575d6268cb3ee78751c5c4417a4b.js?body=1" for ::1 at 2015-04-17 17:15:54 -0500
+
+
+Started GET "/houses/3/property_managers/new" for ::1 at 2015-04-17 17:15:58 -0500
+Processing by PropertyManagersController#new as HTML
+  Parameters: {"house_id"=>"3"}
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered property_managers/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 156ms (Views: 66.2ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/houses/3/property_managers" for ::1 at 2015-04-17 17:16:22 -0500
+Processing by PropertyManagersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eZrfKSg+GEc4hzFs+TECqFMi3iiZpCIXnwPAZED7uGrrvN5uj9IwIvqMqEoh25JAwgZ5rQc9cU20ZE0g8t1uog==", "property_manager"=>{"name"=>"kdjfghrrekjh", "phone"=>"", "email"=>"", "address"=>{"street"=>"fkdjghrekh", "city"=>"kfjhsejk", "state"=>"il", "zip_code"=>"60613"}}, "commit"=>"Submit", "house_id"=>"3"}
+  [1m[35mHouse Load (0.3ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "fkdjghrekh"], ["city", "kfjhsejk"], ["state", "il"], ["zip_code", 60613], ["created_at", "2015-04-17 22:16:22.963912"], ["updated_at", "2015-04-17 22:16:22.963912"]]
+  [1m[36m (15.3ms)[0m  [1mCOMMIT[0m
+Unpermitted parameter: address
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "property_managers" ("name", "phone", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "kdjfghrrekjh"], ["phone", ""], ["email", ""], ["created_at", "2015-04-17 22:16:22.982355"], ["updated_at", "2015-04-17 22:16:22.982355"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "houses" SET "property_manager_id" = $1, "updated_at" = $2 WHERE "houses"."id" = $3  [["property_manager_id", 5], ["updated_at", "2015-04-17 22:16:22.984886"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/houses/3
+Completed 302 Found in 27ms (ActiveRecord: 17.4ms)
+
+
+Started GET "/houses/3" for ::1 at 2015-04-17 17:16:23 -0500
+Processing by HousesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mHouse Load (0.3ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered houses/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 68ms (Views: 64.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-04-17 18:20:10 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.6ms)
+Completed 200 OK in 31ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-04-17 18:20:13 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 665ms (Views: 663.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2015-04-17 18:20:14 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 64ms (Views: 63.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for ::1 at 2015-04-17 18:20:17 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 246ms (Views: 150.6ms | ActiveRecord: 67.0ms)
+
+
+Started POST "/users" for ::1 at 2015-04-17 18:20:28 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VrWnVXJb3UxVL+txWpdNsCUsjG9RVSKAKCVSC7Ovw8TEk6YS1bf1KZckcleCfd1YtAgr6s/McdoDQt9PAYkVDA==", "user"=>{"first_name"=>"Sara", "last_name"=>"Chen", "phone"=>"", "email"=>"ektjh@gwee.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ektjh@gwee.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "phone", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["first_name", "Sara"], ["last_name", "Chen"], ["email", "ektjh@gwee.com"], ["phone", ""], ["password_digest", "$2a$10$Zbe2qin/YYQVgz5JkT4oPeGFJlFyt5.ScVYXSDGpEyCh.OboGRtF2"], ["created_at", "2015-04-17 23:20:28.827545"], ["updated_at", "2015-04-17 23:20:28.827545"]]
+  [1m[36m (16.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/houses
+Completed 302 Found in 141ms (ActiveRecord: 18.1ms)
+
+
+Started GET "/houses" for ::1 at 2015-04-17 18:20:28 -0500
+Processing by HousesController#index as HTML
+  Rendered houses/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 79ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/houses/new" for ::1 at 2015-04-17 18:20:34 -0500
+Processing by HousesController#new as HTML
+  Rendered houses/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 207ms (Views: 139.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/houses" for ::1 at 2015-04-17 18:20:53 -0500
+Processing by HousesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NkYXqJNRIfrUUCzgIKjc3VWGZbwUQ5R6LYY6HRIFUyKkYBbvNL0JnxZbtcb4Qkw1xKLCOYraxyAG4bdZoCOF6g==", "house"=>{"name"=>"SARAS HOUSE", "address"=>{"street"=>"rlyjreljh", "city"=>"kgjrelkhj", "state"=>"il", "zip_code"=>"60613"}}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "rlyjreljh"], ["city", "kgjrelkhj"], ["state", "il"], ["zip_code", 60613], ["created_at", "2015-04-17 23:20:53.872965"], ["updated_at", "2015-04-17 23:20:53.872965"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Unpermitted parameter: address
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "houses" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "SARAS HOUSE"], ["created_at", "2015-04-17 23:20:53.876833"], ["updated_at", "2015-04-17 23:20:53.876833"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "housing_assignments" ("user_id", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 4], ["house_id", 4], ["created_at", "2015-04-17 23:20:53.916516"], ["updated_at", "2015-04-17 23:20:53.916516"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/houses/4
+Completed 302 Found in 123ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/houses/4" for ::1 at 2015-04-17 18:20:53 -0500
+Processing by HousesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered houses/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 66ms (Views: 62.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/houses/4/property_managers/new" for ::1 at 2015-04-17 18:20:56 -0500
+Processing by PropertyManagersController#new as HTML
+  Parameters: {"house_id"=>"4"}
+  [1m[35mHouse Load (0.3ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered property_managers/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 187ms (Views: 137.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/houses/4/property_managers" for ::1 at 2015-04-17 18:21:05 -0500
+Processing by PropertyManagersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SwSNa+PQ3sP1M4ylE3CSJ2juwArrj7jOwYbLwj8nYjnZIowsRDz2pjc4FYPLmgLP+cpnj3UW65Tq4UaGjQG08Q==", "property_manager"=>{"name"=>"efjhgewjhg", "phone"=>"", "email"=>"", "address"=>{"street"=>"jhsfgefhjg", "city"=>"fjhegfejwhag", "state"=>"il", "zip_code"=>"60613"}}, "commit"=>"Submit", "house_id"=>"4"}
+  [1m[36mHouse Load (0.5ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "jhsfgefhjg"], ["city", "fjhegfejwhag"], ["state", "il"], ["zip_code", 60613], ["created_at", "2015-04-17 23:21:05.433190"], ["updated_at", "2015-04-17 23:21:05.433190"]]
+  [1m[35m (14.8ms)[0m  COMMIT
+Unpermitted parameter: address
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "property_managers" ("name", "phone", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "efjhgewjhg"], ["phone", ""], ["email", ""], ["created_at", "2015-04-17 23:21:05.452314"], ["updated_at", "2015-04-17 23:21:05.452314"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "houses" SET "property_manager_id" = $1, "updated_at" = $2 WHERE "houses"."id" = $3[0m  [["property_manager_id", 6], ["updated_at", "2015-04-17 23:21:05.455696"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/houses/4
+Completed 302 Found in 30ms (ActiveRecord: 17.8ms)
+
+
+Started GET "/houses/4" for ::1 at 2015-04-17 18:21:05 -0500
+Processing by HousesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered houses/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 65ms (Views: 61.7ms | ActiveRecord: 0.8ms)
