@@ -1,0 +1,4 @@
+<h2><%= @house.name %>!</h2>
+<%= link_to "Add Property Management Info", new_house_property_manager_path(@house) %>
+<br><br>
+<%= link_to "Add Lease", user_housing_assignment_path(current_user, @assignment) %>
