@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :chores, through: :chore_logs
   has_many :issues
   has_many :user_promises
+  has_many :chores, through: :chore_logs
 
   validates :first_name, presence: true
   validates :last_name, presence: true
