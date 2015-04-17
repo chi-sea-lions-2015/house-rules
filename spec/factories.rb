@@ -123,32 +123,31 @@ FactoryGirl.define do
     name "Tom"
     phone "773-606-6186"
     email "tom@tom.com"
+
+    factory :property_manager_with_houses do
+      transient do
+        manager_house_count 1
+      end
+    end
   end
 
-  factory :address do
+
+  factory :manager_address, class: "Address" do
+    association :addressable, :factory => :property_manager
     street "1462 W Carmen Ave Apt 2"
     city "Chicago"
     state "IL"
     zip_code "60640"
-
-
-    factory :address_with_manager do
-      transient do
-        property_manager_count 1
-      end
-
-      factory :address_with_house do
-        transient do
-          house_count 1
-        end
-
-        after(:create) do |address, evaluator|
-          create_list(:property_manager, evaluator.property_manager_count, address: address)
-          create_list(:house, evaluator.house_count, address: address)
-        end
-      end
-    end
   end
+
+  factory :house_address, class: "Address" do
+    association :addressable, :factory => :house
+    street "111 W State St."
+    city "Chicago"
+    state "IL"
+    zip_code "60640"
+  end
+
 
   factory :user do
     first_name "Paul"
@@ -216,6 +215,7 @@ FactoryGirl.define do
     end
   end
 end
+
 #User Factories
 # :chore_log
 # :chore_issue
