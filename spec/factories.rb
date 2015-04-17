@@ -123,7 +123,6 @@ FactoryGirl.define do
   factory :property_manager do
     name "Tom"
     phone "773-606-6186"
-    email "tom@tom.com"
     address
   end
 
@@ -154,7 +153,7 @@ FactoryGirl.define do
   factory :user do
     first_name "Paul"
     last_name "Clegg"
-    email "paul@paul.com"
+    email "clegg@clegg.com"
     password "123456"
 
     factory :user_chore_logs do
