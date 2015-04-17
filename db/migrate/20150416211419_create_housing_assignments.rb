@@ -3,7 +3,6 @@ class CreateHousingAssignments < ActiveRecord::Migration
     create_table :housing_assignments do |t|
       t.references :user, index: true, foreign_key: true
       t.references :house, index: true, foreign_key: true
-      t.string :lease_url
 
       t.timestamps null: false
     end

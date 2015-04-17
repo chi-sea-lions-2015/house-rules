@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :users do
-    resources :housing_assignments, except: [:edit, :update]
   end
 
   resources :houses do
