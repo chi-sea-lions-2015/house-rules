@@ -1,3 +1,4 @@
-<% if current_user == @user %>
 <h2><%= @house.name %>!</h2>
-<%end%>
+<%= link_to "Add Property Management Info", new_house_property_manager_path(@house) %>
+<br><br>
+<%= link_to "Add Lease", user_housing_assignment_path(current_user, @assignment) %>

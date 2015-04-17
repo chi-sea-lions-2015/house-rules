@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :users do
-    resources :houses
+    resources :housing_assignments, except: [:edit, :update]
+  end
+
+  resources :houses do
+    resources :property_managers
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -4,22 +4,22 @@ class HousesController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
     @house = House.find(params[:id])
+    @assignment = HousingAssignment.where(user: current_user, house: @house.id)
   end
 
   def new
-    @user = User.find(params[:user_id])
     @house = House.new
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = current_user
     @address = Address.new(address_params)
     if @address.save
       @house = @user.houses.new(house_params)
       if @house.save
-        redirect_to user_house_path(@user, @house)
+        @user.housing_assignment.create(user: @user, house: @house)
+        redirect_to house_path(@house)
       else
         render "new"
       end
@@ -28,14 +28,14 @@ class HousesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-  end
+  # def update
+  # end
 
-  def destroy
-  end
+  # def destroy
+  # end
 
   private
 
