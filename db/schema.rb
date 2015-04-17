@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 20150416213208) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "chore_logs", ["user_id", "chore_id"], name: "index_chore_logs_on_user_id_and_chore_id", using: :btree
   add_index "chore_logs", ["chore_id"], name: "index_chore_logs_on_chore_id", using: :btree
-  add_index "chore_logs", ["user_id"], name: "index_chore_logs_on_user_id", using: :btree
+
 
   create_table "chores", force: :cascade do |t|
     t.string   "task"
@@ -75,8 +76,8 @@ ActiveRecord::Schema.define(version: 20150416213208) do
     t.datetime "updated_at",          null: false
   end
 
+  add_index "houses", ["property_manager_id", "address_id"], name: "index_houses_on_property_manager_id_and_address_id", using: :btree
   add_index "houses", ["address_id"], name: "index_houses_on_address_id", using: :btree
-  add_index "houses", ["property_manager_id"], name: "index_houses_on_property_manager_id", using: :btree
 
   create_table "housing_assignments", force: :cascade do |t|
     t.integer  "user_id"
@@ -86,8 +87,8 @@ ActiveRecord::Schema.define(version: 20150416213208) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "housing_assignments", ["user_id", "house_id"], name: "index_housing_assignments_on_user_id_and_house_id", using: :btree
   add_index "housing_assignments", ["house_id"], name: "index_housing_assignments_on_house_id", using: :btree
-  add_index "housing_assignments", ["user_id"], name: "index_housing_assignments_on_user_id", using: :btree
 
   create_table "issues", force: :cascade do |t|
     t.integer  "user_id"
@@ -98,8 +99,8 @@ ActiveRecord::Schema.define(version: 20150416213208) do
     t.datetime "updated_at",    null: false
   end
 
+  add_index "issues", ["user_id", "issuable_type", "issuable_id"], name: "index_issues_on_user_id_and_issuable_type_and_issuable_id", using: :btree
   add_index "issues", ["issuable_type", "issuable_id"], name: "index_issues_on_issuable_type_and_issuable_id", using: :btree
-  add_index "issues", ["user_id"], name: "index_issues_on_user_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.string   "content"
@@ -140,8 +141,8 @@ ActiveRecord::Schema.define(version: 20150416213208) do
     t.datetime "updated_at",                      null: false
   end
 
+  add_index "user_promises", ["user_id", "promisable_type", "promisable_id"], name: "index_user_promises_on_user_id_and_promisable_type_and_promisable_id", using: :btree
   add_index "user_promises", ["promisable_type", "promisable_id"], name: "index_user_promises_on_promisable_type_and_promisable_id", using: :btree
-  add_index "user_promises", ["user_id"], name: "index_user_promises_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
