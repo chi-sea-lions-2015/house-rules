@@ -92,7 +92,6 @@ FactoryGirl.define do
 
   factory :house do
     name "The hater house"
-    address
     property_manager
 
     factory :house_with_housing_assignments do
@@ -124,7 +123,6 @@ FactoryGirl.define do
     name "Tom"
     phone "773-606-6186"
     email "tom@tom.com"
-    address
   end
 
   factory :address do
@@ -132,6 +130,7 @@ FactoryGirl.define do
     city "Chicago"
     state "IL"
     zip_code "60640"
+
 
     factory :address_with_manager do
       transient do
