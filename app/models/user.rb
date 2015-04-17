@@ -13,4 +13,9 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validates :email, :uniqueness => true, :format => /.+@.+\..+/
   validates :password_digest, :length => { :minimum => 6 }
+
+  # Below will be uncommented when we implement the password confirmation field in the form. Line 19 will attach to line 15
+
+  # , confirmation: true
+  # validates :password_confirmation, presence: true
 end

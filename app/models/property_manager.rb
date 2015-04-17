@@ -1,4 +1,6 @@
 class PropertyManager < ActiveRecord::Base
-  belongs_to :address
+  has_one :address, as: :addressable
   has_many :houses
+
+  validates :name, presence: true
 end

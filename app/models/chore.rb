@@ -3,4 +3,6 @@ class Chore < ActiveRecord::Base
   has_many :issues, as: :issuable
   has_many :user_promises, as: :promisable
   has_many :chore_logs
+
+  validates :task, presence: true
 end
