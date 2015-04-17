@@ -9,3 +9,4 @@ class CreateHouses < ActiveRecord::Migration
     end
   end
 end
+

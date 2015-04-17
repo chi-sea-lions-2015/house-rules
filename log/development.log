@@ -310,3 +310,95 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_hash", "photo_url", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["first_name", "Paul"], ["last_name", "clegg"], ["email", "paul@paul.com"], ["password_hash", "12345"], ["photo_url", "http://spinoff.comicbookresources.com/wp-content/uploads/2014/01/bugs-carrot.jpg"], ["phone", "773-355-1422"], ["created_at", "2015-04-16 23:11:54.540764"], ["updated_at", "2015-04-16 23:11:54.540764"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (6.4ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-16 23:14:32.383832"], ["updated_at", "2015-04-16 23:14:32.383832"]]
+  [1m[35m (4.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (18.2ms)[0m  INSERT INTO "houses" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "The Hater House"], ["address_id", 1], ["created_at", "2015-04-16 23:16:01.727886"], ["updated_at", "2015-04-16 23:16:01.727886"]]
+  [1m[36mSQL (18.5ms)[0m  [1mINSERT INTO "housing_assignments" ("user_id", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["house_id", 1], ["created_at", "2015-04-16 23:16:01.760174"], ["updated_at", "2015-04-16 23:16:01.760174"]]
+  [1m[35m (4.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "property_managers" ("name", "phone", "email", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "Tom"], ["phone", "773-606-6186"], ["email", "tom@tom.com"], ["address_id", 1], ["created_at", "2015-04-16 23:20:18.881871"], ["updated_at", "2015-04-16 23:20:18.881871"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "property_managers" ("name", "email", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tom"], ["email", "tom@tom.com"], ["address_id", 1], ["created_at", "2015-04-16 23:21:40.501886"], ["updated_at", "2015-04-16 23:21:40.501886"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "property_managers" ("name", "email", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "tom"], ["email", "tom@tom.com"], ["address_id", 1], ["created_at", "2015-04-16 23:26:08.907175"], ["updated_at", "2015-04-16 23:26:08.907175"]]
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "4950 N Marine Dr Apt 103"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-16 23:26:49.276704"], ["updated_at", "2015-04-16 23:26:49.276704"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36mPropertyManager Load (0.8ms)[0m  [1mSELECT  "property_managers".* FROM "property_managers"  ORDER BY "property_managers"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "4950 N Marine Dr Apt 103"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-16 23:31:48.086611"], ["updated_at", "2015-04-16 23:31:48.086611"]]
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "houses" ("name", "address_id", "property_manager_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "The Hater House"], ["address_id", 3], ["property_manager_id", 3], ["created_at", "2015-04-16 23:33:01.997172"], ["updated_at", "2015-04-16 23:33:01.997172"]]
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "housing_assignments" ("user_id", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["house_id", 2], ["created_at", "2015-04-16 23:33:02.001208"], ["updated_at", "2015-04-16 23:33:02.001208"]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36mHousingAssignment Load (0.6ms)[0m  [1mSELECT "housing_assignments".* FROM "housing_assignments"[0m
+  [1m[35mHousingAssignment Load (0.8ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments"  ORDER BY "housing_assignments"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "rules" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Flush the toilet"], ["housing_assignment_id", 2], ["created_at", "2015-04-16 23:36:09.219936"], ["updated_at", "2015-04-16 23:36:09.219936"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Do the dishes"], ["house_id", 1], ["created_at", "2015-04-16 23:37:20.349845"], ["updated_at", "2015-04-16 23:37:20.349845"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Mop the floor"], ["house_id", 1], ["created_at", "2015-04-16 23:41:43.370545"], ["updated_at", "2015-04-16 23:41:43.370545"]]
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "chore_logs" ("user_id", "chore_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 1], ["chore_id", 2], ["created_at", "2015-04-16 23:41:43.378982"], ["updated_at", "2015-04-16 23:41:43.378982"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.9ms)[0m  INSERT INTO "events" ("name", "date", "description", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "Halloween Party"], ["date", "2013-09-12 22:49:27.000000"], ["description", "Costume party!!"], ["housing_assignment_id", 1], ["created_at", "2015-04-17 00:02:14.061040"], ["updated_at", "2015-04-17 00:02:14.061040"]]
+  [1m[36m (67.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "communal_items" ("name", "brand", "quantity", "house_id", "stock_level", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "toilet paper"], ["brand", "charmin"], ["quantity", 12], ["house_id", 1], ["stock_level", "low"], ["created_at", "2015-04-17 00:04:20.277987"], ["updated_at", "2015-04-17 00:04:20.277987"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHousingAssignment Load (0.5ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments"  ORDER BY "housing_assignments"."id" DESC LIMIT 1[0m
+  [1m[35mHousingAssignment Load (0.7ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments"  ORDER BY "housing_assignments"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.8ms)[0m  INSERT INTO "messages" ("content", "picture_url", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "You're the best!!"], ["picture_url", "http://www.geekbinge.com/wp-content/uploads/2014/02/Space-Jam-2.jpg"], ["housing_assignment_id", 2], ["created_at", "2015-04-17 00:06:46.622628"], ["updated_at", "2015-04-17 00:06:46.622628"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "messages" ("content", "picture_url", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "You're the best!!"], ["picture_url", "http://www.geekbinge.com/wp-content/uploads/2014/02/Space-Jam-2.jpg"], ["housing_assignment_id", 1], ["created_at", "2015-04-17 00:07:46.277272"], ["updated_at", "2015-04-17 00:07:46.277272"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mChore Load (0.4ms)[0m  SELECT  "chores".* FROM "chores"  ORDER BY "chores"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["reason", "I HATE PAUL!!"], ["user_id", 1], ["issuable_id", 2], ["issuable_type", "Chore"], ["created_at", "2015-04-17 00:23:36.121299"], ["updated_at", "2015-04-17 00:23:36.121299"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCommunalItem Load (0.8ms)[0m  SELECT  "communal_items".* FROM "communal_items"  ORDER BY "communal_items"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["reason", "I hate paper towel"], ["user_id", 1], ["issuable_id", 1], ["issuable_type", "CommunalItem"], ["created_at", "2015-04-17 00:25:09.085906"], ["updated_at", "2015-04-17 00:25:09.085906"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.7ms)[0m  SELECT  "events".* FROM "events"  ORDER BY "events"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["reason", "I hate halloween"], ["user_id", 1], ["issuable_id", 1], ["issuable_type", "Event"], ["created_at", "2015-04-17 00:26:41.520482"], ["updated_at", "2015-04-17 00:26:41.520482"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mRule Load (0.5ms)[0m  SELECT  "rules".* FROM "rules"  ORDER BY "rules"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["reason", "I hate flushing!!"], ["user_id", 1], ["issuable_id", 1], ["issuable_type", "Rule"], ["created_at", "2015-04-17 00:28:08.872988"], ["updated_at", "2015-04-17 00:28:08.872988"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO "user_promises" ("user_id", "fulfilled", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["fulfilled", "t"], ["promisable_id", 2], ["promisable_type", "Chore"], ["created_at", "2015-04-17 00:30:25.889793"], ["updated_at", "2015-04-17 00:30:25.889793"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "user_promises" ("user_id", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 1], ["promisable_id", 2], ["promisable_type", "Chore"], ["created_at", "2015-04-17 00:30:55.907381"], ["updated_at", "2015-04-17 00:30:55.907381"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "user_promises" ("user_id", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["promisable_id", 1], ["promisable_type", "CommunalItem"], ["created_at", "2015-04-17 00:31:53.783475"], ["updated_at", "2015-04-17 00:31:53.783475"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "user_promises" ("user_id", "fulfilled", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["fulfilled", "t"], ["promisable_id", 1], ["promisable_type", "CommunalItem"], ["created_at", "2015-04-17 00:32:34.490542"], ["updated_at", "2015-04-17 00:32:34.490542"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m

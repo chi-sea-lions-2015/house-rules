@@ -7,7 +7,14 @@ Rails.application.routes.draw do
   resources :houses
   resources :property_managers
   resources :addresses
-  resources :users
+
+  get '/' => 'questions#index'
+  get '/login' => 'users#login'
+  put '/login' => 'users#update'
+  get '/signup' => 'users#signup'
+  post '/signup' => 'users#create'
+  delete '/logout' => 'users#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
