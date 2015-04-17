@@ -1,13 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe House, type: :model do
+describe "House" do
   house = FactoryGirl.build(:house)
-  it { expect(house).to validate_presence_of(:name) }
-  it { expect(house).to have_many(:housing_assignments)}
-  it { expect(house).to have_many(:users)}
-  it { expect(house).to have_many(:communal_items)}
-  it { expect(house).to have_many(:chores)}
-  it { expect(house).to have_one(:address)}
-  it { expect(house).to belong_to(:property_manager)}
+
+  context "attributes" do
+    it 'has a name' do
+
+  end
 
 end
