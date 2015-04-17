@@ -1,47 +1,40 @@
 class UsersController < ApplicationController
 
-  def login
+  def show
+    @user = User.find(params[:id])
   end
 
-  def update
-    user = User.find_by(email: params[:session][:email].downcase)
-    if User.authenticate(params[:session][:email].downcase, params[:session][:password])
-      session[:user_id] = user.id
-      redirect_to session[:current_url]
-    else
-      flash.now[:danger] = "Invalid email/password combination"
-      render :login
-    end
+  # def index
+  # end
+
+  def new
+    @user = User.new
   end
 
-  def signup
-  end
+  # def edit
+  # end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to '/login'
+      log_in @user
+      flash[:success] = "Welcome!"
+      redirect_to @user
     else
-      render :signup
+      render "new"
     end
   end
 
+  # def update
+  # end
 
-
-  def destroy
-    @user ||= User.find_by(id: session[:user_id])
-    if @user != nil
-      session.delete(:user_id)
-      puts "SESSION DELETED"
-    end
-    if request.xhr?
-      render :partial => 'layouts/logout', layout: false
-    end
-  end
+  # def destroy
+  # end
 
   private
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :phone, :photo_url, :email, :password)
-  end
+
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :email, :phone, :avatar, :password, :password_confirmation)
+    end
 
 end

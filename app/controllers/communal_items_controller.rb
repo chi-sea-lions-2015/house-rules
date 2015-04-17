@@ -1,2 +1,0 @@
-class CommunalItemsController < ApplicationController
-end

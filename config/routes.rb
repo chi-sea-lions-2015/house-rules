@@ -1,19 +1,12 @@
 Rails.application.routes.draw do
-  resources :messages
-  resources :communal_items
-  resources :events
-  resources :chores
-  resources :rules
-  resources :houses
-  resources :property_managers
-  resources :addresses
 
-  get '/' => 'questions#index'
-  get '/login' => 'users#login'
-  put '/login' => 'users#update'
-  get '/signup' => 'users#signup'
-  post '/signup' => 'users#create'
-  delete '/logout' => 'users#destroy'
+  get    'signup'  => 'users#new'
+  post   'users'   => 'users#create'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
