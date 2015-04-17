@@ -147,11 +147,11 @@ ActiveRecord::Schema.define(version: 20150416213208) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "password_hash"
+    t.string   "password_digest"
     t.string   "photo_url"
     t.string   "phone"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_foreign_key "chore_logs", "chores"
