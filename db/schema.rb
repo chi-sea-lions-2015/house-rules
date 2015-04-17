@@ -117,12 +117,9 @@ ActiveRecord::Schema.define(version: 20150417175305) do
     t.string   "name"
     t.string   "phone"
     t.string   "email"
-    t.integer  "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "property_managers", ["address_id"], name: "index_property_managers_on_address_id", using: :btree
 
   create_table "rules", force: :cascade do |t|
     t.string   "content"
@@ -157,6 +154,7 @@ ActiveRecord::Schema.define(version: 20150417175305) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
 
   add_foreign_key "chore_logs", "chores"
   add_foreign_key "chore_logs", "users"
@@ -168,7 +166,6 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   add_foreign_key "housing_assignments", "users"
   add_foreign_key "issues", "users"
   add_foreign_key "messages", "housing_assignments"
-  add_foreign_key "property_managers", "addresses"
   add_foreign_key "rules", "housing_assignments"
   add_foreign_key "user_promises", "users"
 end

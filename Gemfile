@@ -40,6 +40,8 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'shoulda'
 
 
   # Access an IRB console on exception pages or by using <%= console %> in views
