@@ -1,4 +1,4 @@
 <% if current_user == @user %>
 <h2>Hi, <%= current_user.first_name%>!</h2>
-<%= image_tag @user.avatar.url(:thumb) %>
+<%= image_tag @user.avatar.url %>
 <%end%>
