@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150417175305) do
     t.string   "name"
     t.string   "brand"
     t.integer  "quantity"
-    t.integer  "stock_level"
+    t.string   "stock_level"
     t.integer  "house_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
