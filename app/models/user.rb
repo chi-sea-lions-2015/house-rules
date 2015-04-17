@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   has_many :commununal_items, through: :housing_assignments
   has_many :chores, through: :chore_logs
   has_many :addresses, through: :housing_assignments
+  has_secure_password
 end
