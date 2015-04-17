@@ -4,7 +4,7 @@ class CreateCommunalItems < ActiveRecord::Migration
       t.string :name
       t.string :brand
       t.integer :quantity
-      t.integer :stock_level
+      t.string :stock_level
       t.references :house, index: true, foreign_key: true
 
       t.timestamps null: false
