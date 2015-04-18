@@ -1,0 +1,25 @@
+<div id="events">
+<% if @events != nil %>
+  <h4>Events:</h4>
+  <% @events.each do |event| %>
+    <%= event.housing_assignment.user.first_name %>: <%= event.name %> <br>
+    Description: <%= event.description %><br>
+    Date: <%= event.date%><br>
+      <%= link_to "Destroy", house_event_path(@house, event), method: :delete,
+      data: {confirm: "Are you sure?"} %><br>
+    <%= link_to 'Edit', edit_house_event_path(@house, event) %><br><br>
+    <% end %>
+<% end %>
+</div>
+<div>
+  <h4>New Event</h4>
+  <%= form_for :event, url: house_events_path(@house) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :description %>
+  <%= f.text_area :description %><br>
+  <%= f.label :date %>
+  <%= f.datetime_local_field :date %><br><br>
+  <%= f.submit "Create Event" %>
+  <% end %>
+</div>

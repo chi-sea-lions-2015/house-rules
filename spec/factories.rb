@@ -3,7 +3,6 @@ FactoryGirl.define do  factory :comment do
   end
 
 
-
   factory :chore do
     task "do dishes"
     house
@@ -43,7 +42,7 @@ FactoryGirl.define do  factory :comment do
     name "halloween"
     date "2013-09-12 22:49:27"
     description "Costume party!!"
-    # housing_assignment !!!!!!!!!!!!!!!!!!
+    housing_assignment
   end
 
 
@@ -96,6 +95,7 @@ FactoryGirl.define do  factory :comment do
 
   factory :house do
     name "The hater house"
+    house_key "123456"
     address
     property_manager
 

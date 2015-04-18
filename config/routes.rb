@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_promises
   get    '/'  => 'sessions#new'
   get    'signup'  => 'users#new'
   post   'users'   => 'users#create'
@@ -10,14 +11,20 @@ Rails.application.routes.draw do
   resources :users do
   end
 
+
   resources :houses do
     resources :property_managers
     resources :messages
     resources :rules
+    resources :communal_items
+    resources :events
+    resources :chores do
+      resources :chore_logs
+    end
   end
 
-  resources :chores
-  resources :comments
+  get '/houses/:id/join' => 'houses#join'
+  post '/houses/:id/join' => 'houses#join_update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

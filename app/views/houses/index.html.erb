@@ -1,3 +1,5 @@
 Join a House
 <br><br>
-<%= link_to "New House", new_house_path %>
+<% @houses.each do |house| %>
+<%= house.name %> <%= link_to "Join", house_path(house) %><br>
+<% end %>
