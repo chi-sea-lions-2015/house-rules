@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :rules
     resources :communal_items
     resources :events
-
+    resources :chores
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
