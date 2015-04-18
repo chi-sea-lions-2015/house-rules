@@ -1,6 +1,5 @@
 FactoryGirl.define do
 
-
   factory :chore do
     task "do dishes"
     house

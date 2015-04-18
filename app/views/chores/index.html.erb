@@ -6,6 +6,7 @@
     <%= link_to "Destroy", house_chore_path(@house, chore), method: :delete,
     data: {confirm: "Are you sure?"} %><br>
   <%= link_to 'Edit', edit_house_chore_path(@house, chore) %><br>
+  <%= link_to 'I did this chore', house_chore_chore_logs_path(@house, chore), method: :post %>
   <% end %>
 <% end %>
 </div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_promises
   get    '/'  => 'sessions#new'
   get    'signup'  => 'users#new'
   post   'users'   => 'users#create'
@@ -10,13 +11,16 @@ Rails.application.routes.draw do
   resources :users do
   end
 
+
   resources :houses do
     resources :property_managers
     resources :messages
     resources :rules
     resources :communal_items
     resources :events
-    resources :chores
+    resources :chores do
+      resources :chore_logs
+    end
   end
 
   get '/houses/:id/join' => 'houses#join'
