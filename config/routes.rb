@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :property_managers
     resources :messages
     resources :rules
+    resources :communal_items
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

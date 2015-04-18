@@ -8,6 +8,7 @@ class HousesController < ApplicationController
     @property_manager = @house.property_manager
     @assignment = HousingAssignment.where(user: current_user, house: @house.id)
     @messages = @house.messages
+    @items = @house.communal_items
   end
 
   def new
