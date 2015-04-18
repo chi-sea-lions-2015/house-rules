@@ -3,7 +3,7 @@ user = User.create(first_name: "Paul", last_name: "clegg", email: "paul@paul.com
 address1 = Address.create(street: "1462 W Carmen Ave Apt 2", city: "Chicago", state: "IL", zip_code: "60640")
 address2 = Address.create(street: "4950 N Marine Dr Apt 103", city: "Chicago", state: "IL", zip_code: "60640")
 property_manager = PropertyManager.create(name: "tom", phone: "773-606-6186", email: "tom@tom.com", address: address1)
-house = user.houses.create(name: "The Hater House", address: address2, property_manager_id: property_manager.id)
+house = user.houses.create(name: "The Hater House", house_key: "igeekallweek", address: address2, property_manager_id: property_manager.id)
 rule = Rule.create(content: "Flush the toilet", housing_assignment_id: 1)
 chore = Chore.create(task: "Do the dishes", house_id: 1)
 user.chores.create(task: "Mop the floor", house_id: 1)

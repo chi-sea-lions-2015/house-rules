@@ -12,6 +12,7 @@
 
 <br><br>
 
+
 <% if @user.houses.length != 0 %>
 <h4>Your House:</h4>
 <% end %>
@@ -23,3 +24,7 @@
 
 <%= link_to "New House", new_house_path %>
 <%end%>
+
+<br><br>
+
+<%= link_to "All Houses", houses_path %>

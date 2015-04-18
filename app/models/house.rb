@@ -10,4 +10,5 @@ class House < ActiveRecord::Base
   has_many :chores
 
   validates :name, presence: true
+  validates :house_key, presence: true
 end

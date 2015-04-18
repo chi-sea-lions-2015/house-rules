@@ -1,5 +1,8 @@
 <h1><%= @house.name %>!</h1>
+House Key: <%= @house.house_key %>
 <h3><%= link_to "Edit", edit_house_path(@house) %></h3>
+
+<%= link_to "Invite Roommate", "/houses/#{@house.id}/invitation" %><br><br>
 
 <% if @property_manager == nil %>
 <%= link_to "Add Property Management Info", new_house_property_manager_path(@house) %>
