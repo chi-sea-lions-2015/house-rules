@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418164801) do
+ActiveRecord::Schema.define(version: 20150417175305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,13 +48,6 @@ ActiveRecord::Schema.define(version: 20150418164801) do
 
   add_index "chores", ["house_id"], name: "index_chores_on_house_id", using: :btree
 
-  create_table "comments", force: :cascade do |t|
-    t.string   "author"
-    t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "communal_items", force: :cascade do |t|
     t.string   "name"
     t.string   "brand"
@@ -68,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150418164801) do
   add_index "communal_items", ["house_id"], name: "index_communal_items_on_house_id", using: :btree
 
   create_table "events", force: :cascade do |t|
+    t.integer  "creator_id"
     t.string   "name"
     t.datetime "date"
     t.string   "description"
@@ -97,12 +91,6 @@ ActiveRecord::Schema.define(version: 20150418164801) do
   add_index "housing_assignments", ["house_id"], name: "index_housing_assignments_on_house_id", using: :btree
   add_index "housing_assignments", ["user_id"], name: "index_housing_assignments_on_user_id", using: :btree
 
-  create_table "ingredient_suggestions", force: :cascade do |t|
-    t.string   "item"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "issues", force: :cascade do |t|
     t.string   "reason"
     t.integer  "user_id"
@@ -117,6 +105,7 @@ ActiveRecord::Schema.define(version: 20150418164801) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "content"
+    t.integer  "author_id"
     t.integer  "housing_assignment_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false

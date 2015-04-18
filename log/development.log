@@ -10415,3 +10415,1744 @@ Processing by MessagesController#create as JSON
   [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
   [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5
 Completed 200 OK in 18ms (Views: 1.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 14:40:44 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHousingAssignment Load (0.4ms)[0m  [1mSELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5
+  Rendered messages/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 54ms (Views: 47.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 14:40:44 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 14:40:44 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 14:40:44 -0500
+
+
+Started GET "/assets/react_components/_message.self-c48be10a59f57409611b8b58bfd2a7d2729d695aabad51cfcae3ee1cd34a018a.js?body=1" for ::1 at 2015-04-18 14:40:44 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 14:40:44 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 14:40:44 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 14:40:44 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 14:40:44 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-a5d52ae9847efa16ef73617081e9a52e1ab9aad712730f58415f415fb9fa8a37.js?body=1" for ::1 at 2015-04-18 14:40:44 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 14:40:44 -0500
+
+
+Started POST "/houses/1/messages" for ::1 at 2015-04-18 14:40:48 -0500
+Processing by MessagesController#create as JSON
+  Parameters: {"authenticity_token"=>"zQyLJHqVwgJFpeCh35pUTKI+xyOjsjWmEI4zgg7oXRNfKopj3XnqZ4eueYcHcMSkMxpgpj0rZvw76b7GvM6L2w==", "message"=>{"content"=>"heyyyyy"}, "house_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.1ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHousingAssignment Load (0.1ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1[0m  [["house_id", 1], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "heyyyyy"], ["housing_assignment_id", 1], ["created_at", "2015-04-18 19:40:48.170781"], ["updated_at", "2015-04-18 19:40:48.170781"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 1.6ms)
+  [1m[36mMessage Load (0.8ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 1[0m
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 14:48:25 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.3ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 323ms (Views: 316.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/react_components/_message_box.self-7bc20e2f9dc35d1b51fb91094315d9179b8b33af668ba4bc6ee971e6f3ee86be.js?body=1" for ::1 at 2015-04-18 14:48:26 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 14:48:26 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 14:48:26 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 14:48:26 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 14:48:26 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 14:48:26 -0500
+
+
+Started GET "/assets/react_components/_message.self-c48be10a59f57409611b8b58bfd2a7d2729d695aabad51cfcae3ee1cd34a018a.js?body=1" for ::1 at 2015-04-18 14:48:26 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 14:48:26 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-a5d52ae9847efa16ef73617081e9a52e1ab9aad712730f58415f415fb9fa8a37.js?body=1" for ::1 at 2015-04-18 14:48:26 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 14:48:26 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 14:48:34 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.3ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 48ms (Views: 41.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 14:48:34 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 14:48:34 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 14:48:34 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 14:48:34 -0500
+
+
+Started GET "/assets/react_components/_message.self-c48be10a59f57409611b8b58bfd2a7d2729d695aabad51cfcae3ee1cd34a018a.js?body=1" for ::1 at 2015-04-18 14:48:34 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 14:48:34 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 14:48:34 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 14:48:34 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-a5d52ae9847efa16ef73617081e9a52e1ab9aad712730f58415f415fb9fa8a37.js?body=1" for ::1 at 2015-04-18 14:48:34 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 14:48:34 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 14:48:55 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.2ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 384ms (Views: 377.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 14:48:56 -0500
+
+
+Started GET "/assets/react_components/_message.self-e5a29713cc6c94838a282d1703c378dee74faa8503104943d68178c445cf29e7.js?body=1" for ::1 at 2015-04-18 14:48:56 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 14:48:56 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 14:48:56 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 14:48:56 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 14:48:56 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 14:48:56 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 14:48:56 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-a5d52ae9847efa16ef73617081e9a52e1ab9aad712730f58415f415fb9fa8a37.js?body=1" for ::1 at 2015-04-18 14:48:56 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 14:48:56 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 14:49:08 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.2ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 402ms (Views: 394.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 14:49:09 -0500
+
+
+Started GET "/assets/react_components/_message.self-6ccc73e72b9406f0a2217d7e5d463b66d017ad4449485152910f9240d2df550c.js?body=1" for ::1 at 2015-04-18 14:49:09 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 14:49:09 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 14:49:09 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 14:49:09 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 14:49:09 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 14:49:09 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 14:49:09 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-a5d52ae9847efa16ef73617081e9a52e1ab9aad712730f58415f415fb9fa8a37.js?body=1" for ::1 at 2015-04-18 14:49:09 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 14:49:09 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 14:49:41 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.3ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 71ms (Views: 63.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 14:49:43 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.3ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 63ms (Views: 56.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 14:49:44 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 14:49:44 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 14:49:44 -0500
+
+
+Started GET "/assets/react_components/_message.self-c48be10a59f57409611b8b58bfd2a7d2729d695aabad51cfcae3ee1cd34a018a.js?body=1" for ::1 at 2015-04-18 14:49:44 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 14:49:44 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 14:49:44 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 14:49:44 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 14:49:44 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-a5d52ae9847efa16ef73617081e9a52e1ab9aad712730f58415f415fb9fa8a37.js?body=1" for ::1 at 2015-04-18 14:49:44 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 14:49:44 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 14:49:45 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.2ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 46ms (Views: 40.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 14:49:46 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 14:49:46 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 14:49:46 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 14:49:46 -0500
+
+
+Started GET "/assets/react_components/_message.self-c48be10a59f57409611b8b58bfd2a7d2729d695aabad51cfcae3ee1cd34a018a.js?body=1" for ::1 at 2015-04-18 14:49:46 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 14:49:46 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 14:49:46 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 14:49:46 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-a5d52ae9847efa16ef73617081e9a52e1ab9aad712730f58415f415fb9fa8a37.js?body=1" for ::1 at 2015-04-18 14:49:46 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 14:49:46 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 15:11:14 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/apprentice/Desktop/house-rules/app/models/user.rb:4)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.2ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 432ms (Views: 361.7ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/assets/react_components/_message.self-7f68b7abb20e1fa65418ee063cf018129936c26bcfbe15254d99096c9ebbbd54.js?body=1" for ::1 at 2015-04-18 15:11:15 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 15:11:15 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 15:11:15 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 15:11:15 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 15:11:15 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 15:11:15 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 15:11:15 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 15:11:15 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 15:11:15 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 15:11:15 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 15:11:40 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.3ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 283ms (Views: 276.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 15:11:40 -0500
+
+
+Started GET "/assets/react_components/_message.self-3fe1006564eae3d4014faba4bac3bfc0a20884d788ed5d36d256d58b07825d66.js?body=1" for ::1 at 2015-04-18 15:11:40 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 15:11:40 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 15:11:40 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 15:11:40 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 15:11:40 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 15:11:40 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 15:11:40 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 15:11:40 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 15:11:40 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 15:11:42 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.3ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 158ms (Views: 150.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 15:11:42 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 15:11:42 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 15:11:42 -0500
+
+
+Started GET "/assets/react_components/_message.self-3fe1006564eae3d4014faba4bac3bfc0a20884d788ed5d36d256d58b07825d66.js?body=1" for ::1 at 2015-04-18 15:11:42 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 15:11:42 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 15:11:42 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 15:11:42 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 15:11:42 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 15:11:42 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 15:11:42 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 15:11:56 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.3ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 299ms (Views: 291.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 15:11:57 -0500
+
+
+Started GET "/assets/react_components/_message.self-54502461d113d2365bb5edb24fcd37f90ab551a68e534af5dec178df1540682d.js?body=1" for ::1 at 2015-04-18 15:11:57 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 15:11:57 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 15:11:57 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 15:11:57 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 15:11:57 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 15:11:57 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 15:11:57 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 15:11:57 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 15:11:57 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 15:12:12 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.2ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 366ms (Views: 358.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 15:12:13 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 15:12:13 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 15:12:13 -0500
+
+
+Started GET "/assets/react_components/_message.self-6c61f72d3a82abae81c28af237816090e96dc8765cb0eaa57534c95569757f38.js?body=1" for ::1 at 2015-04-18 15:12:13 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 15:12:13 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 15:12:13 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 15:12:13 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 15:12:13 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 15:12:13 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 15:12:13 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 15:12:19 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.3ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 46ms (Views: 38.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 15:12:19 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 15:12:19 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 15:12:19 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 15:12:19 -0500
+
+
+Started GET "/assets/react_components/_message.self-6c61f72d3a82abae81c28af237816090e96dc8765cb0eaa57534c95569757f38.js?body=1" for ::1 at 2015-04-18 15:12:19 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 15:12:19 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 15:12:19 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 15:12:19 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 15:12:19 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 15:12:19 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 15:20:24 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.3ms)[0m  SELECT "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 46ms (Views: 39.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 15:20:25 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 15:20:25 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 15:20:25 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 15:20:25 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 15:20:25 -0500
+
+
+Started GET "/assets/react_components/_message.self-6c61f72d3a82abae81c28af237816090e96dc8765cb0eaa57534c95569757f38.js?body=1" for ::1 at 2015-04-18 15:20:25 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 15:20:25 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 15:20:25 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 15:20:25 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 15:20:25 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 15:21:50 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/apprentice/Desktop/house-rules/app/models/user.rb:4)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5
+  Rendered messages/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 318ms (Views: 256.2ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 15:21:51 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 15:21:51 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 15:21:51 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 15:21:51 -0500
+
+
+Started GET "/assets/react_components/_message.self-4afb40988f180815663be09caa495982c2aa185be25f3c88bd3e562313ada091.js?body=1" for ::1 at 2015-04-18 15:21:51 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 15:21:51 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 15:21:51 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 15:21:51 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 15:21:51 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 15:21:51 -0500
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 15:21:59 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 384ms (Views: 378.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 15:22:00 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 15:22:00 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 15:22:00 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 15:22:00 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 15:22:00 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 15:22:00 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 15:22:00 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 15:22:00 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 15:22:00 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 15:22:00 -0500
+
+
+Started POST "/houses/1/messages" for ::1 at 2015-04-18 15:22:04 -0500
+Processing by MessagesController#create as JSON
+  Parameters: {"authenticity_token"=>"DdRHfnUVg4WZ1pag0rCLi8GndC0c8x88qWMW7TjFnW6f8kY50vmr4FvdD4YKWhtjUIPTqIJqTGaCBJupiuNLpg==", "message"=>{"content"=>"hi sara!"}, "house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.2ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1  [["house_id", 1], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "messages" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "hi sara!"], ["housing_assignment_id", 1], ["created_at", "2015-04-18 20:22:04.551812"], ["updated_at", "2015-04-18 20:22:04.551812"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5
+Completed 200 OK in 18ms (Views: 1.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 15:22:47 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5
+  Rendered messages/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 65ms (Views: 35.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 15:22:47 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 15:22:47 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 15:22:47 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 15:22:47 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 15:22:47 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 15:22:47 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 15:22:47 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 15:22:47 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 15:22:47 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 15:22:47 -0500
+
+
+Started POST "/houses/1/messages" for ::1 at 2015-04-18 15:22:54 -0500
+Processing by MessagesController#create as JSON
+  Parameters: {"authenticity_token"=>"o4Qly5Xjna6y9DD+od+Y4ClzfFFcSLaGt6fLhlcBP7AxoiSMMg+1y3D/qdh5NQgIuFfb1MLR5dycwEbC5SfpeA==", "message"=>{"content"=>"testing if saving to database..."}, "house_id"=>"1"}
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/apprentice/Desktop/house-rules/app/models/user.rb:4)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHousingAssignment Load (0.2ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1[0m  [["house_id", 1], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "messages" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "testing if saving to database..."], ["housing_assignment_id", 1], ["created_at", "2015-04-18 20:22:54.997252"], ["updated_at", "2015-04-18 20:22:54.997252"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+Completed 200 OK in 49ms (Views: 1.2ms | ActiveRecord: 4.5ms)
+  [1m[36mMessage Load (0.8ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 1[0m
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-18 15:25:13 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5[0m
+  Rendered messages/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 72ms (Views: 45.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 15:25:13 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 15:25:13 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 15:25:13 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 15:25:13 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 15:25:13 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 15:25:13 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 15:25:13 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 15:25:13 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 15:25:13 -0500
+
+
+Started GET "/assets/application.self-16c585b363bd08690d21b5afcb5f664fd1ce3aa6deda726f953a619cf082b33b.css?body=1" for ::1 at 2015-04-18 15:25:13 -0500
+
+
+Started POST "/houses/1/messages" for ::1 at 2015-04-18 15:25:17 -0500
+Processing by MessagesController#create as JSON
+  Parameters: {"authenticity_token"=>"mIEPNoo4lDN7hZlzUxvP1aPaWj7DJ29/F0FIM4adcwIKpw5xLdS8VrmOAFWL8V89Mv79u12+PCU8JsV3NLulyg==", "message"=>{"content"=>"TEST AGAIN"}, "house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["content", "TEST AGAIN"], ["created_at", "2015-04-18 20:25:17.878876"], ["updated_at", "2015-04-18 20:25:17.878876"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5
+Completed 200 OK in 19ms (Views: 1.9ms | ActiveRecord: 2.3ms)
+  [1m[36mMessage Load (0.8ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 1[0m
+  [1m[36m (20.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (33.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150416210314)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "phone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (15.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150416210314"]]
+  [1m[36m (15.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAddresses (20150416210715)
+  [1m[35m (15.6ms)[0m  BEGIN
+  [1m[36m (20.0ms)[0m  [1mCREATE TABLE "addresses" ("id" serial primary key, "street" character varying, "city" character varying, "state" character varying, "zip_code" integer, "addressable_id" integer, "addressable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_addresses_on_addressable_type_and_addressable_id" ON "addresses"  ("addressable_type", "addressable_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416210715"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreatePropertyManagers (20150416210951)
+  [1m[36m (15.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (18.5ms)[0m  CREATE TABLE "property_managers" ("id" serial primary key, "name" character varying, "phone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416210951"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateHouses (20150416211341)
+  [1m[36m (16.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (18.7ms)[0m  CREATE TABLE "houses" ("id" serial primary key, "name" character varying, "property_manager_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_houses_on_property_manager_id" ON "houses"  ("property_manager_id")[0m
+  [1m[35m (1.8ms)[0m  ALTER TABLE "houses" ADD CONSTRAINT "fk_rails_fca970acce"
+FOREIGN KEY ("property_manager_id")
+  REFERENCES "property_managers" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211341"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateHousingAssignments (20150416211419)
+  [1m[36m (15.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (17.6ms)[0m  CREATE TABLE "housing_assignments" ("id" serial primary key, "user_id" integer, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_housing_assignments_on_user_id" ON "housing_assignments"  ("user_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_housing_assignments_on_house_id" ON "housing_assignments"  ("house_id")
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_c9acd19e64"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_940a2b850f"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211419"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateRules (20150416211922)
+  [1m[36m (16.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (18.5ms)[0m  CREATE TABLE "rules" ("id" serial primary key, "content" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_rules_on_housing_assignment_id" ON "rules"  ("housing_assignment_id")[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "rules" ADD CONSTRAINT "fk_rails_af3a036cef"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211922"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateChores (20150416211959)
+  [1m[36m (15.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (17.7ms)[0m  CREATE TABLE "chores" ("id" serial primary key, "task" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_chores_on_house_id" ON "chores"  ("house_id")[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "chores" ADD CONSTRAINT "fk_rails_afe0a63c1d"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211959"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateChoreLogs (20150416212124)
+  [1m[36m (15.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (18.2ms)[0m  CREATE TABLE "chore_logs" ("id" serial primary key, "user_id" integer, "chore_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_chore_logs_on_user_id" ON "chore_logs"  ("user_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_chore_logs_on_chore_id" ON "chore_logs"  ("chore_id")
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_7000e176e9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_61500d5c17"
+FOREIGN KEY ("chore_id")
+  REFERENCES "chores" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212124"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateEvents (20150416212247)
+  [1m[36m (15.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (18.9ms)[0m  CREATE TABLE "events" ("id" serial primary key, "name" character varying, "date" timestamp, "description" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_events_on_housing_assignment_id" ON "events"  ("housing_assignment_id")[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "events" ADD CONSTRAINT "fk_rails_037b949f1d"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212247"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateCommunalItems (20150416212642)
+  [1m[36m (15.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (19.0ms)[0m  CREATE TABLE "communal_items" ("id" serial primary key, "name" character varying, "brand" character varying, "quantity" integer, "stock_level" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_communal_items_on_house_id" ON "communal_items"  ("house_id")[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "communal_items" ADD CONSTRAINT "fk_rails_a48b235da7"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212642"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateMessages (20150416212824)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "messages" ("id" serial primary key, "content" character varying, "author_id" integer, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_messages_on_housing_assignment_id" ON "messages"  ("housing_assignment_id")[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "messages" ADD CONSTRAINT "fk_rails_0915f586e0"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212824"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateIssues (20150416213117)
+  [1m[36m (15.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (18.8ms)[0m  CREATE TABLE "issues" ("id" serial primary key, "reason" character varying, "user_id" integer, "issuable_id" integer, "issuable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_issues_on_user_id" ON "issues"  ("user_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_issues_on_issuable_type_and_issuable_id" ON "issues"  ("issuable_type", "issuable_id")
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "issues" ADD CONSTRAINT "fk_rails_f8f1052133"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150416213117"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserPromises (20150416213208)
+  [1m[35m (16.5ms)[0m  BEGIN
+  [1m[36m (18.6ms)[0m  [1mCREATE TABLE "user_promises" ("id" serial primary key, "fulfilled" boolean DEFAULT 'f', "user_id" integer, "promisable_id" integer, "promisable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_user_promises_on_user_id" ON "user_promises"  ("user_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_user_promises_on_promisable_type_and_promisable_id" ON "user_promises"  ("promisable_type", "promisable_id")[0m
+  [1m[35m (1.5ms)[0m  ALTER TABLE "user_promises" ADD CONSTRAINT "fk_rails_3b54a6f768"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416213208"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to AddAttachmentAvatarToUsers (20150417175305)
+  [1m[36m (16.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "users" ADD "avatar_file_name" character varying
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "avatar_content_type" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "avatar_file_size" integer
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "avatar_updated_at" timestamp[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150417175305"]]
+  [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'addresses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chore_logs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chores'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'communal_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'houses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'housing_assignments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'issues'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'property_managers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'rules'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'user_promises'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/apprentice/Desktop/house-rules/app/models/user.rb:4)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "M"], ["last_name", "M"], ["email", "m@m.com"], ["password_digest", "$2a$10$1glAO7FW4rO92UClg5NHzOBsQaJCrETB63L0Y4MY8EzxUuxZd8eCS"], ["created_at", "2015-04-18 20:35:00.064688"], ["updated_at", "2015-04-18 20:35:00.064688"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150416210314)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "phone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150416210314"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAddresses (20150416210715)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "addresses" ("id" serial primary key, "street" character varying, "city" character varying, "state" character varying, "zip_code" integer, "addressable_id" integer, "addressable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_addresses_on_addressable_type_and_addressable_id" ON "addresses"  ("addressable_type", "addressable_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416210715"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreatePropertyManagers (20150416210951)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "property_managers" ("id" serial primary key, "name" character varying, "phone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416210951"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateHouses (20150416211341)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "houses" ("id" serial primary key, "name" character varying, "property_manager_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_houses_on_property_manager_id" ON "houses"  ("property_manager_id")[0m
+  [1m[35m (2.6ms)[0m  ALTER TABLE "houses" ADD CONSTRAINT "fk_rails_fca970acce"
+FOREIGN KEY ("property_manager_id")
+  REFERENCES "property_managers" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211341"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateHousingAssignments (20150416211419)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "housing_assignments" ("id" serial primary key, "user_id" integer, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_housing_assignments_on_user_id" ON "housing_assignments"  ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_housing_assignments_on_house_id" ON "housing_assignments"  ("house_id")
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_c9acd19e64"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_940a2b850f"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211419"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateRules (20150416211922)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "rules" ("id" serial primary key, "content" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_rules_on_housing_assignment_id" ON "rules"  ("housing_assignment_id")[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "rules" ADD CONSTRAINT "fk_rails_af3a036cef"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211922"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateChores (20150416211959)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "chores" ("id" serial primary key, "task" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_chores_on_house_id" ON "chores"  ("house_id")[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "chores" ADD CONSTRAINT "fk_rails_afe0a63c1d"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211959"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateChoreLogs (20150416212124)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "chore_logs" ("id" serial primary key, "user_id" integer, "chore_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_chore_logs_on_user_id" ON "chore_logs"  ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_chore_logs_on_chore_id" ON "chore_logs"  ("chore_id")
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_7000e176e9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_61500d5c17"
+FOREIGN KEY ("chore_id")
+  REFERENCES "chores" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212124"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateEvents (20150416212247)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "events" ("id" serial primary key, "name" character varying, "date" timestamp, "description" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_events_on_housing_assignment_id" ON "events"  ("housing_assignment_id")[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "events" ADD CONSTRAINT "fk_rails_037b949f1d"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212247"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateCommunalItems (20150416212642)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "communal_items" ("id" serial primary key, "name" character varying, "brand" character varying, "quantity" integer, "stock_level" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_communal_items_on_house_id" ON "communal_items"  ("house_id")[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "communal_items" ADD CONSTRAINT "fk_rails_a48b235da7"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212642"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Migrating to CreateMessages (20150416212824)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "messages" ("id" serial primary key, "content" character varying, "author_id" integer, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_messages_on_housing_assignment_id" ON "messages"  ("housing_assignment_id")[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "messages" ADD CONSTRAINT "fk_rails_0915f586e0"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212824"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateIssues (20150416213117)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "issues" ("id" serial primary key, "reason" character varying, "user_id" integer, "issuable_id" integer, "issuable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_issues_on_user_id" ON "issues"  ("user_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_issues_on_issuable_type_and_issuable_id" ON "issues"  ("issuable_type", "issuable_id")
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "issues" ADD CONSTRAINT "fk_rails_f8f1052133"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150416213117"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserPromises (20150416213208)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (572.8ms)[0m  [1mCREATE TABLE "user_promises" ("id" serial primary key, "fulfilled" boolean DEFAULT 'f', "user_id" integer, "promisable_id" integer, "promisable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (94.2ms)[0m  CREATE  INDEX  "index_user_promises_on_user_id" ON "user_promises"  ("user_id")
+  [1m[36m (3.8ms)[0m  [1mCREATE  INDEX  "index_user_promises_on_promisable_type_and_promisable_id" ON "user_promises"  ("promisable_type", "promisable_id")[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "user_promises" ADD CONSTRAINT "fk_rails_3b54a6f768"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416213208"]]
+  [1m[35m (12.8ms)[0m  COMMIT
+Migrating to AddAttachmentAvatarToUsers (20150417175305)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "avatar_file_name" character varying
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "avatar_content_type" character varying[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "avatar_file_size" integer
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "avatar_updated_at" timestamp[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150417175305"]]
+  [1m[36m (196.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'addresses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chore_logs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chores'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'communal_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'houses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'housing_assignments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'issues'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'property_managers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'rules'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'user_promises'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/apprentice/Desktop/house-rules/app/models/user.rb:4)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "M"], ["last_name", "M"], ["email", "m@m.com"], ["password_digest", "$2a$10$pM7/hHeaMcfGkA.KROCSUeR.Df.IZV31KchMkYwSY5jp1R8xoHpS2"], ["created_at", "2015-04-18 20:35:59.310821"], ["updated_at", "2015-04-18 20:35:59.310821"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "messages" ("content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "hey"], ["author_id", 1], ["created_at", "2015-04-18 20:36:10.653495"], ["updated_at", "2015-04-18 20:36:10.653495"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150416210314)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "phone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150416210314"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAddresses (20150416210715)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "addresses" ("id" serial primary key, "street" character varying, "city" character varying, "state" character varying, "zip_code" integer, "addressable_id" integer, "addressable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_addresses_on_addressable_type_and_addressable_id" ON "addresses"  ("addressable_type", "addressable_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416210715"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreatePropertyManagers (20150416210951)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "property_managers" ("id" serial primary key, "name" character varying, "phone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416210951"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateHouses (20150416211341)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "houses" ("id" serial primary key, "name" character varying, "property_manager_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_houses_on_property_manager_id" ON "houses"  ("property_manager_id")[0m
+  [1m[35m (2.0ms)[0m  ALTER TABLE "houses" ADD CONSTRAINT "fk_rails_fca970acce"
+FOREIGN KEY ("property_manager_id")
+  REFERENCES "property_managers" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211341"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateHousingAssignments (20150416211419)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "housing_assignments" ("id" serial primary key, "user_id" integer, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_housing_assignments_on_user_id" ON "housing_assignments"  ("user_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_housing_assignments_on_house_id" ON "housing_assignments"  ("house_id")
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_c9acd19e64"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_940a2b850f"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211419"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateRules (20150416211922)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "rules" ("id" serial primary key, "content" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_rules_on_housing_assignment_id" ON "rules"  ("housing_assignment_id")[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "rules" ADD CONSTRAINT "fk_rails_af3a036cef"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211922"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateChores (20150416211959)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "chores" ("id" serial primary key, "task" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_chores_on_house_id" ON "chores"  ("house_id")[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "chores" ADD CONSTRAINT "fk_rails_afe0a63c1d"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211959"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateChoreLogs (20150416212124)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "chore_logs" ("id" serial primary key, "user_id" integer, "chore_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_chore_logs_on_user_id" ON "chore_logs"  ("user_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_chore_logs_on_chore_id" ON "chore_logs"  ("chore_id")
+  [1m[36m (1.7ms)[0m  [1mALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_7000e176e9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_61500d5c17"
+FOREIGN KEY ("chore_id")
+  REFERENCES "chores" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212124"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateEvents (20150416212247)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "events" ("id" serial primary key, "creator_id" integer, "name" character varying, "date" timestamp, "description" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_events_on_housing_assignment_id" ON "events"  ("housing_assignment_id")[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "events" ADD CONSTRAINT "fk_rails_037b949f1d"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212247"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateCommunalItems (20150416212642)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.5ms)[0m  CREATE TABLE "communal_items" ("id" serial primary key, "name" character varying, "brand" character varying, "quantity" integer, "stock_level" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_communal_items_on_house_id" ON "communal_items"  ("house_id")[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "communal_items" ADD CONSTRAINT "fk_rails_a48b235da7"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212642"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateMessages (20150416212824)
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "messages" ("id" serial primary key, "content" character varying, "author_id" integer, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_messages_on_housing_assignment_id" ON "messages"  ("housing_assignment_id")[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "messages" ADD CONSTRAINT "fk_rails_0915f586e0"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212824"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateIssues (20150416213117)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "issues" ("id" serial primary key, "reason" character varying, "user_id" integer, "issuable_id" integer, "issuable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_issues_on_user_id" ON "issues"  ("user_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_issues_on_issuable_type_and_issuable_id" ON "issues"  ("issuable_type", "issuable_id")
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "issues" ADD CONSTRAINT "fk_rails_f8f1052133"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150416213117"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserPromises (20150416213208)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "user_promises" ("id" serial primary key, "fulfilled" boolean DEFAULT 'f', "user_id" integer, "promisable_id" integer, "promisable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_user_promises_on_user_id" ON "user_promises"  ("user_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_user_promises_on_promisable_type_and_promisable_id" ON "user_promises"  ("promisable_type", "promisable_id")[0m
+  [1m[35m (1.8ms)[0m  ALTER TABLE "user_promises" ADD CONSTRAINT "fk_rails_3b54a6f768"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416213208"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to AddAttachmentAvatarToUsers (20150417175305)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "avatar_file_name" character varying
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "avatar_content_type" character varying[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "avatar_file_size" integer
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "avatar_updated_at" timestamp[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150417175305"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'addresses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chore_logs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chores'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'communal_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'houses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'housing_assignments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'issues'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'property_managers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'rules'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'user_promises'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/apprentice/Desktop/house-rules/app/models/user.rb:4)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "M"], ["last_name", "M"], ["email", "m@m.com"], ["password_digest", "$2a$10$heJFd3Rv3wpu5a4oyhSwmuTUoCBFqiupH5j4Jvo2Dym.ayNWhsbQ6"], ["created_at", "2015-04-18 20:37:54.038343"], ["updated_at", "2015-04-18 20:37:54.038343"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
