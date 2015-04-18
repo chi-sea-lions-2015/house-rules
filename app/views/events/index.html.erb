@@ -4,10 +4,13 @@
   <% @events.each do |event| %>
     <%= event.housing_assignment.user.first_name %>: <%= event.name %> <br>
     Description: <%= event.description %><br>
-    Date: <%= event.date%><br>
+    Date: <%= event.date%> <%= link_to "Issue this Event", "/houses/#{@house.id}/events/#{event.id}/issues/event_issue_new" %><br>
       <%= link_to "Destroy", house_event_path(@house, event), method: :delete,
-      data: {confirm: "Are you sure?"} %><br>
-    <%= link_to 'Edit', edit_house_event_path(@house, event) %><br><br>
+      data: {confirm: "Are you sure?"} %>
+    <%= link_to 'Edit', edit_house_event_path(@house, event) %><br>
+    <% event.issues.each do |issue| %>
+    <strong>Issue</strong>@<%= issue.user.first_name %>: <%= issue.reason %><br>
+    <% end %>
     <% end %>
 <% end %>
 </div>

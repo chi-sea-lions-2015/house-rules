@@ -1,12 +1,19 @@
 <div id="rules">
 <% if @rules != nil %>
   <h4>Rules:</h4>
+  <ol>
   <% @rules.each do |rule| %>
-  <%= rule.housing_assignment.user.first_name %>: <%= rule.content %> <br>
+  <li>
+  <%= rule.housing_assignment.user.first_name %>: <%= rule.content %> <%= link_to "Issue this Rule", "/houses/#{@house.id}/rules/#{rule.id}/issues/rule_issue_new" %><br>
     <%= link_to "Destroy", house_rule_path(@house, rule), method: :delete,
-    data: {confirm: "Are you sure?"} %><br>
+    data: {confirm: "Are you sure?"} %>
   <%= link_to 'Edit', edit_house_rule_path(@house, rule) %><br>
+  <% rule.issues.each do |issue| %>
+  <strong>Issue</strong>@<%= issue.user.first_name %>: <%= issue.reason %><br>
   <% end %>
+  </li>
+  <% end %>
+  </ol>
 <% end %>
 </div>
 <div>

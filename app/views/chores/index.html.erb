@@ -1,13 +1,20 @@
 <div id="chores">
 <% if @chores != nil %>
   <h4>Chores: </h4>
+  <ol>
   <% @chores.each do |chore| %>
-  <%= chore.task %> <br>
+  <li>
+  <%= chore.task %> <%= link_to "Issue this Chore", "/houses/#{@house.id}/chores/#{chore.id}/issues/chore_issue_new"%><br>
     <%= link_to "Destroy", house_chore_path(@house, chore), method: :delete,
-    data: {confirm: "Are you sure?"} %><br>
+    data: {confirm: "Are you sure?"} %>
   <%= link_to 'Edit', edit_house_chore_path(@house, chore) %><br>
-  <%= link_to 'I did this chore', house_chore_chore_logs_path(@house, chore), method: :post %>
+  <%= link_to 'I did this chore', house_chore_chore_logs_path(@house, chore), method: :post %><br>
+  <% chore.issues.each do |issue| %>
+  <strong>Issue</strong>@<%= issue.user.first_name %>: <%= issue.reason %><br>
   <% end %>
+  </li>
+  <% end %>
+  </ol>
 <% end %>
 </div>
 <div>

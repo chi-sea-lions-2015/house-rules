@@ -1,7 +1,9 @@
 class ChoresController < ApplicationController
 
   def index
-    @chores = Chore.select("id, task").to_json
+    # @chores = Chore.select("id, task").to_json
+    @house = House.find(params[:house_id])
+    @chores = @house.chores
   end
 
   def update
