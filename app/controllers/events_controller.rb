@@ -30,7 +30,6 @@ class EventsController < ApplicationController
   def index
     @user = current_user
     @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id)
     @events = @house.events
   end
 

@@ -10,6 +10,7 @@ RSpec.describe House, type: :model do
   it { expect(house).to have_many(:communal_items)}
   it { expect(house).to have_many(:rules)}
   it { expect(house).to have_many(:chores)}
+  it { expect(house).to have_many(:events)}
   it { expect(house).to validate_presence_of(:name)}
 
 end

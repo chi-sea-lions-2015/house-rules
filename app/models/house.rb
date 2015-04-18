@@ -6,6 +6,7 @@ class House < ActiveRecord::Base
   has_many :messages, through: :housing_assignments
   has_many :users, through: :housing_assignments
   has_many :rules, through: :housing_assignments
+  has_many :events, through: :housing_assignments
   has_many :communal_items
   has_many :chores
   has_many :events, through: :housing_assignments

@@ -92,6 +92,7 @@ FactoryGirl.define do
 
   factory :house do
     name "The hater house"
+    house_key "123456"
     address
     property_manager
 
