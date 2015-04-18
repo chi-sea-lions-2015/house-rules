@@ -32,11 +32,8 @@ class PropertyManagersController < ApplicationController
     @house = House.find(params[:house_id])
     @manager = PropertyManager.find(params[:id])
     @manager.update(property_manager_params)
-<<<<<<< HEAD
     @address = @manager.address
     @address.update_attributes(address_params)
-=======
->>>>>>> dad42746890b6d37ab9019032af68ac0d57ff9aa
     redirect_to house_path(@house)
   end
 
