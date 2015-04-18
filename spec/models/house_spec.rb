@@ -5,7 +5,7 @@ describe "House" do
 
   context "attributes" do
     it 'has a name' do
-
+    end
   end
 
 end
