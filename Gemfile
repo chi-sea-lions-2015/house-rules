@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -32,6 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "paperclip", "~> 4.2"
 
+gem 'haml', '~> 4.0.6'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
