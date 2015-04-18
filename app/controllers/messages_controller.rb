@@ -36,6 +36,10 @@ class MessagesController < ApplicationController
   # end
 
   def destroy
+    @house = House.find_by(id: params[:house_id])
+    @message = Message.find_by(id: params[:id])
+    @message.destroy
+    redirect_to house_path(@house)  
   end
 
 private

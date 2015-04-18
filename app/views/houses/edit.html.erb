@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Edit House Information</h1>
+  <%= link_to("Delete", house_path(@house), method: :delete) %>
+
+  <%= form_for @house do |f|%>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit "Save Change" %>
+  </p>
+  <% end %>
+  
+</div>

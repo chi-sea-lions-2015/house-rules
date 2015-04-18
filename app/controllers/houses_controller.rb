@@ -35,10 +35,16 @@ class HousesController < ApplicationController
   end
 
   def update
+    @house = House.find(params[:id])
+    @house.update_attributes(house_params)
+    redirect_to house_path(@house)
   end
 
-  # def destroy
-  # end
+  def destroy
+    @user = current_user
+    @house = House.find(params[:id])
+    redirect_to user_path(@user)
+  end
 
   private
 

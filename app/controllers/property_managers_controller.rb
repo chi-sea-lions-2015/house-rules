@@ -12,6 +12,7 @@ class PropertyManagersController < ApplicationController
       @manager = PropertyManager.new(property_manager_params)
       if @manager.save
         @house.update_attributes(property_manager_id: @manager.id)
+        @address.update_attributes(addressable_type: "PropertyManager", addressable_id: @manager.id)
         redirect_to house_path(@house)
       else
         render "new"
@@ -31,6 +32,8 @@ class PropertyManagersController < ApplicationController
     @house = House.find(params[:house_id])
     @manager = PropertyManager.find(params[:id])
     @manager.update(property_manager_params)
+    @address = @manager.address
+    @address.update_attributes(address_params)
     redirect_to house_path(@house)
   end
 
