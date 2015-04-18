@@ -1,6 +1,5 @@
 FactoryGirl.define do
 
-
   factory :chore do
     task "do dishes"
     house
@@ -40,7 +39,7 @@ FactoryGirl.define do
     name "halloween"
     date "2013-09-12 22:49:27"
     description "Costume party!!"
-    # housing_assignment !!!!!!!!!!!!!!!!!!
+    housing_assignment
   end
 
 
