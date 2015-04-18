@@ -3,8 +3,9 @@
   <h4>Rules:</h4>
   <% @rules.each do |rule| %>
   <%= rule.housing_assignment.user.first_name %>: <%= rule.content %> <br>
-  <%= link_to "Destroy", house_rule_path(@house.id, rule.id), method: :delete,
+    <%= link_to "Destroy", house_rule_path(@house, rule), method: :delete,
     data: {confirm: "Are you sure?"} %><br>
+  <%= link_to 'Edit', edit_house_rule_path(@house, rule) %><br>
   <% end %>
 <% end %>
 </div>

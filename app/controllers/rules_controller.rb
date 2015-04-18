@@ -20,6 +20,20 @@ class RulesController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+    @house = House.find_by(id: params[:house_id])
+    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
+    @rule = Rule.find_by(id: params[:id])
+  end
+
+  def update
+    @rule = Rule.find_by(id: params[:id])
+    if @rule.update_attributes(rule_params)
+      redirect_to house_rules_path
+    end
+  end
+
   def destroy
     @rule = Rule.find_by(id: params[:id])
     if @rule.destroy
