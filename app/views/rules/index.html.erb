@@ -11,7 +11,7 @@
 </div>
 <div>
   <h4>New Rule</h4>
-  <%= form_for :rule, url: house_rules_path(@house) do |f| %>
+  <%= form_for :rule, url: house_rules_path(@house), method: :post do |f| %>
   <%= f.text_area :content %><br><br>
   <%= f.submit "Send Message", :class => "button"  %>
   <% end %>
