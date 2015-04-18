@@ -14,7 +14,12 @@ class MessagesController < ApplicationController
     @house = House.find_by(id: params[:id])
     @housing_assignment = HousingAssignment.where(house_id: @house.id)
   end
-
+#DO NOT ERASE DO NOT COMMENT OUT==============
+  def index
+    @house = House.find(params[:house_id])
+    @messages = @house.messages
+  end
+#============================
   def create
     @user = current_user
     @house = House.find_by(id: params[:house_id])
@@ -22,11 +27,11 @@ class MessagesController < ApplicationController
     @message = @housing_assignment.messages.new(message_params)
     if @message.save
       redirect_to house_path(@house)
-    else
-      flash.now[:error] = "Message did not save"
-      redirect_to house_path(@house)
-     end
-   end
+    # else
+    #   flash.now[:error] = "Message did not save"
+    #   redirect_to house_path(@house)
+    end
+  end
 
   # def update
   #   @user = current_user

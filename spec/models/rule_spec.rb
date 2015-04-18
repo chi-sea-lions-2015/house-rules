@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Rule, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  rule = FactoryGirl.build(:rule)
+  it { expect(rule).to validate_length_of(:content)}
+  it { expect(rule).to have_many(:issues)}
+  it { expect(rule).to belong_to(:housing_assignment)}
 end

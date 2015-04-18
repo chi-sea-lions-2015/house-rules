@@ -1,0 +1,15 @@
+<div id="messages">
+<% if @messages != nil %>
+  <h4>Messages:</h4>
+  <% @messages.each do |message| %>
+  <%= message.housing_assignment.user.first_name %>: <%= message.content %> <br>
+  <% end %>
+<% end %>
+</div>
+<div>
+  <h4>New Message</h4>
+  <%= form_for :message, url: house_messages_path(@house) do |f| %>
+  <%= f.text_area :content %><br><br>
+  <%= f.submit "Send Message" %>
+  <% end %>
+</div>

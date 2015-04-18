@@ -1,0 +1,4 @@
+  <%= form_for [@house, @rule], method: :patch do |f| %>
+  <%= f.text_area :content %><br><br>
+  <%= f.submit "Update Rule" %>
+  <% end %>
