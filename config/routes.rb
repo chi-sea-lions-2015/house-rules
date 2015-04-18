@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_promises
   get    '/'  => 'sessions#new'
   get    'signup'  => 'users#new'
   post   'users'   => 'users#create'

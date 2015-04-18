@@ -1,0 +1,2 @@
+class UserPromisesController < ApplicationController
+end
