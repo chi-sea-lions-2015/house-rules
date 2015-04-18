@@ -4,7 +4,7 @@ class RulesController < ApplicationController
     @user = current_user
     @house = House.find_by(id: params[:house_id])
     @housing_assignment = HousingAssignment.find_by(house_id: @house.id)
-    @rules = @housing_assignment.rules
+    @rules = @house.rules
   end
 
   def create
@@ -13,7 +13,7 @@ class RulesController < ApplicationController
     @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
     @rule = @housing_assignment.rules.new(rule_params)
     if @rule.save
-      redirect_to house_rules_path
+      redirect_to house_rules_path(@house)
     # else
     #   flash.now[:error] = "Rule did not save"
     #   redirect_to house_path(@house)
