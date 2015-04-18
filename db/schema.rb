@@ -21,13 +21,9 @@ ActiveRecord::Schema.define(version: 20150417175305) do
     t.string   "city"
     t.string   "state"
     t.integer  "zip_code"
-    t.integer  "addressable_id"
-    t.string   "addressable_type"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "addresses", ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id", using: :btree
 
   create_table "chore_logs", force: :cascade do |t|
     t.integer  "user_id"
@@ -52,8 +48,8 @@ ActiveRecord::Schema.define(version: 20150417175305) do
     t.string   "name"
     t.string   "brand"
     t.integer  "quantity"
-    t.string   "stock_level"
     t.integer  "house_id"
+    t.string   "stock_level"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -73,11 +69,13 @@ ActiveRecord::Schema.define(version: 20150417175305) do
 
   create_table "houses", force: :cascade do |t|
     t.string   "name"
+    t.integer  "address_id"
     t.integer  "property_manager_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
 
+  add_index "houses", ["address_id"], name: "index_houses_on_address_id", using: :btree
   add_index "houses", ["property_manager_id"], name: "index_houses_on_property_manager_id", using: :btree
 
   create_table "housing_assignments", force: :cascade do |t|
@@ -92,8 +90,8 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   add_index "housing_assignments", ["user_id"], name: "index_housing_assignments_on_user_id", using: :btree
 
   create_table "issues", force: :cascade do |t|
-    t.string   "reason"
     t.integer  "user_id"
+    t.string   "reason"
     t.integer  "issuable_id"
     t.string   "issuable_type"
     t.datetime "created_at",    null: false
@@ -117,9 +115,12 @@ ActiveRecord::Schema.define(version: 20150417175305) do
     t.string   "name"
     t.string   "phone"
     t.string   "email"
+    t.integer  "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "property_managers", ["address_id"], name: "index_property_managers_on_address_id", using: :btree
 
   create_table "rules", force: :cascade do |t|
     t.string   "content"
@@ -131,8 +132,8 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   add_index "rules", ["housing_assignment_id"], name: "index_rules_on_housing_assignment_id", using: :btree
 
   create_table "user_promises", force: :cascade do |t|
-    t.boolean  "fulfilled",       default: false
     t.integer  "user_id"
+    t.boolean  "fulfilled",       default: false
     t.integer  "promisable_id"
     t.string   "promisable_type"
     t.datetime "created_at",                      null: false
@@ -147,6 +148,7 @@ ActiveRecord::Schema.define(version: 20150417175305) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
+    t.string   "photo_url"
     t.string   "phone"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
@@ -161,11 +163,13 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   add_foreign_key "chores", "houses"
   add_foreign_key "communal_items", "houses"
   add_foreign_key "events", "housing_assignments"
+  add_foreign_key "houses", "addresses"
   add_foreign_key "houses", "property_managers"
   add_foreign_key "housing_assignments", "houses"
   add_foreign_key "housing_assignments", "users"
   add_foreign_key "issues", "users"
   add_foreign_key "messages", "housing_assignments"
+  add_foreign_key "property_managers", "addresses"
   add_foreign_key "rules", "housing_assignments"
   add_foreign_key "user_promises", "users"
 end

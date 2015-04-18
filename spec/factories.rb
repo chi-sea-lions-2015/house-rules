@@ -30,12 +30,16 @@ FactoryGirl.define do
     user
   end
 
+  factory :housing_assignment do
+    user
+    house
+  end
   #### Chore End
   factory :event do
     name "halloween"
     date "2013-09-12 22:49:27"
     description "Costume party!!"
-    housing_assignment
+    # housing_assignment !!!!!!!!!!!!!!!!!!
   end
 
 
@@ -65,7 +69,7 @@ FactoryGirl.define do
 
   ## Communal Item End
 
-  factory :messages do
+  factory :message do
     content "you're the best"
     housing_assignment
   end
@@ -85,10 +89,6 @@ FactoryGirl.define do
 
   # Rule End
 
-  factory :housing_assignment do
-    user
-    house
-  end
 
   factory :house do
     name "The hater house"
