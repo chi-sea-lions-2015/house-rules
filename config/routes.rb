@@ -10,13 +10,16 @@ Rails.application.routes.draw do
   resources :users do
   end
 
+
   resources :houses do
     resources :property_managers
     resources :messages
     resources :rules
     resources :communal_items
     resources :events
-    resources :chores
+    resources :chores do
+      resources :chore_logs
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
