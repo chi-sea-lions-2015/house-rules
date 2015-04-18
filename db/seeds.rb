@@ -18,3 +18,12 @@ chore_promise_true = chore.user_promises.create(user_id: 1, fulfilled: true)
 chore_promise_false = chore.user_promises.create(user_id: 1)
 communal_item.user_promises.create(user_id: 1)
 communal_item.user_promises.create(user_id: 1, fulfilled: true)
+
+chore2 = Chore.create(task: "Take out trash if it smells", house_id: 1)
+chore3 = Chore.create(task: "Wash your face", house_id: 1)
+chore4 = Chore.create(task: "Get out of my face", house_id: 1)
+chore5 = Chore.create(task: "Say hello like a fucking normal person", house_id: 1)
+
+ing = IngredientSuggestion.create(item: "Foods")
+IngredientSuggestion.create(item: "Stuffs")
+IngredientSuggestion.create(item: "Eating")

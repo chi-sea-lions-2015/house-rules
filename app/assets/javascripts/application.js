@@ -13,5 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require fluxxor
+//= require components
+//= require growl
 //= require_tree .
 //
