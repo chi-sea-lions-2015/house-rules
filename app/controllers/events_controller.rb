@@ -30,8 +30,8 @@ class EventsController < ApplicationController
   def index
     @user = current_user
     @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id)
-    @events = @housing_assignment.events
+    @housing_assignments = HousingAssignment.where(house_id: @house.id)
+    @events = @housing_assignments.map {|house_assignment| house_assignment.events}
   end
 
   def destroy
