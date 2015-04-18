@@ -11,8 +11,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # def edit
-  # end
+  def edit
+    @user = current_user
+  end
 
   def create
     @user = User.new(user_params)
@@ -25,8 +26,11 @@ class UsersController < ApplicationController
     end
   end
 
-  # def update
-  # end
+  def update
+    @user = User.find_by(id: session[:user_id])
+    @user.update(user_params)
+    redirect_to user_path(@user)
+  end
 
   # def destroy
   # end

@@ -1,5 +1,5 @@
 class House < ActiveRecord::Base
-  has_one :property_manager
+  belongs_to :property_manager
   has_one :address, as: :addressable
 
   has_many :housing_assignments

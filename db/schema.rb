@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   create_table "housing_assignments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "house_id"
-    t.string   "lease_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

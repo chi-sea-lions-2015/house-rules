@@ -1,4 +1,23 @@
 <h2><%= @house.name %>!</h2>
+<% if @property_manager == nil %>
 <%= link_to "Add Property Management Info", new_house_property_manager_path(@house) %>
+<% else %>
+Your property manager:
+<%= @house.property_manager.name %>
+<%= link_to "Edit", edit_house_property_manager_path(@house, @property_manager) %>
+<% end %>
 <br><br>
-<%= link_to "Add Lease", user_housing_assignment_path(current_user, @assignment) %>
+<% if @messages != nil %>
+  <h4>Messages:</h4>
+  <% @messages.each do |message| %>
+  @<%= message.housing_assignment.user.first_name %>: <%= message.content %> <br>
+  <% end %>
+<% end %>
+
+<div>
+  <h4>New Message</h4>
+  <%= form_for :message, url: house_messages_path(@house) do |f| %>
+  <%= f.text_area :content %><br><br>
+  <%= f.submit "Send Message" %>
+  <% end %>
+</div>
