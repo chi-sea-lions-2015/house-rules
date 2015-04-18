@@ -17,24 +17,19 @@ window.loadChoresEditor = function(chores) {
 
   fluxChoresStore.store = Fluxxor.createStore({
     initialize: function(options) {
-      /* We'll have ingredients */
       this.chores = options.chores || [];
-      /* Those ingredients can be updated and deleted */
       this.bindActions(fluxChoresStore.constants.UPDATE_CHORE, this.onUpdateChore, fluxChoresStore.constants.DELETE_CHORE, this.onDeleteChore);
     },
     getState: function() {
-      /* If someone asks the store what the ingredients are, show them */
       return {
         chores: this.chores,
       };
     },
     onUpdateChore: function(payload) {
-      /* Update the model if an ingredient is renamed */
       payload.chore.task = payload.new_name;
       this.emit("change")
     },
     onDeleteChore: function(payload) {
-      /* Update the model if an ingredient is deleted */
       this.chores = this.chores.filter(function(chore) {
         return chore.id != payload.chore.id
       });
@@ -44,12 +39,10 @@ window.loadChoresEditor = function(chores) {
 
   fluxChoresStore.actions = {
     updateChore: function(chore, new_name) {
-      /* First, update the model by calling the function above */
       this.dispatch(fluxChoresStore.constants.UPDATE_CHORE, {
         chore: chore,
         new_name: new_name
       });
-      /* Then, update the server and show a success message */
       $.ajax({
         type: "PUT",
         url: "/chores/" + chore.id,
@@ -69,11 +62,9 @@ window.loadChoresEditor = function(chores) {
       });
     },
     deleteChore: function(chore) {
-      /* First, update the model by calling the function above */
       this.dispatch(fluxChoresStore.constants.DELETE_CHORE, {
         chore: chore
       });
-      /* Then, delete it on the server and show a success message */
       $.ajax({
         type: "DELETE",
         url: "/chores/" + chore.id,
@@ -91,7 +82,6 @@ window.loadChoresEditor = function(chores) {
     }
   };
 
-  /* Initalize the Fluxxor store when needed */
   fluxChoresStore.init = function(chores) {
     var tempStore = {
       ChoresStore: new fluxChoresStore.store({
@@ -105,16 +95,13 @@ window.loadChoresEditor = function(chores) {
   /* DEFINE REACT COMPONENTS */
 
   var ChoresEditor = React.createClass({
-    /* Update this component when the Fluxxor store is updated */
     mixins: [FluxMixin, StoreWatchMixin("ChoresStore")],
-    /* Get the ingredients list from the store */
     getStateFromFlux: function() {
       var flux = this.getFlux();
       return {
         chores: flux.store("ChoresStore").getState().chores
       };
     },
-    /* Show each ingredient when the IngredientSuggestion component */
     render: function() {
       var props = this.props;
       var chores = this.state.chores.map(function (chore) {
@@ -129,9 +116,7 @@ window.loadChoresEditor = function(chores) {
   });
 
   var Chore = React.createClass({
-    /* We need this mixin since we are calling Flux store actions from this component */
     mixins: [FluxMixin],
-    /* We'll track two things for each ingredient, whether the user has changed its name and whether they have saved the update to the server. */
     getInitialState: function() {
       return {changed: false, updated: false};
     },
@@ -139,9 +124,9 @@ window.loadChoresEditor = function(chores) {
 
       return (
         <div>
-          <a href="#" onClick={this.handleDelete}><i className="fa fa-times"></i></a>
+          <a href="#" onClick={this.handleDelete}>Delete</a>
           <input onChange={this.handleChange} ref="chore" defaultValue={this.props.chore.task}/>
-          {/* Show the Update and Cancel buttons only if the user has changed the ingredient name */
+          {
             this.state.changed ?
             <span>
               <a href="#" onClick={this.handleUpdate}>Update</a>
@@ -154,7 +139,6 @@ window.loadChoresEditor = function(chores) {
       )
     },
     handleChange: function() {
-      /* If the user changed the ingredient name, set the 'changed' state to true */
       if ($(this.refs.chore.getDOMNode()).val() != this.props.chore.task) {
         this.setState({changed: true});
       } else {
@@ -162,13 +146,11 @@ window.loadChoresEditor = function(chores) {
       }
     },
     handleUpdate: function(e) {
-      /* Update the ingredient name in the Fluxxor store */
       e.preventDefault();
       this.getFlux().actions.updateChore(this.props.chore, $(this.refs.chore.getDOMNode()).val());
       this.setState({changed: false, updated: true});
     },
     handleDelete: function(e) {
-      /* Delete the ingredient from the Fluxxor store */
       e.preventDefault();
       if (confirm("Delete " + this.props.chore.task + "?")) {
         this.getFlux().actions.deleteChore(this.props.chore);

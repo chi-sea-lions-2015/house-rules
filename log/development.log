@@ -6626,3 +6626,320 @@ Processing by ChoresController#update as */*
   [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
   Rendered text template (0.0ms)
 Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/fluxxor/build/fluxxor.min.js.map" for ::1 at 2015-04-17 22:07:32 -0500
+
+
+Started GET "/chores" for ::1 at 2015-04-17 22:08:34 -0500
+
+ExecJS::ProgramError (Error: Parse Error: Line 127: Expected corresponding JSX closing tag for a):
+  throwError@(execjs):5131:20
+  parseJSXElement@(execjs):9457:27
+  parseJSXChild@(execjs):9377:36
+  parseJSXElement@(execjs):9451:44
+  parsePrimaryExpression@(execjs):5883:35
+  parseLeftHandSideExpressionAllowCall@(execjs):5967:83
+  parsePostfixExpression@(execjs):6007:56
+  parseUnaryExpression@(execjs):6074:38
+  parseBinaryExpression@(execjs):6164:36
+  parseConditionalExpression@(execjs):6224:37
+  parseAssignmentExpression@(execjs):6477:42
+  parseExpression@(execjs):6534:41
+  parseGroupExpression@(execjs):5775:31
+  parsePrimaryExpression@(execjs):5868:40
+  parseLeftHandSideExpressionAllowCall@(execjs):5967:83
+  parsePostfixExpression@(execjs):6007:56
+  parseUnaryExpression@(execjs):6074:38
+  parseBinaryExpression@(execjs):6164:36
+  parseConditionalExpression@(execjs):6224:37
+  parseAssignmentExpression@(execjs):6477:42
+  parseExpression@(execjs):6534:41
+  parseReturnStatement@(execjs):7722:43
+  parseStatement@(execjs):7948:44
+  parseSourceElement@(execjs):8709:38
+  parseFunctionSourceElements@(execjs):8049:47
+  parseFunctionExpression@(execjs):8332:43
+  parsePrimaryExpression@(execjs):5831:47
+  parseLeftHandSideExpressionAllowCall@(execjs):5967:83
+  parsePostfixExpression@(execjs):6007:56
+  parseUnaryExpression@(execjs):6074:38
+  parseBinaryExpression@(execjs):6164:36
+  parseConditionalExpression@(execjs):6224:37
+  parseAssignmentExpression@(execjs):6477:42
+  parseObjectProperty@(execjs):5494:50
+  parseObjectInitialiser@(execjs):5697:47
+  parsePrimaryExpression@(execjs):5864:42
+  parseLeftHandSideExpressionAllowCall@(execjs):5967:83
+  parsePostfixExpression@(execjs):6007:56
+  parseUnaryExpression@(execjs):6074:38
+  parseBinaryExpression@(execjs):6164:36
+  parseConditionalExpression@(execjs):6224:37
+  parseAssignmentExpression@(execjs):6477:42
+  parseSpreadOrAssignmentExpression@(execjs):5922:41
+  parseArguments@(execjs):5898:56
+  parseLeftHandSideExpressionAllowCall@(execjs):5971:38
+  parsePostfixExpression@(execjs):6007:56
+  parseUnaryExpression@(execjs):6037:42
+  parseBinaryExpression@(execjs):6164:36
+  parseConditionalExpression@(execjs):6224:37
+  parseAssignmentExpression@(execjs):6477:42
+  parseVariableDeclaration@(execjs):7116:45
+  parseVariableDeclarationList@(execjs):7126:47
+  parseVariableStatement@(execjs):7141:52
+  parseStatement@(execjs):7956:46
+  parseSourceElement@(execjs):8709:38
+  parseFunctionSourceElements@(execjs):8049:47
+  parseFunctionExpression@(execjs):8332:43
+  parsePrimaryExpression@(execjs):5831:47
+  parseLeftHandSideExpressionAllowCall@(execjs):5967:83
+  parsePostfixExpression@(execjs):6007:56
+  parseUnaryExpression@(execjs):6074:38
+  parseBinaryExpression@(execjs):6164:36
+  parseConditionalExpression@(execjs):6224:37
+  parseAssignmentExpression@(execjs):6477:42
+  parseAssignmentExpression@(execjs):6522:120
+  parseExpression@(execjs):6534:41
+  parseStatement@(execjs):7971:31
+  parseSourceElement@(execjs):8741:34
+  parseProgramElement@(execjs):8757:34
+  parseProgramElements@(execjs):8789:48
+  parseProgram@(execjs):8802:36
+  parse@(execjs):9964:35
+  getAstForSource@(execjs):12510:26
+  transform@(execjs):12533:26
+  innerTransform@(execjs):435:19
+  transformWithDetails@(execjs):375:32
+  transformReact@(execjs):52:41
+  (execjs):15925:12
+  (execjs):15929:21
+  (execjs):1:46
+  global code@(execjs):1:58
+  execjs (2.5.2) lib/execjs/external_runtime.rb:39:in `exec'
+  execjs (2.5.2) lib/execjs/external_runtime.rb:21:in `eval'
+  execjs (2.5.2) lib/execjs/external_runtime.rb:46:in `call'
+  react-rails (1.0.0) lib/react/jsx.rb:33:in `transform'
+  react-rails (1.0.0) lib/react/jsx/template.rb:13:in `evaluate'
+  tilt (1.4.1) lib/tilt/template.rb:103:in `render'
+  sprockets (3.0.1) lib/sprockets/legacy_tilt_processor.rb:25:in `call'
+  sprockets (3.0.1) lib/sprockets/processor_utils.rb:73:in `call_processor'
+  sprockets (3.0.1) lib/sprockets/processor_utils.rb:55:in `block in call_processors'
+  sprockets (3.0.1) lib/sprockets/processor_utils.rb:54:in `reverse_each'
+  sprockets (3.0.1) lib/sprockets/processor_utils.rb:54:in `call_processors'
+  sprockets (3.0.1) lib/sprockets/loader.rb:103:in `load_asset_by_uri'
+  sprockets (3.0.1) lib/sprockets/loader.rb:40:in `block in load'
+  sprockets (3.0.1) lib/sprockets/loader.rb:170:in `fetch_asset_from_dependency_cache'
+  sprockets (3.0.1) lib/sprockets/loader.rb:33:in `load'
+  sprockets (3.0.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.0.1) lib/sprockets/cached_environment.rb:47:in `yield'
+  sprockets (3.0.1) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.0.1) lib/sprockets/bundle.rb:23:in `block in call'
+  sprockets (3.0.1) lib/sprockets/utils.rb:183:in `dfs'
+  sprockets (3.0.1) lib/sprockets/bundle.rb:24:in `call'
+  sprockets (3.0.1) lib/sprockets/processor_utils.rb:73:in `call_processor'
+  sprockets (3.0.1) lib/sprockets/processor_utils.rb:55:in `block in call_processors'
+  sprockets (3.0.1) lib/sprockets/processor_utils.rb:54:in `reverse_each'
+  sprockets (3.0.1) lib/sprockets/processor_utils.rb:54:in `call_processors'
+  sprockets (3.0.1) lib/sprockets/loader.rb:103:in `load_asset_by_uri'
+  sprockets (3.0.1) lib/sprockets/loader.rb:40:in `block in load'
+  sprockets (3.0.1) lib/sprockets/loader.rb:170:in `fetch_asset_from_dependency_cache'
+  sprockets (3.0.1) lib/sprockets/loader.rb:33:in `load'
+  sprockets (3.0.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.0.1) lib/sprockets/cached_environment.rb:47:in `yield'
+  sprockets (3.0.1) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.0.1) lib/sprockets/base.rb:63:in `find_asset'
+  sprockets (3.0.1) lib/sprockets/environment.rb:30:in `find_asset'
+  sprockets (3.0.1) lib/sprockets/base.rb:89:in `[]'
+  react-rails (1.0.0) lib/react/rails/railtie.rb:68:in `block (3 levels) in <class:Railtie>'
+  react-rails (1.0.0) lib/react/rails/railtie.rb:67:in `map'
+  react-rails (1.0.0) lib/react/rails/railtie.rb:67:in `block (2 levels) in <class:Railtie>'
+  react-rails (1.0.0) lib/react/renderer.rb:70:in `call'
+  react-rails (1.0.0) lib/react/renderer.rb:70:in `setup_combined_js'
+  react-rails (1.0.0) lib/react/renderer.rb:75:in `reset_combined_js!'
+  react-rails (1.0.0) lib/react/renderer.rb:22:in `setup!'
+  react-rails (1.0.0) lib/react/rails/railtie.rb:74:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:446:in `instance_exec'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:446:in `block in make_lambda'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:192:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:192:in `block in simple'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_prepare_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:83:in `prepare!'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:71:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (43.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (116.7ms)
+
+
+Started GET "/chores" for ::1 at 2015-04-17 22:08:46 -0500
+Processing by ChoresController#index as HTML
+  [1m[35mChore Load (0.4ms)[0m  SELECT id, task FROM "chores"
+  Rendered chores/index.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 653ms (Views: 634.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/messages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/communal_items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/addresses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/houses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/chores.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/property_managers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/rules.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/application.self-d885a0a66bd595c10edb24f8879f94e334d88be0730c4d7c7a7b57c731c09037.css?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/growl.self-f1f080be195e975b1b6806c67495c0caa0c1ba60b61f1d20b72fed075f4d9308.css?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/components/chores.self-b632d45fcff083347efdd75cc6e30939eeca4de707236f80e0c6734fdee1d5ae.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/react.self-54d02a73cf68f1cb4e6f6b5c642451ac581cc16e3f52b355a9162c38c406250a.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/fluxxor/build/fluxxor.min.self-a1eec5e53d972fe8116b944fdcd22715ac0dc2ed1cf00e04dc5ffc2549d9ddc0.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/components.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/growl/jquery.growl.self-1b3881367482c90e197775c6ec90bcf236ab3cd68d33347b1a3f45d51db80b46.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/growl.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/application.self-ca145408abadae6a495f4bf0680f9e069ac094a5051cd63043b1752cb002a126.js?body=1" for ::1 at 2015-04-17 22:08:47 -0500
+
+
+Started GET "/assets/fluxxor/build/fluxxor.min.js.map" for ::1 at 2015-04-17 22:08:48 -0500
+
+
+Started DELETE "/chores/2" for ::1 at 2015-04-17 22:08:52 -0500
+Processing by ChoresController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mChore Load (0.4ms)[0m  [1mSELECT  "chores".* FROM "chores" WHERE "chores"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (62.2ms)[0m  [1mDELETE FROM "chores" WHERE "chores"."id" = $1[0m  [["id", 2]]
+PG::ForeignKeyViolation: ERROR:  update or delete on table "chores" violates foreign key constraint "fk_rails_61500d5c17" on table "chore_logs"
+DETAIL:  Key (id)=(2) is still referenced from table "chore_logs".
+: DELETE FROM "chores" WHERE "chores"."id" = $1
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 62.9ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "chores" violates foreign key constraint "fk_rails_61500d5c17" on table "chore_logs"
+DETAIL:  Key (id)=(2) is still referenced from table "chore_logs".
+: DELETE FROM "chores" WHERE "chores"."id" = $1):
+  app/controllers/chores_controller.rb:16:in `destroy'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (20.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (33.8ms)
+
+
+Started DELETE "/chores/4" for ::1 at 2015-04-17 22:08:55 -0500
+Processing by ChoresController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mChore Load (0.3ms)[0m  [1mSELECT  "chores".* FROM "chores" WHERE "chores"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "chores" WHERE "chores"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/chores/5" for ::1 at 2015-04-17 22:09:14 -0500
+Processing by ChoresController#destroy as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mChore Load (0.5ms)[0m  [1mSELECT  "chores".* FROM "chores" WHERE "chores"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "chores" WHERE "chores"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.5ms)
