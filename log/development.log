@@ -6615,3 +6615,14 @@ Processing by ChoresController#update as */*
   [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
   Rendered text template (0.0ms)
 Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/chores/4" for ::1 at 2015-04-17 21:53:12 -0500
+Processing by ChoresController#update as */*
+  Parameters: {"task"=>"ddddWash your face", "id"=>"4"}
+  [1m[35mChore Load (0.3ms)[0m  SELECT  "chores".* FROM "chores" WHERE "chores"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "chores" SET "task" = $1, "updated_at" = $2 WHERE "chores"."id" = $3  [["task", "ddddWash your face"], ["updated_at", "2015-04-18 02:53:12.772332"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.0ms)
