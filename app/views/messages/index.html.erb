@@ -2,7 +2,9 @@
 <% if @messages != nil %>
   <h4>Messages:</h4>
   <% @messages.each do |message| %>
-  <%= message.housing_assignment.user.first_name %>: <%= message.content %> <br>
+  <%= image_tag message.housing_assignment.user.avatar.url(:thumb) %>
+  <%= message.housing_assignment.user.first_name %> at <%= message.created_at %><br>
+  <%= message.content %> <br>
   <% end %>
 <% end %>
 </div>

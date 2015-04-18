@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Edit Your Information</h1>
 
-  <%= form_for :user, url: user_path(@user), method: :patch do |f| %>
+  <%= form_for @user, :html => { :multipart => true }, method: :patch do |f| %>
   <p>
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
@@ -27,7 +27,7 @@
     <%= f.password_field :password_confirmation %>
   </p>
   <p>
-    <%= f.label :picture %><br>
+    <%= f.label :avatar %><br>
     <%= f.file_field :avatar %>
   </p>
 
