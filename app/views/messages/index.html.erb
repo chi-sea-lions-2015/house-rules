@@ -1,17 +1,3 @@
-<div id="messages">
-<% if @messages != nil %>
-  <h4>Messages:</h4>
-  <% @messages.each do |message| %>
-  <%= image_tag message.housing_assignment.user.avatar.url(:thumb) %>
-  <%= message.housing_assignment.user.first_name %> at <%= message.created_at %><br>
-  <%= message.content %> <br>
-  <% end %>
-<% end %>
-</div>
-<div>
-  <h4>New Message</h4>
-  <%= form_for :message, url: house_messages_path(@house) do |f| %>
-  <%= f.text_area :content %><br><br>
-  <%= f.submit "Send Message" %>
-  <% end %>
-</div>
+<%= react_component('MessageBox',
+                    {:presenter => @presenter.to_json},
+                    {:prerender => false}) %>
