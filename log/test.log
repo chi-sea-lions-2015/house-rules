@@ -3916,3 +3916,394 @@ ORDER BY c.conname
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
   [1m[35m (0.1ms)[0m  BEGIN
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (224.4ms)[0m  [1mDROP DATABASE IF EXISTS "house_rules_test"[0m
+  [1m[35m (304.7ms)[0m  CREATE DATABASE "house_rules_test" ENCODING = 'unicode'
+  [1m[36mSQL (2.0ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.2ms)[0m  CREATE TABLE "addresses" ("id" serial primary key, "street" character varying, "city" character varying, "state" character varying, "zip_code" integer, "addressable_id" integer, "addressable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_addresses_on_addressable_type_and_addressable_id" ON "addresses" USING btree ("addressable_type", "addressable_id")[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "chore_logs" ("id" serial primary key, "user_id" integer, "chore_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_chore_logs_on_chore_id" ON "chore_logs" USING btree ("chore_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_chore_logs_on_user_id" ON "chore_logs" USING btree ("user_id")
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "chores" ("id" serial primary key, "task" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_chores_on_house_id" ON "chores" USING btree ("house_id")
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "communal_items" ("id" serial primary key, "name" character varying, "brand" character varying, "quantity" integer, "stock_level" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_communal_items_on_house_id" ON "communal_items" USING btree ("house_id")
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "name" character varying, "date" timestamp, "description" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_events_on_housing_assignment_id" ON "events" USING btree ("housing_assignment_id")
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "houses" ("id" serial primary key, "name" character varying, "house_key" character varying, "property_manager_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_houses_on_property_manager_id" ON "houses" USING btree ("property_manager_id")
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "housing_assignments" ("id" serial primary key, "user_id" integer, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_housing_assignments_on_house_id" ON "housing_assignments" USING btree ("house_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_housing_assignments_on_user_id" ON "housing_assignments" USING btree ("user_id")[0m
+  [1m[35m (4.7ms)[0m  CREATE TABLE "issues" ("id" serial primary key, "reason" character varying, "user_id" integer, "issuable_id" integer, "issuable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_issues_on_issuable_type_and_issuable_id" ON "issues" USING btree ("issuable_type", "issuable_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_issues_on_user_id" ON "issues" USING btree ("user_id")
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "content" character varying, "picture_url" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_messages_on_housing_assignment_id" ON "messages" USING btree ("housing_assignment_id")
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "property_managers" ("id" serial primary key, "name" character varying, "phone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "rules" ("id" serial primary key, "content" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_rules_on_housing_assignment_id" ON "rules" USING btree ("housing_assignment_id")[0m
+  [1m[35m (20.1ms)[0m  CREATE TABLE "user_promises" ("id" serial primary key, "fulfilled" boolean DEFAULT 'f', "user_id" integer, "promisable_id" integer, "promisable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_user_promises_on_promisable_type_and_promisable_id" ON "user_promises" USING btree ("promisable_type", "promisable_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_user_promises_on_user_id" ON "user_promises" USING btree ("user_id")
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "phone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp) [0m
+  [1m[35m (2.4ms)[0m  ALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_61500d5c17"
+FOREIGN KEY ("chore_id")
+  REFERENCES "chores" ("id")
+
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_7000e176e9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "chores" ADD CONSTRAINT "fk_rails_afe0a63c1d"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "communal_items" ADD CONSTRAINT "fk_rails_a48b235da7"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "events" ADD CONSTRAINT "fk_rails_037b949f1d"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "houses" ADD CONSTRAINT "fk_rails_fca970acce"
+FOREIGN KEY ("property_manager_id")
+  REFERENCES "property_managers" ("id")
+[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_940a2b850f"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_c9acd19e64"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.1ms)[0m  ALTER TABLE "issues" ADD CONSTRAINT "fk_rails_f8f1052133"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_0915f586e0"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "rules" ADD CONSTRAINT "fk_rails_af3a036cef"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "user_promises" ADD CONSTRAINT "fk_rails_3b54a6f768"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150417175305')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150416210314')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150416210715')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150416210951')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150416211341')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150416211419')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150416211922')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150416211959')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150416212124')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150416212247')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150416212642')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150416212824')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150416213117')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150416213208')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (6.5ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Paul"], ["last_name", "Clegg"], ["email", "clegg@clegg.com"], ["password_digest", "$2a$04$xMPFkMZXMQE70vodObBVj.agwVAkryHBXODLOOtxtg0Mg23Fxykai"], ["created_at", "2015-04-18 20:08:09.168798"], ["updated_at", "2015-04-18 20:08:09.168798"]]
+  [1m[35m (12.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.2ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:08:09.288870"], ["updated_at", "2015-04-18 20:08:09.288870"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:08:09.313794"], ["updated_at", "2015-04-18 20:08:09.313794"]]
+  [1m[35m (5.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "property_managers" ("name", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Tom"], ["phone", "773-606-6186"], ["created_at", "2015-04-18 20:08:09.324829"], ["updated_at", "2015-04-18 20:08:09.324829"]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4[0m  [["addressable_type", "PropertyManager"], ["addressable_id", 1], ["updated_at", "2015-04-18 20:08:09.327237"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Paul"], ["last_name", "Clegg"], ["email", "clegg@clegg.com"], ["password_digest", "$2a$04$uJXdcMeWw486ZcsgGlvs.e2G4aBF7pGp62Xqaec5KT2cA/u9A5WXO"], ["created_at", "2015-04-18 20:09:41.322266"], ["updated_at", "2015-04-18 20:09:41.322266"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:09:41.405653"], ["updated_at", "2015-04-18 20:09:41.405653"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:09:41.417707"], ["updated_at", "2015-04-18 20:09:41.417707"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "property_managers" ("name", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Tom"], ["phone", "773-606-6186"], ["created_at", "2015-04-18 20:09:41.421580"], ["updated_at", "2015-04-18 20:09:41.421580"]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4[0m  [["addressable_type", "PropertyManager"], ["addressable_id", 2], ["updated_at", "2015-04-18 20:09:41.423209"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Paul"], ["last_name", "Clegg"], ["email", "clegg@clegg.com"], ["password_digest", "$2a$04$spc8VWx9fReuTHI2EepMSeuYcNtUtflyZLNydcfM.BSRzmrTt4YES"], ["created_at", "2015-04-18 20:10:34.648536"], ["updated_at", "2015-04-18 20:10:34.648536"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Paul"], ["last_name", "Clegg"], ["email", "clegg@clegg.com"], ["password_digest", "$2a$04$X2nT2kqOJ8h6H7Stg54hmecRhEuKQrAVCVT/C3UeaMhnLLKcdeEI2"], ["created_at", "2015-04-18 20:10:56.292580"], ["updated_at", "2015-04-18 20:10:56.292580"]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.377410"], ["updated_at", "2015-04-18 20:10:56.377410"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.390016"], ["updated_at", "2015-04-18 20:10:56.390016"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "property_managers" ("name", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Tom"], ["phone", "773-606-6186"], ["created_at", "2015-04-18 20:10:56.394058"], ["updated_at", "2015-04-18 20:10:56.394058"]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4[0m  [["addressable_type", "PropertyManager"], ["addressable_id", 3], ["updated_at", "2015-04-18 20:10:56.395926"], ["id", 6]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "houses" ("name", "house_key", "property_manager_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "The hater house"], ["house_key", "123456"], ["property_manager_id", 3], ["created_at", "2015-04-18 20:10:56.402185"], ["updated_at", "2015-04-18 20:10:56.402185"]]
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4[0m  [["addressable_type", "House"], ["addressable_id", 1], ["updated_at", "2015-04-18 20:10:56.405015"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "do dishes"], ["house_id", 1], ["created_at", "2015-04-18 20:10:56.408914"], ["updated_at", "2015-04-18 20:10:56.408914"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.416582"], ["updated_at", "2015-04-18 20:10:56.416582"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.426701"], ["updated_at", "2015-04-18 20:10:56.426701"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "property_managers" ("name", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Tom"], ["phone", "773-606-6186"], ["created_at", "2015-04-18 20:10:56.435496"], ["updated_at", "2015-04-18 20:10:56.435496"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "PropertyManager"], ["addressable_id", 4], ["updated_at", "2015-04-18 20:10:56.437220"], ["id", 8]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "houses" ("name", "house_key", "property_manager_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The hater house"], ["house_key", "123456"], ["property_manager_id", 4], ["created_at", "2015-04-18 20:10:56.440200"], ["updated_at", "2015-04-18 20:10:56.440200"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "House"], ["addressable_id", 2], ["updated_at", "2015-04-18 20:10:56.441825"], ["id", 7]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.457028"], ["updated_at", "2015-04-18 20:10:56.457028"]]
+  [1m[35m (6.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.466078"], ["updated_at", "2015-04-18 20:10:56.466078"]]
+  [1m[36m (5.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "property_managers" ("name", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Tom"], ["phone", "773-606-6186"], ["created_at", "2015-04-18 20:10:56.473943"], ["updated_at", "2015-04-18 20:10:56.473943"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "PropertyManager"], ["addressable_id", 5], ["updated_at", "2015-04-18 20:10:56.475635"], ["id", 10]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "houses" ("name", "house_key", "property_manager_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The hater house"], ["house_key", "123456"], ["property_manager_id", 5], ["created_at", "2015-04-18 20:10:56.478915"], ["updated_at", "2015-04-18 20:10:56.478915"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "House"], ["addressable_id", 3], ["updated_at", "2015-04-18 20:10:56.480653"], ["id", 9]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Paul"], ["last_name", "Clegg"], ["email", "clegg@clegg.com"], ["password_digest", "$2a$04$rgd4RfNP9eTRiokvFmpdbu/SQoAVDBa/0iWfzaeTMjJV1D18D.u4m"], ["created_at", "2015-04-18 20:10:56.508246"], ["updated_at", "2015-04-18 20:10:56.508246"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.512659"], ["updated_at", "2015-04-18 20:10:56.512659"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.515132"], ["updated_at", "2015-04-18 20:10:56.515132"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "property_managers" ("name", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Tom"], ["phone", "773-606-6186"], ["created_at", "2015-04-18 20:10:56.516828"], ["updated_at", "2015-04-18 20:10:56.516828"]]
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4[0m  [["addressable_type", "PropertyManager"], ["addressable_id", 6], ["updated_at", "2015-04-18 20:10:56.517972"], ["id", 12]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "houses" ("name", "house_key", "property_manager_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "The hater house"], ["house_key", "123456"], ["property_manager_id", 6], ["created_at", "2015-04-18 20:10:56.519817"], ["updated_at", "2015-04-18 20:10:56.519817"]]
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4[0m  [["addressable_type", "House"], ["addressable_id", 4], ["updated_at", "2015-04-18 20:10:56.520855"], ["id", 11]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "housing_assignments" ("user_id", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 5], ["house_id", 4], ["created_at", "2015-04-18 20:10:56.524067"], ["updated_at", "2015-04-18 20:10:56.524067"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.530740"], ["updated_at", "2015-04-18 20:10:56.530740"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.533560"], ["updated_at", "2015-04-18 20:10:56.533560"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "property_managers" ("name", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Tom"], ["phone", "773-606-6186"], ["created_at", "2015-04-18 20:10:56.535372"], ["updated_at", "2015-04-18 20:10:56.535372"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "PropertyManager"], ["addressable_id", 7], ["updated_at", "2015-04-18 20:10:56.536718"], ["id", 14]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Paul"], ["last_name", "Clegg"], ["email", "clegg@clegg.com"], ["password_digest", "$2a$04$kHj.tuK4bD1cjrWpyuFdwu8cWLkhuTjpSiABFXyAVf3mbambY/a/S"], ["created_at", "2015-04-18 20:10:56.545037"], ["updated_at", "2015-04-18 20:10:56.545037"]]
+  [1m[35m (5.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.555379"], ["updated_at", "2015-04-18 20:10:56.555379"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.565689"], ["updated_at", "2015-04-18 20:10:56.565689"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "property_managers" ("name", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Tom"], ["phone", "773-606-6186"], ["created_at", "2015-04-18 20:10:56.568514"], ["updated_at", "2015-04-18 20:10:56.568514"]]
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4[0m  [["addressable_type", "PropertyManager"], ["addressable_id", 8], ["updated_at", "2015-04-18 20:10:56.570023"], ["id", 16]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "houses" ("name", "house_key", "property_manager_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "The hater house"], ["house_key", "123456"], ["property_manager_id", 8], ["created_at", "2015-04-18 20:10:56.572839"], ["updated_at", "2015-04-18 20:10:56.572839"]]
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4[0m  [["addressable_type", "House"], ["addressable_id", 5], ["updated_at", "2015-04-18 20:10:56.574319"], ["id", 15]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "rules" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["content", "Flush the toilet"], ["created_at", "2015-04-18 20:10:56.649751"], ["updated_at", "2015-04-18 20:10:56.649751"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Paul"], ["last_name", "Clegg"], ["email", "clegg@clegg.com"], ["password_digest", "$2a$04$tpol53ILnEEj8jcvraedZe7bkxcqHBpcDVfpiCceao4z1yvZOAtC."], ["created_at", "2015-04-18 20:10:56.656361"], ["updated_at", "2015-04-18 20:10:56.656361"]]
+  [1m[35m (6.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Paul"], ["last_name", "Clegg"], ["email", "clegg@clegg.com"], ["password_digest", "$2a$04$JceJxOKnOco4jfFeqBaQ4edjc3oPF2O3qiBP9CRPL4Xw.UcvOF8FO"], ["created_at", "2015-04-18 20:10:56.678519"], ["updated_at", "2015-04-18 20:10:56.678519"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.688443"], ["updated_at", "2015-04-18 20:10:56.688443"]]
+  [1m[35m (4.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.697078"], ["updated_at", "2015-04-18 20:10:56.697078"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "property_managers" ("name", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Tom"], ["phone", "773-606-6186"], ["created_at", "2015-04-18 20:10:56.699381"], ["updated_at", "2015-04-18 20:10:56.699381"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "PropertyManager"], ["addressable_id", 9], ["updated_at", "2015-04-18 20:10:56.700627"], ["id", 18]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "houses" ("name", "house_key", "property_manager_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The hater house"], ["house_key", "123456"], ["property_manager_id", 9], ["created_at", "2015-04-18 20:10:56.702857"], ["updated_at", "2015-04-18 20:10:56.702857"]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "House"], ["addressable_id", 6], ["updated_at", "2015-04-18 20:10:56.704071"], ["id", 17]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "housing_assignments" ("user_id", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 8], ["house_id", 6], ["created_at", "2015-04-18 20:10:56.706482"], ["updated_at", "2015-04-18 20:10:56.706482"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.713104"], ["updated_at", "2015-04-18 20:10:56.713104"]]
+  [1m[36m (6.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.738999"], ["updated_at", "2015-04-18 20:10:56.738999"]]
+  [1m[35m (6.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-18 20:10:56.748490"], ["updated_at", "2015-04-18 20:10:56.748490"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "property_managers" ("name", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Tom"], ["phone", "773-606-6186"], ["created_at", "2015-04-18 20:10:56.751119"], ["updated_at", "2015-04-18 20:10:56.751119"]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "PropertyManager"], ["addressable_id", 10], ["updated_at", "2015-04-18 20:10:56.752657"], ["id", 21]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "houses" ("name", "house_key", "property_manager_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The hater house"], ["house_key", "123456"], ["property_manager_id", 10], ["created_at", "2015-04-18 20:10:56.755845"], ["updated_at", "2015-04-18 20:10:56.755845"]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "House"], ["addressable_id", 7], ["updated_at", "2015-04-18 20:10:56.757393"], ["id", 20]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "do dishes"], ["house_id", 7], ["created_at", "2015-04-18 20:10:56.760003"], ["updated_at", "2015-04-18 20:10:56.760003"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Paul"], ["last_name", "Clegg"], ["email", "clegg@clegg.com"], ["password_digest", "$2a$04$IcYpUJf87BxhW5Tg8M./P.PqVRV/XNEapmmLMrLlm20KhGCNLMlm6"], ["created_at", "2015-04-18 20:10:56.766664"], ["updated_at", "2015-04-18 20:10:56.766664"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (59.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
