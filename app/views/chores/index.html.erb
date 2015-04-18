@@ -14,6 +14,6 @@
   <%= form_for :chore, url: house_chores_path(@house) do |f| %>
   <%= f.label :task %>
   <%= f.text_field :task %><br><br>
-  <%= f.submit "Send Message" %>
+  <%= f.submit "Send Message", :class => "button" %>
   <% end %>
 </div>

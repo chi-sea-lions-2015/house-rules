@@ -10,6 +10,6 @@
   <h4>New Message</h4>
   <%= form_for :message, url: house_messages_path(@house) do |f| %>
   <%= f.text_area :content %><br><br>
-  <%= f.submit "Send Message" %>
+  <%= f.submit "Send Message", :class => "button"  %>
   <% end %>
 </div>

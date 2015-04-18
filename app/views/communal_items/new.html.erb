@@ -4,9 +4,9 @@
   Name: <%= f.text_field :name %><br><br>
   Brand: <%= f.text_field :brand %><br><br>
   Quantity: <%= f.text_field :quantity %><br><br>
-  Stock Level: 
+  Stock Level:
   <%= f.select :stock_level, options_for_select([["Select One", ""], "high", "low", "out"]) %>
   <br><br>
-  <%= f.submit %>
+  <%= f.submit, "New Item", :class => "button"  %>
   <% end %>
 </div>
