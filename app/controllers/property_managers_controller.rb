@@ -21,6 +21,19 @@ class PropertyManagersController < ApplicationController
     end
   end
 
+  def edit
+    @house = House.find(params[:house_id])
+    @manager = PropertyManager.find(params[:id])
+    @address = @manager.address
+  end
+
+  def update
+    @house = House.find(params[:house_id])
+    @manager = PropertyManager.find(params[:id])
+    @manager.update(property_manager_params)
+    redirect_to house_path(@house)
+  end
+
   private
 
   def property_manager_params

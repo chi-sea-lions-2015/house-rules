@@ -1,11 +1,13 @@
 class HousesController < ApplicationController
 
-  def index
-  end
+  # def index
+  # end
 
   def show
     @house = House.find(params[:id])
+    @property_manager = @house.property_manager
     @assignment = HousingAssignment.where(user: current_user, house: @house.id)
+    @messages = @house.messages
   end
 
   def new
@@ -28,11 +30,12 @@ class HousesController < ApplicationController
     end
   end
 
-  # def edit
-  # end
+  def edit
+    @house = House.find(params[:id])
+  end
 
-  # def update
-  # end
+  def update
+  end
 
   # def destroy
   # end
