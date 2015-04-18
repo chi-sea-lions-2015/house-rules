@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get    '/'  => 'sessions#new'
   get    'signup'  => 'users#new'
   post   'users'   => 'users#create'
   get    'login'   => 'sessions#new'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   resources :houses do
     resources :property_managers
     resources :messages
+    resources :rules
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

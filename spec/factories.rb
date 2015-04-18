@@ -1,5 +1,6 @@
 FactoryGirl.define do
 
+
   factory :chore do
     task "do dishes"
     house
@@ -78,7 +79,7 @@ FactoryGirl.define do
 
   factory :rule do
     content "Flush the toilet"
-    housing_assignment
+    # housing_assignment
   end
 
   factory :rule_issue, class: "Issue" do

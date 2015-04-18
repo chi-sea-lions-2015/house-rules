@@ -1,12 +1,3 @@
-<h2><%= @house.name %>!</h2>
-<% if @property_manager == nil %>
-<%= link_to "Add Property Management Info", new_house_property_manager_path(@house) %>
-<% else %>
-Your property manager:
-<%= @house.property_manager.name %>
-<%= link_to "Edit", edit_house_property_manager_path(@house, @property_manager) %>
-<% end %>
-<br><br>
 <div id="messages">
 <% if @messages != nil %>
   <h4>Messages:</h4>
@@ -15,7 +6,6 @@ Your property manager:
   <% end %>
 <% end %>
 </div>
-
 <div>
   <h4>New Message</h4>
   <%= form_for :message, url: house_messages_path(@house) do |f| %>
