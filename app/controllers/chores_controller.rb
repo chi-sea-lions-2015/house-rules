@@ -3,7 +3,15 @@ class ChoresController < ApplicationController
   def index
     # @chores = Chore.select("id, task").to_json
     @house = House.find(params[:house_id])
-    @chores = @house.chores
+    puts @house.id
+    @presenter = {
+      :chores => @house.chores,
+      :form => {
+        :action => house_chores_path(@house),
+        :csrf_param => request_forgery_protection_token,
+        :csrf_token => form_authenticity_token
+      }
+    }
   end
 
   def update
@@ -23,7 +31,10 @@ class ChoresController < ApplicationController
     @user = current_user
     @house = House.find_by(id: params[:house_id])
     @chore = @house.chores.new(chore_params)
-    if @chore.save
+    @chore.save
+    if request.xhr?
+      render :json => @house.chores
+    else
       redirect_to house_chores_path
     end
   end

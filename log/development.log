@@ -19040,3 +19040,1163 @@ Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a
 
 
 Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:00:12 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.6ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 657ms (Views: 512.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-a5f7e8520cad611ea04b5c3f70a5f29f7b55e21f4dcff6b09fb364fc9e49d4a7.js?body=1" for ::1 at 2015-04-18 21:00:13 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-261d674a00a74d8756f4e4bd6026c6b3543a755ef60cb010838f078f10552d69.js?body=1" for ::1 at 2015-04-18 21:00:13 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-1a3024ecc79f93711b51a68c0191b72a189cf712dc13313623a31931827bb3ec.js?body=1" for ::1 at 2015-04-18 21:00:13 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:00:13 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:00:38 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.6ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.2ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 449ms (Views: 445.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-840471783a0d1d94b7d99d4f81984e78813234450a270ff7babc2f35018a5258.js?body=1" for ::1 at 2015-04-18 21:00:38 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:01:59 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.8ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.3ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 111ms (Views: 78.7ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-1a3024ecc79f93711b51a68c0191b72a189cf712dc13313623a31931827bb3ec.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-a5f7e8520cad611ea04b5c3f70a5f29f7b55e21f4dcff6b09fb364fc9e49d4a7.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-840471783a0d1d94b7d99d4f81984e78813234450a270ff7babc2f35018a5258.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:01:59 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:02:01 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.4ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.2ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 75ms (Views: 71.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-1a3024ecc79f93711b51a68c0191b72a189cf712dc13313623a31931827bb3ec.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-a5f7e8520cad611ea04b5c3f70a5f29f7b55e21f4dcff6b09fb364fc9e49d4a7.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-840471783a0d1d94b7d99d4f81984e78813234450a270ff7babc2f35018a5258.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:02:01 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 21:03:08 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 157ms (Views: 79.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:04:18 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered chores/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 102ms (Views: 70.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:05:22 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mChore Load (0.8ms)[0m  [1mSELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mIssue Load (0.3ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."issuable_id" = $1 AND "issues"."issuable_type" = $2  [["issuable_id", 1], ["issuable_type", "Chore"]]
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/apprentice/Desktop/Sara/house-rules/app/models/user.rb:4)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mIssue Load (0.7ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."issuable_id" = $1 AND "issues"."issuable_type" = $2[0m  [["issuable_id", 2], ["issuable_type", "Chore"]]
+  [1m[35mIssue Load (0.2ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."issuable_id" = $1 AND "issues"."issuable_type" = $2  [["issuable_id", 3], ["issuable_type", "Chore"]]
+  [1m[36mIssue Load (0.5ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."issuable_id" = $1 AND "issues"."issuable_type" = $2[0m  [["issuable_id", 4], ["issuable_type", "Chore"]]
+  [1m[35mIssue Load (0.2ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."issuable_id" = $1 AND "issues"."issuable_type" = $2  [["issuable_id", 5], ["issuable_type", "Chore"]]
+  [1m[36mIssue Load (0.8ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."issuable_id" = $1 AND "issues"."issuable_type" = $2[0m  [["issuable_id", 6], ["issuable_type", "Chore"]]
+  Rendered chores/index.html.erb within layouts/application (87.1ms)
+Completed 200 OK in 320ms (Views: 310.4ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-1a3024ecc79f93711b51a68c0191b72a189cf712dc13313623a31931827bb3ec.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-a5f7e8520cad611ea04b5c3f70a5f29f7b55e21f4dcff6b09fb364fc9e49d4a7.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-840471783a0d1d94b7d99d4f81984e78813234450a270ff7babc2f35018a5258.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:05:22 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:05:23 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:05:23 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:05:23 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:05:23 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:05:23 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:05:23 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:05:23 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:05:23 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 21:07:11 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (1.1ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.3ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 597ms (Views: 554.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:07:12 -0500
+
+
+Started POST "/houses/1/rules" for ::1 at 2015-04-18 21:07:19 -0500
+Processing by RulesController#create as JSON
+  Parameters: {"authenticity_token"=>"27z7ZkB+GLUiw9NXcuOxhc/nW+oY4ysIMpiyQfFKOCMHt6HKTVp3MmDVVnBNVBM+RP0Qm9ax1+wiRJ6diiv7tA==", "rule"=>{"content"=>"Be awesome!!"}, "house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.2ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1  [["house_id", 1], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "rules" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Be awesome!!"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 02:07:19.703680"], ["updated_at", "2015-04-19 02:07:19.703680"]]
+  [1m[36m (81.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mRule Load (0.3ms)[0m  SELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+Completed 200 OK in 103ms (Views: 2.6ms | ActiveRecord: 83.4ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:14:42 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered chores/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 577ms (Views: 500.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:14:43 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.8ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered chores/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 74ms (Views: 70.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-fba5df714e1c99070ca7a4853f8ca3faacdc473112889bfc8c729428b2f14565.js?body=1" for ::1 at 2015-04-18 21:14:43 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-4dae51c8b6d573b281028f67358445a22b16ab9bb31012dd86b23d96fc8b9579.js?body=1" for ::1 at 2015-04-18 21:14:43 -0500
+
+
+Started POST "/houses/1/chores" for ::1 at 2015-04-18 21:14:50 -0500
+Processing by ChoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ej5qN4a+ZjKB5082g+Y0Y0h80Ob0Q58oIP2JfAp0CwLONTCbi5oJtcPxyhG8UZbYw2ablzoRY8wwIaWgcRXIlQ==", "chore"=>{"task"=>"yay!"}, "commit"=>"Send Message", "house_id"=>"1"}
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/apprentice/Desktop/Sara/house-rules/app/models/user.rb:4)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.4ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (7.1ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "yay!"], ["house_id", 1], ["created_at", "2015-04-19 02:14:50.282292"], ["updated_at", "2015-04-19 02:14:50.282292"]]
+  [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/houses/1/chores
+Completed 302 Found in 71ms (ActiveRecord: 25.9ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:14:50 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.4ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered chores/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 199ms (Views: 196.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:15:48 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.3ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 81ms (Views: 78.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-4dae51c8b6d573b281028f67358445a22b16ab9bb31012dd86b23d96fc8b9579.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-fba5df714e1c99070ca7a4853f8ca3faacdc473112889bfc8c729428b2f14565.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-840471783a0d1d94b7d99d4f81984e78813234450a270ff7babc2f35018a5258.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:15:48 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:15:58 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.7ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.4ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 72ms (Views: 68.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-4dae51c8b6d573b281028f67358445a22b16ab9bb31012dd86b23d96fc8b9579.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-fba5df714e1c99070ca7a4853f8ca3faacdc473112889bfc8c729428b2f14565.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-840471783a0d1d94b7d99d4f81984e78813234450a270ff7babc2f35018a5258.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:15:59 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:17:34 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.5ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.2ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 246ms (Views: 243.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-4dae51c8b6d573b281028f67358445a22b16ab9bb31012dd86b23d96fc8b9579.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-fba5df714e1c99070ca7a4853f8ca3faacdc473112889bfc8c729428b2f14565.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-840471783a0d1d94b7d99d4f81984e78813234450a270ff7babc2f35018a5258.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:17:35 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:18:08 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.4ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.4ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 588ms (Views: 584.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:18:08 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:18:08 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:18:08 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:18:08 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-7e17219280a36ede73f81a60cb97d0fb78a798a346d1b470c721e8478ddbd91f.js?body=1" for ::1 at 2015-04-18 21:18:08 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:18:08 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:18:08 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-4dae51c8b6d573b281028f67358445a22b16ab9bb31012dd86b23d96fc8b9579.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-fba5df714e1c99070ca7a4853f8ca3faacdc473112889bfc8c729428b2f14565.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:18:09 -0500
+  [1m[36mChore Load (0.8ms)[0m  [1mSELECT "chores".* FROM "chores"[0m
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:24:21 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.5ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.3ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 336ms (Views: 288.4ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:24:21 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:24:21 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:24:21 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-4dae51c8b6d573b281028f67358445a22b16ab9bb31012dd86b23d96fc8b9579.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-fba5df714e1c99070ca7a4853f8ca3faacdc473112889bfc8c729428b2f14565.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-7e17219280a36ede73f81a60cb97d0fb78a798a346d1b470c721e8478ddbd91f.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:24:22 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:29:02 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.3ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 132ms (Views: 78.0ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-4dae51c8b6d573b281028f67358445a22b16ab9bb31012dd86b23d96fc8b9579.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-fba5df714e1c99070ca7a4853f8ca3faacdc473112889bfc8c729428b2f14565.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-7e17219280a36ede73f81a60cb97d0fb78a798a346d1b470c721e8478ddbd91f.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:29:03 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:30:10 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.8ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 261ms (Views: 80.6ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-4dae51c8b6d573b281028f67358445a22b16ab9bb31012dd86b23d96fc8b9579.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-7e17219280a36ede73f81a60cb97d0fb78a798a346d1b470c721e8478ddbd91f.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-fba5df714e1c99070ca7a4853f8ca3faacdc473112889bfc8c729428b2f14565.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:30:11 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:30:46 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.4ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 109ms (Views: 76.0ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-4dae51c8b6d573b281028f67358445a22b16ab9bb31012dd86b23d96fc8b9579.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-7e17219280a36ede73f81a60cb97d0fb78a798a346d1b470c721e8478ddbd91f.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-fba5df714e1c99070ca7a4853f8ca3faacdc473112889bfc8c729428b2f14565.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:30:46 -0500
+
+
+Started POST "/houses/1/chores" for ::1 at 2015-04-18 21:31:32 -0500
+Processing by ChoresController#create as JSON
+  Parameters: {"authenticity_token"=>"QV2W6ej6/MhJdB/KnHAFaUuLEoC5sihPHyiLMDilDtudVsxF5d6TTwtimu2jx6fSwJFZ8Xfg1KsP9KfsQ8TNTA==", "rule"=>{"task"=>"Yay for chores!"}, "house_id"=>"1"}
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/apprentice/Desktop/Sara/house-rules/app/models/user.rb:4)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 38ms (ActiveRecord: 2.3ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: chore):
+  app/controllers/chores_controller.rb:46:in `chore_params'
+  app/controllers/chores_controller.rb:33:in `create'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (31.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (53.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (119.5ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:32:42 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (0.2ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 672ms (Views: 669.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-4dae51c8b6d573b281028f67358445a22b16ab9bb31012dd86b23d96fc8b9579.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-a5f7e8520cad611ea04b5c3f70a5f29f7b55e21f4dcff6b09fb364fc9e49d4a7.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-7e17219280a36ede73f81a60cb97d0fb78a798a346d1b470c721e8478ddbd91f.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:32:42 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:32:43 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:32:43 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:32:43 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:32:43 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:32:43 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-18 21:32:54 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.7ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChore Load (1.7ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  Rendered chores/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 465ms (Views: 459.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/chores/_chore.self-8d3529cd4ac83a620169e49f97d0b584dafa008901c9ff2c659510ae837addb8.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_list.self-840471783a0d1d94b7d99d4f81984e78813234450a270ff7babc2f35018a5258.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_form.self-a5f7e8520cad611ea04b5c3f70a5f29f7b55e21f4dcff6b09fb364fc9e49d4a7.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started GET "/assets/react_components/chores/_chore_box.self-4dae51c8b6d573b281028f67358445a22b16ab9bb31012dd86b23d96fc8b9579.js?body=1" for ::1 at 2015-04-18 21:32:55 -0500
+
+
+Started POST "/houses/1/chores" for ::1 at 2015-04-18 21:33:03 -0500
+Processing by ChoresController#create as JSON
+  Parameters: {"authenticity_token"=>"BU2QhH5PiZGVu6HRwpODt14neQxrNvTppti+Pd1PjEXZRsooc2vmFtetJPb9JCEM1T0yfaVkCA22BJLhpi5P0g==", "chore"=>{"task"=>"it works!!"}, "house_id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "it works!!"], ["house_id", 1], ["created_at", "2015-04-19 02:33:03.305667"], ["updated_at", "2015-04-19 02:33:03.305667"]]
+  [1m[36m (43.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mChore Load (0.3ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+Completed 200 OK in 55ms (Views: 3.1ms | ActiveRecord: 46.0ms)
