@@ -1,5 +1,5 @@
 class ChoresController < ApplicationController
-
+  skip_before_action :authenticate_user_from_token!, only: [:index, :show]
   def index
     @chores = Chore.select("id, task").to_json
   end

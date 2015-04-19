@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-
+  skip_before_action :authenticate_user_from_token!, only: [:index, :show]
   def create
     @user = current_user
     @house = House.find_by(id: params[:house_id])

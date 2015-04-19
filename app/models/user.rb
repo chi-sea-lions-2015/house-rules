@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :validatable
-  has_secure_password
 
   after_create :update_access_token!
 
@@ -25,10 +24,17 @@ class User < ActiveRecord::Base
   # validates :email, :uniqueness => true, :format => /.+@.+\..+/
   validates :password, :length => { :minimum => 6 }
 
-private
+  private
 
-def update_access_token!
+  def update_access_token!
     self.access_token = "#{self.id}:#{Devise.friendly_token}"
     save
+  end
+
+  def generate_access_token
+    loop do
+      token = "#{self.id}:#{Devise.friendly_token}"
+      break token unless User.where(access_token: token).first
+    end
   end
 end

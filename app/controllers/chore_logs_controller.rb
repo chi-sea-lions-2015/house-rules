@@ -1,5 +1,5 @@
 class ChoreLogsController < ApplicationController
-
+  skip_before_action :authenticate_user_from_token!, only: [:index, :show]
   def index
     @user = current_user
     @house = House.find_by(id: params[:house_id])

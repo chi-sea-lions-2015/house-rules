@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  gitskip_before_action :authenticate_user_from_token!, only: [:create]
   def show
     @user = User.find(params[:id])
   end
