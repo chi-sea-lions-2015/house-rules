@@ -17902,3 +17902,1282 @@ ORDER BY c.conname
   [1m[35m (0.1ms)[0m  BEGIN
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Say hello like a fucking normal person"], ["house_id", 1], ["created_at", "2015-04-19 03:46:50.118460"], ["updated_at", "2015-04-19 03:46:50.118460"]]
   [1m[35m (0.3ms)[0m  COMMIT
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 22:48:15 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"Zlake", "first_name"=>"Z", "last_name"=>"H", "email"=>"z@z.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "zlake"]]
+Completed 422 Unprocessable Entity in 56ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mHouse Load (2.6ms)[0m  [1mSELECT "houses".* FROM "houses"[0m
+  [1m[35mAddress Load (0.8ms)[0m  SELECT "addresses".* FROM "addresses"
+  [1m[36mPropertyManager Load (0.6ms)[0m  [1mSELECT "property_managers".* FROM "property_managers"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'addresses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chore_logs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chores'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'communal_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'houses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'housing_assignments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'issues'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'property_managers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'rules'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'user_promises'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'paul@paul.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("username", "first_name", "last_name", "email", "encrypted_password", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "PaulMall"], ["first_name", "Paul"], ["last_name", "clegg"], ["email", "paul@paul.com"], ["encrypted_password", "$2a$10$0cUNPgPtX1trWa2Dedo.nOPps4udlUIecPDvPL0wlqt1nr3yAtu0G"], ["phone", "773-355-1422"], ["created_at", "2015-04-19 03:56:00.576465"], ["updated_at", "2015-04-19 03:56:00.576465"]]
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'paul@paul.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "username" = $1, "first_name" = $2, "last_name" = $3, "email" = $4, "encrypted_password" = $5, "phone" = $6, "created_at" = $7, "updated_at" = $8, "id" = $9, "access_token" = $10 WHERE "users"."id" = $11  [["username", "PaulMall"], ["first_name", "Paul"], ["last_name", "clegg"], ["email", "paul@paul.com"], ["encrypted_password", "$2a$10$0cUNPgPtX1trWa2Dedo.nOPps4udlUIecPDvPL0wlqt1nr3yAtu0G"], ["phone", "773-355-1422"], ["created_at", "2015-04-19 03:56:00.576465"], ["updated_at", "2015-04-19 03:56:00.576465"], ["id", 1], ["access_token", "1:Af_yQgLHByjSksixjqEY"], ["id", 1]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-19 03:56:00.610007"], ["updated_at", "2015-04-19 03:56:00.610007"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "4950 N Marine Dr Apt 103"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-19 03:56:00.618812"], ["updated_at", "2015-04-19 03:56:00.618812"]]
+  [1m[36m (5.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "property_managers" ("name", "phone", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tom"], ["phone", "773-606-6186"], ["email", "tom@tom.com"], ["created_at", "2015-04-19 03:56:00.646607"], ["updated_at", "2015-04-19 03:56:00.646607"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "PropertyManager"], ["addressable_id", 2], ["updated_at", "2015-04-19 03:56:00.648428"], ["id", 3]]
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "houses" ("name", "house_key", "property_manager_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Hater House"], ["house_key", "igeekallweek"], ["property_manager_id", 2], ["created_at", "2015-04-19 03:56:00.677064"], ["updated_at", "2015-04-19 03:56:00.677064"]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "House"], ["addressable_id", 2], ["updated_at", "2015-04-19 03:56:00.679234"], ["id", 4]]
+  [1m[36m (5.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "housing_assignments" ("user_id", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["house_id", 2], ["created_at", "2015-04-19 03:56:00.700429"], ["updated_at", "2015-04-19 03:56:00.700429"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "rules" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Flush the toilet"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 03:56:00.718596"], ["updated_at", "2015-04-19 03:56:00.718596"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Do the dishes"], ["house_id", 1], ["created_at", "2015-04-19 03:56:00.740810"], ["updated_at", "2015-04-19 03:56:00.740810"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "Mop the floor"], ["house_id", 1], ["created_at", "2015-04-19 03:56:00.749713"], ["updated_at", "2015-04-19 03:56:00.749713"]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "chore_logs" ("user_id", "chore_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["chore_id", 8], ["created_at", "2015-04-19 03:56:00.808025"], ["updated_at", "2015-04-19 03:56:00.808025"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "events" ("name", "date", "description", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "Halloween Party"], ["date", "2013-09-12 22:49:27.000000"], ["description", "Costume party!!"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 03:56:00.823311"], ["updated_at", "2015-04-19 03:56:00.823311"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "communal_items" ("name", "brand", "quantity", "house_id", "stock_level", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "toilet paper"], ["brand", "charmin"], ["quantity", 12], ["house_id", 1], ["stock_level", "low"], ["created_at", "2015-04-19 03:56:00.844720"], ["updated_at", "2015-04-19 03:56:00.844720"]]
+  [1m[35m (6.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "messages" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "You're the best!!"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 03:56:00.865465"], ["updated_at", "2015-04-19 03:56:00.865465"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["reason", "I HATE PAUL!!"], ["user_id", 1], ["issuable_id", 7], ["issuable_type", "Chore"], ["created_at", "2015-04-19 03:56:00.897272"], ["updated_at", "2015-04-19 03:56:00.897272"]]
+  [1m[35m (6.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["reason", "I hate paper towel"], ["user_id", 1], ["issuable_id", 2], ["issuable_type", "CommunalItem"], ["created_at", "2015-04-19 03:56:00.908619"], ["updated_at", "2015-04-19 03:56:00.908619"]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["reason", "I hate halloween"], ["user_id", 1], ["issuable_id", 2], ["issuable_type", "Event"], ["created_at", "2015-04-19 03:56:00.918133"], ["updated_at", "2015-04-19 03:56:00.918133"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["reason", "I hate flushing!!"], ["user_id", 1], ["issuable_id", 2], ["issuable_type", "Rule"], ["created_at", "2015-04-19 03:56:00.922445"], ["updated_at", "2015-04-19 03:56:00.922445"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "user_promises" ("user_id", "fulfilled", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["fulfilled", "t"], ["promisable_id", 7], ["promisable_type", "Chore"], ["created_at", "2015-04-19 03:56:00.939374"], ["updated_at", "2015-04-19 03:56:00.939374"]]
+  [1m[35m (5.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "user_promises" ("user_id", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 1], ["promisable_id", 7], ["promisable_type", "Chore"], ["created_at", "2015-04-19 03:56:00.948452"], ["updated_at", "2015-04-19 03:56:00.948452"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "user_promises" ("user_id", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["promisable_id", 2], ["promisable_type", "CommunalItem"], ["created_at", "2015-04-19 03:56:00.952232"], ["updated_at", "2015-04-19 03:56:00.952232"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "user_promises" ("user_id", "fulfilled", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["fulfilled", "t"], ["promisable_id", 2], ["promisable_type", "CommunalItem"], ["created_at", "2015-04-19 03:56:00.954064"], ["updated_at", "2015-04-19 03:56:00.954064"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Take out trash if it smells"], ["house_id", 1], ["created_at", "2015-04-19 03:56:00.956048"], ["updated_at", "2015-04-19 03:56:00.956048"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "Wash your face"], ["house_id", 1], ["created_at", "2015-04-19 03:56:00.958017"], ["updated_at", "2015-04-19 03:56:00.958017"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Get out of my face"], ["house_id", 1], ["created_at", "2015-04-19 03:56:00.959748"], ["updated_at", "2015-04-19 03:56:00.959748"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "Say hello like a fucking normal person"], ["house_id", 1], ["created_at", "2015-04-19 03:56:00.961453"], ["updated_at", "2015-04-19 03:56:00.961453"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150416210314)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (30.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "phone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150416210314"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAddresses (20150416210715)
+  [1m[35m (5.4ms)[0m  BEGIN
+  [1m[36m (13.6ms)[0m  [1mCREATE TABLE "addresses" ("id" serial primary key, "street" character varying, "city" character varying, "state" character varying, "zip_code" integer, "addressable_id" integer, "addressable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (5.0ms)[0m  CREATE  INDEX  "index_addresses_on_addressable_type_and_addressable_id" ON "addresses"  ("addressable_type", "addressable_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416210715"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreatePropertyManagers (20150416210951)
+  [1m[36m (6.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (14.1ms)[0m  CREATE TABLE "property_managers" ("id" serial primary key, "name" character varying, "phone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416210951"]]
+  [1m[35m (2.9ms)[0m  COMMIT
+Migrating to CreateHouses (20150416211341)
+  [1m[36m (11.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (13.0ms)[0m  CREATE TABLE "houses" ("id" serial primary key, "name" character varying, "house_key" character varying, "property_manager_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_houses_on_property_manager_id" ON "houses"  ("property_manager_id")[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "houses" ADD CONSTRAINT "fk_rails_fca970acce"
+FOREIGN KEY ("property_manager_id")
+  REFERENCES "property_managers" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211341"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Migrating to CreateHousingAssignments (20150416211419)
+  [1m[36m (5.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (7.0ms)[0m  CREATE TABLE "housing_assignments" ("id" serial primary key, "user_id" integer, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (33.7ms)[0m  [1mCREATE  INDEX  "index_housing_assignments_on_user_id" ON "housing_assignments"  ("user_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_housing_assignments_on_house_id" ON "housing_assignments"  ("house_id")
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_c9acd19e64"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_940a2b850f"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211419"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateRules (20150416211922)
+  [1m[36m (5.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (13.8ms)[0m  CREATE TABLE "rules" ("id" serial primary key, "content" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (4.9ms)[0m  [1mCREATE  INDEX  "index_rules_on_housing_assignment_id" ON "rules"  ("housing_assignment_id")[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "rules" ADD CONSTRAINT "fk_rails_af3a036cef"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211922"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Migrating to CreateChores (20150416211959)
+  [1m[36m (5.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (18.4ms)[0m  CREATE TABLE "chores" ("id" serial primary key, "task" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_chores_on_house_id" ON "chores"  ("house_id")[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "chores" ADD CONSTRAINT "fk_rails_afe0a63c1d"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211959"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateChoreLogs (20150416212124)
+  [1m[36m (6.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (7.1ms)[0m  CREATE TABLE "chore_logs" ("id" serial primary key, "user_id" integer, "chore_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (6.3ms)[0m  [1mCREATE  INDEX  "index_chore_logs_on_user_id" ON "chore_logs"  ("user_id")[0m
+  [1m[35m (5.2ms)[0m  CREATE  INDEX  "index_chore_logs_on_chore_id" ON "chore_logs"  ("chore_id")
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_7000e176e9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_61500d5c17"
+FOREIGN KEY ("chore_id")
+  REFERENCES "chores" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212124"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateEvents (20150416212247)
+  [1m[36m (5.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (13.9ms)[0m  CREATE TABLE "events" ("id" serial primary key, "creator_id" integer, "name" character varying, "date" timestamp, "description" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (5.6ms)[0m  [1mCREATE  INDEX  "index_events_on_housing_assignment_id" ON "events"  ("housing_assignment_id")[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "events" ADD CONSTRAINT "fk_rails_037b949f1d"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212247"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateCommunalItems (20150416212642)
+  [1m[36m (6.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (14.1ms)[0m  CREATE TABLE "communal_items" ("id" serial primary key, "name" character varying, "brand" character varying, "quantity" integer, "stock_level" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (4.8ms)[0m  [1mCREATE  INDEX  "index_communal_items_on_house_id" ON "communal_items"  ("house_id")[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "communal_items" ADD CONSTRAINT "fk_rails_a48b235da7"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212642"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateMessages (20150416212824)
+  [1m[36m (6.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (20.7ms)[0m  CREATE TABLE "messages" ("id" serial primary key, "content" character varying, "author_id" integer, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_messages_on_housing_assignment_id" ON "messages"  ("housing_assignment_id")[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "messages" ADD CONSTRAINT "fk_rails_0915f586e0"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212824"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateIssues (20150416213117)
+  [1m[36m (5.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (20.3ms)[0m  CREATE TABLE "issues" ("id" serial primary key, "reason" character varying, "user_id" integer, "issuable_id" integer, "issuable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_issues_on_user_id" ON "issues"  ("user_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_issues_on_issuable_type_and_issuable_id" ON "issues"  ("issuable_type", "issuable_id")
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "issues" ADD CONSTRAINT "fk_rails_f8f1052133"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150416213117"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserPromises (20150416213208)
+  [1m[35m (6.0ms)[0m  BEGIN
+  [1m[36m (13.7ms)[0m  [1mCREATE TABLE "user_promises" ("id" serial primary key, "fulfilled" boolean DEFAULT 'f', "user_id" integer, "promisable_id" integer, "promisable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (6.2ms)[0m  CREATE  INDEX  "index_user_promises_on_user_id" ON "user_promises"  ("user_id")
+  [1m[36m (6.7ms)[0m  [1mCREATE  INDEX  "index_user_promises_on_promisable_type_and_promisable_id" ON "user_promises"  ("promisable_type", "promisable_id")[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "user_promises" ADD CONSTRAINT "fk_rails_3b54a6f768"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416213208"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+Migrating to AddAttachmentAvatarToUsers (20150417175305)
+  [1m[36m (6.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "avatar_file_name" character varying
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "avatar_content_type" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "avatar_file_size" integer
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "avatar_updated_at" timestamp[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150417175305"]]
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+Migrating to AddDeviseToUsers (20150419013613)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ALTER COLUMN "email" TYPE character varying[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ALTER COLUMN "email" SET DEFAULT ''
+  [1m[36m (0.2ms)[0m  [1mUPDATE "users" SET "email"='' WHERE "email" IS NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ALTER "email" SET NOT NULL
+  [1m[36m (3.4ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "reset_password_token" character varying
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "reset_password_sent_at" timestamp[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "remember_created_at" timestamp
+  [1m[36m (2.5ms)[0m  [1mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "current_sign_in_at" timestamp
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_at" timestamp[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "current_sign_in_ip" inet
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_ip" inet[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150419013613"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddAccessTokenToUser (20150419014546)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "access_token" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "username" character varying
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150419014546"]]
+  [1m[35m (5.9ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'addresses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chore_logs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chores'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'communal_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'houses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'housing_assignments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'issues'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'property_managers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'rules'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'user_promises'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'paul@paul.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("username", "first_name", "last_name", "email", "encrypted_password", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "PaulMall"], ["first_name", "Paul"], ["last_name", "clegg"], ["email", "paul@paul.com"], ["encrypted_password", "$2a$10$jM.A5qGiqcnzkAZbpY6E5uhvV/zk57wT4mFaWq1LnDxGpjOqNsgAO"], ["phone", "773-355-1422"], ["created_at", "2015-04-19 03:56:24.144486"], ["updated_at", "2015-04-19 03:56:24.144486"]]
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'paul@paul.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "username" = $1, "first_name" = $2, "last_name" = $3, "email" = $4, "encrypted_password" = $5, "phone" = $6, "created_at" = $7, "updated_at" = $8, "id" = $9, "access_token" = $10 WHERE "users"."id" = $11  [["username", "PaulMall"], ["first_name", "Paul"], ["last_name", "clegg"], ["email", "paul@paul.com"], ["encrypted_password", "$2a$10$jM.A5qGiqcnzkAZbpY6E5uhvV/zk57wT4mFaWq1LnDxGpjOqNsgAO"], ["phone", "773-355-1422"], ["created_at", "2015-04-19 03:56:24.144486"], ["updated_at", "2015-04-19 03:56:24.144486"], ["id", 1], ["access_token", "1:jKyGB7jxcUeypPMotNxM"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-19 03:56:24.171053"], ["updated_at", "2015-04-19 03:56:24.171053"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "4950 N Marine Dr Apt 103"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-19 03:56:24.174013"], ["updated_at", "2015-04-19 03:56:24.174013"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "property_managers" ("name", "phone", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tom"], ["phone", "773-606-6186"], ["email", "tom@tom.com"], ["created_at", "2015-04-19 03:56:24.190088"], ["updated_at", "2015-04-19 03:56:24.190088"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "PropertyManager"], ["addressable_id", 1], ["updated_at", "2015-04-19 03:56:24.191937"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "houses" ("name", "house_key", "property_manager_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Hater House"], ["house_key", "igeekallweek"], ["property_manager_id", 1], ["created_at", "2015-04-19 03:56:24.213733"], ["updated_at", "2015-04-19 03:56:24.213733"]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "House"], ["addressable_id", 1], ["updated_at", "2015-04-19 03:56:24.216147"], ["id", 2]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "housing_assignments" ("user_id", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["house_id", 1], ["created_at", "2015-04-19 03:56:24.228253"], ["updated_at", "2015-04-19 03:56:24.228253"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "rules" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Flush the toilet"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 03:56:24.239865"], ["updated_at", "2015-04-19 03:56:24.239865"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Do the dishes"], ["house_id", 1], ["created_at", "2015-04-19 03:56:24.252813"], ["updated_at", "2015-04-19 03:56:24.252813"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "Mop the floor"], ["house_id", 1], ["created_at", "2015-04-19 03:56:24.255729"], ["updated_at", "2015-04-19 03:56:24.255729"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "chore_logs" ("user_id", "chore_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["chore_id", 2], ["created_at", "2015-04-19 03:56:24.306499"], ["updated_at", "2015-04-19 03:56:24.306499"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "events" ("name", "date", "description", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "Halloween Party"], ["date", "2013-09-12 22:49:27.000000"], ["description", "Costume party!!"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 03:56:24.324068"], ["updated_at", "2015-04-19 03:56:24.324068"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "communal_items" ("name", "brand", "quantity", "house_id", "stock_level", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "toilet paper"], ["brand", "charmin"], ["quantity", 12], ["house_id", 1], ["stock_level", "low"], ["created_at", "2015-04-19 03:56:24.339111"], ["updated_at", "2015-04-19 03:56:24.339111"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "messages" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "You're the best!!"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 03:56:24.350812"], ["updated_at", "2015-04-19 03:56:24.350812"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["reason", "I HATE PAUL!!"], ["user_id", 1], ["issuable_id", 1], ["issuable_type", "Chore"], ["created_at", "2015-04-19 03:56:24.372968"], ["updated_at", "2015-04-19 03:56:24.372968"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["reason", "I hate paper towel"], ["user_id", 1], ["issuable_id", 1], ["issuable_type", "CommunalItem"], ["created_at", "2015-04-19 03:56:24.377386"], ["updated_at", "2015-04-19 03:56:24.377386"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["reason", "I hate halloween"], ["user_id", 1], ["issuable_id", 1], ["issuable_type", "Event"], ["created_at", "2015-04-19 03:56:24.380560"], ["updated_at", "2015-04-19 03:56:24.380560"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["reason", "I hate flushing!!"], ["user_id", 1], ["issuable_id", 1], ["issuable_type", "Rule"], ["created_at", "2015-04-19 03:56:24.383884"], ["updated_at", "2015-04-19 03:56:24.383884"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "user_promises" ("user_id", "fulfilled", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["fulfilled", "t"], ["promisable_id", 1], ["promisable_type", "Chore"], ["created_at", "2015-04-19 03:56:24.396607"], ["updated_at", "2015-04-19 03:56:24.396607"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "user_promises" ("user_id", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 1], ["promisable_id", 1], ["promisable_type", "Chore"], ["created_at", "2015-04-19 03:56:24.400373"], ["updated_at", "2015-04-19 03:56:24.400373"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "user_promises" ("user_id", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["promisable_id", 1], ["promisable_type", "CommunalItem"], ["created_at", "2015-04-19 03:56:24.404713"], ["updated_at", "2015-04-19 03:56:24.404713"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "user_promises" ("user_id", "fulfilled", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["fulfilled", "t"], ["promisable_id", 1], ["promisable_type", "CommunalItem"], ["created_at", "2015-04-19 03:56:24.407333"], ["updated_at", "2015-04-19 03:56:24.407333"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Take out trash if it smells"], ["house_id", 1], ["created_at", "2015-04-19 03:56:24.409743"], ["updated_at", "2015-04-19 03:56:24.409743"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "Wash your face"], ["house_id", 1], ["created_at", "2015-04-19 03:56:24.412097"], ["updated_at", "2015-04-19 03:56:24.412097"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Get out of my face"], ["house_id", 1], ["created_at", "2015-04-19 03:56:24.414379"], ["updated_at", "2015-04-19 03:56:24.414379"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "Say hello like a fucking normal person"], ["house_id", 1], ["created_at", "2015-04-19 03:56:24.416719"], ["updated_at", "2015-04-19 03:56:24.416719"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 22:58:48 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"Zlake", "first_name"=>"Z", "last_name"=>"H", "email"=>"z@z.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "zlake"]]
+Completed 422 Unprocessable Entity in 61ms (Views: 0.3ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 22:59:28 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"Zlake", "first_name"=>"Z", "last_name"=>"H", "email"=>"z@z.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "zlake"]]
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:00:40 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"Zlake", "first_name"=>"Z", "last_name"=>"H", "email"=>"z@z.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "zlake"]]
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:00:46 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"Zlake", "first_name"=>"Zach", "last_name"=>"Harris", "email"=>"poop@poop.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "zlake"]]
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:00:46 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"Zlake", "first_name"=>"Zach", "last_name"=>"Harris", "email"=>"poop@poop.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "zlake"]]
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:00:59 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"Zlake", "first_name"=>"Zach", "last_name"=>"Harris", "email"=>"poop@poop.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "zlake"]]
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'poop@poop.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "Zlake"], ["first_name", "Zach"], ["last_name", "Harris"], ["email", "poop@poop.com"], ["encrypted_password", "$2a$10$boSv5EEnB46.85iXMofjZui4YC2JZGMTkg/8C4lKP.PVlOU0oBz46"], ["created_at", "2015-04-19 04:03:26.160197"], ["updated_at", "2015-04-19 04:03:26.160197"]]
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'poop@poop.com' AND "users"."id" != 2) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "username" = $1, "first_name" = $2, "last_name" = $3, "email" = $4, "encrypted_password" = $5, "created_at" = $6, "updated_at" = $7, "id" = $8, "access_token" = $9 WHERE "users"."id" = $10[0m  [["username", "Zlake"], ["first_name", "Zach"], ["last_name", "Harris"], ["email", "poop@poop.com"], ["encrypted_password", "$2a$10$boSv5EEnB46.85iXMofjZui4YC2JZGMTkg/8C4lKP.PVlOU0oBz46"], ["created_at", "2015-04-19 04:03:26.160197"], ["updated_at", "2015-04-19 04:03:26.160197"], ["id", 2], ["access_token", "2:sSkwKbz7c6tmQX9W7zeJ"], ["id", 2]]
+  [1m[35m (6.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 2]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'poop@poop.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "Zlake"], ["first_name", "Zach"], ["last_name", "Harris"], ["email", "poop@poop.com"], ["encrypted_password", "$2a$10$qbCM4Z7/9qbJa2u/tgAi5uhHoj8hAcrjIQZYYzYAxKPjNVKp93TxG"], ["created_at", "2015-04-19 04:04:32.393361"], ["updated_at", "2015-04-19 04:04:32.393361"]]
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'poop@poop.com' AND "users"."id" != 3) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "username" = $1, "first_name" = $2, "last_name" = $3, "email" = $4, "encrypted_password" = $5, "created_at" = $6, "updated_at" = $7, "id" = $8, "access_token" = $9 WHERE "users"."id" = $10[0m  [["username", "Zlake"], ["first_name", "Zach"], ["last_name", "Harris"], ["email", "poop@poop.com"], ["encrypted_password", "$2a$10$qbCM4Z7/9qbJa2u/tgAi5uhHoj8hAcrjIQZYYzYAxKPjNVKp93TxG"], ["created_at", "2015-04-19 04:04:32.393361"], ["updated_at", "2015-04-19 04:04:32.393361"], ["id", 3], ["access_token", "3:o79kpCXxpxS12RrcQay-"], ["id", 3]]
+  [1m[35m (1.9ms)[0m  COMMIT
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:09:19 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"broseph", "first_name"=>"Bro", "last_name"=>"Harris", "email"=>"pooper@poop.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "broseph"]]
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:14:23 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"PaulMall", "email"=>"paul@paul.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "paulmall"]]
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:16:44 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"paul@paul.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "paul@paul.com"]]
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 0.2ms)
+
+NameError (uninitialized constant V1::SessionsController::SessionSerializer):
+  app/controllers/v1/sessions_controller.rb:32:in `create'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (21.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (48.9ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:41:47 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"paul@paul.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "paul@paul.com"]]
+Completed 500 Internal Server Error in 137ms (ActiveRecord: 3.0ms)
+
+LoadError (Unable to autoload constant SessionsSerializer, expected /Users/zacharyharris/Desktop/DevBootcamp/Phase 3/Final Project/house-rules/app/serializers/sessions_serializer.rb to define it):
+  app/controllers/v1/sessions_controller.rb:32:in `create'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.9ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (36.6ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:42:17 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"paul@paul.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "paul@paul.com"]]
+Completed 200 OK in 75ms (Views: 1.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:42:31 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"paul@paul.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "paul@paul.com"]]
+Completed 200 OK in 75ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:43:18 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"paul@paul.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "paul@paul.com"]]
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 3.3ms)
+
+LoadError (Unable to autoload constant SessionsSerializer, expected /Users/zacharyharris/Desktop/DevBootcamp/Phase 3/Final Project/house-rules/app/serializers/sessions_serializer.rb to define it):
+  app/controllers/v1/sessions_controller.rb:32:in `create'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (18.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (43.1ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:43:23 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"paul@paul.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "paul@paul.com"]]
+Completed 200 OK in 70ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:49:07 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"paul@paul.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "paul@paul.com"]]
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 2.5ms)
+
+LoadError (Unable to autoload constant SessionSerializer, expected /Users/zacharyharris/Desktop/DevBootcamp/Phase 3/Final Project/house-rules/app/serializers/session_serializer.rb to define it):
+  app/controllers/v1/sessions_controller.rb:32:in `create'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (19.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (40.0ms)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:49:13 -0500
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"paul@paul.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "paul@paul.com"]]
+Completed 200 OK in 73ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (13.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150416210314)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (27.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "phone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150416210314"]]
+  [1m[36m (6.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAddresses (20150416210715)
+  [1m[35m (6.1ms)[0m  BEGIN
+  [1m[36m (19.9ms)[0m  [1mCREATE TABLE "addresses" ("id" serial primary key, "street" character varying, "city" character varying, "state" character varying, "zip_code" integer, "addressable_id" integer, "addressable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_addresses_on_addressable_type_and_addressable_id" ON "addresses"  ("addressable_type", "addressable_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416210715"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreatePropertyManagers (20150416210951)
+  [1m[36m (5.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (15.1ms)[0m  CREATE TABLE "property_managers" ("id" serial primary key, "name" character varying, "phone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416210951"]]
+  [1m[35m (2.8ms)[0m  COMMIT
+Migrating to CreateHouses (20150416211341)
+  [1m[36m (11.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (13.5ms)[0m  CREATE TABLE "houses" ("id" serial primary key, "name" character varying, "house_key" character varying, "property_manager_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_houses_on_property_manager_id" ON "houses"  ("property_manager_id")[0m
+  [1m[35m (2.2ms)[0m  ALTER TABLE "houses" ADD CONSTRAINT "fk_rails_fca970acce"
+FOREIGN KEY ("property_manager_id")
+  REFERENCES "property_managers" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211341"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateHousingAssignments (20150416211419)
+  [1m[36m (5.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (8.4ms)[0m  CREATE TABLE "housing_assignments" ("id" serial primary key, "user_id" integer, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (6.8ms)[0m  [1mCREATE  INDEX  "index_housing_assignments_on_user_id" ON "housing_assignments"  ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_housing_assignments_on_house_id" ON "housing_assignments"  ("house_id")
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_c9acd19e64"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "housing_assignments" ADD CONSTRAINT "fk_rails_940a2b850f"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211419"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateRules (20150416211922)
+  [1m[36m (6.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (41.5ms)[0m  CREATE TABLE "rules" ("id" serial primary key, "content" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_rules_on_housing_assignment_id" ON "rules"  ("housing_assignment_id")[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "rules" ADD CONSTRAINT "fk_rails_af3a036cef"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211922"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateChores (20150416211959)
+  [1m[36m (6.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (14.9ms)[0m  CREATE TABLE "chores" ("id" serial primary key, "task" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_chores_on_house_id" ON "chores"  ("house_id")[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "chores" ADD CONSTRAINT "fk_rails_afe0a63c1d"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416211959"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateChoreLogs (20150416212124)
+  [1m[36m (6.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (8.2ms)[0m  CREATE TABLE "chore_logs" ("id" serial primary key, "user_id" integer, "chore_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (6.7ms)[0m  [1mCREATE  INDEX  "index_chore_logs_on_user_id" ON "chore_logs"  ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_chore_logs_on_chore_id" ON "chore_logs"  ("chore_id")
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_7000e176e9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "chore_logs" ADD CONSTRAINT "fk_rails_61500d5c17"
+FOREIGN KEY ("chore_id")
+  REFERENCES "chores" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212124"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateEvents (20150416212247)
+  [1m[36m (5.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (19.6ms)[0m  CREATE TABLE "events" ("id" serial primary key, "creator_id" integer, "name" character varying, "date" timestamp, "description" character varying, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_events_on_housing_assignment_id" ON "events"  ("housing_assignment_id")[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "events" ADD CONSTRAINT "fk_rails_037b949f1d"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212247"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateCommunalItems (20150416212642)
+  [1m[36m (5.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (18.8ms)[0m  CREATE TABLE "communal_items" ("id" serial primary key, "name" character varying, "brand" character varying, "quantity" integer, "stock_level" character varying, "house_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_communal_items_on_house_id" ON "communal_items"  ("house_id")[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "communal_items" ADD CONSTRAINT "fk_rails_a48b235da7"
+FOREIGN KEY ("house_id")
+  REFERENCES "houses" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212642"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateMessages (20150416212824)
+  [1m[36m (5.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (19.9ms)[0m  CREATE TABLE "messages" ("id" serial primary key, "content" character varying, "author_id" integer, "housing_assignment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_messages_on_housing_assignment_id" ON "messages"  ("housing_assignment_id")[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "messages" ADD CONSTRAINT "fk_rails_0915f586e0"
+FOREIGN KEY ("housing_assignment_id")
+  REFERENCES "housing_assignments" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416212824"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateIssues (20150416213117)
+  [1m[36m (6.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (19.1ms)[0m  CREATE TABLE "issues" ("id" serial primary key, "reason" character varying, "user_id" integer, "issuable_id" integer, "issuable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_issues_on_user_id" ON "issues"  ("user_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_issues_on_issuable_type_and_issuable_id" ON "issues"  ("issuable_type", "issuable_id")
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "issues" ADD CONSTRAINT "fk_rails_f8f1052133"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150416213117"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserPromises (20150416213208)
+  [1m[35m (9.9ms)[0m  BEGIN
+  [1m[36m (14.2ms)[0m  [1mCREATE TABLE "user_promises" ("id" serial primary key, "fulfilled" boolean DEFAULT 'f', "user_id" integer, "promisable_id" integer, "promisable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_user_promises_on_user_id" ON "user_promises"  ("user_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_user_promises_on_promisable_type_and_promisable_id" ON "user_promises"  ("promisable_type", "promisable_id")[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "user_promises" ADD CONSTRAINT "fk_rails_3b54a6f768"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150416213208"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to AddAttachmentAvatarToUsers (20150417175305)
+  [1m[36m (5.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "avatar_file_name" character varying
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "avatar_content_type" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "avatar_file_size" integer
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "avatar_updated_at" timestamp[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150417175305"]]
+  [1m[36m (5.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddDeviseToUsers (20150419013613)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ALTER COLUMN "email" TYPE character varying[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ALTER COLUMN "email" SET DEFAULT ''
+  [1m[36m (0.2ms)[0m  [1mUPDATE "users" SET "email"='' WHERE "email" IS NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ALTER "email" SET NOT NULL
+  [1m[36m (3.3ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "reset_password_token" character varying
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "reset_password_sent_at" timestamp[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "remember_created_at" timestamp
+  [1m[36m (2.7ms)[0m  [1mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "current_sign_in_at" timestamp
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_at" timestamp[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "current_sign_in_ip" inet
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_ip" inet[0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150419013613"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddAccessTokenToUser (20150419014546)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "access_token" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "username" character varying
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150419014546"]]
+  [1m[35m (5.9ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'addresses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chore_logs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'chores'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'communal_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'houses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'housing_assignments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'issues'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'property_managers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'rules'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'user_promises'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'paul@paul.com' LIMIT 1[0m
+  [1m[35mSQL (18.0ms)[0m  INSERT INTO "users" ("username", "first_name", "last_name", "email", "encrypted_password", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "PaulMall"], ["first_name", "Paul"], ["last_name", "clegg"], ["email", "paul@paul.com"], ["encrypted_password", "$2a$10$kRXsKo5P5QAnWir3OfMG4.kukhNWSM/Qg6Y.4kPpQzs/Q66lUbw2."], ["phone", "773-355-1422"], ["created_at", "2015-04-19 04:49:58.185963"], ["updated_at", "2015-04-19 04:49:58.185963"]]
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'paul@paul.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "username" = $1, "first_name" = $2, "last_name" = $3, "email" = $4, "encrypted_password" = $5, "phone" = $6, "created_at" = $7, "updated_at" = $8, "id" = $9, "access_token" = $10 WHERE "users"."id" = $11  [["username", "PaulMall"], ["first_name", "Paul"], ["last_name", "clegg"], ["email", "paul@paul.com"], ["encrypted_password", "$2a$10$kRXsKo5P5QAnWir3OfMG4.kukhNWSM/Qg6Y.4kPpQzs/Q66lUbw2."], ["phone", "773-355-1422"], ["created_at", "2015-04-19 04:49:58.185963"], ["updated_at", "2015-04-19 04:49:58.185963"], ["id", 1], ["access_token", "1:fr7KM6bXmWFniLSbz3jK"], ["id", 1]]
+  [1m[36m (6.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (11.2ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["street", "1462 W Carmen Ave Apt 2"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-19 04:49:58.242620"], ["updated_at", "2015-04-19 04:49:58.242620"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "addresses" ("street", "city", "state", "zip_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["street", "4950 N Marine Dr Apt 103"], ["city", "Chicago"], ["state", "IL"], ["zip_code", 60640], ["created_at", "2015-04-19 04:49:58.256704"], ["updated_at", "2015-04-19 04:49:58.256704"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (6.3ms)[0m  [1mINSERT INTO "property_managers" ("name", "phone", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tom"], ["phone", "773-606-6186"], ["email", "tom@tom.com"], ["created_at", "2015-04-19 04:49:58.277081"], ["updated_at", "2015-04-19 04:49:58.277081"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "PropertyManager"], ["addressable_id", 1], ["updated_at", "2015-04-19 04:49:58.285182"], ["id", 1]]
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "houses" ("name", "house_key", "property_manager_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Hater House"], ["house_key", "igeekallweek"], ["property_manager_id", 1], ["created_at", "2015-04-19 04:49:58.311263"], ["updated_at", "2015-04-19 04:49:58.311263"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "addresses" SET "addressable_type" = $1, "addressable_id" = $2, "updated_at" = $3 WHERE "addresses"."id" = $4  [["addressable_type", "House"], ["addressable_id", 1], ["updated_at", "2015-04-19 04:49:58.320627"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (12.2ms)[0m  [1mINSERT INTO "housing_assignments" ("user_id", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["house_id", 1], ["created_at", "2015-04-19 04:49:58.337399"], ["updated_at", "2015-04-19 04:49:58.337399"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (12.8ms)[0m  INSERT INTO "rules" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Flush the toilet"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 04:49:58.360441"], ["updated_at", "2015-04-19 04:49:58.360441"]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (13.6ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Do the dishes"], ["house_id", 1], ["created_at", "2015-04-19 04:49:58.394736"], ["updated_at", "2015-04-19 04:49:58.394736"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "Mop the floor"], ["house_id", 1], ["created_at", "2015-04-19 04:49:58.411443"], ["updated_at", "2015-04-19 04:49:58.411443"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "chore_logs" ("user_id", "chore_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["chore_id", 2], ["created_at", "2015-04-19 04:49:58.464993"], ["updated_at", "2015-04-19 04:49:58.464993"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (11.2ms)[0m  INSERT INTO "events" ("name", "date", "description", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "Halloween Party"], ["date", "2013-09-12 22:49:27.000000"], ["description", "Costume party!!"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 04:49:58.482806"], ["updated_at", "2015-04-19 04:49:58.482806"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (11.7ms)[0m  [1mINSERT INTO "communal_items" ("name", "brand", "quantity", "house_id", "stock_level", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "toilet paper"], ["brand", "charmin"], ["quantity", 12], ["house_id", 1], ["stock_level", "low"], ["created_at", "2015-04-19 04:49:58.509733"], ["updated_at", "2015-04-19 04:49:58.509733"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (11.9ms)[0m  INSERT INTO "messages" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "You're the best!!"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 04:49:58.532774"], ["updated_at", "2015-04-19 04:49:58.532774"]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (17.2ms)[0m  [1mINSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["reason", "I HATE PAUL!!"], ["user_id", 1], ["issuable_id", 1], ["issuable_type", "Chore"], ["created_at", "2015-04-19 04:49:58.574865"], ["updated_at", "2015-04-19 04:49:58.574865"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["reason", "I hate paper towel"], ["user_id", 1], ["issuable_id", 1], ["issuable_type", "CommunalItem"], ["created_at", "2015-04-19 04:49:58.596160"], ["updated_at", "2015-04-19 04:49:58.596160"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["reason", "I hate halloween"], ["user_id", 1], ["issuable_id", 1], ["issuable_type", "Event"], ["created_at", "2015-04-19 04:49:58.599189"], ["updated_at", "2015-04-19 04:49:58.599189"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "issues" ("reason", "user_id", "issuable_id", "issuable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["reason", "I hate flushing!!"], ["user_id", 1], ["issuable_id", 1], ["issuable_type", "Rule"], ["created_at", "2015-04-19 04:49:58.602317"], ["updated_at", "2015-04-19 04:49:58.602317"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (17.3ms)[0m  [1mINSERT INTO "user_promises" ("user_id", "fulfilled", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["fulfilled", "t"], ["promisable_id", 1], ["promisable_type", "Chore"], ["created_at", "2015-04-19 04:49:58.614565"], ["updated_at", "2015-04-19 04:49:58.614565"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "user_promises" ("user_id", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 1], ["promisable_id", 1], ["promisable_type", "Chore"], ["created_at", "2015-04-19 04:49:58.635369"], ["updated_at", "2015-04-19 04:49:58.635369"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "user_promises" ("user_id", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["promisable_id", 1], ["promisable_type", "CommunalItem"], ["created_at", "2015-04-19 04:49:58.639950"], ["updated_at", "2015-04-19 04:49:58.639950"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "user_promises" ("user_id", "fulfilled", "promisable_id", "promisable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["fulfilled", "t"], ["promisable_id", 1], ["promisable_type", "CommunalItem"], ["created_at", "2015-04-19 04:49:58.642561"], ["updated_at", "2015-04-19 04:49:58.642561"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Take out trash if it smells"], ["house_id", 1], ["created_at", "2015-04-19 04:49:58.644969"], ["updated_at", "2015-04-19 04:49:58.644969"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "Wash your face"], ["house_id", 1], ["created_at", "2015-04-19 04:49:58.647138"], ["updated_at", "2015-04-19 04:49:58.647138"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Get out of my face"], ["house_id", 1], ["created_at", "2015-04-19 04:49:58.649226"], ["updated_at", "2015-04-19 04:49:58.649226"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["task", "Say hello like a fucking normal person"], ["house_id", 1], ["created_at", "2015-04-19 04:49:58.651313"], ["updated_at", "2015-04-19 04:49:58.651313"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 23:50:55 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"paul@paul.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "paul@paul.com"]]
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 3.4ms)
+
+LoadError (Unable to autoload constant SessionSerializer, expected /Users/zacharyharris/Desktop/DevBootcamp/Phase 3/Final Project/house-rules/app/serializers/session_serializer.rb to define it):
+  app/controllers/v1/sessions_controller.rb:32:in `create'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (21.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (50.2ms)

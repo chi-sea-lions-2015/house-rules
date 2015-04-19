@@ -1,5 +1,5 @@
 
-user = User.create(username: "PaulMall", first_name: "Paul", last_name: "clegg", email: "paul@paul.com", password: "123456", phone: "773-355-1422")
+user = User.create(username: "PaulMall", first_name: "Paul", last_name: "clegg", email: "paul@paul.com", password: "password", phone: "773-355-1422")
 address1 = Address.create(street: "1462 W Carmen Ave Apt 2", city: "Chicago", state: "IL", zip_code: "60640")
 address2 = Address.create(street: "4950 N Marine Dr Apt 103", city: "Chicago", state: "IL", zip_code: "60640")
 property_manager = PropertyManager.create(name: "tom", phone: "773-606-6186", email: "tom@tom.com", address: address1)
