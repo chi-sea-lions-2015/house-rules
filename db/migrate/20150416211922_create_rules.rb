@@ -1,4 +1,4 @@
-class CreateRules < ActiveRecord::Migration
+  class CreateRules < ActiveRecord::Migration
   def change
     create_table :rules do |t|
       t.string :content

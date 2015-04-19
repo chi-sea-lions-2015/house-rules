@@ -59,6 +59,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'shoulda'
   gem 'json_spec', '~> 1.1.4'
+  gem 'faker'
 
 
   # Access an IRB console on exception pages or by using <%= console %> in views

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150419014546) do
     t.string   "street"
     t.string   "city"
     t.string   "state"
-    t.integer  "zip_code"
+    t.string   "zip_code"
     t.integer  "addressable_id"
     t.string   "addressable_type"
     t.datetime "created_at",       null: false
@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(version: 20150419014546) do
   add_index "communal_items", ["house_id"], name: "index_communal_items_on_house_id", using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.integer  "creator_id"
     t.string   "name"
     t.datetime "date"
     t.string   "description"
+    t.integer  "user_id"
     t.integer  "house_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20150419014546) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "content"
-    t.integer  "author_id"
+    t.integer  "user_id"
     t.integer  "house_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
