@@ -1,41 +1,36 @@
-class MessagesController < ApplicationController
+module V1
+  class MessagesController < ApplicationController
+    skip_before_action :authenticate_user_from_token!, only: [:index]
 
-  def index
-    @house = House.find(params[:house_id])
-      :messages => Message.where(house_id: @house.id).includes(:author),
-      render json: @stories, each_serializer: MessagesSerializer
-  end
+    def index
+      @house = House.find(params[:house_id])
+      @messages = Message.where(house_id: @house.id)
+      render json: @messages, each_serializer: MessagesSerializer
+    end
 
-  def create
-    @house = House.find_by(id: params[:house_id])
-    @message = @house.messages.new(message_params)
-    @message.update_attributes(author: current_user)
+    def create
+      @house = House.find_by(id: params[:house_id])
+      @message = @house.messages.new(message_params)
+      @message.update_attributes(author: current_user)
 
-      if @message.save
-        render :json => @message, serializer: MessageSerializer
-      else
-        render json: { error: t('message_create_error') }, status: :unprocessable_entity
-      end
-   end
+        if @message.save
+          render :json => @message, serializer: MessageSerializer
+        else
+          render json: { error: t('message_create_error') }, status: :unprocessable_entity
+        end
+     end
 
-  # def update
-  #   @user = current_user
-  #   @house = House.find_by(id: params[:house_id])
-  #   @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
-  #   @message = Message.find_by(id: params)
-  # end
+    def destroy
+      @house = House.find_by(id: params[:house_id])
+      @message = Message.find_by(id: params[:id])
+      @message.destroy
+      render :nothing => true, :status => 200
+    end
 
-  def destroy
-    @house = House.find_by(id: params[:house_id])
-    @message = Message.find_by(id: params[:id])
-    @message.destroy
-    redirect_to house_path(@house)
-  end
-
-private
+  private
 
     def message_params
       params.require(:message).permit(:content).merge(author: current_user)
     end
-
+  end
 end

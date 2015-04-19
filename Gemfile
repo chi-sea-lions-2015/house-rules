@@ -39,7 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "paperclip", "~> 4.2"
 
-gem 'haml', '~> 4.0.6'
+gem 'activemodel', '~> 4.2.1'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
