@@ -18034,3 +18034,1009 @@ Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a
 
 
 Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:55:59 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:11:24 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mHousingAssignment Load (0.3ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mIssue Load (0.4ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."issuable_id" = $1 AND "issues"."issuable_type" = $2[0m  [["issuable_id", 1], ["issuable_type", "Event"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered events/index.html.erb within layouts/application (42.2ms)
+Completed 200 OK in 822ms (Views: 769.2ms | ActiveRecord: 22.2ms)
+
+
+Started GET "/assets/react_components/events/_event.self-5fb5e81a5cc3f54698e2ee2f641ffc478d324c44e59bd3b7323c00c576d2c716.js?body=1" for ::1 at 2015-04-18 20:11:25 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-60ff578c1edece6bb86652e9669d8c336e49abbb846a15d2cde2d244b0c7a1a0.js?body=1" for ::1 at 2015-04-18 20:11:25 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-a3f63ce21b395639b74310d6545376670861e47692ee871e123932a7cc071014.js?body=1" for ::1 at 2015-04-18 20:11:25 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:11:25 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:15:30 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 122ms (Views: 67.5ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-5fb5e81a5cc3f54698e2ee2f641ffc478d324c44e59bd3b7323c00c576d2c716.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-60ff578c1edece6bb86652e9669d8c336e49abbb846a15d2cde2d244b0c7a1a0.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-a3f63ce21b395639b74310d6545376670861e47692ee871e123932a7cc071014.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:15:31 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:16:31 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (1.0ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 355ms (Views: 351.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:16:31 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:16:31 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:16:31 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:16:31 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:16:31 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:16:31 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-4078dc4483eee6620c73c648a335e7d8ee0d2908500549104afa29eeb7dab4e4.js?body=1" for ::1 at 2015-04-18 20:16:31 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:16:31 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:16:31 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:16:32 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-5fb5e81a5cc3f54698e2ee2f641ffc478d324c44e59bd3b7323c00c576d2c716.js?body=1" for ::1 at 2015-04-18 20:16:32 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-a3f63ce21b395639b74310d6545376670861e47692ee871e123932a7cc071014.js?body=1" for ::1 at 2015-04-18 20:16:32 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:16:32 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:16:32 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:16:32 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:16:32 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:16:32 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:16:32 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:17:17 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 458ms (Views: 455.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-784149a28dc34e22887b70105556014b651c762e2584228d4d4ca6aadab731a2.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-5fb5e81a5cc3f54698e2ee2f641ffc478d324c44e59bd3b7323c00c576d2c716.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-4078dc4483eee6620c73c648a335e7d8ee0d2908500549104afa29eeb7dab4e4.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:17:18 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:17:45 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.4ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 438ms (Views: 435.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-721636df00a9722f00e44e55a935bbbf5dd07013247d1d1b504af7f5ac201ace.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-4078dc4483eee6620c73c648a335e7d8ee0d2908500549104afa29eeb7dab4e4.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-784149a28dc34e22887b70105556014b651c762e2584228d4d4ca6aadab731a2.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:17:46 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:18:06 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.4ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.8ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 431ms (Views: 426.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-c94d4fe6e3006f0fc32e9d1f2840667ab8a40bae4da97cc31a21633b9f68f761.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-4078dc4483eee6620c73c648a335e7d8ee0d2908500549104afa29eeb7dab4e4.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-784149a28dc34e22887b70105556014b651c762e2584228d4d4ca6aadab731a2.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:18:07 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:18:40 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 430ms (Views: 427.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-e94c244aa63a740d0832ef783fcd406e76522a9b1b7277fbc31f1e1e3b399a3e.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-4078dc4483eee6620c73c648a335e7d8ee0d2908500549104afa29eeb7dab4e4.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-784149a28dc34e22887b70105556014b651c762e2584228d4d4ca6aadab731a2.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:18:41 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:22:08 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.7ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 570ms (Views: 566.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-784149a28dc34e22887b70105556014b651c762e2584228d4d4ca6aadab731a2.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:22:09 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:24:18 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.7ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 516ms (Views: 512.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:24:18 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:24:18 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-c5d599b9c8387eab2ace83ec92348cd8b6286878a6519328595f43679cb286c5.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:24:19 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:25:08 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 472ms (Views: 469.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-95ff31df5e1add00f55cf139001df868f3e05c65e82402b1a82a5cda1818d799.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:25:09 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:25:18 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 476ms (Views: 472.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-2cff5c505ad65c5e62b4263824184a4c4e05a235a82cc5ca74a1cebf81ea4e52.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:25:19 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:25:37 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.8ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 487ms (Views: 483.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-82f558f6321983e89858f1df5444397eed5e793d809b472ff9bd1ff6606ef765.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:25:37 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:25:38 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:25:38 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:25:38 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:25:57 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 358ms (Views: 355.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-db412a192f7a85dda71c542d21d7833a03dd9716a7c37deaf3f19b39a3471cde.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:25:57 -0500
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:27:51 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 643ms (Views: 639.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-326c115349bb485dbe37665eb08070c0d6a658ab8cec746671b42491c17d5491.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:27:52 -0500
+
+
+Started POST "/houses/1/events" for ::1 at 2015-04-18 20:28:47 -0500
+Processing by EventsController#create as JSON
+  Parameters: {"authenticity_token"=>"VlxQkxbxIYrRLrVJOcdzlPUouHJw9Y2+6sh5HDkxR/OKVwo/G9VODZM4MG4GcNEvfjLzA76ncVr6FFXAQlCEZA==", "event"=>{"name"=>"Paul's Birthday", "description"=>"It's going to be an awesome party with lots of people who are fabulously rich!", "date"=>"2015-06-28T10:10"}, "house_id"=>"1"}
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/apprentice/Desktop/Sara/house-rules/app/models/user.rb:4)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHousingAssignment Load (0.8ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1[0m  [["house_id", 1], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (28.3ms)[0m  [1mINSERT INTO "events" ("description", "date", "name", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["description", "It's going to be an awesome party with lots of people who are fabulously rich!"], ["date", "2015-06-28 10:10:00.000000"], ["name", "Paul's Birthday"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 01:28:47.357307"], ["updated_at", "2015-04-19 01:28:47.357307"]]
+  [1m[35m (35.9ms)[0m  COMMIT
+  [1m[36mEvent Load (0.7ms)[0m  [1mSELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+Completed 200 OK in 159ms (Views: 1.8ms | ActiveRecord: 68.3ms)
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:29:31 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 466ms (Views: 351.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/react_components/events/_event_form.self-e76794b74aca13c515e27c832e4b43d015b6619a237285f359d5d643b6e3a222.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:29:32 -0500
+
+
+Started POST "/houses/1/events" for ::1 at 2015-04-18 20:30:03 -0500
+Processing by EventsController#create as JSON
+  Parameters: {"authenticity_token"=>"5FBjHARCmE1zjjllwibRIRZZPrIO9/tkAKwmQsX3ZfE4WzmwCWb3yjGYvEL9kXOanUN1w8ClB4AQcAqevpamZg==", "event"=>{"name"=>"Sara's Birthday", "description"=>"Lots of fun with amazing people", "date"=>"2015-10-10T10:01"}, "house_id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.8ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.4ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1  [["house_id", 1], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "events" ("description", "date", "name", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["description", "Lots of fun with amazing people"], ["date", "2015-10-10 10:01:00.000000"], ["name", "Sara's Birthday"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 01:30:03.295877"], ["updated_at", "2015-04-19 01:30:03.295877"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+Completed 200 OK in 15ms (Views: 2.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-18 20:30:24 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.5ms)[0m  SELECT "events".* FROM "events" INNER JOIN "housing_assignments" ON "events"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered events/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 470ms (Views: 466.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-7c66e92ad8174e74ad09ffbbfeac683112a7c72c966f1fdb32c336567c7ad50c.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-188fb43c6b19183f928ed5f2ea8d22f4eabc73b63077cd35db2976d9e7980c7e.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 20:30:25 -0500
