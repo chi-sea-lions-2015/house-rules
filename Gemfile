@@ -43,7 +43,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "paperclip", "~> 4.2"
 
-gem 'haml', '~> 4.0.6'
+gem 'activemodel', '~> 4.2.1'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -58,6 +58,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'shoulda'
+  gem 'json_spec', '~> 1.1.4'
 
 
   # Access an IRB console on exception pages or by using <%= console %> in views

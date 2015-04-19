@@ -1,6 +1,4 @@
-FactoryGirl.define do  factory :comment do
-    
-  end
+FactoryGirl.define do
 
 
   factory :chore do
