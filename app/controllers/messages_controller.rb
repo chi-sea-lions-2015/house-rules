@@ -16,7 +16,7 @@ module V1
       @message.update_attributes(author: current_user)
 
         if @message.save
-          render :json => @messages, serializer: MessagesSerializer
+          render :json => @messages, each_serializer: MessagesSerializer
         else
           render json: { error: t('message_create_error') }, status: :unprocessable_entity
         end

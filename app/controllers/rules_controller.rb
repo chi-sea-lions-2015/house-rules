@@ -12,7 +12,7 @@ class RulesController < ApplicationController
 
     @rule = @house.rules.new(rule_params)
     if @rule.save
-      render json: @rules, serializer: RulesSerializer
+      render json: @rules, each_serializer: RulesSerializer
     else
       render json: { error: t('rule_create_error') }, status: :unprocessable_entity
     end

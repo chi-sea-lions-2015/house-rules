@@ -14,7 +14,7 @@ module V1
 
       @event = @house.events.new(event_params)
       if @event.save
-        render json: @events, serializer: EventsSerializer
+        render json: @events, each_serializer: EventsSerializer
       else
         render json: { error: t('event_create_error') }, status: :unprocessable_entity
       end

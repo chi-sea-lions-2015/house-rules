@@ -65,12 +65,12 @@ ActiveRecord::Schema.define(version: 20150417175305) do
     t.string   "name"
     t.datetime "date"
     t.string   "description"
-    t.integer  "housing_assignment_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "house_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "events", ["housing_assignment_id"], name: "index_events_on_housing_assignment_id", using: :btree
+  add_index "events", ["house_id"], name: "index_events_on_house_id", using: :btree
 
   create_table "houses", force: :cascade do |t|
     t.string   "name"
@@ -124,12 +124,12 @@ ActiveRecord::Schema.define(version: 20150417175305) do
 
   create_table "rules", force: :cascade do |t|
     t.string   "content"
-    t.integer  "housing_assignment_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "house_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "rules", ["housing_assignment_id"], name: "index_rules_on_housing_assignment_id", using: :btree
+  add_index "rules", ["house_id"], name: "index_rules_on_house_id", using: :btree
 
   create_table "user_promises", force: :cascade do |t|
     t.boolean  "fulfilled",       default: false
@@ -161,12 +161,12 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   add_foreign_key "chore_logs", "users"
   add_foreign_key "chores", "houses"
   add_foreign_key "communal_items", "houses"
-  add_foreign_key "events", "housing_assignments"
+  add_foreign_key "events", "houses"
   add_foreign_key "houses", "property_managers"
   add_foreign_key "housing_assignments", "houses"
   add_foreign_key "housing_assignments", "users"
   add_foreign_key "issues", "users"
   add_foreign_key "messages", "houses"
-  add_foreign_key "rules", "housing_assignments"
+  add_foreign_key "rules", "houses"
   add_foreign_key "user_promises", "users"
 end
