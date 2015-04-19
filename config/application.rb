@@ -33,6 +33,14 @@ module HouseRules
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.middleware.insert_before 'Rack::Runtime', 'Rack::Cors' do
+      allow do
+        origins '*'
+        resource '*',
+          headers: :any,
+          methods: [:get, :put, :post, :patch, :delete, :options]
+      end
+    end
   end
 
 end

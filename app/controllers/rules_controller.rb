@@ -1,5 +1,5 @@
 class RulesController < ApplicationController
-
+ skip_before_action :authenticate_user_from_token!, only: [:create]
   def index
     @house = House.find(params[:house_id])
     @rules = @house.rules.order(created_at: :desc).all
