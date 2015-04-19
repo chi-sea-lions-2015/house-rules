@@ -1,11 +1,11 @@
-
+# module V1
   class MessagesController < ApplicationController
     skip_before_action :authenticate_user_from_token!, only: [:index]
 
     def index
       @house = House.find(params[:house_id])
       @messages = Message.where(house_id: @house.id)
-      render json: @messages
+      render :json => @messages, each_serializer: MessagesSerializer
     end
 
     def create
@@ -34,3 +34,4 @@
       params.require(:message).permit(:content).merge(author: current_user)
     end
   end
+# end
