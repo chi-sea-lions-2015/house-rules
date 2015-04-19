@@ -1,9 +1,0 @@
-  <%= form_for [@house, @event], method: :patch do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.label :description %>
-  <%= f.text_area :description %><br>
-  <%= f.label :date %>
-  <%= f.datetime_local_field :date %><br><br>
-  <%= f.submit "Update Event" %>
-  <% end %>
