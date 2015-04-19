@@ -44,3 +44,4 @@ class ApplicationController < ActionController::API
     # User's token is either invalid or not in the right format
     render json: {error: t('application_controller.unauthorized')}, status: 401  # Authentication timeout
   end
+end
