@@ -2,26 +2,6 @@ module V1
   class SessionsController < ApplicationController
     skip_before_action :authenticate_user_from_token!
 
-    # def new
-    #   @user = current_user
-    #   if @user
-    #     redirect_to user_path(@user)
-    #   end
-    # end
-
-    # Original Create
-    # def create
-    #   user = User.find_by(email: params[:session][:email].downcase)
-    #   if user && user.authenticate(params[:session][:password])
-    #     log_in(user)
-    #     redirect_to user
-    #   else
-    #     flash.now[:error] = "Invalid email/password combination"
-    #     render "new"
-    #   end
-    # end
-    # Devise Create
-
      #POST /v1/login
     def create
       @user = User.find_for_database_authentication(email: params[:username])
