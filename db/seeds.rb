@@ -20,7 +20,7 @@ rule_issue = rule.issues.create(reason: "I hate flushing!!", user_id: user.id)
 chore_promise_true = chore.user_promises.create(user_id: user.id, fulfilled: true)
 chore_promise_false = chore.user_promises.create(user_id: user.id)
 communal_item.user_promises.create(user_id: user.id)
-communal_item.user_promises.create(user_id: user.id, fulfilled: true)
+communal_item.user_promises.create(user_id: user.idf, fulfilled: true)
 
 chore2 = Chore.create(task: "Take out trash if it smells", house_id: 1)
 chore3 = Chore.create(task: "Wash your face", house_id: 1)

@@ -16991,3 +16991,35 @@ You can opt into the new behavior and remove this warning by setting:
   [1m[35m (0.1ms)[0m  BEGIN
   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "chores" ("task", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["task", "Say hello like a fucking normal person"], ["house_id", 1], ["created_at", "2015-04-19 02:58:28.292591"], ["updated_at", "2015-04-19 02:58:28.292591"]]
   [1m[35m (0.3ms)[0m  COMMIT
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/zacharyharris/Desktop/DevBootcamp/Phase 3/Final Project/house-rules/app/models/user.rb:8)
+
+
+Started POST "/v1/login" for ::1 at 2015-04-18 22:04:19 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+SyntaxError (/Users/zacharyharris/Desktop/DevBootcamp/Phase 3/Final Project/house-rules/app/controllers/application_controller.rb:46: syntax error, unexpected end-of-input, expecting keyword_end
+  end
+     ^):
+  app/controllers/application_controller.rb:46: syntax error, unexpected end-of-input, expecting keyword_end
+  app/controllers/v1/sessions_controller.rb:2:in `<module:V1>'
+  app/controllers/v1/sessions_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (18.7ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (46.1ms)
