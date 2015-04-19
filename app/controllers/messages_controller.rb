@@ -2,25 +2,19 @@ class MessagesController < ApplicationController
 
   def index
     @house = House.find(params[:house_id])
-    @presenter = {
-      :messages => Message.last(5),
-      :form => {
-        :action => house_messages_path(@house),
-        :csrf_param => request_forgery_protection_token,
-        :csrf_token => form_authenticity_token
-      }
-    }
+      :messages => Message.where(house_id: @house.id).includes(:author),
+      render json: @stories, each_serializer: MessagesSerializer
   end
 
   def create
     @house = House.find_by(id: params[:house_id])
     @message = @house.messages.new(message_params)
-    @message.save
+    @message.update_attributes(author: current_user)
 
-      if request.xhr?
-        render :json => Message.last(5)
+      if @message.save
+        render :json => @message, serializer: MessageSerializer
       else
-      redirect_to house_messages_path(@house)
+        render json: { error: t('message_create_error') }, status: :unprocessable_entity
       end
    end
 
@@ -41,7 +35,7 @@ class MessagesController < ApplicationController
 private
 
     def message_params
-      params.require(:message).permit(:content)
+      params.require(:message).permit(:content).merge(author: current_user)
     end
 
 end

@@ -11,15 +11,6 @@ Your property manager:
 <% end %>
 <br><br>
 
-<div id="messages">
-<% if @messages.length != 0 %>
-  <h3>Messages:</h3>
-  <% @messages.each do |message| %>
-  @<%= message.housing_assignment.user.first_name %>: <%= message.content %> <%= link_to("Delete", house_message_path(@house, message), method: :delete) %> <br>
-  <% end %>
-<% end %>
-</div>
-
 <div>
   <h4>New Message</h4>
   <%= form_for :message, url: house_messages_path(@house) do |f| %>
