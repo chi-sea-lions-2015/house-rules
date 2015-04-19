@@ -1,7 +1,3 @@
-<h2>Issue for "<%= @rule.content %>"</h2>
-<br>
-
-<%= form_for :issue, url: "/houses/#{@house.id}/rules/#{@rule.id}/issues/rule_issue_create" do |f|%>
-  Reason: <br><%= f.text_area :reason %><br><br>
-  <%= f.submit "Submit", :class => "button"  %>
-<%end%>
+<%= react_component('IssueBox',
+  {:issue_presenter => @presenter.to_json},
+  {:issue_prerender => false}) %>

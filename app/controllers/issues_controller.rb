@@ -3,6 +3,15 @@ class IssuesController < ApplicationController
   def rule_issue_new
     @rule = Rule.find_by(id: params[:rule_id])
     @house = House.find_by(id: params[:house_id])
+    @presenter = {
+      :issues => @rule.issues,
+      :users => User.all,
+      :form => {
+        :action => "/houses/#{@house.id}/rules/#{@rule.id}/issues/rule_issue_create",
+        :csrf_param => request_forgery_protection_token,
+        :csrf_token => form_authenticity_token
+      }
+    }
   end
 
   def rule_issue_create
@@ -10,7 +19,11 @@ class IssuesController < ApplicationController
     @house = House.find_by(id: params[:house_id])
     @rule = Rule.find_by(id: params[:rule_id])
     @issue = @rule.issues.create(reason: params[:issue][:reason], user_id: @user.id)
-    redirect_to house_rules_path(@house)
+    if request.xhr?
+      render :json => @rule.issues
+    else
+      redirect_to house_rules_path(@house)
+    end
   end
 
   def chore_issue_new
