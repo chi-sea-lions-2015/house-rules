@@ -17071,3 +17071,966 @@ Processing by EventsController#index as HTML
   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
   Rendered events/index.html.erb within layouts/application (10.0ms)
 Completed 200 OK in 59ms (Views: 55.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/houses/1" for ::1 at 2015-04-18 19:35:20 -0500
+Processing by HousesController#show as HTML
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/apprentice/Desktop/Sara/house-rules/app/models/user.rb:4)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHousingAssignment Load (0.2ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."user_id" = $1 AND "housing_assignments"."house_id" = $2 LIMIT 1[0m  [["user_id", 1], ["house_id", 1]]
+  [1m[35mPropertyManager Load (0.2ms)[0m  SELECT  "property_managers".* FROM "property_managers" WHERE "property_managers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "housing_assignments" ON "messages"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mHousingAssignment Load (0.8ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCommunalItem Load (0.2ms)[0m  SELECT "communal_items".* FROM "communal_items" WHERE "communal_items"."house_id" = $1  [["house_id", 1]]
+  [1m[36mIssue Load (1.2ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."issuable_id" = $1 AND "issues"."issuable_type" = $2[0m  [["issuable_id", 1], ["issuable_type", "CommunalItem"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered houses/show.html.erb within layouts/application (48.6ms)
+Completed 200 OK in 921ms (Views: 737.1ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/houses/1" for ::1 at 2015-04-18 19:35:21 -0500
+Processing by HousesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.2ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."user_id" = $1 AND "housing_assignments"."house_id" = $2 LIMIT 1  [["user_id", 1], ["house_id", 1]]
+  [1m[36mPropertyManager Load (0.2ms)[0m  [1mSELECT  "property_managers".* FROM "property_managers" WHERE "property_managers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "housing_assignments" ON "messages"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mHousingAssignment Load (0.2ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCommunalItem Load (0.3ms)[0m  [1mSELECT "communal_items".* FROM "communal_items" WHERE "communal_items"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mIssue Load (0.2ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."issuable_id" = $1 AND "issues"."issuable_type" = $2  [["issuable_id", 1], ["issuable_type", "CommunalItem"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered houses/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 71ms (Views: 64.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:35:21 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-8bb0decfd69e001324992dc42dc1b942676921af7427140881f7ad15d254a243.js?body=1" for ::1 at 2015-04-18 19:35:21 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-d871f7ab124898a158b530ee45492c119bfcee2cbe237c8c192f205bb1db2510.js?body=1" for ::1 at 2015-04-18 19:35:21 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-21951a61ec807670a64d6876539d49fdad64154789a97868405fe449adb99202.js?body=1" for ::1 at 2015-04-18 19:35:21 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:35:24 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mRule Load (0.4ms)[0m  SELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 177ms (Views: 167.3ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/houses/1/rules" for ::1 at 2015-04-18 19:35:38 -0500
+Processing by RulesController#create as JSON
+  Parameters: {"authenticity_token"=>"vfKBPPXRX++C7AD6g/Sgz/T1+McMHmK5AAuPcelwCw5h+duQ+PUwaMD6hd28QwJ0f++ztsJMnl0Q16OtkhHImQ==", "rule"=>{"content"=>"Don't fight with each other!!"}, "house_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHousingAssignment Load (0.3ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1[0m  [["house_id", 1], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (18.1ms)[0m  [1mINSERT INTO "rules" ("content", "housing_assignment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Don't fight with each other!!"], ["housing_assignment_id", 1], ["created_at", "2015-04-19 00:35:38.244056"], ["updated_at", "2015-04-19 00:35:38.244056"]]
+  [1m[35m (26.0ms)[0m  COMMIT
+  [1m[36mRule Load (0.5ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+Completed 200 OK in 62ms (Views: 2.1ms | ActiveRecord: 45.5ms)
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:41:18 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.3ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.6ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (Error: Parse Error: Line 5: Expected corresponding JSX closing tag for br):
+    11:   </div>
+    12: 
+    13:   <% unless params[:js] == "broken" %>
+    14:     <%= javascript_include_tag "application" %>
+    15:   <% end %>
+    16: 
+    17:   <% if Rails.env.production? %>
+  app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__3789362892168206240_70229676354400'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (39.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (26.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (61.4ms)
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:41:56 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.4ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 565ms (Views: 562.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/react_components/rules/_rule.self-25f204990508e6116942aee1f143e61f4bb635a23d09dd7a024acb1338a06f6c.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-8bb0decfd69e001324992dc42dc1b942676921af7427140881f7ad15d254a243.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-d871f7ab124898a158b530ee45492c119bfcee2cbe237c8c192f205bb1db2510.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:41:56 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:42:21 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.3ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.3ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 431ms (Views: 427.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-f5dd447c293d18d9fb25fb6d53b5b3f454866b77ed43e715eb6a0b01ba32a9f0.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-8bb0decfd69e001324992dc42dc1b942676921af7427140881f7ad15d254a243.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-d871f7ab124898a158b530ee45492c119bfcee2cbe237c8c192f205bb1db2510.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:42:22 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:42:34 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.4ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.9ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 457ms (Views: 452.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-e2a0c239519d9b5dd1cd26f885f1eee0b16ad9736dc1347595447235e207d9aa.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-8bb0decfd69e001324992dc42dc1b942676921af7427140881f7ad15d254a243.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-d871f7ab124898a158b530ee45492c119bfcee2cbe237c8c192f205bb1db2510.js?body=1" for ::1 at 2015-04-18 19:42:35 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:42:43 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.8ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.2ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 155ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error (Error: Parse Error: Line 5: Expected corresponding JSX closing tag for br):
+    11:   </div>
+    12: 
+    13:   <% unless params[:js] == "broken" %>
+    14:     <%= javascript_include_tag "application" %>
+    15:   <% end %>
+    16: 
+    17:   <% if Rails.env.production? %>
+  app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__3789362892168206240_70229676354400'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (4.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (25.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (49.3ms)
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:42:57 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.4ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 432ms (Views: 429.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-e2a0c239519d9b5dd1cd26f885f1eee0b16ad9736dc1347595447235e207d9aa.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-8bb0decfd69e001324992dc42dc1b942676921af7427140881f7ad15d254a243.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-d871f7ab124898a158b530ee45492c119bfcee2cbe237c8c192f205bb1db2510.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:42:57 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:44:02 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.3ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.3ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 468ms (Views: 464.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:44:02 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-b920bb783a1453767811c9ea2d410d78f871b909814968b523ef1f3d289b003c.js?body=1" for ::1 at 2015-04-18 19:44:02 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:44:02 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:44:02 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:44:02 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:44:02 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:44:02 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:44:02 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:44:02 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:44:02 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-8bb0decfd69e001324992dc42dc1b942676921af7427140881f7ad15d254a243.js?body=1" for ::1 at 2015-04-18 19:44:03 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:44:03 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-d871f7ab124898a158b530ee45492c119bfcee2cbe237c8c192f205bb1db2510.js?body=1" for ::1 at 2015-04-18 19:44:03 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:44:03 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:44:19 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.3ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.3ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 454ms (Views: 450.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-3ffde39ae266357e00a435659d0207df34b7127fa06887cd99566a316e9a2e46.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-8bb0decfd69e001324992dc42dc1b942676921af7427140881f7ad15d254a243.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-d871f7ab124898a158b530ee45492c119bfcee2cbe237c8c192f205bb1db2510.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:44:20 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:44:55 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.5ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.3ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 425ms (Views: 421.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-353ddff4d9ff6b100e2622327a1c923c3d849dbfa822c1fdbc8b3ba8476c53bf.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-8bb0decfd69e001324992dc42dc1b942676921af7427140881f7ad15d254a243.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-d871f7ab124898a158b530ee45492c119bfcee2cbe237c8c192f205bb1db2510.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:44:55 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:45:08 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.3ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (1.0ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 419ms (Views: 414.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:45:08 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:45:08 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:45:08 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:45:08 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:45:08 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 19:45:09 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:45:09 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:45:09 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:45:09 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:45:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-8bb0decfd69e001324992dc42dc1b942676921af7427140881f7ad15d254a243.js?body=1" for ::1 at 2015-04-18 19:45:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:45:09 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-d871f7ab124898a158b530ee45492c119bfcee2cbe237c8c192f205bb1db2510.js?body=1" for ::1 at 2015-04-18 19:45:09 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:45:09 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:49:12 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.2ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 481ms (Views: 477.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-3b8bb22930248f8077369113a173eb7d7f36d3362d7a4fbdfab5707e7c228e27.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-8bb0decfd69e001324992dc42dc1b942676921af7427140881f7ad15d254a243.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:49:12 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:49:33 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.4ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.3ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 440ms (Views: 437.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-42264b246ba5b4eb63f2e41d5959dd956d5598eaede3fbe0e2fc6a1dc9bc3e8d.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-8bb0decfd69e001324992dc42dc1b942676921af7427140881f7ad15d254a243.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:49:34 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:50:57 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.3ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.3ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 580ms (Views: 577.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-68685ba2d7f37fb2104713db35509dc9c40a9d66752e2c4ffacd164dd9970cae.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:50:58 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:51:38 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.9ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.3ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 350ms (Views: 345.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-bc11243b037c51d1b4ca7f4c6edfc77d69edd93586e18ae134ceb6055811c377.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-c395f38711ffaca00f8a2a8f92f78a45c6d1ce717eaa3a3bb3b2dbfba1845e68.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:51:39 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:54:33 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.7ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.5ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 610ms (Views: 605.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-bc11243b037c51d1b4ca7f4c6edfc77d69edd93586e18ae134ceb6055811c377.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:54:34 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:55:02 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (1.5ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 330ms (Views: 325.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-001257b745056c71457370885f4db177e69fc4af4d8b8013db9a879fb0362394.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:55:03 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:55:16 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.7ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.8ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 436ms (Views: 432.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-d9269dbe3648455e6ea629a7dd9f534cd3c417c1d50ee2f571178284cca65542.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:55:17 -0500
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-18 19:55:58 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.6ms)[0m  [1mSELECT "rules".* FROM "rules" INNER JOIN "housing_assignments" ON "rules"."housing_assignment_id" = "housing_assignments"."id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 422ms (Views: 419.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-18 19:55:58 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-18 19:55:58 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-18 19:55:58 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-18 19:55:58 -0500
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-18 19:55:58 -0500
+
+
+Started GET "/assets/react_components/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-18 19:55:58 -0500
+
+
+Started GET "/assets/react_components/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-18 19:55:58 -0500
+
+
+Started GET "/assets/react_components/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-18 19:55:58 -0500
+
+
+Started GET "/assets/react_components/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-18 19:55:58 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-18 19:55:58 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-18 19:55:59 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-18 19:55:59 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-18 19:55:59 -0500
+
+
+Started GET "/assets/application.self-85d7c555f9f33c1767179fafceb8dc919b3188cf49cf23b8c86ceded5da459b4.js?body=1" for ::1 at 2015-04-18 19:55:59 -0500
