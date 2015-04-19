@@ -1,55 +1,42 @@
-class EventsController < ApplicationController
+module V1
+  class EventsController < ApplicationController
+    skip_before_action :authenticate_user_from_token!, only: [:index]
 
-  def create
-    @user = current_user
-    @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
-    @event = @housing_assignment.events.new(event_params)
-    @event.save
-    if request.xhr?
-      render :json => @house.events
-    else
-      redirect_to house_events_path(@house)
+    def index
+      @house = House.find(params[:house_id])
+      @events = @house.events.all
+      render json: @events, each_serializer: EventsSerializer
+    end
+
+    def create
+      @house = House.find(params[:house_id])
+      @events = @house.events.all
+
+      @event = @house.events.new(event_params)
+      if @event.save
+        render json: @events, serializer: EventsSerializer
+      else
+        render json: { error: t('event_create_error') }, status: :unprocessable_entity
+      end
+    end
+
+    def update
+      @event = Event.find(params[:id])
+      @event.update_attributes(event_params)
+      @event.save!
+      render :nothing => true, :status => 200
+    end
+
+    def destroy
+      @event = Event.find(params[:id])
+      @event.destroy
+      render :nothing => true, :status => 200
+    end
+
+    private
+
+    def event_params
+      params.require(:event).permit(:description, :date, :name)
     end
   end
-
-  def edit
-    @user = current_user
-    @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
-    @event = Event.find_by(id: params[:id])
-  end
-
-  def update
-    @event = Event.find_by(id: params[:id])
-    if @event.update_attributes(event_params)
-      redirect_to house_events_path
-    end
-  end
-
-  def index
-    @house = House.find_by(id: params[:house_id])
-    @presenter = {
-      :events => @house.events,
-      :form => {
-        :action => house_events_path(@house),
-        :csrf_param => request_forgery_protection_token,
-        :csrf_token => form_authenticity_token
-      }
-    }
-  end
-
-  def destroy
-    @event = Event.find_by(id: params[:id])
-    if @event.destroy
-      redirect_to house_events_path
-    end
-  end
-
-  private
-
-  def event_params
-    params.require(:event).permit(:description, :date, :name)
-  end
-
 end

@@ -1,82 +1,69 @@
-class HousesController < ApplicationController
+module V1
+  class HousesController < ApplicationController
+    skip_before_action :authenticate_user_from_token!, only: [:index]
 
-  def index
-    @houses = House.all
-  end
+    # def index
+    #   @houses = House.all
+    #   render json: @houses, each_serializer: HousesSerializer
+    # end
 
-  def show
-    @user = current_user
-    @house = House.find(params[:id])
-    if HousingAssignment.find_by(user_id: @user.id, house_id: @house.id)
-      @property_manager = @house.property_manager
-      @assignment = HousingAssignment.where(user: current_user, house: @house.id)
-      @messages = @house.messages
-      @items = @house.communal_items
-    else
-      redirect_to "/houses/#{@house.id}/join"
+    def show
+      @house = House.find(params[:id]).includes(:property_manager)
+      render json: @house, serializer: HouseSerializer
     end
-  end
 
-  def new
-    @house = House.new
-  end
-
-  def create
-    @user = current_user
-    @address = Address.new(address_params)
-    if @address.save
-      @house = House.new(house_params)
-      if @house.save
-        @user.housing_assignments.create(user: @user, house: @house)
-        redirect_to house_path(@house)
+    def create
+      @user = current_user
+      @address = Address.new(address_params)
+      if @address.save
+        @house = House.new(house_params)
+        if @house.save
+          @user.housing_assignments.create(user: @user, house: @house)
+          render json: @house, serializer: HouseSerializer
+        else
+          render json: { error: t('house_create_error') }, status: :unprocessable_entity
+        end
       else
-        render "new"
+        render json: { error: t('address_create_error') }, status: :unprocessable_entity
       end
-    else
-      render "new"
+    end
+
+    def update
+      @house = House.find(params[:id])
+      @house.update_attributes(house_params)
+      render :nothing => true, :status => 200
+    end
+
+    def destroy
+      @house = House.find(params[:id])
+      @house.destroy
+      render :nothing => true, :status => 200
+    end
+
+    # def join
+    #   @user = current_user
+    #   @house = House.find(params[:id])
+    # end
+
+    # def join_update
+    #   @house = House.find(params[:id])
+    #   @user = current_user
+    #   if params[:join][:house_key] == @house.house_key
+    #     HousingAssignment.create(user_id: @user.id, house_id: @house.id)
+    #     redirect_to house_path(@house)
+    #   else
+    #     render 'join'
+    #   end
+    # end
+
+    private
+
+    def house_params
+      params.require(:house).permit(:name, :house_key)
+    end
+
+    def address_params
+      params.require(:house).require(:address).permit(:street, :city, :state, :zip_code)
     end
   end
-
-  def edit
-    @house = House.find(params[:id])
-  end
-
-  def update
-    @house = House.find(params[:id])
-    @house.update_attributes(house_params)
-    redirect_to house_path(@house)
-  end
-
-  def destroy
-    @user = current_user
-    @house = House.find(params[:id])
-    redirect_to user_path(@user)
-  end
-
-  def join
-    @user = current_user
-    @house = House.find(params[:id])
-  end
-
-  def join_update
-    @house = House.find(params[:id])
-    @user = current_user
-    if params[:join][:house_key] == @house.house_key
-      HousingAssignment.create(user_id: @user.id, house_id: @house.id)
-      redirect_to house_path(@house)
-    else
-      render 'join'
-    end
-  end
-
-  private
-
-  def house_params
-    params.require(:house).permit(:name, :house_key)
-  end
-
-  def address_params
-    params.require(:house).require(:address).permit(:street, :city, :state, :zip_code)
-  end
-
 end

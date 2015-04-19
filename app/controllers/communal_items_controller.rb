@@ -1,43 +1,42 @@
-class CommunalItemsController < ApplicationController
+module V1
+  class CommunalItemsController < ApplicationController
+    skip_before_action :authenticate_user_from_token!, only: [:index]
 
-  def new
-    @house = House.find(params[:house_id])
-    @item = CommunalItem.new
-  end
+    def index
+      @house = House.find(params[:house_id])
+      @communal_items = @house.communal_items.order(created_at: :desc).all
+      render json: @communal_items, each_serializer: CommunalItemsSerializer
+    end
 
-  def create
-    @house = House.find(params[:house_id])
-    @item = @house.communal_items.create(item_params)
-    if @item
-      redirect_to house_path(@house)
-    else
-      render 'new'
+    def create
+      @house = House.find(params[:house_id])
+      @communal_items = @house.communal_items.order(created_at: :desc).all
+
+      @item = @house.communal_items.new(item_params)
+      if @item.save
+        render json: @communal_items, serializer: CommunalItemsSerializer
+      else
+        render json: { error: t('item_create_error') }, status: :unprocessable_entity
+      end
+    end
+
+    def update
+      @item = CommunalItem.find(params[:id])
+      @item.update_attributes(item_params)
+      @item.save!
+      render :nothing => true, :status => 200
+    end
+
+    def destroy
+      @item = CommunalItem.find(params[:id])
+      @item.destroy
+      render :nothing => true, :status => 200
+    end
+
+    private
+
+    def item_params
+      params.require(:communal_item).permit(:name, :brand, :quantity, :stock_level)
     end
   end
-
-  def edit
-    @house = House.find(params[:house_id])
-    @item = CommunalItem.find(params[:id])
-  end
-
-  def update
-    @house = House.find(params[:house_id])
-    @item = CommunalItem.find(params[:id])
-    @item.update(item_params)
-    redirect_to house_path(@house)
-  end
-
-  def destroy
-    @house = House.find(params[:house_id])
-    @item = CommunalItem.find(params[:id])
-    @item.destroy
-    redirect_to house_path(@house)
-  end
-
-  private
-
-  def item_params
-    params.require(:communal_item).permit(:name, :brand, :quantity, :stock_level)
-  end
-
 end

@@ -1,2 +1,2 @@
-class UserPromisesController < ApplicationController
-end
+# class UserPromisesController < ApplicationController
+# end

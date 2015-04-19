@@ -9,20 +9,21 @@ module V1
     end
 
     def create
-      @house = House.find_by(id: params[:house_id])
+      @house = House.find(params[:house_id])
+      @messages = Message.where(house_id: @house.id)
+
       @message = @house.messages.new(message_params)
       @message.update_attributes(author: current_user)
 
         if @message.save
-          render :json => @message, serializer: MessageSerializer
+          render :json => @messages, serializer: MessagesSerializer
         else
           render json: { error: t('message_create_error') }, status: :unprocessable_entity
         end
      end
 
     def destroy
-      @house = House.find_by(id: params[:house_id])
-      @message = Message.find_by(id: params[:id])
+      @message = Message.find(params[:id])
       @message.destroy
       render :nothing => true, :status => 200
     end

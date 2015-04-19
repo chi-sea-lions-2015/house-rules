@@ -1,49 +1,33 @@
 class RulesController < ApplicationController
 
   def index
-    @house = House.find_by(id: params[:house_id])
-    @presenter = {
-      :rules => @house.rules,
-      :form => {
-        :action => house_rules_path(@house),
-        :csrf_param => request_forgery_protection_token,
-        :csrf_token => form_authenticity_token
-      }
-    }
+    @house = House.find(params[:house_id])
+    @rules = @house.rules.order(created_at: :desc).all
+    render json: @rules, each_serializer: RulesSerializer
   end
 
   def create
-    @user = current_user
-    @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
-    @rule = @housing_assignment.rules.new(rule_params)
-    @rule.save
-    if request.xhr?
-      render :json => @house.rules
-    else
-      redirect_to house_rules_path(@house)
-    end
-  end
+    @house = House.find(params[:house_id])
+    @rules = @house.rules.order(created_at: :desc).all
 
-  def edit
-    @user = current_user
-    @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
-    @rule = Rule.find_by(id: params[:id])
+    @rule = @house.rules.new(rule_params)
+    if @rule.save
+      render json: @rules, serializer: RulesSerializer
+    else
+      render json: { error: t('rule_create_error') }, status: :unprocessable_entity
+    end
   end
 
   def update
-    @rule = Rule.find_by(id: params[:id])
-    if @rule.update_attributes(rule_params)
-      redirect_to house_rules_path
-    end
+    @rule = Rule.find(params[:id])
+    @rule.update_attributes(rule_params)
+    render :nothing => true, :status => 200
   end
 
   def destroy
-    @rule = Rule.find_by(id: params[:id])
-    if @rule.destroy
-      redirect_to house_rules_path
-    end
+    @rule = Rule.find(params[:id])
+    @rule.destroy
+    render :nothing => true, :status => 200
   end
 
   private
