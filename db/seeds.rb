@@ -5,6 +5,7 @@ address2 = Address.create(street: "4950 N Marine Dr Apt 103", city: "Chicago", s
 property_manager = PropertyManager.create(name: "tom", phone: "773-606-6186", email: "tom@tom.com", address: address1)
 house = user.houses.create(name: "The Hater House", house_key: "igeekallweek", address: address2, property_manager_id: property_manager.id)
 rule = Rule.create(content: "Flush the toilet", house_id: 1)
+rule2 = Rule.create(content: "Shower daily", house_id: 1)
 chore = Chore.create(task: "Do the dishes", house_id: 1)
 user.chores.create(task: "Mop the floor", house_id: 1)
 event = Event.create(name: "Halloween Party", date: "2013-09-12 22:49:27", description: "Costume party!!", house_id: 1)
