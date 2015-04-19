@@ -28,8 +28,11 @@ Your property manager:
 <% if @items.length != 0 %>
   <h3>Communal Items:</h3>
   <% @items.each do |item| %>
-  <%= item.name %>: <strong><%= item.stock_level %></strong>
+  <%= item.name %>: <strong><%= item.stock_level %></strong> <%= link_to "Issue this Item", "/houses/#{@house.id}/items/#{item.id}/issues/item_issue_new" %><br>
   <%= link_to("Edit", edit_house_communal_item_path(@house, item)) %> <%= link_to("Delete", house_communal_item_path(@house, item), method: :delete) %> <br>
+  <% item.issues.each do |issue| %>
+  <strong>Issue</strong>@<%= issue.user.first_name %>: <%= issue.reason %><br>
+  <% end %>
   <% end %>
 <% end %>
 </div>
