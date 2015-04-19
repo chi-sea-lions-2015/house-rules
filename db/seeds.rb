@@ -25,5 +25,5 @@ chore3 = Chore.create(task: "Wash your face", house_id: 1)
 chore4 = Chore.create(task: "Get out of my face", house_id: 1)
 chore5 = Chore.create(task: "Say hello like a fucking normal person", house_id: 1)
 
-message2 = Message.create(content: "Love you!!!", house_id: 1, author_id: 1)
-message3 = Message.create(content: "OMFG, You guys suck!", house_id: 1, author_id: 1)
+message2 = user.messages.create(content: "Love you!!!", house_id: 1)
+message3 = user.messages.create(content: "OMFG, You guys suck!", house_id: 1)
