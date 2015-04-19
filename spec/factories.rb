@@ -1,3 +1,4 @@
+require 'Faker'
 FactoryGirl.define do
 
 
@@ -40,7 +41,8 @@ FactoryGirl.define do
     name "halloween"
     date "2013-09-12 22:49:27"
     description "Costume party!!"
-    housing_assignment
+    house
+    creator
   end
 
 
@@ -60,7 +62,7 @@ FactoryGirl.define do
   factory :item_issue, class: "Issue" do
     association :issuable, :factory => :communal_item
     reason "I hate toilet paper"
-    user
+    # user
   end
 
   factory :communal_item_promise, class: "UserPromise" do
@@ -72,20 +74,43 @@ FactoryGirl.define do
 
   factory :message do
     content "you're the best"
-    housing_assignment
+    house
+    author
   end
 
   # Message End
 
   factory :rule do
     content "Flush the toilet"
-    # housing_assignment
+    house
   end
 
   factory :rule_issue, class: "Issue" do
     association :issuable, :factory => :rule
     reason "I hate flushing!"
-    user
+    creator
+  end
+
+  factory :creator, class: "User" do
+    ignore do
+    first_name "Paul"
+    last_name "Clegg"
+    password "12345678"
+    email "stuff@stuff.com"
+    end
+
+    initialize_with { User.new({email: Faker::Internet.email, password: "12345678", last_name: "Clegg", first_name: "Paul"}) }
+  end
+
+  factory :author, class: "User" do
+    ignore do
+    first_name "Paul"
+    last_name "Clegg"
+    password "12345678"
+    email "stuff@stuff.com"
+    end
+
+    initialize_with { User.new({email: Faker::Internet.email, password: "12345678", last_name: "Clegg", first_name: "Paul"}) }
   end
 
   # Rule End
@@ -153,10 +178,14 @@ FactoryGirl.define do
   end
 
   factory :user do
+    ignore do
     first_name "Paul"
     last_name "Clegg"
-    email "clegg@clegg.com"
-    password "123456"
+    password "12345678"
+    email "stuff@stuff.com"
+    end
+
+    initialize_with { User.new({email: Faker::Internet.email, password: "12345678", last_name: "Clegg", first_name: "Paul"}) }
 
     factory :user_chore_logs do
       transient do

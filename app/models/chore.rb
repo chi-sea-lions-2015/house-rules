@@ -4,5 +4,5 @@ class Chore < ActiveRecord::Base
   has_many :user_promises, as: :promisable
   has_many :chore_logs
 
-  validates :task, presence: true
+  validates :task, :length => { :minimum => 6 }
 end
