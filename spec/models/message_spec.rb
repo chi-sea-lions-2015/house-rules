@@ -5,5 +5,5 @@ RSpec.describe Message, type: :model do
   it { expect(message).to validate_length_of(:content)}
     # it { expect(message).to have_many(:issues)}
 
-    it { expect(message).to belong_to(:housing_assignment)}
+    it { expect(message).to belong_to(:house)}
 end
