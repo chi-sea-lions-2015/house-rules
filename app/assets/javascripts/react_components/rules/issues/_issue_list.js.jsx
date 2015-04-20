@@ -11,7 +11,7 @@ var IssueList = React.createClass({
         }
       });
       
-      return <Issue issue={ issue } key={ issue.id } user={ user }/>
+      return <Issue issue={ issue } key={ issue.id } user={ user } />
     });
 
     return (
