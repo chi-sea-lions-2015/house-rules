@@ -1,4 +1,4 @@
-module V1
+# module V1
   class CommunalItemsController < ApplicationController
     skip_before_action :authenticate_user_from_token!, only: [:index]
 
@@ -39,4 +39,4 @@ module V1
       params.require(:communal_item).permit(:name, :brand, :quantity, :stock_level)
     end
   end
-end
+# end
