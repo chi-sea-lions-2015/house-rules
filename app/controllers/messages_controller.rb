@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   def index
     @house = House.find(params[:house_id])
     @messages = Message.where(house_id: @house.id)
-    render :json => @messages, each_serializer: MessagesSerializer
+    render :json => @messages, serializer: MessagesSerializer
   end
 
   def create
@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
     @message.update_attributes(author: current_user)
 
     if @message.save
-      render :json => @messages, each_serializer: MessagesSerializer
+      render :json => @message, each_serializer: MessagesSerializer
     else
       warden.custom_failure!
       render json: {error: t('sessions_controller.invalid_login_attempt')}, status: :unprocessable_entity
