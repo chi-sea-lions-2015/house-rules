@@ -25,7 +25,7 @@
       @house = House.find(params[:house_id])
       @chore = @house.chores.new(chore_params)
       if @chore.save
-        render json: @house.chores, each_serializer: ChoresSerializer
+        render json: @chore, each_serializer: ChoresSerializer
       else
         render json: { error: t('chore_create_error') }, status: :unprocessable_entity
       end

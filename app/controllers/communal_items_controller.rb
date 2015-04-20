@@ -14,7 +14,7 @@
 
       @item = @house.communal_items.new(item_params)
       if @item.save
-        render json: @communal_items, each_serializer: CommunalItemsSerializer
+        render json: @item, each_serializer: CommunalItemsSerializer
       else
         render json: { error: t('item_create_error') }, status: :unprocessable_entity
       end
