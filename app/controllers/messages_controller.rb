@@ -10,13 +10,14 @@ class MessagesController < ApplicationController
 
   def create
     @house = House.find(params[:house_id])
-    @messages = Message.where(house_id: @house.id)
-
     @message = @house.messages.new(message_params)
     @message.update_attributes(author: current_user)
+    @messages = Message.where(house_id: @house.id)
+
+    
 
     if @message.save
-      render json: @message, each_serializer: MessagesSerializer
+      render json: @messages, each_serializer: MessagesSerializer
 
     else
       warden.custom_failure!
