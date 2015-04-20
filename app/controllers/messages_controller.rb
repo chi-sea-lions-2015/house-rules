@@ -16,7 +16,7 @@
     @message.update_attributes(author: current_user)
 
     if @message.save
-      render json:  @messages, each_serializer: MessagesSerializer
+      render json: @message, each_serializer: MessagesSerializer
     else
       warden.custom_failure!
       render json: {error: t('sessions_controller.invalid_login_attempt')}, status: :unprocessable_entity
