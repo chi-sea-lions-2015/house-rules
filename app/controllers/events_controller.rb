@@ -1,4 +1,4 @@
-module V1
+# module V1
   class EventsController < ApplicationController
     skip_before_action :authenticate_user_from_token!, only: [:index]
 
@@ -39,4 +39,4 @@ module V1
       params.require(:event).permit(:description, :date, :name)
     end
   end
-end
+# end

@@ -1,4 +1,4 @@
-module V1
+# module V1
   class HousesController < ApplicationController
     skip_before_action :authenticate_user_from_token!, only: [:index]
 
@@ -66,4 +66,4 @@ module V1
       params.require(:house).require(:address).permit(:street, :city, :state, :zip_code)
     end
   end
-end
+# end
