@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  gitskip_before_action :authenticate_user_from_token!, only: [:create]
+  skip_before_action :authenticate_user_from_token!, only: [:create]
   def show
     @user = User.find(params[:id])
   end
@@ -17,12 +17,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    p @user
     if @user.save
-      log_in @user
-      flash[:success] = "Welcome!"
-      redirect_to user_path(@user)
+      render json: @user, serializer: SessionSerializer, root: nil
     else
-      render "new"
+      render json: { error: t('user_create_error') }, status: :unprocessable_entity
     end
   end
 
@@ -38,7 +37,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :avatar, :password, :password_confirmation)
+      params.require(:user).permit(:username, :first_name, :last_name, :email, :phone, :avatar, :password, :password_confirmation)
     end
 
 end

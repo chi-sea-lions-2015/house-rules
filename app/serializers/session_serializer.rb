@@ -1,4 +1,4 @@
-module V1
+# module V1
   class SessionSerializer < ActiveModel::Serializer
 
     attributes :email, :token_type, :user_id, :access_token
@@ -12,4 +12,4 @@ module V1
     end
 
   end
-end
+# end

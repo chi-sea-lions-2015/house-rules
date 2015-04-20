@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   devise_for :user, only: []
 
 
-  namespace :v1, defaults: { format: :json } do
-    resource :login, only: [:create], controller: :sessions
-  end
+ post   '/login'   => 'sessions#create' , defaults: { format: :json }
+
+  # namespace :v1, defaults: { format: :json } do
+  #   resource :login, only: [:create], controller: :sessions
+  # end
 
   resources :user_promises
   get    '/'  => 'sessions#new'
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  resources :users do
+  resources :users, defaults: { format: :json } do
   end
 
 
