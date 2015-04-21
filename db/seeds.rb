@@ -9,6 +9,7 @@ rule2 = Rule.create(content: "Shower daily", house_id: 1)
 chore = Chore.create(task: "Do the dishes", house_id: 1)
 event = Event.create(name: "Halloween Party", date: "2013-09-12 22:49:27", description: "Costume party!!", house_id: 1, creator: "Zach!")
 communal_item = CommunalItem.create(name: "toilet paper", brand: "charmin", quantity: 12, house_id: 1, stock_level: "low")
+
 message = Message.create(content: "You're the best!!", house_id: 1, author: "Paul")
 chore_issue = chore.issues.create(reason: "whatever", creator: "Paul")
 item_issue = communal_item.issues.create(reason: "I hate paper towel", creator: "Morgan")

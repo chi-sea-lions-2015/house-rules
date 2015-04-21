@@ -5,4 +5,5 @@ class CommunalItemSerializer < ActiveModel::Serializer
   # has_one :house
   # has_many :issues, as: :issuable
   # has_many :user_promises, as: :promisable
+
 end

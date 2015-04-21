@@ -5,16 +5,18 @@
     def index
       @house = House.find(params[:house_id])
       @events = @house.events.all
-      render json: @events, each_serializer: EventsSerializer
+      render json: @events, each_serializer: EventSerializer
     end
 
     def create
+      @user = current_user
       @house = House.find(params[:house_id])
-      @events = @house.events.all
 
       @event = @house.events.new(event_params)
+      @event.update_attributes(creator: @user.first_name)
+
       if @event.save
-        render json: @event, each_serializer: EventsSerializer
+        render json: @event, each_serializer: EventSerializer
       else
         render json: { error: t('event_create_error') }, status: :unprocessable_entity
       end

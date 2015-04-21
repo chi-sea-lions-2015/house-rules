@@ -4,4 +4,5 @@ class RuleSerializer < ActiveModel::Serializer
   # has_many :issues, as: :issuable
 
 
+
 end
