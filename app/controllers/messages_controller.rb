@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
     
 
     if @message.save
-      render json: @messages, each_serializer: MessagesSerializer
+      render json: @message, each_serializer: MessagesSerializer
 
     else
       warden.custom_failure!
