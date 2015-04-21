@@ -8,6 +8,12 @@
       render json: @messages, each_serializer: MessagesSerializer
     end
 
+    def index2
+      @house = House.find(params[:house_id])
+      @messages = Message.where(house_id: @house.id)
+      @messages.limit(10)
+      render json: @messages, each_serializer: MessagesSerializer
+    end
 
   def create
     @house = House.find(params[:house_id])
