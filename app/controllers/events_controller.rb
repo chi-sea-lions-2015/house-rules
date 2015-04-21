@@ -9,10 +9,13 @@
     end
 
     def create
+      @user = current_user
       @house = House.find(params[:house_id])
-      @events = @house.events
 
       @event = @house.events.new(event_params)
+      @event.house_id = @house.id
+      @event.creator = @user.first_name
+      
       if @event.save
         render json: @event, each_serializer: EventSerializer
       else
