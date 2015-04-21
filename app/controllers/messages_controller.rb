@@ -17,7 +17,7 @@
     @message.update_attributes(author: current_user)
 
     if @message.save
-      render json: @message, each_serializer: MessagesSerializer
+      render json: @message, serializer: MessagesSerializer
 
     else
       warden.custom_failure!
