@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user_from_token!, only: [:create]
+  skip_before_action :authenticate_user_from_token!, only: [:create, :show]
   def show
     @user = User.find(params[:id])
   end

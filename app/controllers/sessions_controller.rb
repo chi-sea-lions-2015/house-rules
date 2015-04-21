@@ -7,6 +7,7 @@
 
       if @user.valid_password?(params[:password])
         sign_in :user, @user
+        puts @user.houses.first.name
         render json: @user, serializer: SessionSerializer, root: nil
       else
         invalid_login_attempt
