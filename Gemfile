@@ -9,7 +9,7 @@ gem 'active_model_serializers', '~> 0.8.3' # NOTE: not the 0.9
 gem 'devise', '~> 3.4.1'
 gem 'rack-cors',            require: 'rack/cors'
 
-gem 'therubyracer', platforms: :ruby
+gem "oauth-plugin", "~> 0.4.0"
 
 # Use postgresql as the database for Active Record
 gem 'pg'
