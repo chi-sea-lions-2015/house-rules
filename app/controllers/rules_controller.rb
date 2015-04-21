@@ -15,7 +15,7 @@ class RulesController < ApplicationController
     if @rule.save
       render json: @rule, each_serializer: RulesSerializer
     else
-      render json: { error: t('rule_create_error') }, status: :unprocessable_entity
+      render json: { error: ('rule_create_error') }, status: :unprocessable_entity
     end
   end
 
