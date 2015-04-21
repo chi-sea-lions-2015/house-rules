@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20150419014546) do
     t.string   "name"
     t.datetime "date"
     t.string   "description"
-    t.integer  "user_id"
+    t.string   "creator"
     t.integer  "house_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20150419014546) do
 
   create_table "issues", force: :cascade do |t|
     t.string   "reason"
-    t.integer  "user_id"
+    t.string   "creator"
     t.integer  "issuable_id"
     t.string   "issuable_type"
     t.datetime "created_at",    null: false
@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(version: 20150419014546) do
   end
 
   add_index "issues", ["issuable_type", "issuable_id"], name: "index_issues_on_issuable_type_and_issuable_id", using: :btree
-  add_index "issues", ["user_id"], name: "index_issues_on_user_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.string   "content"
@@ -133,7 +132,7 @@ ActiveRecord::Schema.define(version: 20150419014546) do
 
   create_table "user_promises", force: :cascade do |t|
     t.boolean  "fulfilled",       default: false
-    t.integer  "user_id"
+    t.string   "creator"
     t.integer  "promisable_id"
     t.string   "promisable_type"
     t.datetime "created_at",                      null: false
@@ -141,7 +140,6 @@ ActiveRecord::Schema.define(version: 20150419014546) do
   end
 
   add_index "user_promises", ["promisable_type", "promisable_id"], name: "index_user_promises_on_promisable_type_and_promisable_id", using: :btree
-  add_index "user_promises", ["user_id"], name: "index_user_promises_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -178,8 +176,6 @@ ActiveRecord::Schema.define(version: 20150419014546) do
   add_foreign_key "houses", "property_managers"
   add_foreign_key "housing_assignments", "houses"
   add_foreign_key "housing_assignments", "users"
-  add_foreign_key "issues", "users"
   add_foreign_key "messages", "houses"
   add_foreign_key "rules", "houses"
-  add_foreign_key "user_promises", "users"
 end
