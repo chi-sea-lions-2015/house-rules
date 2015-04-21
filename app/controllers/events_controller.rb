@@ -1,6 +1,6 @@
 # module V1
   class EventsController < ApplicationController
-    skip_before_action :authenticate_user_from_token!, only: [:index, :create]
+    skip_before_action :authenticate_user_from_token!, only: [:index]
 
     def index
       @house = House.find(params[:house_id])
@@ -13,9 +13,8 @@
       @house = House.find(params[:house_id])
 
       @event = @house.events.new(event_params)
-      @event.house_id = @house.id
-      @event.creator = @user.first_name
-      
+      @event.update_attributes(creator: @user.first_name)
+
       if @event.save
         render json: @event, each_serializer: EventSerializer
       else
