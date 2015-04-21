@@ -1,6 +1,6 @@
 class HouseSerializer < ActiveModel::Serializer
   embed :ids, :include => true
 
-  attributes :id, :house_key
+  attributes :id, :house_key, :name
 
 end

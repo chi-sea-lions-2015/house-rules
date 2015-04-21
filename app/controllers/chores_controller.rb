@@ -5,7 +5,7 @@
     def index
       @house = House.find(params[:house_id])
       @chores = @house.chores.order(created_at: :desc).all
-      render json: @chores, each_serializer: ChoresSerializer
+      render json: @chores, each_serializer: ChoreSerializer
     end
 
     def update
@@ -25,7 +25,7 @@
       @house = House.find(params[:house_id])
       @chore = @house.chores.new(chore_params)
       if @chore.save
-        render json: @chore, each_serializer: ChoresSerializer
+        render json: @chore, each_serializer: ChoreSerializer
       else
         render json: { error: t('chore_create_error') }, status: :unprocessable_entity
       end

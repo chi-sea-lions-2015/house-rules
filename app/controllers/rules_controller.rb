@@ -4,7 +4,7 @@ class RulesController < ApplicationController
   def index
     @house = House.find(params[:house_id])
     @rules = @house.rules.order(created_at: :desc).all
-    render :json => @rules, each_serializer: RulesSerializer
+    render :json => @rules, each_serializer: RuleSerializer
   end
 
   def create
@@ -13,7 +13,7 @@ class RulesController < ApplicationController
 
     @rule = @house.rules.new(rule_params)
     if @rule.save
-      render json: @rule, each_serializer: RulesSerializer
+      render json: @rule, each_serializer: RuleSerializer
     else
       render json: { error: ('rule_create_error') }, status: :unprocessable_entity
     end
