@@ -1,5 +1,6 @@
-class MessagesController < ApplicationController
-  skip_before_action :authenticate_user_from_token!, only: [:index, :create]
+# module V1
+  class MessagesController < ApplicationController
+
 
     def index
       @house = House.find(params[:house_id])
@@ -10,11 +11,10 @@ class MessagesController < ApplicationController
 
   def create
     @house = House.find(params[:house_id])
-    @message = @house.messages.new(message_params)
-    @message.update_attributes(author: current_user)
-    @messages = Message.where(house_id: @house.id)
+    @user = current_user
 
-    
+    @message = @house.messages.new(message_params)
+    @message.update_attributes(author: @user.first_name)
 
     if @message.save
       render json: @message, each_serializer: MessagesSerializer

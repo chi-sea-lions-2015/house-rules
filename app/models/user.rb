@@ -8,12 +8,9 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-  has_many :messages
   has_many :housing_assignments
   has_many :houses, through: :housing_assignments
-  has_many :events
   has_many :chore_logs
-  has_many :chores, through: :chore_logs
   has_many :issues
   has_many :user_promises
 
