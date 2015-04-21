@@ -10,9 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :housing_assignments
   has_many :houses, through: :housing_assignments
-  has_many :events
   has_many :chore_logs
-  has_many :chores, through: :chore_logs
   has_many :issues
   has_many :user_promises
 

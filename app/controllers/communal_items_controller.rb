@@ -5,16 +5,15 @@
     def index
       @house = House.find(params[:house_id])
       @communal_items = @house.communal_items.order(created_at: :desc).all
-      render json: @communal_items, each_serializer: CommunalItemsSerializer
+      render json: @communal_items, each_serializer: CommunalItemSerializer
     end
 
     def create
       @house = House.find(params[:house_id])
-      @communal_items = @house.communal_items.order(created_at: :desc).all
 
       @item = @house.communal_items.new(item_params)
       if @item.save
-        render json: @item, each_serializer: CommunalItemsSerializer
+        render json: @item, each_serializer: CommunalItemSerializer
       else
         render json: { error: t('item_create_error') }, status: :unprocessable_entity
       end
