@@ -1,20 +1,20 @@
 # module V1
   class EventsController < ApplicationController
-    skip_before_action :authenticate_user_from_token!, only: [:index]
+    skip_before_action :authenticate_user_from_token!, only: [:index, :create]
 
     def index
       @house = House.find(params[:house_id])
       @events = @house.events.all
-      render json: @events, each_serializer: EventsSerializer
+      render json: @events, each_serializer: EventSerializer
     end
 
     def create
       @house = House.find(params[:house_id])
-      @events = @house.events.all
+      @events = @house.events
 
       @event = @house.events.new(event_params)
       if @event.save
-        render json: @event, each_serializer: EventsSerializer
+        render json: @event, each_serializer: EventSerializer
       else
         render json: { error: t('event_create_error') }, status: :unprocessable_entity
       end
