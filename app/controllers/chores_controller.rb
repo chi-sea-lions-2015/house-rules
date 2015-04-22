@@ -1,17 +1,10 @@
 class ChoresController < ApplicationController
 
   def index
-    # @chores = Chore.select("id, task").to_json
+    @user = current_user
     @house = House.find(params[:house_id])
-    puts @house.id
-    @presenter = {
-      :chores => @house.chores,
-      :form => {
-        :action => house_chores_path(@house),
-        :csrf_param => request_forgery_protection_token,
-        :csrf_token => form_authenticity_token
-      }
-    }
+    @chores = @house.chores
+    @chore_logs = @house.users.map {|user| user.chore_logs}
   end
 
   def update
@@ -21,24 +14,30 @@ class ChoresController < ApplicationController
     render :nothing => true, :status => 200
   end
 
-  def destroy
-    chore = Chore.find(params[:id])
-    chore.destroy
-    render :nothing => true, :status => 200
+  def show
+    @user = current_user
+    @house = House.find_by(id: params[:house_id])
+    @chore = Chore.find_by(id: params[:id])
   end
 
   def create
     @user = current_user
     @house = House.find_by(id: params[:house_id])
     @chore = @house.chores.new(chore_params)
-    @chore.save
-    if request.xhr?
-      render :json => @house.chores
-    else
+    @users = @house.users
+    if @chore.save
       redirect_to house_chores_path
+    else
+      flash.now[:error] = "chore did not save"
+      redirect_to house_path(@house)
     end
   end
 
+  def destroy
+    chore = Chore.find(params[:id])
+    chore.destroy
+    render :nothing => true, :status => 200
+  end
 
   private
 

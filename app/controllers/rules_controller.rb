@@ -2,15 +2,8 @@ class RulesController < ApplicationController
 
   def index
     @house = House.find_by(id: params[:house_id])
-    @presenter = {
-      :rules => @house.rules,
-      :form => {
-        :action => house_rules_path(@house),
-        :csrf_param => request_forgery_protection_token,
-        :csrf_token => form_authenticity_token
-      }
-
-    }
+    @housing_assignment = HousingAssignment.find_by(house_id: @house.id)
+    @rules = @housing_assignment.rules
   end
 
   def create
@@ -22,7 +15,8 @@ class RulesController < ApplicationController
     if request.xhr?
       render :json => @house.rules
     else
-      redirect_to house_rules_path(@house)
+      flash.now[:error] = "Rule did not save"
+      redirect_to house_path(@house)
     end
   end
 

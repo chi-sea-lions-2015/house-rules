@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sample Rails app using react-rails</title>
+  <title>House Rules</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= csrf_meta_tags %>
-  <script src="assets/javascripts/Header.react.jsx"></script>
   <%= yield :head %>
 </head>
 <body>
+  <%= react_component('Header', isLoggedIn: !!current_user, email: current_user.try(:email), houseName: current_user.houses.first.try(:name), houseID: current_user.houses.first.try(:id), userID: current_user.try(:id)) %>
+
   <div class="content">
     <%= yield %>
   </div>

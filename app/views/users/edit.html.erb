@@ -1,5 +1,7 @@
-<div class="container">
-  <h1>Edit Your Information</h1>
+<div class="row">
+  <div class="large-3 columns"><br />
+  </div>
+  <div class="large-6 columns">
 
   <%= form_for @user, :html => { :multipart => true }, method: :patch do |f| %>
   <p>
@@ -36,4 +38,7 @@
   </p>
 
   <% end %>
+  </div>
+  <div class="large-3 columns"><br /></div>
 </div>
+
