@@ -4,12 +4,20 @@ class ChoresController < ApplicationController
     @user = current_user
     @house = House.find_by(id: params[:house_id])
     @chores = @house.chores
+    @chore_logs = @house.users.map {|user| user.chore_logs}
+  end
+
+  def show
+    @user = current_user
+    @house = House.find_by(id: params[:house_id])
+    @chore = Chore.find_by(id: params[:id])
   end
 
   def create
     @user = current_user
     @house = House.find_by(id: params[:house_id])
     @chore = @house.chores.new(chore_params)
+    @users = @house.users
     if @chore.save
       redirect_to house_chores_path
     else

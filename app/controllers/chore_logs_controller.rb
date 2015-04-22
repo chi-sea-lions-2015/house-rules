@@ -3,8 +3,7 @@ class ChoreLogsController < ApplicationController
   def index
     @user = current_user
     @house = House.find_by(id: params[:house_id])
-    @house_ass = HousingAssignment.where(house_id: @house.id ) 
-    puts @house_ass.users
+    @users = @house.users
     
     @chore = Chore.find_by(id: params[:chore_id])
     @chore_logs = @house.users.map {|user| user.chore_logs}
