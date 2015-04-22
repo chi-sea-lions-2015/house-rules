@@ -19,12 +19,12 @@ get '/houses/:id/roommates', to: 'users#index'
     resources :rules, shallow: true
     resources :communal_items, shallow: true
     resources :events, shallow: true
-    resources :chores, only: [:index, :create]
+    resources :chores, only: [:show, :index, :create, :destroy] do
+      resources :chore_logs, only: [:create, :show, :destroy]
+    end
   end
 
-  resources :chores do
-    resources :chore_logs, only: [:create, :destroy]
-  end
+get '/houses/:id/roommates', to: 'users#index'
 
   get '/houses/:id/join' => 'houses#join'
   post '/houses/:id/join' => 'houses#join_update'

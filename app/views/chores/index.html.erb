@@ -6,8 +6,8 @@
   <% log = @user.chore_logs.where(chore_id: chore.id ) %>
   <%= chore.task %> <br>
   Completed :<%= chore.chore_logs.size %> <br>
-  <%= link_to 'View Log', chores_path(chore) %>
-  <%= link_to 'Complete',  chore_chore_logs(chore)%>
+  <%= link_to 'View Log', house_chore_chore_log_path(chore) %>
+  <%= link_to 'Complete',  "/houses/#{@house.id}/chores/#{chore.id}/chore_logs", method: :post %>
   <%= link_to 'Edit', edit_chore_path(chore) %><br>
   <%= link_to "Delete", chores_path(chore), method: :delete,
     data: {confirm: "Are you sure?"} %><br>

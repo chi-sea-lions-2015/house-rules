@@ -12,10 +12,11 @@ class ChoreLogsController < ApplicationController
 
   def create
     @user = current_user
-    @house = House.find_by(id: params[:house_id])
     @chore = Chore.find_by(id: params[:chore_id])
+    @house = @chore.house
+    @chores = @house.chores 
     @chore_log = @user.chore_logs.new(chore: @chore)
-    @chores = @house.chores
+    params[:house_id] = @house.id
     if @chore_log.save
       redirect_to house_chores_path
     end
@@ -26,6 +27,7 @@ class ChoreLogsController < ApplicationController
     @house = House.find_by(id: params[:house_id])
     @chores = @house.chores
     @chore_log = ChoreLog.find_by(id: params[:id])
+     params[:house_id] = @house.id
     if @chore_log.destroy
       redirect_to house_chores_path
     end
