@@ -6,7 +6,9 @@ var ChoreList = React.createClass({
 
     return (
       <div className="chore-list row">
+      <ol>
         { choreNodes }
+      </ol>
       </div>
     )
   }

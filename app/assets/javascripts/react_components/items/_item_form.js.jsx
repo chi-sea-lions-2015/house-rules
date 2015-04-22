@@ -33,8 +33,12 @@ var ItemForm = React.createClass({
           <p><input type="text" ref="name" name="communal_item[name]" placeholder="What's the communal item?" /></p>
           <p><input type="text" ref="brand" brand="communal_item[brand]" placeholder="What's the brand?" /></p>
           <p><input type="text" ref="quantity" quantity="communal_item[quantity]" placeholder="How many?" /></p>
-          <p><textarea ref="stock_level" name="communal_item[stock_level]" placeholder="What's the stock status now?" /></p>
-          <button type="submit">Create Event</button>
+          <p><select ref="stock_level" name="communal_item[stock_level]">
+              <option value="high">High</option>
+              <option value="low">Low</option>
+              <option value="out">Out</option>
+              </select></p>
+          <button type="submit">Create Item</button>
         </fieldset>
       </form>
     )

@@ -1,5 +1,6 @@
 var ItemBox = React.createClass({
   getInitialState: function () {
+    debugger;
     return JSON.parse(this.props.presenter);
   },
 

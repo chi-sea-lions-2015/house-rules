@@ -2,7 +2,7 @@ var Chore = React.createClass({
   render: function () {
     return (
       <div>
-      <p>{ this.props.chore.task }</p>
+      <li>{ this.props.chore.task }</li>
       </div>
     )
   }

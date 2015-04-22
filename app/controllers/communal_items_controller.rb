@@ -25,7 +25,7 @@ class CommunalItemsController < ApplicationController
       if request.xhr?
         render :json => @house.communal_items
       else
-        redirect_to house_path(@house)
+        redirect_to house_communal_items_path(@house)
       end
     else
       render 'new'

@@ -1,5 +1,6 @@
 var ItemList = React.createClass({
   render: function () {
+    debugger;
     var itemNodes = this.props.items.map(function ( item ) {
       return <Item item={ item } key={ item.id } promise={"I buy"} />
     });
