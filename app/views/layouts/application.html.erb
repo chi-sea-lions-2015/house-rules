@@ -4,6 +4,8 @@
   <title>Sample Rails app using react-rails</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= csrf_meta_tags %>
+  <script src="assets/javascripts/Header.react.jsx"></script>
+  <%= yield :head %>
 </head>
 <body>
   <div class="content">
