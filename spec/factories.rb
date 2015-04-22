@@ -1,4 +1,7 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :picture do
+    
+  end
+
 
 
   factory :chore do

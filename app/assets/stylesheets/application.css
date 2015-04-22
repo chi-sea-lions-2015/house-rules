@@ -11,7 +11,21 @@
  *= require_self
  *= require_tree .
  */
+.message-table {
+  width: 100%;
+}
 
+.message-pic {
+  width: 20%;
+}
+
+.message-text {
+  width: 70%;
+}
+
+.message-delete {
+  width: 10%;
+}
 
 #edit-house-form-div {
   display: none;
