@@ -12,9 +12,9 @@ class ChoresController < ApplicationController
     @chore = @house.chores.new(chore_params)
     if @chore.save
       redirect_to house_chores_path
-    # else
-    #   flash.now[:error] = "chore did not save"
-    #   redirect_to house_path(@house)
+    else
+      flash.now[:error] = "chore did not save"
+      redirect_to house_path(@house)
     end
   end
 
