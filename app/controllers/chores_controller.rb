@@ -34,7 +34,12 @@ class ChoresController < ApplicationController
     @house = @chore.house
     @chores = @house.chores
     @logged_users = @chore.chore_logs.map{|log| log.user_id }
-    @logged_users.map!{|id| User.find(id)}
+    @logged_users.uniq!
+    if @logged_users.size > 1
+      @logged_users.map!{|id| User.find(id)}
+    else
+      @logged_users = User.find(@logged_users)
+    end
     render :show
   end
 
