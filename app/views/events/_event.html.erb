@@ -1,0 +1,6 @@
+ <%= event.user.first_name %>: <%= event.name %> <br>
+      Description: <%= event.description %><br>
+      Date: <%= event.date%><br>
+      <%= link_to "Destroy", house_event_path(@house, event), method: :delete,
+      data: {confirm: "Are you sure?"} %><br>
+      <%= link_to 'Edit', edit_house_event_path(@house, event) %><br><br>

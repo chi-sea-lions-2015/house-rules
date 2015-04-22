@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
 
-  resources :user_promises
+
   get    '/'  => 'sessions#new'
   get    'signup'  => 'users#new'
   post   'users'   => 'users#create'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  get "/houses/:id/roommates" => 'houses#roommates'
 
   resources :users do
   end
+
+  get '/houses/:id/roommates', to: 'users#index'
+
 
   resources :houses do
     resources :property_managers
@@ -17,75 +21,24 @@ Rails.application.routes.draw do
     resources :rules
     resources :communal_items
     resources :events
-    resources :chores do
-      resources :chore_logs
+    resources :chores, shallow: true do
+      resources :chore_logs, only: [:create, :show, :destroy]
     end
   end
+
+  get '/houses/:id/roommates', to: 'users#index'
 
   get '/houses/:id/join' => 'houses#join'
   post '/houses/:id/join' => 'houses#join_update'
 
-  get '/houses/:house_id/rules/:rule_id/issues/rule_issue_new' => 'issues#rule_issue_new'
-  post '/houses/:house_id/rules/:rule_id/issues/rule_issue_create' => 'issues#rule_issue_create'
-  get '/houses/:house_id/chores/:chore_id/issues/chore_issue_new' => 'issues#chore_issue_new'
-  post '/houses/:house_id/chores/:chore_id/issues/chore_issue_create' => 'issues#chore_issue_create'
-  get '/houses/:house_id/items/:item_id/issues/item_issue_new' => 'issues#item_issue_new'
-  post '/houses/:house_id/items/:item_id/issues/item_issue_create' => 'issues#item_issue_create'
-  get '/houses/:house_id/events/:event_id/issues/event_issue_new' => 'issues#event_issue_new'
-  post '/houses/:house_id/events/:event_id/issues/event_issue_create' => 'issues#event_issue_create'
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  post '/houses/:house_id/communal_items/:id/high' => 'communal_items#high'
+  post '/houses/:house_id/communal_items/:id/low' => 'communal_items#low'
+  post '/houses/:house_id/communal_items/:id/out' => 'communal_items#out'
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  post '/houses/:house_id/communal_items/:communal_item_id/promise' => 'user_promises#create'
+  post '/houses/:house_id/communal_items/:communal_item_id/promise_fulfilled' => 'user_promises#update'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  post '/houses/:house_id/communal_items/:communal_item_id/issue' => 'issues#item_issue_create'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end

@@ -1,29 +1,27 @@
 class RulesController < ApplicationController
+skip_before_action :authenticate_user_from_token!
 
   def index
     @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id)
-    @rules = @housing_assignment.rules
+    @rules = @house.rules
   end
 
   def create
     @user = current_user
     @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
-    @rule = @housing_assignment.rules.new(rule_params)
+    @rule = @house.rules.new(rule_params)
     @rule.save
     if request.xhr?
-      render :json => @house.rules
+      puts "HEYYyYYyYYyyyyyyy"
+      render @rule, layout: false
     else
-      flash.now[:error] = "Rule did not save"
-      redirect_to house_path(@house)
+      redirect_to house_events_path
     end
   end
 
   def edit
     @user = current_user
     @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
     @rule = Rule.find_by(id: params[:id])
   end
 
@@ -36,6 +34,7 @@ class RulesController < ApplicationController
 
   def destroy
     @rule = Rule.find_by(id: params[:id])
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     if @rule.destroy
       redirect_to house_rules_path
     end

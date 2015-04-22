@@ -1,3 +1,91 @@
-<%= react_component('ItemBox',
-  {:presenter => @presenter.to_json},
-  {:prerender => false}) %>
+<div class="row">
+  <div class="small-6 large-2 columns"><br></div>
+  <div class="small-6 large-8 columns">
+<h1 class="item-title">Communal Items</h1>
+    <% if @items.length != 0 %>
+
+      <% @items.each do |item| %>
+
+        <span class="item-name">&nbsp;&nbsp;<%= item.name.split.map(&:capitalize).join(' ') %></span> &nbsp;&nbsp;&nbsp; Brand: <%= item.brand %> &nbsp; Qty: <%= item.quantity %> pack &nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to("Edit", edit_house_communal_item_path(@house, item)) %> /
+        <%= link_to("Delete", house_communal_item_path(@house, item), method: :delete) %>
+        <%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%>
+        <br>
+        <span class="item-stock-level">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stock Status: <%= item.stock_level.capitalize %></span>
+        <% stock_levels = @stock_levels - [item.stock_level] %>
+        
+
+        
+        <% if item.stock_level != "high" %>
+          <% if item.user_promise %>
+            <% if item.user_promise.fulfilled == false %>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>"<%= @user.first_name.capitalize %>"</strong> will buy next
+              <%= form_for :promise, url: "/houses/#{@house.id}/communal_items/#{item.id}/promise_fulfilled", html: { class: "promise"} do |f| %>
+              <%= f.submit "I Got It" , class: "form-submit" %>
+              <% end %>
+            <% end %>
+          <% else %>
+ 
+            <%= form_for :promise, url: "/houses/#{@house.id}/communal_items/#{item.id}/promise", html: { class: "promise"} do |f| %>
+            <%= f.submit "I Will Buy It" , class: "form-submit" %>
+            <% end %>
+
+            
+            <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[1]}", html: { class: "stock-level-form"} do |f| %>
+            <%= f.submit "#{stock_levels[1]}" , class: "form-submit" %>
+            <% end %>
+           
+            <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[0]}",  html: { class: "stock-level-form"} do |f| %>
+            <%= f.submit "#{stock_levels[0]}" , class: "form-submit" %>
+            <% end %>            
+
+          <% end %>
+        <% else %>
+          <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[0]}",  html: { class: "stock-level-form"} do |f| %>
+          <%= f.submit "#{stock_levels[0]}" , class: "form-submit" %>
+          <% end %>
+          <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[1]}", html: { class: "stock-level-form"} do |f| %>
+          <%= f.submit "#{stock_levels[1]}" , class: "form-submit" %>
+          <% end %>
+        <% end %>
+        <div class="issue_box">
+        <div class="issue_form">
+        
+        <%= form_for :issue, url: "/houses/#{@house.id}/communal_items/#{item.id}/issue", html: { class: "item_issue"} do |f| %>
+          <%= f.label :reason %>
+          <%= f.text_area :reason %>
+          <%= f.submit "Submit Issue" %>
+        <% end %>
+        </div>
+
+        <div class="issue_body">
+          <% if item.issues %>
+          <% item.issues.each do |issue| %>
+            <%= render partial: "issue", locals: { issue: issue } %>
+          <% end %>
+          <% end %>
+        </div>
+        </div>
+      <br>
+
+      <% end %>
+
+    <% end %>
+
+
+
+    <%= form_for :communal_item, url: house_communal_items_path(@house) do |f| %>
+    <fieldset>
+      <legend>New Communal Item</legend>
+      Name: <%= f.text_field :name %>
+      Brand: <%= f.text_field :brand %>
+      Quantity: <%= f.text_field :quantity %>
+      Stock Level:
+      <%= f.select :stock_level, options_for_select([ "high", "low", "out"]) %>
+      <%= f.submit "New Item", :class => "button"  %>
+    </fieldset>
+    <% end %>
+  </div>
+  <div class="small-12 large-2 columns"><br></div>
+</div>
+

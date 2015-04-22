@@ -4,20 +4,38 @@ class ChoresController < ApplicationController
     @user = current_user
     @house = House.find(params[:house_id])
     @chores = @house.chores
+    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
     @chore_logs = @house.users.map {|user| user.chore_logs}
   end
 
+  def edit
+    @user = current_user
+    @chore = Chore.find(params[:id])
+    @house = @chore.house
+    render :edit
+  end
+
+
   def update
     chore = Chore.find(params[:id])
-    chore.task = params[:task]
-    chore.save!
-    render :nothing => true, :status => 200
+    chore.update_attributes(chore_params)
+    @house = chore.house
+    if chore.save!
+      redirect_to "/houses/#{@house.id}/chores"
+    else
+      flash.now[:error] = "chore did not save"
+      redirect_to house_path(@house)
+    end
   end
 
   def show
     @user = current_user
-    @house = House.find_by(id: params[:house_id])
     @chore = Chore.find_by(id: params[:id])
+    @house = @chore.house
+    @chores = @house.chores
+    @logged_users = @chore.chore_logs.map{|log| log.user_id }
+    @logged_users.map!{|id| User.find(id)}
+    render :show
   end
 
   def create
@@ -26,7 +44,7 @@ class ChoresController < ApplicationController
     @chore = @house.chores.new(chore_params)
     @users = @house.users
     if @chore.save
-      redirect_to house_chores_path
+      redirect_to "/houses/#{@house.id}/chores"
     else
       flash.now[:error] = "chore did not save"
       redirect_to house_path(@house)
@@ -35,8 +53,12 @@ class ChoresController < ApplicationController
 
   def destroy
     chore = Chore.find(params[:id])
+    @house = chore.house
+    @chore_logs = ChoreLog.where(chore_id: chore.id)
+    @chore_logs.each{|log| log.destroy}
+    params[:house_id] = @house.id
     chore.destroy
-    render :nothing => true, :status => 200
+    redirect_to "/houses/#{@house.id}/chores"
   end
 
   private
