@@ -1,0 +1,4 @@
+  <tr><td><%= rule.content %></td>
+  <td><%= link_to "Destroy", house_rule_path(@house, rule), method: :delete,
+    data: {confirm: "Are you sure?"} %></td>
+  <td><%= link_to 'Edit', edit_house_rule_path(@house, rule) %></td></tr>

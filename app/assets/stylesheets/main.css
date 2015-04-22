@@ -16,6 +16,14 @@
   font-size: 18px;
 }
 
+.logout {
+  background-color: #333333;
+}
+
+.logout:hover {
+  background-color: #333333;
+}
+
 .menu {
   display:block;
 }

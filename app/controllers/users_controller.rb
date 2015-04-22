@@ -32,8 +32,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(id: session[:user_id])
+    @user = User.find(current_user.id)
     @user.update_attributes(user_params)
+    @user.save!
     redirect_to user_path(@user)
   end
 
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :avatar, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :phone, :avatar, :password)
     end
 
 end

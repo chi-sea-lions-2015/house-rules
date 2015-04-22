@@ -1,16 +1,23 @@
 class EventsController < ApplicationController
+skip_before_action :authenticate_user_from_token!, only: [:index, :edit, :create]
 
   def create
-    @user = current_user
+    if @user = current_user
     @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
-    @event = @housing_assignment.events.new(event_params)
+    @event = @house.events.new(event_params)
     @event.save
     if request.xhr?
-      render :json => @house.events
+      puts "HEYYyYYyYYyyyyyyy"
+      render @event, layout: false
     else
-      redirect_to house_events_path(@house)
+      redirect_to house_events_path
     end
+    else
+      redirect_to login
+    end
+    # else
+    #   flash.now[:error] = "Rule did not save"
+    #   redirect_to house_path(@house)
   end
 
   def edit
@@ -29,14 +36,7 @@ class EventsController < ApplicationController
 
   def index
     @house = House.find_by(id: params[:house_id])
-    @presenter = {
-      :events => @house.events,
-      :form => {
-        :action => house_events_path(@house),
-        :csrf_param => request_forgery_protection_token,
-        :csrf_token => form_authenticity_token
-      }
-    }
+    @events = @house.events
   end
 
   def destroy
