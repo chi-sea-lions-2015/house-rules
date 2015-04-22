@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -16,6 +18,15 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+gem 'react-router-rails'
+
+gem 'rails_12factor', group: :production
+
+gem "responders"
+
+gem 'rails-assets-growl'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -28,6 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "paperclip", "~> 4.2"
 
+gem 'haml', '~> 4.0.6'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -49,5 +61,6 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   # gem 'spring'
+
 end
 

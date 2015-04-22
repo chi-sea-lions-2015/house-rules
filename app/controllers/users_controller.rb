@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: session[:user_id])
-    @user.update(user_params)
+    @user.update_attributes(user_params)
     redirect_to user_path(@user)
   end
 

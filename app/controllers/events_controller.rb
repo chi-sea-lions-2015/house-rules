@@ -32,9 +32,15 @@ class EventsController < ApplicationController
   end
 
   def index
-    @user = current_user
     @house = House.find_by(id: params[:house_id])
-    @events = @house.events
+    @presenter = {
+      :events => @house.events,
+      :form => {
+        :action => house_events_path(@house),
+        :csrf_param => request_forgery_protection_token,
+        :csrf_token => form_authenticity_token
+      }
+    }
   end
 
   def destroy

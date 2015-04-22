@@ -12,5 +12,4 @@ $(document).ready(function() {
     console.log(">>>>>>>>>>>>>>>>>>>>");
     $("#edit-house-manager-form-div").css("display", "block")
   })
-
 });

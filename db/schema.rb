@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   add_index "communal_items", ["house_id"], name: "index_communal_items_on_house_id", using: :btree
 
   create_table "events", force: :cascade do |t|
+    t.integer  "creator_id"
     t.string   "name"
     t.datetime "date"
     t.string   "description"
@@ -105,7 +106,7 @@ ActiveRecord::Schema.define(version: 20150417175305) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "content"
-    t.string   "picture_url"
+    t.integer  "author_id"
     t.integer  "housing_assignment_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false

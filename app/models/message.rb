@@ -1,3 +1,4 @@
 class Message < ActiveRecord::Base
-  belongs_to :housing_assignment
+  belongs_to :author, class_name: "User"
+  belongs_to :house
 end
