@@ -6,6 +6,7 @@ skip_before_action :authenticate_user_from_token!, only: [:index, :edit, :create
     @house = House.find_by(id: params[:house_id])
     @event = @house.events.new(event_params)
     @event.save
+    @event.update_attributes(user_id: @user.id)
     if request.xhr?
       puts "HEYYyYYyYYyyyyyyy"
       render @event, layout: false
@@ -37,6 +38,8 @@ skip_before_action :authenticate_user_from_token!, only: [:index, :edit, :create
   def index
     @house = House.find_by(id: params[:house_id])
     @events = @house.events
+    puts @events.last
+    puts "***********************"
   end
 
   def destroy

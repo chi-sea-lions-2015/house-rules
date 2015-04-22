@@ -5,7 +5,7 @@
     <%= f.text_field :name %>
     <%= f.label :house_key %>
     <%= f.text_field :house_key %>
-    <%= f.fields_for @address do |address_form| %>
+    <%= f.fields_for (@address || Address.new) do |address_form| %>
     <%= f.label :street %>
     <%= address_form.text_field :street %>
     <%= f.label :city %>

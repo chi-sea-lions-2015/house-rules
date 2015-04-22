@@ -1,4 +1,4 @@
- <%= event.housing_assignment.user.first_name %>: <%= event.name %> <br>
+ <%= event.user.first_name %>: <%= event.name %> <br>
       Description: <%= event.description %><br>
       Date: <%= event.date%><br>
       <%= link_to "Destroy", house_event_path(@house, event), method: :delete,

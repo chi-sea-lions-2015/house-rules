@@ -6,13 +6,11 @@ class HousesController < ApplicationController
 
   def show
     @user = current_user
-    @house = House.find(params[:id])
-    @address = @house.address
+    @house = @user.houses.first
+    @houses = House.where(id: params[:id])
     if HousingAssignment.find_by(user_id: @user.id, house_id: @house.id)
       @property_manager = @house.property_manager
       @assignment = HousingAssignment.where(user: current_user, house: @house.id)
-      @messages = @house.messages
-      @items = @house.communal_items
     else
       redirect_to "/houses/#{@house.id}/join"
     end
@@ -26,14 +24,16 @@ class HousesController < ApplicationController
 
   def new
     @house = House.new
+    @address = Address.new
   end
 
   def create
     @user = current_user
-    @address = Address.new(address_params)
-    if @address.save
-      @house = House.new(house_params)
-      if @house.save
+    if @user.houses != nil
+    @house = House.new(house_params)
+    if @house.save
+      @address = @house.address=Address.new(address_params)
+      if @address.save
         @user.housing_assignments.create(user: @user, house: @house)
         redirect_to house_path(@house)
       else
@@ -41,6 +41,7 @@ class HousesController < ApplicationController
       end
     else
       render "new"
+    end
     end
   end
 

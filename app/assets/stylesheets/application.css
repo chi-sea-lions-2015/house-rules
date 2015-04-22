@@ -25,6 +25,10 @@ form.item_issue {
   display: none;
 }
 
+#edit_user_info_user_page_form {
+  display: none;
+}
+
 meta.foundation-version {
   font-family: "/5.5.1/"; }
 

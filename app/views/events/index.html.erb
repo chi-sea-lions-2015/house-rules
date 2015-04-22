@@ -1,10 +1,12 @@
-
 <div class="row">
-  <div class="large-3 columns"><br />
-  </div>
-  <div class="large-6 columns">
+  <div class="small-6 large-2 columns"><br></div>
+  <div class="small-6 large-8 columns">
+
     <div id="event_list">
       <h4>Events:</h4>
+      <% if @events == nil %>
+      <p>Your house has has no events</p>
+      <% end %>
       <% if @events != nil %>
       <% @events.each do |event| %>
       <%= event.user.first_name %>: <%= event.name %> <br>
@@ -17,9 +19,9 @@
       <% end %>
     </div>
     <div>
-      <h4>New Event</h4>
       <%= render 'events/form' %>
     </div>
+
   </div>
-  <div class="large-3 columns"><br /></div>
+  <div class="small-12 large-2 columns"><br></div>
 </div>
