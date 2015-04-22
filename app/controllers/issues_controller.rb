@@ -33,8 +33,8 @@ class IssuesController < ApplicationController
 
   def chore_issue_create
     @user = current_user
-    @house = House.find_by(id: params[:house_id])
-    @chore = Chore.find_by(id: params[:chore_id])
+    @chore = Chore.find_by(id: params[:id])
+    @house = @chore.house
     @issue = @chore.issues.create(reason: params[:issue][:task], user_id: @user.id)
     redirect_to house_chores_path(@house)
   end

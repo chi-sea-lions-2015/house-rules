@@ -1,3 +1,7 @@
+<div class="row">
+  <div class="large-3 columns"><br />
+  </div>
+  <div class="large-6 columns">
 <div class="chore_log">
   <h3>Logs for <%=@chore.task %> </h3>
   <%= link_to "Return to Chores", house_chores_path(@house, @chores) %>
@@ -20,7 +24,7 @@
           <%= log.created_at.strftime("%a %b %d, %Y") %>
         </td>
         <td>
-          <%= link_to "Delete", chore_log_path(log), method: :delete %>
+          <%= button_to "Delete", chore_log_path(log), method: :delete %>
         </td>
       </tr>
  <% end %>

@@ -41,4 +41,7 @@ Rails.application.routes.draw do
 
   post '/houses/:house_id/communal_items/:communal_item_id/issue' => 'issues#item_issue_create'
 
+  post '/chores/:id/issue' => "issues#chore_issue_create"
+  post '/chores/:id/promise' => "promise#chore_promise_create"
+  post '/chores/:id/promise' => "promise#chore_promise_create"
 end
