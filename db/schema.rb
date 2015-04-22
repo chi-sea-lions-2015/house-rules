@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   add_index "communal_items", ["house_id"], name: "index_communal_items_on_house_id", using: :btree
 
   create_table "events", force: :cascade do |t|
+    t.integer  "creator_id"
     t.string   "name"
     t.datetime "date"
     t.string   "description"
@@ -105,13 +106,13 @@ ActiveRecord::Schema.define(version: 20150417175305) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "content"
-    t.string   "picture_url"
-    t.integer  "housing_assignment_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "author_id"
+    t.integer  "house_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "messages", ["housing_assignment_id"], name: "index_messages_on_housing_assignment_id", using: :btree
+  add_index "messages", ["house_id"], name: "index_messages_on_house_id", using: :btree
 
   create_table "property_managers", force: :cascade do |t|
     t.string   "name"
@@ -165,7 +166,7 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   add_foreign_key "housing_assignments", "houses"
   add_foreign_key "housing_assignments", "users"
   add_foreign_key "issues", "users"
-  add_foreign_key "messages", "housing_assignments"
+  add_foreign_key "messages", "houses"
   add_foreign_key "rules", "housing_assignments"
   add_foreign_key "user_promises", "users"
 end

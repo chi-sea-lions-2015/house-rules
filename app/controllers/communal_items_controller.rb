@@ -8,10 +8,13 @@ class CommunalItemsController < ApplicationController
   end
 
   def create
+    puts "^^^^^^^^^^"
     @house = House.find(params[:house_id])
     @item = @house.communal_items.create(item_params)
     if @item
+
       redirect_to house_communal_items_path(@house)
+
     else
       render 'new'
     end

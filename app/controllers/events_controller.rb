@@ -5,11 +5,11 @@ class EventsController < ApplicationController
     @house = House.find_by(id: params[:house_id])
     @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
     @event = @housing_assignment.events.new(event_params)
-    if @event.save
-      redirect_to house_events_path
-    # else
-    #   flash.now[:error] = "Rule did not save"
-    #   redirect_to house_path(@house)
+    @event.save
+    if request.xhr?
+      render :json => @house.events
+    else
+      redirect_to house_events_path(@house)
     end
   end
 
@@ -28,9 +28,15 @@ class EventsController < ApplicationController
   end
 
   def index
-    @user = current_user
     @house = House.find_by(id: params[:house_id])
-    @events = @house.events
+    @presenter = {
+      :events => @house.events,
+      :form => {
+        :action => house_events_path(@house),
+        :csrf_param => request_forgery_protection_token,
+        :csrf_token => form_authenticity_token
+      }
+    }
   end
 
   def destroy

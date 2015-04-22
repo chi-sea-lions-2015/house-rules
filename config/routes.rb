@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :users do
   end
 
-
   resources :houses do
     resources :property_managers
     resources :messages
@@ -26,6 +25,7 @@ Rails.application.routes.draw do
   get '/houses/:id/join' => 'houses#join'
   post '/houses/:id/join' => 'houses#join_update'
 
+
   post '/houses/:house_id/communal_items/:id/high' => 'communal_items#high'
   post '/houses/:house_id/communal_items/:id/low' => 'communal_items#low'
   post '/houses/:house_id/communal_items/:id/out' => 'communal_items#out'
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   post '/houses/:house_id/communal_items/:communal_item_id/promise_fulfilled' => 'user_promises#update'
   
   post '/houses/:house_id/communal_items/:communal_item_id/issue' => 'issues#item_issue_create'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

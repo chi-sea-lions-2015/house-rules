@@ -1,5 +1,6 @@
 class UserPromisesController < ApplicationController
 
+
 	def create 
 		@user = current_user
 		@house = House.find_by(id: params[:house_id])
@@ -17,4 +18,5 @@ class UserPromisesController < ApplicationController
 		@promise.destroy
 		redirect_to house_communal_items_path(@house)
 	end
+
 end
