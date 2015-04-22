@@ -17,7 +17,7 @@ chore_issue = chore.issues.create(reason: "I HATE PAUL!!", user_id: 1)
 item_issue = communal_item.issues.create(reason: "I hate paper towel", user_id: 1)
 event_issue = event.issues.create(reason: "I hate halloween", user_id: 1)
 rule_issue = rule.issues.create(reason: "I hate flushing!!", user_id: 1)
-chore_promise = chore.user_promise.create(user_id: 1)
+chore.user_promise = UserPromise.create(user_id: 1)
 communal_item.user_promise=UserPromise.create(user_id: 1)
 
 
@@ -25,3 +25,4 @@ chore2 = Chore.create(task: "Take out trash if it smells", house_id: 1)
 chore3 = Chore.create(task: "Wash your face", house_id: 1)
 chore4 = Chore.create(task: "Get out of my face", house_id: 1)
 chore5 = Chore.create(task: "Say hello like a fucking normal person", house_id: 1)
+
