@@ -1,9 +1,11 @@
-
+<div class="row">
+  <div class="small-6 large-2 columns"><br></div>
+  <div class="small-6 large-8 columns">
 <div id="rules">
 <% if @rules != nil %>
   <h4>Rules:</h4>
   <% @rules.each do |rule| %>
-  <%= rule.housing_assignment.user.first_name %>: <%= rule.content %> <br>
+  <%= rule.content %> <br>
     <%= link_to "Destroy", house_rule_path(@house, rule), method: :delete,
     data: {confirm: "Are you sure?"} %><br>
   <%= link_to 'Edit', edit_house_rule_path(@house, rule) %><br>
@@ -12,8 +14,9 @@
 </div>
 <div>
   <h4>New Rule</h4>
-  <%= form_for :rule, url: house_rules_path(@house), method: :post do |f| %>
-  <%= f.text_area :content %><br><br>
-  <%= f.submit "Create Rule", :class => "button"  %>
-  <% end %>
+  <%= render 'rules/form' %>
+</div>
+
+  </div>
+  <div class="small-12 large-2 columns"><br></div>
 </div>

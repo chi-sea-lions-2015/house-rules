@@ -7,7 +7,7 @@
       <% if @events != nil %>
       <h4>Events:</h4>
       <% @events.each do |event| %>
-      <%= event.housing_assignment.user.first_name %>: <%= event.name %> <br>
+      <%= event.user.first_name %>: <%= event.name %> <br>
       Description: <%= event.description %><br>
       Date: <%= event.date%><br>
       <%= link_to "Destroy", house_event_path(@house, event), method: :delete,
