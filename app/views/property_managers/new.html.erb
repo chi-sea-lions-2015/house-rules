@@ -1,15 +1,32 @@
-<div class="page_header">New Property Manager</div>
-<br>
-
+<div class="row">
+<div class="large-3 columns"><br />
+  </div>
+  <div class="large-6 columns">
 <%= form_for [@house, @manager] do |f|%>
-Landlord or Company Name: <br><%= f.text_field :name %><br><br>
-Phone Number: <br><%= f.text_field :phone %><br><br>
-Email: <br><%= f.text_field :email %><br><br>
+<fieldset>
+    <legend>Set up a property Manager</legend>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :phone%>
+<%= f.text_field :phone %>
+<%= f.label :email%>
+<%= f.text_field :email %>
+
   <%= f.fields_for :address do |address_form| %>
-    Address: <br><%= address_form.text_field :street %><br><br>
-    City: <br><%= address_form.text_field :city %><br><br>
-    State:<br> <%= address_form.text_field :state %><br><br>
-    Zip Code: <br><%= address_form.text_field :zip_code %><br><br>
+  <%= f.label :street %>
+<%= address_form.text_field :street %>
+<%= f.label :city %>
+    <%= address_form.text_field :city %>
+    <%= f.label :state %>
+  <%= address_form.text_field :state %>
+  <%= f.label :zip_code, "Zip code"%>
+  <%= address_form.text_field :zip_code %>
   <%end%>
+  </fieldset>
 <%= f.submit "Submit", :class => "button"  %>
 <%end%>
+
+  </div>
+  <div class="large-3 columns"><br /></div>
+</div>
+

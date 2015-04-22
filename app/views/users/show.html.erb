@@ -1,17 +1,20 @@
-<%= form_tag("/logout", :controller=>"sessions", :method=>"delete") do %>
-  <%= submit_tag "Logout" %>
-<% end %>
 
+<div class="row">
+<div class="large-3 columns"><br />
+  </div>
+  <div class="large-6 columns">
 <% if current_user == @user %>
 <h2>Hi, <%= current_user.first_name%>!</h2>
+<% if @user.avatar.url !="/images/original/missing.png"%>
 <%= image_tag @user.avatar.url %>
-
-<br><br>
+<%end%>
 
 <%= link_to("Edit Your Information", edit_user_path(@user))%>
 
 <br><br>
-
+<%= form_tag("/logout", :controller=>"sessions", :method=>"delete") do %>
+  <%= submit_tag "Logout" %>
+<% end %>
 
 <% if @user.houses.length != 0 %>
 <h4>Your House:</h4>
@@ -28,3 +31,8 @@
 <br><br>
 
 <%= link_to "All Houses", houses_path %>
+
+  </div>
+  <div class="large-3 columns"><br /></div>
+</div>
+
