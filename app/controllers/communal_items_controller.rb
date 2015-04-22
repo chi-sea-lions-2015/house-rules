@@ -8,7 +8,6 @@ class CommunalItemsController < ApplicationController
   end
 
   def create
-    puts "^^^^^^^^^^"
     @house = House.find(params[:house_id])
     @item = @house.communal_items.create(item_params)
     if @item
