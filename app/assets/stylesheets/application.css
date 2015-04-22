@@ -51,6 +51,7 @@ span.item-name {
 
 span.item-stock-level {
   font-size: 20px;
+}
 
 form.item_issue {
   display: none;
