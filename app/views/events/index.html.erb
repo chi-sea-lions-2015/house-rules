@@ -4,8 +4,8 @@
   </div>
   <div class="large-6 columns">
     <div id="event_list">
-      <% if @events != nil %>
       <h4>Events:</h4>
+      <% if @events != nil %>
       <% @events.each do |event| %>
       <%= event.user.first_name %>: <%= event.name %> <br>
       Description: <%= event.description %><br>

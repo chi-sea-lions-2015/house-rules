@@ -1,7 +1,18 @@
-<%= @roommates.each do |roommate|%>
-<fieldset>
-<h3><%=roommate.first_name + " "%><%=roommate.last_name%></h3>
-<% if roommate.phone != nil %>
-<% roommate.phone %>
-
-</fieldset>
+<div class="row">
+  <div class="small-6 large-2 columns"><br></div>
+  <div class="small-6 large-8 columns">
+    <% @roommates.each do |roommate|%>
+    <fieldset>
+    <% if roommate.avatar.url != "/images/original/missing.png"%>
+    <%= image_tag roommate.avatar.url(:medium) %>
+    <%end%>
+    <h3><%=roommate.first_name + " "%><%=roommate.last_name%></h3>
+      <% if roommate.phone != nil %>
+      <%=roommate.phone %><br>
+      <%end%>
+      <%= roommate.email %>
+    </fieldset>
+    <%end%>
+  </div>
+  <div class="small-12 large-2 columns"><br></div>
+</div>
