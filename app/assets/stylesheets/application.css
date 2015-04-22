@@ -12,6 +12,7 @@
  *= require_tree .
  */
 
+
 .form-submit{
   background-color: lightblue;
   height: 30px;
@@ -42,10 +43,21 @@ span.item-name {
 
 span.item-stock-level {
   font-size: 20px;
+}
 
+#edit-house-form-div {
+  display: none;
+}
+
+#edit-house-manager-form-div {
+    display: none;
 }
 
 form.item_issue {
+  display: none;
+}
+
+#edit_user_info_user_page_form {
   display: none;
 }
 

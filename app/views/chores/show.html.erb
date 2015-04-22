@@ -1,1 +1,33 @@
-<%= @chore.task %>
+<div class="chore_log">
+  <h3>Logs for <%=@chore.task %> </h3>
+  <%= link_to "Return to Chores", house_chores_path(@house, @chores) %>
+  <% @logged_users.each do |user| %>
+  <% @logs =  user.chore_logs.where(chore_id: @chore.id ) %>
+  
+  <table class="user_logs">
+    <caption><%= user.first_name%> Logs</caption>
+    <thead>
+      <th>
+        Date Completed
+      </th>
+      <th>
+        <%= @logs.size %> # of Logs
+      </th>
+    </thead>
+    <tbody>
+      <% @logs.each do |log| %>
+      <tr>
+        <td>
+          <%= log.created_at %>
+        </td>
+        <td>
+          <%= link_to "Delete", chore_log_path(log), method: :delete %>
+        </td>
+      </tr>
+ <% end %>
+    </tbody>
+
+  </table>
+  
+  <% end %>
+</div>

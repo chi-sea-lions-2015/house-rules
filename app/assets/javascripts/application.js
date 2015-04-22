@@ -18,5 +18,5 @@
 //= require react_router
 
 //= require_tree .
-//
+//= require underscore
 
