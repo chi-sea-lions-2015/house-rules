@@ -1,15 +1,16 @@
 class CommunalItemsController < ApplicationController
 
-  def new
+  def index
+    @user = current_user
     @house = House.find(params[:house_id])
-    @item = CommunalItem.new
+    @items = @house.communal_items
   end
 
   def create
     @house = House.find(params[:house_id])
     @item = @house.communal_items.create(item_params)
     if @item
-      redirect_to house_path(@house)
+      redirect_to house_communal_items_path(@house)
     else
       render 'new'
     end

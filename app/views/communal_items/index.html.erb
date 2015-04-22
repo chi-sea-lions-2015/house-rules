@@ -1,0 +1,23 @@
+<hr>
+<div id="items">
+<% if @items.length != 0 %>
+  <h3>Communal Items:</h3>
+  <% @items.each do |item| %>
+  <%= item.name %>: <strong><%= item.stock_level %></strong>
+  <%= link_to("Edit", edit_house_communal_item_path(@house, item)) %> <%= link_to("Delete", house_communal_item_path(@house, item), method: :delete) %> <br>
+  <% end %>
+<% end %>
+</div>
+<br>
+
+
+<h4>New Communal Item</h4>
+  <%= form_for :communal_item, url: house_communal_items_path(@house) do |f| %>
+  Name: <%= f.text_field :name %><br><br>
+  Brand: <%= f.text_field :brand %><br><br>
+  Quantity: <%= f.text_field :quantity %><br><br>
+  Stock Level:
+  <%= f.select :stock_level, options_for_select([["Select One", ""], "high", "low", "out"]) %>
+  <br><br>
+  <%= f.submit "New Item", :class => "button"  %>
+<% end %>

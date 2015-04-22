@@ -33,17 +33,8 @@ Your property manager:
 <%= link_to "Rules", house_rules_path(@house) %>
 
 <hr>
-<div id="items">
-<% if @items.length != 0 %>
-  <h3>Communal Items:</h3>
-  <% @items.each do |item| %>
-  <%= item.name %>: <strong><%= item.stock_level %></strong>
-  <%= link_to("Edit", edit_house_communal_item_path(@house, item)) %> <%= link_to("Delete", house_communal_item_path(@house, item), method: :delete) %> <br>
-  <% end %>
-<% end %>
-</div>
-<br>
-<%= link_to "Add Communal Item", new_house_communal_item_path(@house) %>
+
+<%= link_to "Communal Items", house_communal_items_path(@house) %>
 
 <hr>
 
