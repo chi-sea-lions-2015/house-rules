@@ -7,6 +7,7 @@ class HousesController < ApplicationController
   def show
     @user = current_user
     @house = House.find(params[:id])
+    @address = @house.address
     if HousingAssignment.find_by(user_id: @user.id, house_id: @house.id)
       @property_manager = @house.property_manager
       @assignment = HousingAssignment.where(user: current_user, house: @house.id)

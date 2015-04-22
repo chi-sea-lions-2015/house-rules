@@ -5,12 +5,16 @@ class EventsController < ApplicationController
     @house = House.find_by(id: params[:house_id])
     @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
     @event = @housing_assignment.events.new(event_params)
-    if @event.save
+    @event.save
+    if request.xhr?
+      puts "HEYYyYYyYYyyyyyyy"
+      render @event, layout: false
+    else
       redirect_to house_events_path
+    end
     # else
     #   flash.now[:error] = "Rule did not save"
     #   redirect_to house_path(@house)
-    end
   end
 
   def edit

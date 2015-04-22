@@ -1,14 +1,5 @@
 class MessagesController < ApplicationController
 
-  # def index
-  #   @user = current_user
-  #   @house = House.find_by(id: params[:id])
-  #   @housing_assignment = HousingAssignment.where(house_id: @house.id)
-  #   @messages = @housing_assignment.map do |h_a|
-  #     h_a.messages
-  #   end
-  # end
-
   def new
     @user = current_user
     @house = House.find_by(id: params[:id])

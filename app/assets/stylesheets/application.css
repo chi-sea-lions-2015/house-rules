@@ -14,6 +14,14 @@
  *= require_self
  */
 
+#edit-house-form-div {
+  display: none;
+}
+
+#edit-house-manager-form-div {
+  display: none;
+}
+
 meta.foundation-version {
   font-family: "/5.5.1/"; }
 
