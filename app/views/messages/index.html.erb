@@ -24,12 +24,12 @@
       <% end %>
     </div>
     <div>
-      <%= form_for :message, url: house_messages_path(@house), :html => { :multipart => true } do |f| %>
-        <%= f.text_area :content %>
+      <%= form_for :message, url: house_messages_path(@house), :html => { :multipart => true }, remote: true do |f| %>
+        <%= f.text_area :content, :id => "new-content"%>
         <%= f.fields_for :picture do |pic| %>
           <%= pic.file_field :picture_content %>
         <% end %>
-        <%= f.submit "Post", :class => "button" %>
+        <%= f.submit "Post", :class => "button", :id => "submit-message" %>
       <% end %>
     </div>
   </div>
