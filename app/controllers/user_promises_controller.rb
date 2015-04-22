@@ -1,6 +1,5 @@
 class UserPromisesController < ApplicationController
 
-
 	def create 
 		@user = current_user
 		@house = House.find_by(id: params[:house_id])
