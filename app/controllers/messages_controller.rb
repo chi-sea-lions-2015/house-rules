@@ -14,8 +14,7 @@ class MessagesController < ApplicationController
 
   def create
     @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
-    @message = @housing_assignment.messages.new(message_params)
+    @message = @house.messages.new(message_params)
     if @message.save
       redirect_to house_messages_path(@house)
     else

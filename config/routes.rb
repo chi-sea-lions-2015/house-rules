@@ -11,14 +11,15 @@ Rails.application.routes.draw do
   resources :users do
   end
 
+get '/houses/:id/roommates', to: 'users#index'
 
-  resources :houses, shallow: true do
-    resources :property_managers
-    resources :messages
-    resources :rules
-    resources :communal_items
-    resources :events
-    resources :chores
+  resources :houses do
+    resources :property_managers, shallow: true
+    resources :messages, shallow: true
+    resources :rules, shallow: true
+    resources :communal_items, shallow: true
+    resources :events, shallow: true
+    resources :chores, only: [:index, :create]
   end
 
   resources :chores do

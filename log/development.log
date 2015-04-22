@@ -49724,3 +49724,1300 @@ ActionView::Template::Error (No route matches {:action=>"destroy", :chore_id=>"1
   Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
   Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
   Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (35.6ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-22 11:52:10 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/zacharyharris/Desktop/DevBootcamp/Phase 3/final_project_final/house-rules/app/models/user.rb:4)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.1ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1  [["house_id", 1], ["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "housing_assignments" ON "users"."id" = "housing_assignments"."user_id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mChore Load (0.2ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1[0m  [["chore_id", 1]]
+  [1m[35mChoreLog Load (0.2ms)[0m  SELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1  [["user_id", 1]]
+  [1m[36mChoreLog Load (0.1ms)[0m  [1mSELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered chores/index.html.erb within layouts/application (33.9ms)
+Completed 500 Internal Server Error in 175ms (ActiveRecord: 6.4ms)
+
+ActionView::Template::Error (undefined method `house_chore_path' for #<#<Class:0x007f8f19b00c98>:0x007f8f136d6538>):
+     6:   <% log = @user.chore_logs.where(chore_id: chore.id ) %>
+     7:   <%= chore.task %> <br>
+     8:   Completed :<%= chore.chore_logs.size %> <br>
+     9:   <%= link_to 'View Log', house_chore_path(@house, chore) %>
+    10:   <%= link_to 'Complete',  chore_chore_logs(chore), method: :post %>
+    11:   <%= link_to 'Edit', edit_house_chore_path(@house, chore) %><br>
+    12:   <%= link_to "Delete", house_chore_path(@house, chore), method: :delete,
+  app/views/chores/index.html.erb:9:in `block in _app_views_chores_index_html_erb__2659227733219906792_70126278573060'
+  app/views/chores/index.html.erb:5:in `_app_views_chores_index_html_erb__2659227733219906792_70126278573060'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (18.7ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (40.9ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-22 11:52:16 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.3ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1  [["house_id", 1], ["user_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "housing_assignments" ON "users"."id" = "housing_assignments"."user_id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mChore Load (0.2ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1[0m  [["chore_id", 1]]
+  [1m[35mChoreLog Load (0.2ms)[0m  SELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1  [["user_id", 1]]
+  [1m[36mChoreLog Load (0.2ms)[0m  [1mSELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered chores/index.html.erb within layouts/application (98.0ms)
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 2.0ms)
+
+ActionView::Template::Error (undefined method `house_chore_path' for #<#<Class:0x007f8f19b00c98>:0x007f8f160b63d0>):
+     6:   <% log = @user.chore_logs.where(chore_id: chore.id ) %>
+     7:   <%= chore.task %> <br>
+     8:   Completed :<%= chore.chore_logs.size %> <br>
+     9:   <%= link_to 'View Log', house_chore_path(@house, chore) %>
+    10:   <%= link_to 'Complete',  chore_chore_logs(chore), method: :post %>
+    11:   <%= link_to 'Edit', edit_house_chore_path(@house, chore) %><br>
+    12:   <%= link_to "Delete", house_chore_path(@house, chore), method: :delete,
+  app/views/chores/index.html.erb:9:in `block in _app_views_chores_index_html_erb__2659227733219906792_70126278573060'
+  app/views/chores/index.html.erb:5:in `_app_views_chores_index_html_erb__2659227733219906792_70126278573060'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.6ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (77.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (92.9ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (111.4ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-22 11:56:16 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/zacharyharris/Desktop/DevBootcamp/Phase 3/final_project_final/house-rules/app/models/user.rb:4)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.1ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.2ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1  [["house_id", 1], ["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "housing_assignments" ON "users"."id" = "housing_assignments"."user_id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mChore Load (0.2ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1[0m  [["chore_id", 1]]
+  [1m[35mChoreLog Load (0.2ms)[0m  SELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1  [["user_id", 1]]
+  [1m[36mChoreLog Load (0.2ms)[0m  [1mSELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered chores/index.html.erb within layouts/application (34.0ms)
+Completed 500 Internal Server Error in 189ms (ActiveRecord: 7.3ms)
+
+ActionView::Template::Error (undefined method `chore_chore_logs' for #<#<Class:0x007f8f19adbba0>:0x007f8f13513c00>):
+     7:   <%= chore.task %> <br>
+     8:   Completed :<%= chore.chore_logs.size %> <br>
+     9:   <%= link_to 'View Log', chores_path(chore) %>
+    10:   <%= link_to 'Complete',  chore_chore_logs(chore), method: :post %>
+    11:   <%= link_to 'Edit', edit_chore_path(chore) %><br>
+    12:   <%= link_to "Delete", chores_path(chore), method: :delete,
+    13:     data: {confirm: "Are you sure?"} %><br>
+  app/views/chores/index.html.erb:10:in `block in _app_views_chores_index_html_erb__2659227733219906792_70126240667740'
+  app/views/chores/index.html.erb:5:in `_app_views_chores_index_html_erb__2659227733219906792_70126240667740'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (22.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (51.8ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-22 11:56:39 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.1ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.1ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1  [["house_id", 1], ["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "housing_assignments" ON "users"."id" = "housing_assignments"."user_id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mChore Load (0.3ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1[0m  [["chore_id", 1]]
+  [1m[35mChoreLog Load (0.2ms)[0m  SELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1  [["user_id", 1]]
+  [1m[36mChoreLog Load (0.1ms)[0m  [1mSELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered chores/index.html.erb within layouts/application (23.6ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 1.4ms)
+
+ActionView::Template::Error (undefined method `chore_chore_logs' for #<#<Class:0x007f8f19adbba0>:0x007f8f17fe75b0>):
+     7:   <%= chore.task %> <br>
+     8:   Completed :<%= chore.chore_logs.size %> <br>
+     9:   <%= link_to 'View Log', chores_path(chore) %>
+    10:  <!--  <%= link_to 'Complete',  chore_chore_logs(chore), method: :post %> -->
+    11:   <%= link_to 'Edit', edit_chore_path(chore) %><br>
+    12:   <%= link_to "Delete", chores_path(chore), method: :delete,
+    13:     data: {confirm: "Are you sure?"} %><br>
+  app/views/chores/index.html.erb:10:in `block in _app_views_chores_index_html_erb__2659227733219906792_70126279797160'
+  app/views/chores/index.html.erb:5:in `_app_views_chores_index_html_erb__2659227733219906792_70126279797160'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (18.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (40.2ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-22 11:56:55 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.1ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.1ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1  [["house_id", 1], ["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "housing_assignments" ON "users"."id" = "housing_assignments"."user_id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mChore Load (0.2ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1[0m  [["chore_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1  [["chore_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1[0m  [["chore_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1  [["chore_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1[0m  [["chore_id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1  [["chore_id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1[0m  [["chore_id", 7]]
+  Rendered chores/index.html.erb within layouts/application (13.3ms)
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 214ms (Views: 208.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/main.self-cc6ce223c8d2df451bbf1023e5fe0ee4c6baeeef6bd822cd98b59f0c387bebc9.css?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_router.self-39adb84e3fcf56de0b059ba22288fc455c1a72689b6e0da66551dcf30c847b63.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/Header.react.self-93cb8be47883bdf2a85b65be730ddc0fab663b6b1ea40d2b2f26235527484a30.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-0cd003714a433a7f1e20e87345aeb18c03a548a327cd12eb192bf28983c47c54.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-77139f6bb3cb60423a9b758e6bd9e78d1fd3405469f827ff3cb55128ab6728d4.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/messages/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/messages/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/messages/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/messages/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue.self-8b4ce5c52fd8aeea36dcf4f102a172dd988e4ea0d21d7581c054c9db680e0ad7.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue_box.self-811f6c390d89660cff6f6f9016046d2f38c723379027482bae8ee104fbfaea60.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue_form.self-57ed8157eca48dd46f2d8abe2cfbbc8f21504c2ad7c3f32da88e06e1da5bd751.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue_list.self-0278dd310c834f293d40203fb35531c41876f49d731b810eba6684aea4c81d6e.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/application.self-2b3abf1cfc5ce647461cc18b6a7ef78f4fe649e5fc6e5f5b2f7be10b23d6c917.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/components.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_router.self-39adb84e3fcf56de0b059ba22288fc455c1a72689b6e0da66551dcf30c847b63.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/Header.react.self-93cb8be47883bdf2a85b65be730ddc0fab663b6b1ea40d2b2f26235527484a30.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-0cd003714a433a7f1e20e87345aeb18c03a548a327cd12eb192bf28983c47c54.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-77139f6bb3cb60423a9b758e6bd9e78d1fd3405469f827ff3cb55128ab6728d4.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/messages/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/messages/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/messages/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/messages/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue.self-8b4ce5c52fd8aeea36dcf4f102a172dd988e4ea0d21d7581c054c9db680e0ad7.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue_box.self-811f6c390d89660cff6f6f9016046d2f38c723379027482bae8ee104fbfaea60.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue_form.self-57ed8157eca48dd46f2d8abe2cfbbc8f21504c2ad7c3f32da88e06e1da5bd751.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue_list.self-0278dd310c834f293d40203fb35531c41876f49d731b810eba6684aea4c81d6e.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/components.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/assets/application.self-2b3abf1cfc5ce647461cc18b6a7ef78f4fe649e5fc6e5f5b2f7be10b23d6c917.js?body=1" for ::1 at 2015-04-22 11:56:56 -0500
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-22 11:57:51 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHousingAssignment Load (0.2ms)[0m  SELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1  [["house_id", 1], ["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "housing_assignments" ON "users"."id" = "housing_assignments"."user_id" WHERE "housing_assignments"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mChore Load (0.2ms)[0m  SELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1  [["house_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1[0m  [["chore_id", 1]]
+  [1m[35mChoreLog Load (0.2ms)[0m  SELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1  [["user_id", 1]]
+  [1m[36mChoreLog Load (0.1ms)[0m  [1mSELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered chores/index.html.erb within layouts/application (20.8ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.5ms)
+
+ActionView::Template::Error (undefined method `chore_chore_logs' for #<#<Class:0x007f8f19adbba0>:0x007f8f1397f550>):
+     7:   <%= chore.task %> <br>
+     8:   Completed :<%= chore.chore_logs.size %> <br>
+     9:   <%= link_to 'View Log', chores_path(chore) %>
+    10:   <%= link_to 'Complete',  chore_chore_logs(chore)%>
+    11:   <%= link_to 'Edit', edit_chore_path(chore) %><br>
+    12:   <%= link_to "Delete", chores_path(chore), method: :delete,
+    13:     data: {confirm: "Are you sure?"} %><br>
+  app/views/chores/index.html.erb:10:in `block in _app_views_chores_index_html_erb__2659227733219906792_70126242903020'
+  app/views/chores/index.html.erb:5:in `_app_views_chores_index_html_erb__2659227733219906792_70126242903020'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (34.0ms)
+
+
+Started GET "/houses/1/events" for ::1 at 2015-04-22 11:58:20 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered events/index.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.1ms)[0m  SELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 102ms (Views: 92.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/houses/1/communal_items" for ::1 at 2015-04-22 11:58:22 -0500
+Processing by CommunalItemsController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered communal_items/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 180ms (Views: 170.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/houses/1/roommates" for ::1 at 2015-04-22 11:58:25 -0500
+
+ActionController::RoutingError (No route matches [GET] "/houses/1/roommates"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (62.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (35.9ms)
+
+
+Started GET "/houses/1/roommates" for ::1 at 2015-04-22 11:59:34 -0500
+
+ActionController::RoutingError (No route matches [GET] "/houses/1/roommates"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.7ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (62.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (17.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (37.4ms)
+
+
+Started GET "/houses/1/roommates" for ::1 at 2015-04-22 12:03:15 -0500
+Processing by UsersController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mHouse Load (0.4ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" IS NULL LIMIT 1
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.9ms)
+
+NoMethodError (undefined method `users' for nil:NilClass):
+  app/controllers/users_controller.rb:5:in `index'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (19.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (38.0ms)
+  [1m[36mHouse Load (0.7ms)[0m  [1mSELECT  "houses".* FROM "houses"  ORDER BY "houses"."id" ASC LIMIT 1[0m
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/zacharyharris/Desktop/DevBootcamp/Phase 3/final_project_final/house-rules/app/models/user.rb:4)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "housing_assignments" ON "users"."id" = "housing_assignments"."user_id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+
+
+Started GET "/houses/1/roommates" for ::1 at 2015-04-22 12:04:56 -0500
+Processing by UsersController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.8ms)
+
+NoMethodError (undefined method `users' for nil:NilClass):
+  app/controllers/users_controller.rb:5:in `index'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (19.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (42.1ms)
+
+
+Started GET "/houses/1/roommates" for ::1 at 2015-04-22 12:05:09 -0500
+Processing by UsersController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/zacharyharris/Desktop/DevBootcamp/Phase 3/final_project_final/house-rules/app/models/user.rb:4)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 2.5ms)
+
+ActionView::MissingTemplate (Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :haml, :jbuilder]}. Searched in:
+  * "/Users/zacharyharris/Desktop/DevBootcamp/Phase 3/final_project_final/house-rules/app/views"
+):
+  actionview (4.2.1) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.1) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (22.9ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (34.2ms)
+
+
+Started GET "/houses/1/roommates" for ::1 at 2015-04-22 12:05:48 -0500
+Processing by UsersController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/index.html.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 207ms (Views: 201.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/1" for ::1 at 2015-04-22 12:05:52 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.4ms)[0m  [1mSELECT "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (5.5ms)
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 94ms (Views: 91.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-22 12:05:54 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHousingAssignment Load (0.2ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 LIMIT 1[0m  [["house_id", 1]]
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.9ms)
+
+NoMethodError (undefined method `rules' for #<HousingAssignment:0x007f8f1bd4e728>):
+  app/controllers/rules_controller.rb:6:in `index'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.6ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (17.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (39.8ms)
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-22 12:08:19 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (6.9ms)[0m  [1mSELECT "rules".* FROM "rules" WHERE "rules"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (17.1ms)
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 9.7ms)
+
+ActionView::Template::Error (undefined method `housing_assignment' for #<Rule:0x007f8f17d5c548>):
+    3: <% if @rules != nil %>
+    4:   <h4>Rules:</h4>
+    5:   <% @rules.each do |rule| %>
+    6:   <%= rule.housing_assignment.user.first_name %>: <%= rule.content %> <br>
+    7:     <%= link_to "Destroy", house_rule_path(@house, rule), method: :delete,
+    8:     data: {confirm: "Are you sure?"} %><br>
+    9:   <%= link_to 'Edit', edit_house_rule_path(@house, rule) %><br>
+  app/views/rules/index.html.erb:6:in `block in _app_views_rules_index_html_erb___3680329864867964272_70126255056480'
+  app/views/rules/index.html.erb:5:in `_app_views_rules_index_html_erb___3680329864867964272_70126255056480'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (109.9ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (35.1ms)
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-22 12:11:22 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.2ms)[0m  [1mSELECT "rules".* FROM "rules" WHERE "rules"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (9.4ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 2.8ms)
+
+ActionView::Template::Error (undefined method `user' for #<Rule:0x007f8f19c32148>):
+    3: <% if @rules != nil %>
+    4:   <h4>Rules:</h4>
+    5:   <% @rules.each do |rule| %>
+    6:   <%= rule.user.first_name %>: <%= rule.content %> <br>
+    7:     <%= link_to "Destroy", house_rule_path(@house, rule), method: :delete,
+    8:     data: {confirm: "Are you sure?"} %><br>
+    9:   <%= link_to 'Edit', edit_house_rule_path(@house, rule) %><br>
+  app/views/rules/index.html.erb:6:in `block in _app_views_rules_index_html_erb___3680329864867964272_70126294391420'
+  app/views/rules/index.html.erb:5:in `_app_views_rules_index_html_erb___3680329864867964272_70126294391420'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (35.4ms)
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-22 12:12:48 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.2ms)[0m  [1mSELECT "rules".* FROM "rules" WHERE "rules"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (97.3ms)
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `house_rule_path' for #<#<Class:0x007f8f17fe6958>:0x007f8f1c0931e0>):
+    4:   <h4>Rules:</h4>
+    5:   <% @rules.each do |rule| %>
+    6:   <%= rule.content %> <br>
+    7:     <%= link_to "Destroy", house_rule_path(@house, rule), method: :delete,
+    8:     data: {confirm: "Are you sure?"} %><br>
+    9:   <%= link_to 'Edit', edit_house_rule_path(@house, rule) %><br>
+   10:   <% end %>
+  app/views/rules/index.html.erb:7:in `block in _app_views_rules_index_html_erb___3680329864867964272_70126313705280'
+  app/views/rules/index.html.erb:5:in `_app_views_rules_index_html_erb___3680329864867964272_70126313705280'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (106.9ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (34.6ms)
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-22 12:13:29 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.3ms)[0m  [1mSELECT "rules".* FROM "rules" WHERE "rules"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (14.4ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined method `edit_house_rule_path' for #<#<Class:0x007f8f17fe6958>:0x007f8f13783c38>):
+     6:   <%= rule.content %> <br>
+     7:     <%= link_to "Destroy", rule_path(rule), method: :delete,
+     8:     data: {confirm: "Are you sure?"} %><br>
+     9:   <%= link_to 'Edit', edit_house_rule_path(@house, rule) %><br>
+    10:   <% end %>
+    11: <% end %>
+    12: </div>
+  app/views/rules/index.html.erb:9:in `block in _app_views_rules_index_html_erb___3680329864867964272_70126241846040'
+  app/views/rules/index.html.erb:5:in `_app_views_rules_index_html_erb___3680329864867964272_70126241846040'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (37.0ms)
+
+
+Started GET "/houses/1/rules" for ::1 at 2015-04-22 12:15:03 -0500
+Processing by RulesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRule Load (0.3ms)[0m  [1mSELECT "rules".* FROM "rules" WHERE "rules"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered rules/index.html.erb within layouts/application (2.6ms)
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:User> at /Users/zacharyharris/Desktop/DevBootcamp/Phase 3/final_project_final/house-rules/app/models/user.rb:4)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 216ms (Views: 211.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/application.self-d23456e2c31ad4a5c108f1b73ff1515ffb7027b70939db78e6e33fcdaf0995eb.css?body=1" for ::1 at 2015-04-22 12:15:03 -0500
+
+
+Started GET "/assets/main.self-cc6ce223c8d2df451bbf1023e5fe0ee4c6baeeef6bd822cd98b59f0c387bebc9.css?body=1" for ::1 at 2015-04-22 12:15:03 -0500
+
+
+Started GET "/assets/jquery/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-04-22 12:15:03 -0500
+
+
+Started GET "/assets/react.self-952894f8ed1f4ab2724d7552303d508b4e8e22aabce7fb02424bdf511872bf50.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/jquery.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_router.self-39adb84e3fcf56de0b059ba22288fc455c1a72689b6e0da66551dcf30c847b63.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_ujs.self-9e59229b64f3630c4c2a3811ede5c049c720faf2cb91112e255eead642284727.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/Header.react.self-93cb8be47883bdf2a85b65be730ddc0fab663b6b1ea40d2b2f26235527484a30.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/events/_event.self-0cd003714a433a7f1e20e87345aeb18c03a548a327cd12eb192bf28983c47c54.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/events/_event_box.self-b8a78126374de03474645c0e74901149554009ef4b677d3dda140bfb8b41e1a2.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/events/_event_form.self-f85e51de935a4aea62efb6a361bdba64d00657ee08b160b2221fa32f73615629.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/events/_event_list.self-77139f6bb3cb60423a9b758e6bd9e78d1fd3405469f827ff3cb55128ab6728d4.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/messages/_message.self-c3cad8d0edf3daebad7ef0f0b6fe6678d5cc364062718ba2f5ffe3ce62acc98e.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/messages/_message_box.self-96970d84007efd225558ca19131be74bff6852ac1a41ed66d1e600eebc777d5f.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/messages/_message_form.self-104b05b7f81e186536f0439a331dcdb95d34d3cfbfaa3d706879b8612359f414.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/messages/_message_list.self-adfc2659d73db8ddb71d240e2d7ef7bb70f438ddd91f63816a28f6ba3805cb3d.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/rules/_rule.self-efe43c2afaa1e56c33651689fb776aaa18841167fa5ca527f8563983997beaed.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_box.self-0ebac093ccdd1693105495c1104620e1d1b523bca4bf394635d9f6b6524cf4f9.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_form.self-96293fdfec5116df6060dadde2203818c9a8f1c56c8fbc004b0781dd9bdb8d99.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/rules/_rule_list.self-34866a7a4acbd682a88a9ec98406db98867cee783d8d4c337bc150f7aebde1a9.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue.self-8b4ce5c52fd8aeea36dcf4f102a172dd988e4ea0d21d7581c054c9db680e0ad7.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue_box.self-811f6c390d89660cff6f6f9016046d2f38c723379027482bae8ee104fbfaea60.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue_form.self-57ed8157eca48dd46f2d8abe2cfbbc8f21504c2ad7c3f32da88e06e1da5bd751.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/react_components/rules/issues/_issue_list.self-0278dd310c834f293d40203fb35531c41876f49d731b810eba6684aea4c81d6e.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/components.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/assets/application.self-2b3abf1cfc5ce647461cc18b6a7ef78f4fe649e5fc6e5f5b2f7be10b23d6c917.js?body=1" for ::1 at 2015-04-22 12:15:04 -0500
+
+
+Started GET "/rules/1" for ::1 at 2015-04-22 12:15:05 -0500
+
+AbstractController::ActionNotFound (The action 'show' could not be found for RulesController):
+  actionpack (4.2.1) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (18.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (37.9ms)
+
+
+Started GET "/rules/1" for ::1 at 2015-04-22 12:15:17 -0500
+
+AbstractController::ActionNotFound (The action 'show' could not be found for RulesController):
+  actionpack (4.2.1) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (34.1ms)
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-22 12:16:44 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5
+  Rendered messages/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.9ms)
+
+ActionView::Template::Error (undefined method `length' for nil:NilClass):
+    3: <div class="large-3 columns"><br />
+    4:   </div>
+    5:   <div class="large-6 columns">
+    6:       <% if @messages.length != 0 %>
+    7:     <h3>Messages:</h3>
+    8:     <% @messages.each do |message| %>
+    9:     @<%= message.housing_assignment.user.first_name %>: <%= message.content %> <%= link_to("Delete", house_message_path(@house, message), method: :delete) %> <br>
+  app/views/messages/index.html.erb:6:in `_app_views_messages_index_html_erb___1094840900464673824_70126310702900'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (19.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (39.7ms)
+
+
+Started GET "/houses/1/roommates" for ::1 at 2015-04-22 12:16:55 -0500
+Processing by UsersController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "houses".* FROM "houses" INNER JOIN "housing_assignments" ON "houses"."id" = "housing_assignments"."house_id" WHERE "housing_assignments"."user_id" = $1  ORDER BY "houses"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 95ms (Views: 90.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/houses/1/messages" for ::1 at 2015-04-22 12:16:59 -0500
+Processing by MessagesController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" DESC LIMIT 5
+  Rendered messages/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `length' for nil:NilClass):
+    3: <div class="large-3 columns"><br />
+    4:   </div>
+    5:   <div class="large-6 columns">
+    6:       <% if @messages.length != 0 %>
+    7:     <h3>Messages:</h3>
+    8:     <% @messages.each do |message| %>
+    9:     @<%= message.housing_assignment.user.first_name %>: <%= message.content %> <%= link_to("Delete", house_message_path(@house, message), method: :delete) %> <br>
+  app/views/messages/index.html.erb:6:in `_app_views_messages_index_html_erb___1094840900464673824_70126310702900'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (38.4ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-22 12:17:03 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.1ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHousingAssignment Load (0.1ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1[0m  [["house_id", 1], ["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "housing_assignments" ON "users"."id" = "housing_assignments"."user_id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mChore Load (0.2ms)[0m  [1mSELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1  [["chore_id", 1]]
+  [1m[36mChoreLog Load (0.2ms)[0m  [1mSELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mChoreLog Load (0.2ms)[0m  SELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1  [["user_id", 2]]
+  Rendered chores/index.html.erb within layouts/application (121.8ms)
+Completed 500 Internal Server Error in 147ms (ActiveRecord: 3.8ms)
+
+ActionView::Template::Error (undefined method `chore_chore_logs' for #<#<Class:0x007f8f13cd85a8>:0x007f8f13ce37c8>):
+     7:   <%= chore.task %> <br>
+     8:   Completed :<%= chore.chore_logs.size %> <br>
+     9:   <%= link_to 'View Log', chores_path(chore) %>
+    10:   <%= link_to 'Complete',  chore_chore_logs(chore)%>
+    11:   <%= link_to 'Edit', edit_chore_path(chore) %><br>
+    12:   <%= link_to "Delete", chores_path(chore), method: :delete,
+    13:     data: {confirm: "Are you sure?"} %><br>
+  app/views/chores/index.html.erb:10:in `block in _app_views_chores_index_html_erb__2659227733219906792_70126242903020'
+  app/views/chores/index.html.erb:5:in `_app_views_chores_index_html_erb__2659227733219906792_70126242903020'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.5ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (34.0ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-22 12:17:45 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHousingAssignment Load (0.2ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1[0m  [["house_id", 1], ["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "housing_assignments" ON "users"."id" = "housing_assignments"."user_id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mChore Load (0.2ms)[0m  [1mSELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1  [["chore_id", 1]]
+  [1m[36mChoreLog Load (0.2ms)[0m  [1mSELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mChoreLog Load (0.2ms)[0m  SELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1  [["user_id", 2]]
+  Rendered chores/index.html.erb within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 1.6ms)
+
+ActionView::Template::Error (undefined method `chore_chore_logs' for #<#<Class:0x007f8f13cd85a8>:0x007f8f17f18a30>):
+     7:   <%= chore.task %> <br>
+     8:   Completed :<%= chore.chore_logs.size %> <br>
+     9:   <%= link_to 'View Log', chores_path(chore) %>
+    10:   <%= link_to 'Complete',  chore_chore_logs(chore)%>
+    11:   <%= link_to 'Edit', edit_chore_path(chore) %><br>
+    12:   <%= link_to "Delete", chores_path(chore), method: :delete,
+    13:     data: {confirm: "Are you sure?"} %><br>
+  app/views/chores/index.html.erb:10:in `block in _app_views_chores_index_html_erb__2659227733219906792_70126242903020'
+  app/views/chores/index.html.erb:5:in `_app_views_chores_index_html_erb__2659227733219906792_70126242903020'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (18.6ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (38.4ms)
+
+
+Started GET "/houses/1/chores" for ::1 at 2015-04-22 12:17:49 -0500
+Processing by ChoresController#index as HTML
+  Parameters: {"house_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHousingAssignment Load (0.1ms)[0m  [1mSELECT  "housing_assignments".* FROM "housing_assignments" WHERE "housing_assignments"."house_id" = $1 AND "housing_assignments"."user_id" = $2 LIMIT 1[0m  [["house_id", 1], ["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "housing_assignments" ON "users"."id" = "housing_assignments"."user_id" WHERE "housing_assignments"."house_id" = $1  [["house_id", 1]]
+  [1m[36mChore Load (0.2ms)[0m  [1mSELECT "chores".* FROM "chores" WHERE "chores"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "chore_logs" WHERE "chore_logs"."chore_id" = $1  [["chore_id", 1]]
+  [1m[36mChoreLog Load (0.2ms)[0m  [1mSELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mChoreLog Load (0.1ms)[0m  SELECT "chore_logs".* FROM "chore_logs" WHERE "chore_logs"."user_id" = $1  [["user_id", 2]]
+  Rendered chores/index.html.erb within layouts/application (20.5ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.5ms)
+
+ActionView::Template::Error (undefined method `chore_chore_logs' for #<#<Class:0x007f8f13cd85a8>:0x007f8f1bc26148>):
+     7:   <%= chore.task %> <br>
+     8:   Completed :<%= chore.chore_logs.size %> <br>
+     9:   <%= link_to 'View Log', chores_path(chore) %>
+    10:   <%= link_to 'Complete',  chore_chore_logs(chore)%>
+    11:   <%= link_to 'Edit', edit_chore_path(chore) %><br>
+    12:   <%= link_to "Delete", chores_path(chore), method: :delete,
+    13:     data: {confirm: "Are you sure?"} %><br>
+  app/views/chores/index.html.erb:10:in `block in _app_views_chores_index_html_erb__2659227733219906792_70126242903020'
+  app/views/chores/index.html.erb:5:in `_app_views_chores_index_html_erb__2659227733219906792_70126242903020'
+
+
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.7ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.9ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (19.0ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/zacharyharris/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (37.0ms)

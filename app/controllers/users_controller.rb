@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def index 
+    @house = House.find_by(id: params[:id])
+    @users = @house.users 
+  end
+
   def show
     @user = User.find(params[:id])
   end

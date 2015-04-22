@@ -2,15 +2,13 @@ class RulesController < ApplicationController
 
   def index
     @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id)
-    @rules = @housing_assignment.rules
+    @rules = @house.rules
   end
 
   def create
     @user = current_user
     @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
-    @rule = @housing_assignment.rules.new(rule_params)
+    @rule = @house.rules.new(rule_params)
     @rule.save
     if request.xhr?
       render :json => @house.rules
@@ -23,7 +21,6 @@ class RulesController < ApplicationController
   def edit
     @user = current_user
     @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
     @rule = Rule.find_by(id: params[:id])
   end
 
