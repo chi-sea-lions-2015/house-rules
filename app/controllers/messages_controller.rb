@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
     @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
     @message = @housing_assignment.messages.new(message_params)
     if @message.save
-      redirect_to house_path(@house)
+      redirect_to house_messages_path(@house)
     # else
     #   flash.now[:error] = "Message did not save"
     #   redirect_to house_path(@house)
@@ -44,7 +44,7 @@ class MessagesController < ApplicationController
     @house = House.find_by(id: params[:house_id])
     @message = Message.find_by(id: params[:id])
     @message.destroy
-    redirect_to house_path(@house)  
+    redirect_to house_messages_path(@house)
   end
 
 private

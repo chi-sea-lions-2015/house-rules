@@ -1,12 +1,15 @@
+
 <div id="chores">
 <% if @chores != nil %>
   <h4>Chores: </h4>
   <% @chores.each do |chore| %>
   <%= chore.task %> <br>
-    <%= link_to "Destroy", house_chore_path(@house, chore), method: :delete,
-    data: {confirm: "Are you sure?"} %><br>
+  Completed :<%= chore.chore_logs.size %> <br>
+  <%= link_to 'View Log', house_chore_path(@house, chore) %>
+  <%= link_to 'Complete', house_chore_chore_logs_path(@house, chore), method: :post %>
   <%= link_to 'Edit', edit_house_chore_path(@house, chore) %><br>
-  <%= link_to 'I did this chore', house_chore_chore_logs_path(@house, chore), method: :post %>
+  <%= link_to "Delete", house_chore_path(@house, chore), method: :delete,
+    data: {confirm: "Are you sure?"} %><br>
   <% end %>
 <% end %>
 </div>
@@ -15,6 +18,7 @@
   <%= form_for :chore, url: house_chores_path(@house) do |f| %>
   <%= f.label :task %>
   <%= f.text_field :task %><br><br>
-  <%= f.submit "Send Message", :class => "button" %>
+  <%= f.submit "Add Chore", :class => "button" %>
   <% end %>
 </div>
+

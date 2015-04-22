@@ -4,6 +4,7 @@ class CommunalItemsController < ApplicationController
     @user = current_user
     @house = House.find(params[:house_id])
     @items = @house.communal_items
+    @stock_levels = ["high","low","out"]
   end
 
   def create
@@ -25,14 +26,42 @@ class CommunalItemsController < ApplicationController
     @house = House.find(params[:house_id])
     @item = CommunalItem.find(params[:id])
     @item.update(item_params)
-    redirect_to house_path(@house)
+    redirect_to house_communal_items_path(@house)
   end
 
   def destroy
     @house = House.find(params[:house_id])
     @item = CommunalItem.find(params[:id])
     @item.destroy
-    redirect_to house_path(@house)
+    redirect_to house_communal_items_path(@house)
+  end
+
+  def high
+    @house = House.find(params[:house_id])
+    @item = CommunalItem.find(params[:id])
+    @item.stock_level = "high"
+    @item.save
+    @user_promise = @item.user_promise
+    if @user_promise
+      @user_promise.destroy
+    end
+    redirect_to house_communal_items_path(@house)
+  end
+
+  def low
+    @house = House.find(params[:house_id])
+    @item = CommunalItem.find(params[:id])
+    @item.stock_level = "low"
+    @item.save
+    redirect_to house_communal_items_path(@house)
+  end
+
+  def out
+    @house = House.find(params[:house_id])
+    @item = CommunalItem.find(params[:id])
+    @item.stock_level = "out"
+    @item.save
+    redirect_to house_communal_items_path(@house)
   end
 
   private

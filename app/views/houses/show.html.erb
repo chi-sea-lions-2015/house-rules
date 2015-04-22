@@ -1,36 +1,30 @@
+<div class="row">
+<div class="large-3 columns"><br />
+  </div>
+  <div class="large-6 columns">
+
+
+<fieldset>
 <h1><%= @house.name %>!</h1>
-House Key: <%= @house.house_key %>
-<h3><%= link_to "Edit", edit_house_path(@house) %></h3>
+<%= @house.address.street%><br>
+<%= @house.address.city+ " " %><%= @house.address.state + " " %><%= @house.address.zip_code%><br><br>
+House Key: <%= @house.house_key %><br>
+
+
+<%= link_to "Edit your house information", edit_house_path(@house) %><br><br>
 
 <% if @property_manager == nil %>
 <%= link_to "Add Property Management Info", new_house_property_manager_path(@house) %>
 <% else %>
-Your property manager:
-<%= @house.property_manager.name %>
+Your property manager:<br>
+<%= @house.property_manager.name %><br>
+<%= @house.property_manager.address.street%><br>
+<%= @house.property_manager.address.city+ " " %><%= @house.property_manager.address.state + " " %><%= @house.property_manager.address.zip_code%>
 <%= link_to "Edit", edit_house_property_manager_path(@house, @property_manager) %>
 <% end %>
-<br><br>
+</fieldset>
 
-<div id="messages">
-<% if @messages.length != 0 %>
-  <h3>Messages:</h3>
-  <% @messages.each do |message| %>
-  @<%= message.housing_assignment.user.first_name %>: <%= message.content %> <%= link_to("Delete", house_message_path(@house, message), method: :delete) %> <br>
-  <% end %>
-<% end %>
-</div>
 
-<div>
-  <h4>New Message</h4>
-  <%= form_for :message, url: house_messages_path(@house) do |f| %>
-  <%= f.text_area :content %><br><br>
-  <%= f.submit "Send Message", :class => "button"  %>
-  <% end %>
-</div>
-
-<hr>
-
-<%= link_to "Rules", house_rules_path(@house) %>
 
 <hr>
 
@@ -40,9 +34,12 @@ Your property manager:
 
 <%= link_to "Chores", house_chores_path(@house) %>
 
-<hr>
+  </div>
+  <div class="large-3 columns"><br /></div>
+</div>
 
-<%= link_to "Events", house_events_path(@house) %>
+
+
 
 
 
