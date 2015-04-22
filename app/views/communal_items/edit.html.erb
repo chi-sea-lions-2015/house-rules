@@ -15,7 +15,7 @@
         <%= f.label :quantity %><br>
         <%= f.text_field :quantity %>
         <%= f.label "Stock Level" %>
-        <%= f.select :stock_level, options_for_select([["Select One", ""], "high", "low", "out"]) %>
+        <%= f.select :stock_level, options_for_select(["high", "low", "out"]) %>
         <%= f.submit "Save Change", :class => "button"  %>
       </fieldset>
       <% end %>

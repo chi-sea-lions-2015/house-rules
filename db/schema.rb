@@ -107,12 +107,12 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   create_table "messages", force: :cascade do |t|
     t.string   "content"
     t.integer  "author_id"
-    t.integer  "housing_assignment_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "house_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "messages", ["housing_assignment_id"], name: "index_messages_on_housing_assignment_id", using: :btree
+  add_index "messages", ["house_id"], name: "index_messages_on_house_id", using: :btree
 
   create_table "property_managers", force: :cascade do |t|
     t.string   "name"

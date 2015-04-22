@@ -39,17 +39,16 @@ class IssuesController < ApplicationController
     redirect_to house_chores_path(@house)
   end
 
-  def item_issue_new
-    @item = CommunalItem.find_by(id: params[:item_id])
-    @house = House.find_by(id: params[:house_id])
-  end
-
   def item_issue_create
     @user = current_user
     @house = House.find_by(id: params[:house_id])
-    @item = CommunalItem.find_by(id: params[:item_id])
-    @issue = @item.issues.create(reason: params[:issue][:name], user_id: @user.id)
-    redirect_to house_path(@house)
+    @item = CommunalItem.find_by(id: params[:communal_item_id])
+    @issue = @item.issues.create(reason: params[:issue][:reason], user_id: @user.id)
+    if request.xhr?
+      render partial: "communal_items/issue", locals: { issue: @issue }, layout: false
+    else
+      redirect_to house_communal_items_path(@house)
+    end
   end
 
   def event_issue_new

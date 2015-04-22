@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :user_promises
+
   get    '/'  => 'sessions#new'
   get    'signup'  => 'users#new'
   post   'users'   => 'users#create'
@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   resources :users do
   end
-
 
   resources :houses do
     resources :property_managers
@@ -26,14 +25,16 @@ Rails.application.routes.draw do
   get '/houses/:id/join' => 'houses#join'
   post '/houses/:id/join' => 'houses#join_update'
 
-  get '/houses/:house_id/rules/:rule_id/issues/rule_issue_new' => 'issues#rule_issue_new'
-  post '/houses/:house_id/rules/:rule_id/issues/rule_issue_create' => 'issues#rule_issue_create'
-  get '/houses/:house_id/chores/:chore_id/issues/chore_issue_new' => 'issues#chore_issue_new'
-  post '/houses/:house_id/chores/:chore_id/issues/chore_issue_create' => 'issues#chore_issue_create'
-  get '/houses/:house_id/items/:item_id/issues/item_issue_new' => 'issues#item_issue_new'
-  post '/houses/:house_id/items/:item_id/issues/item_issue_create' => 'issues#item_issue_create'
-  get '/houses/:house_id/events/:event_id/issues/event_issue_new' => 'issues#event_issue_new'
-  post '/houses/:house_id/events/:event_id/issues/event_issue_create' => 'issues#event_issue_create'
+
+  post '/houses/:house_id/communal_items/:id/high' => 'communal_items#high'
+  post '/houses/:house_id/communal_items/:id/low' => 'communal_items#low'
+  post '/houses/:house_id/communal_items/:id/out' => 'communal_items#out'
+
+  post '/houses/:house_id/communal_items/:communal_item_id/promise' => 'user_promises#create'
+  post '/houses/:house_id/communal_items/:communal_item_id/promise_fulfilled' => 'user_promises#update'
+  
+  post '/houses/:house_id/communal_items/:communal_item_id/issue' => 'issues#item_issue_create'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

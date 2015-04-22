@@ -1,23 +1,23 @@
-
 <div class="row">
-<div class="large-3 columns"><br />
+  <div class="large-3 columns"><br />
   </div>
   <div class="large-6 columns">
-      <% if @messages.length != 0 %>
-    <h3>Messages:</h3>
-    <% @messages.each do |message| %>
-    @<%= message.housing_assignment.user.first_name %>: <%= message.content %> <%= link_to("Delete", house_message_path(@house, message), method: :delete) %> <br>
-    <% end %>
-    <% end %>
-    <hr />
-    <%= form_for :message, url: house_messages_path(@house) do |f| %>
-    <fieldset>
-    <legend>Create a New Message</legend>
-    <%= f.label :content%>
-    <%= f.text_area :content %>
-    <%= f.submit "Send Message", :class => "button"  %>
-    </fieldset>
-    <% end %>
+    <div id="event_list">
+      <% if @messages != nil %>
+      <% @messages.each do |message| %>
+      <%= message.author.first_name %>: <%= message.created_at %> <br>
+      <%= message.content %><br>
+      <%= link_to "Delete", house_message_path(@house, message), method: :delete,
+      data: {confirm: "Are you sure?"}%><br>
+      <% end %>
+      <% end %>
+    </div>
+    <div>
+      <%= form_for :message, url: house_messages_path(@house)  do |f| %>
+        <%= f.text_area :content %>
+        <%= f.submit "Post", :class => "button" %>
+      <% end %>
+    </div>
   </div>
   <div class="large-3 columns"><br /></div>
 </div>

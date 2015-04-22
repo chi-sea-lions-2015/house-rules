@@ -12,11 +12,16 @@
  *= require_tree .
  */
 
+
 #edit-house-form-div {
   display: none;
 }
 
 #edit-house-manager-form-div {
+    display: none;
+}
+
+form.item_issue {
   display: none;
 }
 
