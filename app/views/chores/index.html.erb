@@ -3,10 +3,11 @@
 <% if @chores != nil %>
   <h4>Chores: </h4>
   <% @chores.each do |chore| %>
+  <% log = @user.chore_logs.where(chore_id: chore.id ) %>
   <%= chore.task %> <br>
   Completed :<%= chore.chore_logs.size %> <br>
   <%= link_to 'View Log', house_chore_path(@house, chore) %>
-  <%= link_to 'Complete', house_chore_chore_logs_path(@house, chore), method: :post %>
+  <%= link_to 'Complete',  house_chore_chore_log_path(@house, chore, @user.chore_logs.new(chore: chore)), method: :post %>
   <%= link_to 'Edit', edit_house_chore_path(@house, chore) %><br>
   <%= link_to "Delete", house_chore_path(@house, chore), method: :delete,
     data: {confirm: "Are you sure?"} %><br>
@@ -21,3 +22,4 @@
   <%= f.submit "Add Chore", :class => "button" %>
   <% end %>
 </div>
+

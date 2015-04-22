@@ -12,15 +12,17 @@ Rails.application.routes.draw do
   end
 
 
-  resources :houses do
+  resources :houses, shallow: true do
     resources :property_managers
     resources :messages
     resources :rules
     resources :communal_items
     resources :events
-    resources :chores do
-      resources :chore_logs
-    end
+    resources :chores
+  end
+
+  resources :chores do
+    resources :chore_logs, only: [:create, :destroy]
   end
 
   get '/houses/:id/join' => 'houses#join'
