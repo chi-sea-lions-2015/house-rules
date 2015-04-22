@@ -1,35 +1,24 @@
-<div class="row">
-  <div class="large-3 columns"><br />
-  </div>
-  <div class="large-6 columns">
-    <div id="chores">
-      <% if @chores != nil %>
-      <h4>Chores: </h4>
-      <table>
-      <% @chores.each do |chore| %>
-      <tr>
-      <td><%= chore.task %></td>
-      <td><%= link_to "Destroy", house_chore_path(@house, chore), method: :delete,
-      data: {confirm: "Are you sure?"} %></td>
-      <td><%= link_to 'Edit', edit_house_chore_path(@house, chore) %></td>
-      <td><%= link_to 'I did this chore', house_chore_chore_logs_path(@house, chore), method: :post %></td>
-      </tr>
-      <% end %>
-      </table>
-      <% end %>
-    </div>
-    <div>
-      <h4>New Chore</h4>
-      <%= form_for :chore, url: house_chores_path(@house) do |f| %>
-      <fieldset>
-      <legend>Add a New Chore</legend>
-      <%= f.label :task %>
-      <%= f.text_field :task %>
-      <%= f.submit "Send Message", :class => "button" %>
-      </fieldset>
-      <% end %>
-    </div>
-  </div>
-  <div class="large-3 columns"><br /></div>
+
+<div id="chores">
+<% if @chores != nil %>
+  <h4>Chores: </h4>
+  <% @chores.each do |chore| %>
+  <%= chore.task %> <br>
+  Completed :<%= chore.chore_logs.size %> <br>
+  <%= link_to 'View Log', house_chore_path(@house, chore) %>
+  <%= link_to 'Complete', house_chore_chore_logs_path(@house, chore), method: :post %>
+  <%= link_to 'Edit', edit_house_chore_path(@house, chore) %><br>
+  <%= link_to "Delete", house_chore_path(@house, chore), method: :delete,
+    data: {confirm: "Are you sure?"} %><br>
+  <% end %>
+<% end %>
+</div>
+<div>
+  <h4>New Chore</h4>
+  <%= form_for :chore, url: house_chores_path(@house) do |f| %>
+  <%= f.label :task %>
+  <%= f.text_field :task %><br><br>
+  <%= f.submit "Add Chore", :class => "button" %>
+  <% end %>
 </div>
 
