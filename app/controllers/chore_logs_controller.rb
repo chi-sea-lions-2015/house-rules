@@ -18,18 +18,19 @@ class ChoreLogsController < ApplicationController
     @chore_log = @user.chore_logs.new(chore: @chore)
     params[:house_id] = @house.id
     if @chore_log.save
-      redirect_to house_chores_path
+      redirect_to "/houses/#{@house.id}/chores"
     end
   end
 
   def destroy
     @user = current_user
-    @house = House.find_by(id: params[:house_id])
-    @chores = @house.chores
     @chore_log = ChoreLog.find_by(id: params[:id])
-     params[:house_id] = @house.id
+    @chore = @chore_log.chore
+    @house = @chore.house
+    @chores = @house.chores
+    
     if @chore_log.destroy
-      redirect_to house_chores_path
+      redirect_to "/houses/#{@house.id}/chores"
     end
   end
 end

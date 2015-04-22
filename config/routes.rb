@@ -19,7 +19,7 @@ get '/houses/:id/roommates', to: 'users#index'
     resources :rules, shallow: true
     resources :communal_items, shallow: true
     resources :events, shallow: true
-    resources :chores, only: [:show, :index, :create, :destroy] do
+    resources :chores, shallow: true do
       resources :chore_logs, only: [:create, :show, :destroy]
     end
   end
