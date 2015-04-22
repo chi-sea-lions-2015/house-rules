@@ -74,3 +74,44 @@
   background: #333333;
   color:#F0F0F0;
 }
+
+#fridge-title {
+  color: #C0C0C0;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+#fridge-author {
+  color: black;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.0em;
+}
+
+#fridge {
+  margin-top: 1em;
+}
+
+.fridge-today {
+    text-align: center;
+    position: relative;
+    margin-bottom: 1em;
+}
+.today {
+    display: inline-block;
+}
+.today:before,
+.today:after {
+    border-top: 1px solid black;
+    display: block;
+    height: 1px;
+    content: " ";
+    width: 40%;
+    position: absolute;
+    left: 0;
+    top: 1.2em;
+}
+.today:after {
+   right: 0;
+   left: auto;
+}

@@ -6,14 +6,29 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @house = House.find_by(id: params[:house_id])
+    @house = House.find(params[:house_id])
     @message = @house.messages.new(message_params)
     @message.update_attributes(author: current_user)
-    if @message.save
-      redirect_to house_messages_path(@house)
+    if (params[:message][:picture])
+      @picture = Picture.new(picture_content: params[:message][:picture][:picture_content], message_id: @message.id)
+      if @picture.save
+        if @message.save
+          redirect_to house_messages_path(@house)
+        else
+          flash.now[:error] = "Message did not save"
+          redirect_to house_messages_path(@house)
+        end
+      else
+          flash.now[:error] = "Picture did not save"
+          redirect_to house_messages_path(@house)
+      end
     else
-      flash.now[:error] = "Message did not save"
-      redirect_to house_path(@house)
+      if @message.save
+        redirect_to house_messages_path(@house)
+      else
+        flash.now[:error] = "Message did not save"
+        redirect_to house_messages_path(@house)
+      end
     end
   end
 

@@ -2,19 +2,33 @@
   <div class="large-3 columns"><br />
   </div>
   <div class="large-6 columns">
-    <div id="event_list">
+    <div id="fridge">
       <% if @messages != nil %>
-      <% @messages.each do |message| %>
-      <%= message.author.first_name %>: <%= message.created_at %> <br>
-      <%= message.content %><br>
-      <%= link_to "Delete", house_message_path(@house, message), method: :delete,
-      data: {confirm: "Are you sure?"}%><br>
-      <% end %>
+        <div class="fridge-today"><span class="today">Today</span></div>
+        <% @messages.today.each do |message| %>
+        <table>
+          <tr>
+            <td valign="top"><%= image_tag message.author.avatar.url(:thumb) %></td>
+            <td valign="middle"><span id="fridge-author"><%= message.author.first_name.capitalize %> <%= message.author.last_name.capitalize[0] %>.</span> <span id="fridge-title">posted <%= time_ago_in_words(message.created_at) %> ago </span><br>
+              <% unless message.picture.nil? %>
+                <%= image_tag message.picture.picture_content.url(:medium) %>
+              <% end %>
+                <%= message.content %></td>
+            <td valign="bottom">
+              <% if message.author == current_user %>
+                <%= link_to "Delete", house_message_path(@house, message), method: :delete, data: {confirm: "Are you sure?"}%></td>
+              <% end %>
+          </tr>
+        </table>
+        <% end %>
       <% end %>
     </div>
     <div>
-      <%= form_for :message, url: house_messages_path(@house)  do |f| %>
+      <%= form_for :message, url: house_messages_path(@house), :html => { :multipart => true } do |f| %>
         <%= f.text_area :content %>
+        <%= f.fields_for :picture do |pic| %>
+          <%= pic.file_field :picture_content %>
+        <% end %>
         <%= f.submit "Post", :class => "button" %>
       <% end %>
     </div>
