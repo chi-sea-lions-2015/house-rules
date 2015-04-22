@@ -166,7 +166,7 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   add_foreign_key "housing_assignments", "houses"
   add_foreign_key "housing_assignments", "users"
   add_foreign_key "issues", "users"
-  add_foreign_key "messages", "housing_assignments"
+  add_foreign_key "messages", "houses"
   add_foreign_key "rules", "houses"
   add_foreign_key "user_promises", "users"
 end
