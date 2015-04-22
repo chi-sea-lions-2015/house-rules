@@ -29,6 +29,18 @@ form.item_issue {
   display: none;
 }
 
+.rule-table {
+  width: 100%;
+}
+
+.rule-content {
+  width: 70%;
+}
+
+.rule-parts {
+  width: 10%;
+}
+
 meta.foundation-version {
   font-family: "/5.5.1/"; }
 
