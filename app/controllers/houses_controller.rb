@@ -19,7 +19,9 @@ class HousesController < ApplicationController
   end
 
   def roommates
-
+    @user = current_user
+    @house = House.find(params[:id])
+    @roommates = @house.users
   end
 
   def new
