@@ -1,19 +1,28 @@
-<div class="container">
-  <h1>Edit House Information</h1>
-  <%= link_to("Delete", house_path(@house), method: :delete) %>
-
+<div class="row">
+<div class="large-3 columns"><br />
+  </div>
+  <div class="large-6 columns">
   <%= form_for @house do |f|%>
-  <p>
-    <%= f.label :name %><br>
+    <fieldset>
+    <legend>Edit House Information</legend>
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :house_key %><br>
+    <%= f.label :house_key %>
     <%= f.text_field :house_key %>
-  </p>
-  <p>
+    <%= f.fields_for @address do |address_form| %>
+    <%= f.label :street %>
+    <%= address_form.text_field :street %>
+    <%= f.label :city %>
+    <%= address_form.text_field :city %>
+    <%= f.label :state%>
+    <%= address_form.text_field :state %>
+    <%= f.label :zip_code%>
+    <%= address_form.text_field :zip_code %>
+    <% end %>
     <%= f.submit "Save Change", :class => "button"  %>
-  </p>
-  <% end %>
-
+    </fieldset>
+    <% end %>
+  <%= link_to("Delete", house_path(@house), method: :delete) %>
+  </div>
+  <div class="large-3 columns"><br /></div>
 </div>
