@@ -4,5 +4,4 @@ class HousingAssignment < ActiveRecord::Base
 
   has_many :rules
   has_many :events
-  has_many :messages
 end

@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :users do
   end
 
-
   resources :houses do
     resources :property_managers
     resources :messages

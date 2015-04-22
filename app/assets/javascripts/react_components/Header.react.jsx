@@ -1,5 +1,4 @@
 var ReactPropTypes = React.PropTypes;
-// var SessionActionCreators = require('../actions/SessionActionCreators.react.jsx');
 
 var Menu = React.createClass({
 
@@ -41,8 +40,6 @@ var Header = React.createClass({
     isLoggedIn: ReactPropTypes.bool,
     email: ReactPropTypes.string,
     houseName: ReactPropTypes.string,
-    houseID: ReactPropTypes.integer,
-    userID: ReactPropTypes.integer
   },
 
   logout: function(e) {
@@ -60,12 +57,8 @@ var Header = React.createClass({
   render: function() {
     var rightNav = this.props.isLoggedIn ? (
       <ul className="right">
-        <li className="has-dropdown">
-          <a href="#">{this.props.email}</a>
-          <ul className="dropdown">
-            <li><a href='/logout'>Logout</a></li>
-          </ul>
-        </li>
+        <li><a href="#">{this.props.email}</a></li>
+        <li><form action="/logout" method="post"><input type="hidden" name="_method" value="delete"/><button className="logout" type="submit">Logout</button></form></li>
       </ul>
     ) : (
       <ul className="right">
@@ -107,8 +100,4 @@ var Header = React.createClass({
     );
   }
 });
-
-// window.Header = Header;
-// module.exports = Header;
-
 
