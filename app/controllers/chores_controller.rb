@@ -11,6 +11,10 @@ class ChoresController < ApplicationController
     @user = current_user
     @house = House.find_by(id: params[:house_id])
     @chore = Chore.find_by(id: params[:id])
+    @chores = @house.chores
+    @logged_users = @chore.chore_logs.map{|log| log.user_id }
+    @logged_users.map!{|id| User.find(id)}
+    render :show
   end
 
   def create
