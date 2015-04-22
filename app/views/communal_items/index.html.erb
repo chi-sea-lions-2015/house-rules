@@ -1,7 +1,7 @@
 <div class="row">
   <div class="small-6 large-2 columns"><br></div>
   <div class="small-6 large-8 columns">
-<h2>Communal Items</h2>
+<h1 class="item-title">Communal Items</h1>
     <% if @items.length != 0 %>
 
       <% @items.each do |item| %>
@@ -21,31 +21,31 @@
             <% if item.user_promise.fulfilled == false %>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>"<%= @user.first_name.capitalize %>"</strong> will buy next
               <%= form_for :promise, url: "/houses/#{@house.id}/communal_items/#{item.id}/promise_fulfilled", html: { class: "promise"} do |f| %>
-              <%= f.submit "I Got It" %>
+              <%= f.submit "I Got It" , class: "form-submit" %>
               <% end %>
             <% end %>
           <% else %>
  
             <%= form_for :promise, url: "/houses/#{@house.id}/communal_items/#{item.id}/promise", html: { class: "promise"} do |f| %>
-            <%= f.submit "I Will Buy It" %>
+            <%= f.submit "I Will Buy It" , class: "form-submit" %>
             <% end %>
 
             
             <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[1]}", html: { class: "stock-level-form"} do |f| %>
-            <%= f.submit "#{stock_levels[1]}" %>
+            <%= f.submit "#{stock_levels[1]}" , class: "form-submit" %>
             <% end %>
            
             <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[0]}",  html: { class: "stock-level-form"} do |f| %>
-            <%= f.submit "#{stock_levels[0]}" %>
+            <%= f.submit "#{stock_levels[0]}" , class: "form-submit" %>
             <% end %>            
 
           <% end %>
         <% else %>
           <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[0]}",  html: { class: "stock-level-form"} do |f| %>
-          <%= f.submit "#{stock_levels[0]}" %>
+          <%= f.submit "#{stock_levels[0]}" , class: "form-submit" %>
           <% end %>
           <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[1]}", html: { class: "stock-level-form"} do |f| %>
-          <%= f.submit "#{stock_levels[1]}" %>
+          <%= f.submit "#{stock_levels[1]}" , class: "form-submit" %>
           <% end %>
         <% end %>
         <div class="issue_box">

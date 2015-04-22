@@ -12,6 +12,15 @@
  *= require_tree .
  */
 
+.form-submit{
+  background-color: lightblue;
+  height: 30px;
+ }
+
+.item-title{
+  text-align: center;
+}
+
 .issue-mark{
   float: left;
 }
