@@ -12,10 +12,10 @@ skip_before_action :authenticate_user_from_token!
     @rule = @house.rules.new(rule_params)
     @rule.save
     if request.xhr?
-      render :json => @house.rules
+      puts "HEYYyYYyYYyyyyyyy"
+      render @rule, layout: false
     else
-      flash.now[:error] = "Rule did not save"
-      redirect_to house_path(@house)
+      redirect_to house_events_path
     end
   end
 
