@@ -18,6 +18,10 @@ class HousesController < ApplicationController
     end
   end
 
+  def roommates
+
+  end
+
   def new
     @house = House.new
   end

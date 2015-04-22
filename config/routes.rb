@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  get "/houses/:id/roommates" => 'houses#roommates'
 
   resources :users do
   end
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
 
   post '/houses/:house_id/communal_items/:communal_item_id/promise' => 'user_promises#create'
   post '/houses/:house_id/communal_items/:communal_item_id/promise_fulfilled' => 'user_promises#update'
-  
+
   post '/houses/:house_id/communal_items/:communal_item_id/issue' => 'issues#item_issue_create'
 
 
