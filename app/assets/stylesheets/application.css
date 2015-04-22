@@ -12,9 +12,17 @@
  *= require_tree .
  */
 
+#edit-house-form-div {
+  display: none;
+}
+
+#edit-house-manager-form-div {
+    display: none;
+}
+
 
 .form-submit{
-  background-color: lightblue;
+  background-color: blue;
   height: 30px;
  }
 
@@ -45,7 +53,11 @@ span.item-stock-level {
   font-size: 20px;
 }
 
-#edit-house-form-div {
+form.item_issue {
+  display: none;
+}
+
+#edit_user_info_user_page_form {
   display: none;
 }
 
@@ -53,12 +65,16 @@ span.item-stock-level {
     display: none;
 }
 
-form.item_issue {
-  display: none;
+.rule-table {
+  width: 100%;
 }
 
-#edit_user_info_user_page_form {
-  display: none;
+.rule-content {
+  width: 70%;
+}
+
+.rule-parts {
+  width: 10%;
 }
 
 meta.foundation-version {

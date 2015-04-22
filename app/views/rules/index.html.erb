@@ -2,14 +2,11 @@
   <div class="small-6 large-2 columns"><br></div>
   <div class="small-6 large-8 columns">
       <h4>Rules:</h4>
-      <table>
-        <div id="rule_list">
+      <div id="rule_list">
         <% if @rules != nil %>
         <%= render @rules %>
         <%end%>
-        </div>
-    </table>
-    <h4>New Rule</h4>
+      </div>
     <%= render 'rules/form' %>
 
 
