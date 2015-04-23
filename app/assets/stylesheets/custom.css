@@ -10,7 +10,7 @@ border-style: groove;
 border-color: rgba(0, 140, 186, 0.27);
 border-width: .25em;
 width: 20em;
-height: 15em;
+height: auto;
 float: left;
 margin-top: 2%;
 margin-bottom: 2%;
@@ -21,8 +21,8 @@ margin-right: 5%;
 .chore_task h5 {
 position: relative;
 margin: auto;
-top: 2em;
 text-align: center;
+padding-top: 1em;
 }
 #chore_list{
   position: relative;
@@ -50,8 +50,8 @@ clear: both;
 position: relative;
 margin-left: auto;
 margin-right: auto;
-top: 2.5em;
 border-collapse: collapse;
+padding-bottom: 1em;
 }
 .user_chore_count  th{
 background-color: #4E99A3;
@@ -63,7 +63,6 @@ background-color: #0BBCE3;
 text-align: center;
 }
 #chore_form{
-  top: 4em;
 position: relative;
 margin: 10%;
 clear: both;
@@ -76,7 +75,7 @@ ul.button-group.round.even-4{
 position: relative;
 margin-right: auto;
 margin-left: 1%;
-top: 3.35em;
+top: 1em;
 }
 
 .chore{
