@@ -16,7 +16,7 @@
       <div class="issue_body">
       <% if event.issues %>
       <% event.issues.each do |issue| %>
-      <%= render partial: "issue", locals: { issue: issue }, layout: false %>
+      <%= render partial: "issue", locals: { issue: issue, house: @house, event: event }, layout: false %>
       <% end %>
       <% end %>
       </div>  

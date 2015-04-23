@@ -54,4 +54,9 @@ Rails.application.routes.draw do
   post '/chores/:id/promise' => "promise#chore_promise_create"
   post '/chores/:id/promise' => "promise#chore_promise_create"
 
+  delete '/houses/:house_id/communal_items/:communal_item_id/issues/:id' => 'issues#item_issue_delete'
+  delete '/houses/:house_id/rules/:rule_id/issues/:id' => 'issues#rule_issue_delete'
+  delete '/houses/:house_id/events/:event_id/issues/:id' => 'issues#event_issue_delete'
+  delete '/houses/:house_id/chores/:chore_id/issues/:id' => 'issues#chore_issue_delete'
+
 end

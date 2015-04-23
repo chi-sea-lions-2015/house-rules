@@ -12,6 +12,13 @@ class IssuesController < ApplicationController
     end
   end
 
+  def rule_issue_delete
+    @house = House.find_by(id: params[:house_id])
+    @issue = Issue.find_by(id: params[:id])
+    @issue.destroy
+    redirect_to house_rules_path(@house)
+  end
+
   def item_issue_create
       @user = current_user
       @house = House.find_by(id: params[:house_id])
@@ -22,6 +29,13 @@ class IssuesController < ApplicationController
       else
         redirect_to house_communal_items_path(@house)
       end
+  end
+
+  def item_issue_delete
+    @house = House.find_by(id: params[:house_id])
+    @issue = Issue.find_by(id: params[:id])
+    @issue.destroy
+    redirect_to house_communal_items_path(@house)
   end
 
   def event_issue_create
@@ -36,6 +50,13 @@ class IssuesController < ApplicationController
     end
   end
 
+  def event_issue_delete
+    @house = House.find_by(id: params[:house_id])
+    @issue = Issue.find_by(id: params[:id])
+    @issue.destroy
+    redirect_to house_events_path(@house)
+  end
+
   def chore_issue_create
     @user = current_user
     @house = House.find_by(id: params[:house_id])
@@ -46,6 +67,13 @@ class IssuesController < ApplicationController
     else
       redirect_to house_chores_path(@house)
     end
+  end
+
+  def chore_issue_delete
+    @house = House.find_by(id: params[:house_id])
+    @issue = Issue.find_by(id: params[:id])
+    @issue.destroy
+    redirect_to house_chores_path(@house)
   end
 
 end
