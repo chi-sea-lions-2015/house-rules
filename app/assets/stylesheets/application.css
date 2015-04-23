@@ -11,6 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+.event-title {
+  text-align: center;
+}
+
 .message-table {
   width: 100%;
 }

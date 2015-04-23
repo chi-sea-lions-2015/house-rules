@@ -53,8 +53,7 @@
   <div class="issue_form">
 
   <%= form_for :issue, url: "/houses/#{@house.id}/communal_items/#{item.id}/issue", html: { class: "item_issue"} do |f| %>
-    <%= f.label :reason %>
-    <%= f.text_area :reason %>
+    <%= f.text_area :reason, :placeholder => "Reason"%>
     <%= f.submit "Submit Issue", class: "button tiny" %>
   <% end %>
   </div>
