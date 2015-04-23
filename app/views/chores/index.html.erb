@@ -1,25 +1,50 @@
+<div class="row">
+  <div class="large-3 columns"><br />
+  </div>
+  <div id="chore_list">
+    <% if @chores != nil %>
+    <div id="chore_title"><h4>Chores </h4></div>
 
-<div id="chores">
-<% if @chores != nil %>
-  <h4>Chores: </h4>
-  <% @chores.each do |chore| %>
-  <% log = @user.chore_logs.where(chore_id: chore.id ) %>
-  <%= chore.task %> <br>
-  Completed :<%= chore.chore_logs.size %> <br>
-  <%= link_to 'View Log', chore_path(chore) %>
-  <%= link_to 'Complete',  chore_chore_logs_path(chore), method: :post %>
-  <%= link_to 'Edit', edit_chore_path(chore) %><br>
-  <%= link_to "Delete", chore_path(chore), method: :delete,
-    data: {confirm: "Are you sure?"} %><br>
-  <% end %>
-<% end %>
+    <% @chores.each do |chore| %>
+    <% log = @user.chore_logs.where(chore_id: chore.id ) %>
+    <div class="chore">
+      <%= button_to "Edit", edit_chore_path(chore),method: :get, :class => ["button tiny", "edit_chore" ]  %>
+      <%= button_to "Issue", chore_chore_logs_path(chore),method: :post, :class =>["button tiny", "chore_issue"] %>
+      <div class="chore_task"><h5><%= chore.task %></h5> <br></div>
+      
+      <%= button_to "Complete", chore_chore_logs_path(chore),method: :post, :class => ["button tiny","complete_log"] %>
+      <%= button_to "Promise", chore_chore_logs_path(chore),method: :post, :class => ["button tiny", "chore_promise" ] %>
+      <%= button_to 'View Log', chore_path(chore),method: :get, :class => ["button tiny", "view_log"] %>
+      <%= button_to "Delete", chore_path(chore), method: :delete, :class => ["button tiny", "button alert", "delete_chore"], data: {confirm: "Are you sure?"}  %>
+      <div class="completed_chore_count">
+        
+        <table class="user_chore_count">
+          <thead>
+            <% @users.each do |user| %>
+            <th>
+              <%= user.first_name %>
+            </th>
+            <% end %>
+          </thead>
+          <tbody>
+            <tr>
+              <% @users.each do |user| %>
+              <% logs = user.chore_logs.where(chore_id: chore.id) %>
+              <td>
+                <%= logs.count %>
+              </td>
+              <% end %>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  <div id="chore_form">
+    <%= render 'chores/form' %>
+  </div>
+  <div class="large-3 columns"><br /></div>
 </div>
-<div>
-  <h4>New Chore</h4>
-  <%= form_for :chore, url: house_chores_path(@house) do |f| %>
-  <%= f.label :task %>
-  <%= f.text_field :task %><br><br>
-  <%= f.submit "Add Chore", :class => "button" %>
-  <% end %>
-</div>
-

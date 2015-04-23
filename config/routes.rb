@@ -44,5 +44,10 @@ Rails.application.routes.draw do
   post '/houses/:house_id/events/:event_id/issue' => 'issues#event_issue_create'
   post '/houses/:house_id/chores/:chore_id/issue' => 'issues#chore_issue_create'
 
+
   get '/houses/search/:keyword' => 'houses#search'
+
+  post '/chores/:id/promise' => "promise#chore_promise_create"
+  post '/chores/:id/promise' => "promise#chore_promise_create"
+
 end

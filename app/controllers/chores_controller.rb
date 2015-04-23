@@ -4,6 +4,7 @@ class ChoresController < ApplicationController
     @user = current_user
     @house = House.find(params[:house_id])
     @chores = @house.chores
+    @users = @house.users
     @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
     @chore_logs = @house.users.map {|user| user.chore_logs}
   end
@@ -34,7 +35,12 @@ class ChoresController < ApplicationController
     @house = @chore.house
     @chores = @house.chores
     @logged_users = @chore.chore_logs.map{|log| log.user_id }
-    @logged_users.map!{|id| User.find(id)}
+    @logged_users.uniq!
+    if @logged_users.size > 1
+      @logged_users.map!{|id| User.find(id)}
+    else
+      @logged_users = User.find(@logged_users)
+    end
     render :show
   end
 
