@@ -66,7 +66,7 @@ var Header = React.createClass({
     var rightNav = this.props.isLoggedIn ? (
       <ul className="right">
         <div>
-          <button className="notes">
+          <button className="notes" onMouseOver={this.showRight}>
           {this.props.notes}
           </button>
           <button className="menu-button" onMouseOver={this.showRight}>
