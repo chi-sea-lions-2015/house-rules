@@ -4,6 +4,7 @@ class ChoresController < ApplicationController
     @user = current_user
     @house = House.find(params[:house_id])
     @chores = @house.chores
+    @users = @house.users
     @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
     @chore_logs = @house.users.map {|user| user.chore_logs}
   end
