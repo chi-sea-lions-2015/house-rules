@@ -94,6 +94,7 @@ body {
   position: fixed;
   background: #333333;
   right: -250px;
+  overflow: scroll;
 }
 
 .menu .menu-right.menu-visible {

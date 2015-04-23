@@ -13,13 +13,11 @@ $(document).ready(function(){
 		e.preventDefault();
 		var form = $(this);
 		var list = form.parent().parent().find(".issue-content");
-		debugger;
 		$.ajax({
 	      url: form.attr("action"),
 	      method: form.attr("method"),
 	      data: form.serialize(),
 	      success: function(response){
-	      	debugger;
 	      	form.next(".issue-body").show();
 	        list.append(response);
         	form[0].reset();
