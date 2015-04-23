@@ -57,6 +57,7 @@ class HousesController < ApplicationController
     if @user = current_user
       @house = House.find(params[:id])
       @house.update_attributes(house_params)
+      @house.address.update_attributes(address_params)
       redirect_to house_path(@house)
     else
       redirect_to '/login'

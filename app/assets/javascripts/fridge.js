@@ -1,14 +1,14 @@
 $(document).ready(function() {
 
   $("#new_message").on("ajax:success", function(e, data, status, xhr) {
-  console.log("&&&&&&&&&&&&&&&&&&&&&&&")
   $("#fridge").append(xhr.responseText);
   $("#new-content").val("")
+  $(".message-content-valid").hide();
   $("#message_picture_picture_content").val("")
   return console.log("stuff", xhr.responseText);
 }).on("ajax:error", function(e, xhr, status, error) {
   console.log("Failure!!")
-  return $("#new_event").prepend("<p>ERROR</p>");
+  return $("#fridge").append("<p class='message-content-valid'>Message length must be 6</p>");
 });
 });
 

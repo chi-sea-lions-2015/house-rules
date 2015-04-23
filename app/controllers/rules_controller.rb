@@ -15,7 +15,9 @@ skip_before_action :authenticate_user_from_token!
         puts "HEYYyYYyYYyyyyyyy"
         render @rule, layout: false
       else
-        redirect_to house_events_path
+        if request.xhr?
+          render '/rules/rule_must_be_length_6.html.erb', layout: false
+        end
       end
     else
       if request.xhr?
@@ -44,7 +46,6 @@ skip_before_action :authenticate_user_from_token!
   def destroy
     if @user = current_user
       @rule = Rule.find_by(id: params[:id])
-      puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
       if @rule.destroy
         redirect_to house_rules_path
       end
