@@ -36,6 +36,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @user.update_attributes(first_name: @user.first_name.capitalize!, last_name: @user.last_name.capitalize!)
       log_in @user
       flash[:success] = "Welcome!"
       redirect_to user_path(@user)
