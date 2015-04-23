@@ -2,7 +2,6 @@ $(document).ready(function() {
 
   $(document).on("click", "img.issue-mark", function(e){
   	e.preventDefault();
-    debugger;
   	var form = $(this).parent().find("form.event_issue");
 	if (form.css("display")=="none"){
 		form.css("display", "block");

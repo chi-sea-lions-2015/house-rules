@@ -9,7 +9,7 @@
     <div class="chore">
       <% log = @user.chore_logs.where(chore_id: chore.id ) %>
       <%= button_to "Delete", chore_path(chore), method: :delete, :class => ["button round tiny", "button alert", "delete_chore"], data: {confirm: "Are you sure?"}  %>
-      <%= button_to "Issue", chore_chore_logs_path(chore),method: :post, :class =>["button round tiny", "chore_issue"] %>
+       <%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%>
       <div class="chore_task"><h5><%= chore.task %></h5> <br></div>
     
         <table class="user_chore_count">
