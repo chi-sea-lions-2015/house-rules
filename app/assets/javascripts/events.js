@@ -3,7 +3,7 @@ $(document).ready(function() {
   $("img.issue-mark").click(function(e){
   	e.preventDefault();
   	debugger;
-  	var form = $(this).parent().parent().find("form.event_issue");
+  	var form = $(this).parent().find("form.event_issue");
 	if (form.css("display")=="none"){
 		form.css("display", "block");
 	} else {
@@ -15,7 +15,7 @@ $(document).ready(function() {
 	e.preventDefault();
 	debugger;
 	var form = $(this);
-	var list = form.parent().parent().find("div.issue_body");
+	var list = form.parent().find("div.issue_body");
 	$.ajax({
 	    url: form.attr("action"),
 	    method: form.attr("method"),
