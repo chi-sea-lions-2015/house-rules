@@ -12,6 +12,14 @@
  *= require_tree .
  */
 
+form.event_issue {
+  display: none;
+}
+
+form.rule_issue {
+  display: none;
+}
+
 #edit-house-form-div {
   display: none;
 }

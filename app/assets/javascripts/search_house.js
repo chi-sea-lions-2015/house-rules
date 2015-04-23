@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $("a.postfix").click(function(e){
     e.preventDefault();
-debugger;
+
     var data = $("form#search-form").find("#search").val();
     var form = $("form#search-form");
 
@@ -12,12 +12,16 @@ debugger;
 
       if (response=="No") {
         $("#search").css('border','1px solid red');
+        var title = _.template('<h3>No House Found</h3>');
+        housesListContainer.append(title());
         form[0].reset();
       } else {
-        $("#search").css('border','1px solid $333');
+        $("#search").css('border','1px solid lightgray');
+        var title = _.template('<h3>Searched House</h3>');
+        housesListContainer.append(title());
         var template = _.template('<%= name %> <a href="/houses/<%= id %>">Join</a><br>');
         response.forEach(function(houseData){
-        housesListContainer.prepend(template(houseData));
+        housesListContainer.append(template(houseData));
         form[0].reset();
       })       
       }

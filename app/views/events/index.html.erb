@@ -13,8 +13,20 @@
       Description: <%= event.description %><br>
       Date: <%= event.date%><br>
       <%= link_to "Destroy", house_event_path(@house, event), method: :delete,
-      data: {confirm: "Are you sure?"}, :class => "destroy_event"%><br>
-      <%= link_to 'Edit', edit_house_event_path(@house, event) %><br><br>
+      data: {confirm: "Are you sure?"}, :class => "destroy_event"%> /
+      <%= link_to 'Edit', edit_house_event_path(@house, event) %><br>
+      <%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%> 
+      <%= form_for :issue, url: "/houses/#{@house.id}/events/#{event.id}/issue", html: { class: "event_issue"} do |f| %>
+      <%= f.text_area :reason, :placeholder => "Reason" %>
+      <%= f.submit "Submit Issue" %>
+      <% end %>
+      <div class="issue_body">
+      <% if event.issues %>
+      <% event.issues.each do |issue| %>
+      <%= render partial: "issue", locals: { issue: issue } %>
+      <% end %>
+      <% end %>
+      </div>
       <% end %>
       <% end %>
     </div>
