@@ -47,7 +47,9 @@ class MessagesController < ApplicationController
         end
       end
     else
-      redirect_to '/login'
+      if request.xhr?
+        render "users/login_failure", layout: false
+      end
     end
   end
 

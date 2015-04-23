@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get "/houses/:id/roommates" => 'houses#roommates'
+  get "/request_login" => "users#request_login"
 
   resources :users do
   end

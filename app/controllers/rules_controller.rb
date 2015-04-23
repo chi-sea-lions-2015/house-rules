@@ -18,7 +18,9 @@ skip_before_action :authenticate_user_from_token!
         redirect_to house_events_path
       end
     else
-      redirect_to '/login'
+      if request.xhr?
+        render "users/login_failure", layout: false
+      end
     end
   end
 
