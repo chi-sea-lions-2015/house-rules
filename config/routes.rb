@@ -51,7 +51,8 @@ Rails.application.routes.draw do
 
   get '/houses/search/:keyword' => 'houses#search'
 
-  post '/chores/:id/promise' => "promise#chore_promise_create"
-  post '/chores/:id/promise' => "promise#chore_promise_create"
+  post '/chores/:id/promise' => "user_promises#chore_promise_create"
+  post '/chores/:id/promise/update' => "user_promises#chore_promise_update"
 
+  get "/houses/:id/bills" => "bills#index"
 end
