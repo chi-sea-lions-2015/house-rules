@@ -56,7 +56,7 @@ border-collapse: collapse;
 .user_chore_count > th{
 background-color: #4E99A3;
 }
-.user_chore_count > tr{
+.user_chore_count >tr{
 background-color: #0BBCE3;
 }
 .user_chore_count td {
