@@ -26,6 +26,8 @@ gem 'rails_12factor', group: :production
 
 gem "responders"
 
+gem 'rails-timeago', '~> 2.0'
+
 gem 'rails-assets-growl'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

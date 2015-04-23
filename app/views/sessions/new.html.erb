@@ -12,10 +12,10 @@
     <%= f.email_field :email, class: 'form-control' %>
     <%= f.label :password %>
     <%= f.password_field :password, class: 'form-control' %>
-    <%= f.submit "Log in", class: "button success" %>
+    <%= f.submit "Log in", class: "button", id: "login-welcome-login"%>
+    <a href="/signup" id="login-sign-up" class="button success">Sign up</a>
     </fieldset>
     <% end %>
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
   <div class="small-12 large-2 columns"><br></div>
 </div>

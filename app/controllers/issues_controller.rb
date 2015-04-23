@@ -6,22 +6,22 @@ class IssuesController < ApplicationController
     @rule = Rule.find_by(id: params[:rule_id])
     @issue = @rule.issues.create(reason: params[:issue][:reason], user_id: @user.id)
     if request.xhr?
-      render partial: "communal_items/issue", locals: { issue: @issue }, layout: false
+      render partial: "rules/issue", locals: { issue: @issue }, layout: false
     else
       redirect_to house_rules_path(@house)
     end
   end
 
   def item_issue_create
-    @user = current_user
-    @house = House.find_by(id: params[:house_id])
-    @item = CommunalItem.find_by(id: params[:communal_item_id])
-    @issue = @item.issues.create(reason: params[:issue][:reason], user_id: @user.id)
-    if request.xhr?
-      render partial: "communal_items/issue", locals: { issue: @issue }, layout: false
-    else
-      redirect_to house_communal_items_path(@house)
-    end
+      @user = current_user
+      @house = House.find_by(id: params[:house_id])
+      @item = CommunalItem.find_by(id: params[:communal_item_id])
+      @issue = @item.issues.create(reason: params[:issue][:reason], user_id: @user.id)
+      if request.xhr?
+        render partial: "communal_items/issue", locals: { issue: @issue }, layout: false
+      else
+        redirect_to house_communal_items_path(@house)
+      end
   end
 
   def event_issue_create

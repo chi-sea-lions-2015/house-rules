@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
  */
+.message-table {
+  width: 100%;
+}
 
 form.event_issue {
   display: none;
@@ -18,6 +21,18 @@ form.event_issue {
 
 form.rule_issue {
   display: none;
+}
+
+.message-pic {
+  width: 20%;
+}
+
+.message-text {
+  width: 70%;
+}
+
+.message-delete {
+  width: 10%;
 }
 
 #edit-house-form-div {

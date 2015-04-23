@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417175305) do
+ActiveRecord::Schema.define(version: 20150423031307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,22 @@ ActiveRecord::Schema.define(version: 20150417175305) do
 
   add_index "messages", ["house_id"], name: "index_messages_on_house_id", using: :btree
 
+  create_table "notifications", force: :cascade do |t|
+    t.string   "alert"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "picture_content_file_name"
+    t.string   "picture_content_content_type"
+    t.integer  "picture_content_file_size"
+    t.datetime "picture_content_updated_at"
+    t.integer  "message_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
   create_table "property_managers", force: :cascade do |t|
     t.string   "name"
     t.string   "phone"
@@ -130,6 +146,16 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   end
 
   add_index "rules", ["house_id"], name: "index_rules_on_house_id", using: :btree
+
+  create_table "user_notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "notification_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "user_notifications", ["notification_id"], name: "index_user_notifications_on_notification_id", using: :btree
+  add_index "user_notifications", ["user_id"], name: "index_user_notifications_on_user_id", using: :btree
 
   create_table "user_promises", force: :cascade do |t|
     t.boolean  "fulfilled",       default: false
@@ -168,5 +194,7 @@ ActiveRecord::Schema.define(version: 20150417175305) do
   add_foreign_key "issues", "users"
   add_foreign_key "messages", "houses"
   add_foreign_key "rules", "houses"
+  add_foreign_key "user_notifications", "notifications"
+  add_foreign_key "user_notifications", "users"
   add_foreign_key "user_promises", "users"
 end

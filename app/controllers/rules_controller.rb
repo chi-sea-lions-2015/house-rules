@@ -7,15 +7,18 @@ skip_before_action :authenticate_user_from_token!
   end
 
   def create
-    @user = current_user
-    @house = House.find_by(id: params[:house_id])
-    @rule = @house.rules.new(rule_params)
-    @rule.save
-    if request.xhr?
-      puts "HEYYyYYyYYyyyyyyy"
-      render @rule, layout: false
+    if @user = current_user
+      @house = House.find_by(id: params[:house_id])
+      @rule = @house.rules.new(rule_params)
+      @rule.save
+      if request.xhr?
+        puts "HEYYyYYyYYyyyyyyy"
+        render @rule, layout: false
+      else
+        redirect_to house_events_path
+      end
     else
-      redirect_to house_events_path
+      redirect_to '/login'
     end
   end
 
@@ -26,17 +29,25 @@ skip_before_action :authenticate_user_from_token!
   end
 
   def update
-    @rule = Rule.find_by(id: params[:id])
-    if @rule.update_attributes(rule_params)
-      redirect_to house_rules_path
+    if @user = current_user
+      @rule = Rule.find_by(id: params[:id])
+      if @rule.update_attributes(rule_params)
+        redirect_to house_rules_path
+      end
+    else
+      redirect_to '/login'
     end
   end
 
   def destroy
-    @rule = Rule.find_by(id: params[:id])
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    if @rule.destroy
-      redirect_to house_rules_path
+    if @user = current_user
+      @rule = Rule.find_by(id: params[:id])
+      puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+      if @rule.destroy
+        redirect_to house_rules_path
+      end
+    else
+      redirect_to '/login'
     end
   end
 

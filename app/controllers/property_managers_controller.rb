@@ -6,19 +6,23 @@ class PropertyManagersController < ApplicationController
   end
 
   def create
-    @house = House.find(params[:house_id])
-    @address = Address.new(address_params)
-    if @address.save
-      @manager = PropertyManager.new(property_manager_params)
-      if @manager.save
-        @house.update_attributes(property_manager_id: @manager.id)
-        @address.update_attributes(addressable_type: "PropertyManager", addressable_id: @manager.id)
-        redirect_to house_path(@house)
+    if @user = current_user
+      @house = House.find(params[:house_id])
+      @address = Address.new(address_params)
+      if @address.save
+        @manager = PropertyManager.new(property_manager_params)
+        if @manager.save
+          @house.update_attributes(property_manager_id: @manager.id)
+          @address.update_attributes(addressable_type: "PropertyManager", addressable_id: @manager.id)
+          redirect_to house_path(@house)
+        else
+          render "new"
+        end
       else
         render "new"
       end
     else
-      render "new"
+      redirect_to '/login'
     end
   end
 
@@ -29,12 +33,16 @@ class PropertyManagersController < ApplicationController
   end
 
   def update
-    @house = House.find(params[:house_id])
-    @manager = PropertyManager.find(params[:id])
-    @manager.update(property_manager_params)
-    @address = @manager.address
-    @address.update_attributes(address_params)
-    redirect_to house_path(@house)
+    if @user = current_user
+      @house = House.find(params[:house_id])
+      @manager = PropertyManager.find(params[:id])
+      @manager.update(property_manager_params)
+      @address = @manager.address
+      @address.update_attributes(address_params)
+      redirect_to house_path(@house)
+    else
+      redirect_to '/login'
+    end
   end
 
   private

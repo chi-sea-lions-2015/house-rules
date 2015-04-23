@@ -17,6 +17,8 @@
 //= require react_ujs
 //= require react_router
 
+//= require rails-timeago
+
 //= require_tree .
 //= require underscore
 

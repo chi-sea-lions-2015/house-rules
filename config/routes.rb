@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get    '/'  => 'sessions#new'
+  get    '/'  => 'users#welcome'
   get    'signup'  => 'users#new'
   post   'users'   => 'users#create'
   get    'login'   => 'sessions#new'
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/houses/:id/roommates" => 'houses#roommates'
 
   resources :users do
+    resources :notifications, only: [:index]
   end
 
   get '/houses/:id/roommates', to: 'users#index'
