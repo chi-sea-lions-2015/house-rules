@@ -1,10 +1,10 @@
 class MessagesController < ApplicationController
 
-  def new
-    @user = current_user
-    @house = House.find_by(id: params[:id])
-    @housing_assignment = HousingAssignment.where(house_id: @house.id)
-  end
+  # def new
+  #   @user = current_user
+  #   @house = House.find_by(id: params[:id])
+  #   @housing_assignment = HousingAssignment.where(house_id: @house.id)
+  # end
 
   def index
     @house = House.find(params[:house_id])
@@ -20,7 +20,9 @@ class MessagesController < ApplicationController
   end
 
   def create
-    if @user = current_user
+    @house = House.find(params[:house_id])
+    @user = current_user
+    if @user.houses.first == @house
       @house = House.find(params[:house_id])
       @message = @house.messages.new(message_params)
       @message.update_attributes(author: current_user)

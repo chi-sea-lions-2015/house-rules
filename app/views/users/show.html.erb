@@ -40,9 +40,9 @@
 <% end %>
 
 <br>
-
+<% if @user.houses.length == 0 %>
 <%= link_to "New House", new_house_path %>
-<%end%>
+
 
 <br><br><br>
 
@@ -60,8 +60,10 @@
     </div>
   </div>
   <form>
+<%end%>
+<%end%>
 
-  <section id="houses-container">   
+  <section id="houses-container">
   </section>
 
   </div>
