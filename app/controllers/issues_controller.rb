@@ -1,7 +1,6 @@
 class IssuesController < ApplicationController
 
   def rule_issue_create
-<<<<<<< HEAD
     @user = current_user
     @house = House.find_by(id: params[:house_id])
     @rule = Rule.find_by(id: params[:rule_id])
