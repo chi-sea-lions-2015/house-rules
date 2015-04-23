@@ -20,5 +20,5 @@
 //= require rails-timeago
 
 //= require_tree .
-//
+//= require underscore
 

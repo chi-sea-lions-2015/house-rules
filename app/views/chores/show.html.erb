@@ -1,27 +1,30 @@
+<div class="row">
+  <div class="large-3 columns"><br />
+  </div>
+  <div class="large-6 columns">
 <div class="chore_log">
   <h3>Logs for <%=@chore.task %> </h3>
   <%= link_to "Return to Chores", house_chores_path(@house, @chores) %>
-  <% @logged_users.each do |user| %>
-  <% @logs =  user.chore_logs.where(chore_id: @chore.id ) %>
-  
+  <% @logged_users.each do |user| %>  
   <table class="user_logs">
-    <caption><%= user.first_name%> Logs</caption>
+    <% logs =  user.chore_logs.where(chore_id: @chore.id ) %>
+    <caption><%= user.first_name%>'s Log</caption>
     <thead>
       <th>
         Date Completed
       </th>
       <th>
-        <%= @logs.size %> # of Logs
+       Completed <%= logs.size %> times
       </th>
     </thead>
     <tbody>
-      <% @logs.each do |log| %>
+      <% logs.each do |log| %>
       <tr>
         <td>
-          <%= log.created_at %>
+          <%= log.created_at.strftime("%a %b %d, %Y") %>
         </td>
         <td>
-          <%= link_to "Delete", chore_log_path(log), method: :delete %>
+          <%= button_to "Delete", chore_log_path(log), method: :delete %>
         </td>
       </tr>
  <% end %>
