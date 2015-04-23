@@ -22,3 +22,10 @@
 //= require_tree .
 //
 
+$(function(){
+  if(window.showNotificationAlert){
+    $(".notes").show();
+  } else {
+    $(".notes").hide();
+  }
+});

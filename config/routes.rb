@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get "/houses/:id/roommates" => 'houses#roommates'
+  delete 'notifications/:id' => 'notifications#destroy'
 
   resources :users do
     resources :notifications, only: [:index]

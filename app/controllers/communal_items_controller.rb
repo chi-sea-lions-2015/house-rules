@@ -12,7 +12,7 @@ class CommunalItemsController < ApplicationController
       @house = House.find(params[:house_id])
       @item = @house.communal_items.create(item_params)
       if @item.save
-        @notification = Notification.create(alert: "#{current_user.first_name} has added a new item to the inventory.")
+        @notification = Notification.create(alert: "#{current_user.first_name} has added #{@item.name} to the inventory.", category: "communal_items", house_id: @house.id)
         HousingAssignment.where(house_id: @house.id).select do |assignment|
           assignment.user.user_notifications.create(notification: @notification)
         end
@@ -31,7 +31,7 @@ class CommunalItemsController < ApplicationController
       @house = House.find(params[:house_id])
       @item = CommunalItem.find(params[:id])
       @item.update(item_params)
-      @notification = Notification.create(alert: "#{current_user.first_name} has changed an item in the inventory.")
+      @notification = Notification.create(alert: "#{current_user.first_name} has changed #{@item.name} in the inventory.", category: "communal_items", house_id: @house.id)
         HousingAssignment.where(house_id: @house.id).select do |assignment|
           assignment.user.user_notifications.create(notification: @notification)
         end
@@ -43,7 +43,7 @@ class CommunalItemsController < ApplicationController
       @house = House.find(params[:house_id])
       @item = CommunalItem.find(params[:id])
       @item.destroy
-      @notification = Notification.create(alert: "#{current_user.first_name} has deleted an item from the inventory.")
+      @notification = Notification.create(alert: "#{current_user.first_name} has deleted #{@item.name} from the inventory.", category: "communal_items", house_id: @house.id)
         HousingAssignment.where(house_id: @house.id).select do |assignment|
           assignment.user.user_notifications.create(notification: @notification)
         end

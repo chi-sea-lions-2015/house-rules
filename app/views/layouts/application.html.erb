@@ -7,7 +7,24 @@
   <%= yield :head %>
 </head>
 <body>
-  <%= react_component('Header', isLoggedIn: !!current_user, email: current_user.try(:email), houseName: current_user.try(:houses).try(:first).try(:name), houseID: current_user.try(:houses).try(:first).try(:id), userID: current_user.try(:id), notes: current_user.try(:user_notifications).try(:count)) %>
+
+  <% if current_user%>
+    <% if current_user.user_notifications.count == 0 %>
+      <% @notes = nil %>
+      <% @notifications = [Notification.new(alert: "You have no new notifications.")]%>
+    <script type="text/javascript">window.showNotificationAlert = false;</script>
+    <% else %>
+    <script type="text/javascript">window.showNotificationAlert = true;</script>
+      <% @notes = current_user.user_notifications.count %>
+        <% @user_notifications = current_user.user_notifications.pluck(:notification_id) %>
+          <% @notifications = [] %>
+          <% @user_notifications.each do |notify| %>
+            <% @notifications << Notification.find(notify) %>
+          <% end %>
+    <% end %>
+  <% end %>
+
+  <%= react_component('Header', isLoggedIn: !!current_user, email: current_user.try(:email), houseName: current_user.try(:houses).try(:first).try(:name), houseID: current_user.try(:houses).try(:first).try(:id), userID: current_user.try(:id), notes: @notes, notifications: @notifications) %>
 
   <div class="content">
     <%= yield %>
