@@ -66,11 +66,11 @@ var Header = React.createClass({
     var rightNav = this.props.isLoggedIn ? (
       <ul className="right">
         <div>
-          <button className="menu-button" onMouseOver={this.showRight}>{this.props.email}</button>
+          <button className="menu-button" onMouseOver={this.showRight}><span id="notes">{this.props.notes}</span> {this.props.email}</button>
 
           <Menu ref="right" alignment="right">
-            <MenuItem hash={"/houses/"+this.props.houseID+"/messages"}>Fridge</MenuItem>
-            <MenuItem hash={"/logout"}><form action="/logout" method="post"><input type="hidden" name="_method" value="delete"/><button className="logout" type="submit">Logout</button></form></MenuItem>
+            <MenuItem hash={"/users/"+this.props.userID+"/notifications"}>Notifications</MenuItem>
+            <MenuItem hash={"/logout"}><form action="/logout" method="post"><input type="hidden" name="_method" value="delete"/><input className="logout" type="submit" value="Logout" /></form></MenuItem>
           </Menu>
         </div>
       </ul>

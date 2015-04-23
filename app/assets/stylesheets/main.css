@@ -17,10 +17,14 @@
 }
 
 .logout {
+  text-align: center;
+  font-size: 3em;
+  color: #B0B0B0;
   background-color: #333333;
 }
 
 .logout:hover {
+  color:#F0F0F0;
   background-color: #333333;
 }
 
@@ -221,4 +225,11 @@
 #issues-pic {
   float: right;
   margin-top: -3em;
+}
+
+#notes {
+  border-radius: 50%;
+  padding: 0.3em;
+  background: red;
+  margin-right: 1em;
 }

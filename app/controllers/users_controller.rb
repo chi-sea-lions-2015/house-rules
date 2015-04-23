@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  def index 
+  def index
     @house = House.find_by(id: params[:id])
-    @users = @house.users 
+    @users = @house.users
   end
 
   def show

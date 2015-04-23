@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/houses/:id/roommates" => 'houses#roommates'
 
   resources :users do
+    resources :notifications, only: [:index]
   end
 
   get '/houses/:id/roommates', to: 'users#index'
