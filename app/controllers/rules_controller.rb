@@ -3,16 +3,28 @@ skip_before_action :authenticate_user_from_token!
 
   def index
     @house = House.find_by(id: params[:house_id])
-    @rules = @house.rules
+    if @user = current_user
+      @user_house = @user.houses.first
+      if @user_house == @house
+        @rules = @house.rules
+      else
+        redirect_to "/houses/#{@user_house.id}/rules"
+      end
+    else
+      redirect_to "/login"
+    end
   end
 
   def create
     if @user = current_user
-      @house = House.find_by(id: params[:house_id])
+      @house = House.find(params[:house_id])
       @rule = @house.rules.new(rule_params)
       @rule.save
+      @notification = Notification.create(alert: "#{current_user.first_name} has added #{@rule.content} to the house rules.", category: "rules", house_id: @house.id)
+      HousingAssignment.where(house_id: @house.id).select do |assignment|
+        assignment.user.user_notifications.create(notification: @notification)
+      end
       if request.xhr?
-        puts "HEYYyYYyYYyyyyyyy"
         render @rule, layout: false
       else
         if request.xhr?
@@ -34,8 +46,13 @@ skip_before_action :authenticate_user_from_token!
 
   def update
     if @user = current_user
-      @rule = Rule.find_by(id: params[:id])
+      @house = House.find(params[:house_id])
+      @rule = Rule.find(params[:id])
       if @rule.update_attributes(rule_params)
+        @notification = Notification.create(alert: "#{current_user.first_name} has updated #{@rule.content}.", category: "rules", house_id: @house.id)
+        HousingAssignment.where(house_id: @house.id).select do |assignment|
+          assignment.user.user_notifications.create(notification: @notification)
+        end
         redirect_to house_rules_path
       end
     else
@@ -45,8 +62,13 @@ skip_before_action :authenticate_user_from_token!
 
   def destroy
     if @user = current_user
+      @house = House.find(params[:house_id])
       @rule = Rule.find_by(id: params[:id])
       if @rule.destroy
+        @notification = Notification.create(alert: "#{current_user.first_name} has deleted #{@rule.content}.", category: "rules", house_id: @house.id)
+        HousingAssignment.where(house_id: @house.id).select do |assignment|
+          assignment.user.user_notifications.create(notification: @notification)
+        end
         redirect_to house_rules_path
       end
     else

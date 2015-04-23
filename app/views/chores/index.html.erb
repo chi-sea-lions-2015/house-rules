@@ -1,7 +1,6 @@
 <div class="row">
   <div class="large-3 columns"><br />
   </div>
-  
   <% if @chores != nil %>
   <div id="chore_list" >
     <div id="chore_title"><h4>Chores</h4></div>
@@ -14,9 +13,9 @@
       <%= f.text_area :reason, :placeholder => "Reason" %>
       <%= f.submit "Submit Issue", class: "button tiny" %>
       <% end %>
-      
+
       <div class="chore_task"><h5><%= chore.task %></h5> <br></div>
-      
+
       <table class="user_chore_count">
         <thead>
           <% @users.each do |user| %>
@@ -33,9 +32,19 @@
               <%= logs.count %>
             </td>
             <% end %>
-          </tr>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <tr>
+              <% @users.each do |user| %>
+              <% logs = user.chore_logs.where(chore_id: chore.id) %>
+              <td>
+                <%= logs.count %>
+              </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+
       <ul class="button-group round even-4">
         <li> <%= link_to "Edit", edit_chore_path(chore),method: :get, :class => ["button tiny", "edit_chore" ]  %></li>
         <li><%= link_to "Complete", chore_chore_logs_path(chore),method: :post, :class => ["button tiny","complete_log"] %></li>
@@ -45,7 +54,7 @@
       <div class="chore_issues">
         <% chore.issues.each do |issue| %>
         
-        <%= 
+
       </div>
     </div>
     <% end %>
