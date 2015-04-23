@@ -1,13 +1,13 @@
+
 <div class="row">
   <div class="large-3 columns"><br />
   </div>
-  <div id="chore_list">
+  <div id="chore_list" >
     <% if @chores != nil %>
-    <div id="chore_title"><h4>Chores </h4></div>
-
+    <div id="chore_title"><h4>Chores</h4></div>
     <% @chores.each do |chore| %>
     <% log = @user.chore_logs.where(chore_id: chore.id ) %>
-    <div class="chore">
+    <div class="chore" data-anijs="if: mouseover, do: swing animated, o">
       <%= button_to "Edit", edit_chore_path(chore),method: :get, :class => ["button tiny", "edit_chore" ]  %>
       <%= button_to "Issue", chore_chore_logs_path(chore),method: :post, :class =>["button tiny", "chore_issue"] %>
       <div class="chore_task"><h5><%= chore.task %></h5> <br></div>
