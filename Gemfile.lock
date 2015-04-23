@@ -77,6 +77,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    font-awesome-rails (4.1.0.0)
+      railties (>= 3.2, < 5.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     haml (4.0.6)
@@ -131,6 +133,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails-timeago (2.11.1)
+      actionpack (>= 3.1)
+      activesupport (>= 3.1)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -212,6 +217,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   factory_girl_rails
+  font-awesome-rails
   haml (~> 4.0.6)
   jbuilder (~> 2.0)
   jquery-rails
@@ -219,6 +225,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.1)
   rails-assets-growl
+  rails-timeago (~> 2.0)
   rails_12factor
   react-rails (~> 1.0.0.pre)!
   react-router-rails

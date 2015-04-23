@@ -12,7 +12,7 @@
   <%= yield :head %>
 </head>
 <body>
-  <%= react_component('Header', isLoggedIn: !!current_user, email: current_user.try(:email), houseName: current_user.try(:houses).try(:first).try(:name), houseID: current_user.try(:houses).try(:first).try(:id), userID: current_user.try(:id)) %>
+  <%= react_component('Header', isLoggedIn: !!current_user, email: current_user.try(:email), houseName: current_user.try(:houses).try(:first).try(:name), houseID: current_user.try(:houses).try(:first).try(:id), userID: current_user.try(:id), notes: current_user.try(:user_notifications).try(:count)) %>
 
   <div class="content">
     <%= yield %>

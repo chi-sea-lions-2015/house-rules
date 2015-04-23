@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  def index 
+  def index
     @house = House.find_by(id: params[:id])
-    @users = @house.users 
+    @users = @house.users
   end
 
   def show
@@ -11,6 +11,8 @@ class UsersController < ApplicationController
 
   # def index
   # end
+  def welcome
+  end
 
   def new
     @user = User.new
@@ -32,10 +34,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
-    @user.update_attributes(user_params)
-    @user.save!
-    redirect_to user_path(@user)
+    if @user = current_user
+      @user = User.find(current_user.id)
+      @user.update_attributes(user_params)
+      @user.save!
+      redirect_to user_path(@user)
+    else
+      redirect_to '/login'
+    end
   end
 
   # def destroy

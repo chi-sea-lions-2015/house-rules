@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
-
+gem 'font-awesome-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 
@@ -25,6 +25,8 @@ gem 'react-router-rails'
 gem 'rails_12factor', group: :production
 
 gem "responders"
+
+gem 'rails-timeago', '~> 2.0'
 
 gem 'rails-assets-growl'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

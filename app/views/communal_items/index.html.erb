@@ -1,69 +1,37 @@
 <div class="row">
-  <div class="large-3 columns"><br />
-  </div>
-  <div class="large-6 columns">
-
+  <div class="small-6 large-2 columns"><br></div>
+  <div class="small-6 large-8 columns">
+<h1 class="item-title">Inventory</h1>
     <% if @items.length != 0 %>
-      <h3>Communal Items:</h3>
-      <ol>
-      <% @items.each do |item| %>
-      <li>
-        <%= item.name %>: <strong><%= item.stock_level %></strong><br>
-        <% stock_levels = @stock_levels - [item.stock_level] %>
-        
 
-        
-        <% if item.stock_level != "high" %>
-          <% if item.user_promise %>
-            <% if item.user_promise.fulfilled == false %>
-              <strong><%= @user.first_name %></strong> promise to buy next
-              <%= form_for :promise, url: "/houses/#{@house.id}/communal_items/#{item.id}/promise_fulfilled", html: { class: "promise_fulfilled"} do |f| %>
-              <%= f.submit "Fulfilled" %>
-              <% end %>
-            <% end %>
-          <% else %>
-            <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[0]}",  html: { class: "#{stock_levels[0]}"} do |f| %>
-            <%= f.submit "#{stock_levels[0]}" %>
-            <% end %>
-            <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[1]}", html: { class: "#{stock_levels[1]}"} do |f| %>
-            <%= f.submit "#{stock_levels[1]}" %>
-            <% end %>
+      <% @items_by_level.each do |level, items_in_level| %>
 
-            <%= form_for :promise, url: "/houses/#{@house.id}/communal_items/#{item.id}/promise", html: { class: "promise"} do |f| %>
-            <%= f.submit "I promise to buy next" %>
+        <% if level == "out" %>
+          <div class="fridge-today"><span class="today">OUT OF STOCK</span></div>
+          <% items_in_level.each do |item| %>
+             <div class="item-issues"><%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%></div> <span class="item-name" id="out"><%= item.name.split.map(&:capitalize).join(' ') %></span>
+             <%= render partial: "item", locals: { item: item } %>
+            <hr>
+          <% end %>
+
+        <% elsif level == "low" %>
+          <div class="fridge-today"><span class="today">LOW STOCK</span></div>
+          <% items_in_level.each do |item| %>
+            <span class="item-name" id="low"><%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%> <%= item.name.split.map(&:capitalize).join(' ') %></span>
+            <%= render partial: "item", locals: { item: item } %>
+            <hr>
+          <% end %>
+
+        <% elsif level == "high" %>
+          <div class="fridge-today"><span class="today">IN STOCK</span></div>
+            <% items_in_level.each do |item| %>
+              <span class="item-name" id="high"><%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%> <%= item.name.split.map(&:capitalize).join(' ') %></span>
+              <%= render partial: "item", locals: { item: item } %>
+              <hr>
             <% end %>
-          <% end %>
-        <% else %>
-          <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[0]}",  html: { class: "#{stock_levels[0]}"} do |f| %>
-          <%= f.submit "#{stock_levels[0]}" %>
-          <% end %>
-          <%= form_for :item, url: "/houses/#{@house.id}/communal_items/#{item.id}/#{stock_levels[1]}", html: { class: "#{stock_levels[1]}"} do |f| %>
-          <%= f.submit "#{stock_levels[1]}" %>
-          <% end %>
         <% end %>
-
-        <%= link_to("Edit", edit_house_communal_item_path(@house, item)) %> <%= link_to("Delete", house_communal_item_path(@house, item), method: :delete) %> <br>
-        <div>
-        <button type="button" class="item_issue">Issue this Communal Item</button><br>
-        <%= form_for :issue, url: "/houses/#{@house.id}/communal_items/#{item.id}/issue", html: { class: "item_issue"} do |f| %>
-          <%= f.label :reason %>
-          <%= f.text_area :reason %>
-          <%= f.submit "Submit Issue" %>
-        <% end %>
-        </div>
-        <div class="issue_body">
-          <% if item.issues %>
-          <% item.issues.each do |issue| %>
-            <%= render partial: "issue", locals: { issue: issue } %>
-          <% end %>
-          <% end %>
-        </div>
-      <br>
-      </li>
       <% end %>
-      </ol>
     <% end %>
-
 
 
     <%= form_for :communal_item, url: house_communal_items_path(@house) do |f| %>
@@ -77,10 +45,7 @@
       <%= f.submit "New Item", :class => "button"  %>
     </fieldset>
     <% end %>
-
-
-
   </div>
-  <div class="large-3 columns"><br /></div>
+  <div class="small-12 large-2 columns"><br></div>
 </div>
 

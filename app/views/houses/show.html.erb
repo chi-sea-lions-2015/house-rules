@@ -1,9 +1,6 @@
 <div class="row">
-<div class="large-3 columns"><br />
-  </div>
-  <div class="large-6 columns">
-
-
+  <div class="small-6 large-2 columns"><br></div>
+  <div class="small-6 large-8 columns">
 <fieldset>
 <h1><%= @house.name %>!</h1>
 <%= @house.address.street%><br>
@@ -16,7 +13,8 @@ House Key: <%= @house.house_key %><br>
 <%= render 'houses/form' %>
 </div><br>
 
-<% if @property_manager == nil %>
+
+<% if @house.property_manager == nil %>
 <%= link_to "Add Property Management Info", new_house_property_manager_path(@house) %>
 <% else %>
 Your property manager:<br>
@@ -30,13 +28,6 @@ Your property manager:<br>
 <% end %>
 </fieldset>
 
-
   </div>
-  <div class="large-3 columns"><br /></div>
+  <div class="small-12 large-2 columns"><br></div>
 </div>
-
-
-
-
-
-
