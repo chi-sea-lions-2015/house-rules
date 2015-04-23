@@ -12,6 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
+//= require react
+//= require react_ujs
+//= require react_router
+
+//= require rails-timeago
+
 //= require_tree .
-//
+//= require underscore
+
+$(function(){
+  if(window.showNotificationAlert){
+    $(".notes").show();
+  } else {
+    $(".notes").hide();
+  }
+});

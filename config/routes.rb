@@ -1,56 +1,67 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get    '/'  => 'users#welcome'
+  get    'signup'  => 'users#new'
+  post   'users'   => 'users#create'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+  get     "/houses/:id/roommates" => 'houses#roommates'
+  get     "/request_login" => "users#request_login"
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  delete  'notifications/:id' => 'notifications#destroy'
+  delete  'houses/:house_id/notifications/all' => 'notifications#destroy'
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :users do
+    resources :notifications, only: [:index]
+  end
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  get '/houses/:id/roommates', to: 'users#index'
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+  resources :houses do
+    resources :property_managers
+    resources :messages
+    resources :rules
+    resources :communal_items
+    resources :events
+    resources :chores, shallow: true do
+      resources :chore_logs, only: [:create, :show, :destroy]
+    end
+  end
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+  get '/houses/:id/roommates', to: 'users#index'
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  get '/houses/:id/join' => 'houses#join'
+  post '/houses/:id/join' => 'houses#join_update'
+
+
+  post '/houses/:house_id/communal_items/:id/high' => 'communal_items#high'
+  post '/houses/:house_id/communal_items/:id/low' => 'communal_items#low'
+  post '/houses/:house_id/communal_items/:id/out' => 'communal_items#out'
+
+  post '/houses/:house_id/communal_items/:communal_item_id/promise' => 'user_promises#create'
+  post '/houses/:house_id/communal_items/:communal_item_id/promise_fulfilled' => 'user_promises#update'
+
+  post '/houses/:house_id/communal_items/:communal_item_id/issue' => 'issues#item_issue_create'
+  post '/houses/:house_id/rules/:rule_id/issue' => 'issues#rule_issue_create'
+  post '/houses/:house_id/events/:event_id/issue' => 'issues#event_issue_create'
+  post '/houses/:house_id/chores/:chore_id/issue' => 'issues#chore_issue_create'
+
+
+  get '/houses/search/:keyword' => 'houses#search'
+
+  post '/chores/:id/promise' => "user_promises#chore_promise_create"
+  post '/chores/:id/promise/update' => "user_promises#chore_promise_update"
+
+<<<<<<< HEAD
+  delete '/houses/:house_id/communal_items/:communal_item_id/issues/:id' => 'issues#item_issue_delete'
+  delete '/houses/:house_id/rules/:rule_id/issues/:id' => 'issues#rule_issue_delete'
+  delete '/houses/:house_id/events/:event_id/issues/:id' => 'issues#event_issue_delete'
+  delete '/houses/:house_id/chores/:chore_id/issues/:id' => 'issues#chore_issue_delete'
+
+=======
+  get "/houses/:id/bills" => "bills#index"
+>>>>>>> 95e6a7aed8dbe74f2f925c43156c4ed22684690d
 end
