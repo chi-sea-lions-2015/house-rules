@@ -7,6 +7,10 @@ body {
   font-size: 18px;
 }
 
+fieldset legend {
+  background: #d5e8ff;
+}
+
 .top-logo a {
   color: #B0B0B0;
   position: absolute;
