@@ -15,6 +15,7 @@ $(document).ready(function() {
 	e.preventDefault();
 	var form = $(this);
 	var list = form.parent().find("div.issue_body");
+  debugger;
 	$.ajax({
 	    url: form.attr("action"),
 	    method: form.attr("method"),
