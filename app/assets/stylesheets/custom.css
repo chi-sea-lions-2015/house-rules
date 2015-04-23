@@ -1,3 +1,6 @@
+body{
+background-color: #D5E8FF;
+}
 .edit-house-form-div {
 display: none;
 }
@@ -8,7 +11,12 @@ border-color: rgba(0, 140, 186, 0.27);
 border-width: .25em;
 width: 20em;
 height: 15em;
-margin: auto;
+float: left;
+margin-top: 2%;
+margin-bottom: 2%;
+margin-left: 5%;
+margin-right: 5%;
+
 }
 .chore_task h5 {
 position: relative;
@@ -16,65 +24,63 @@ margin: auto;
 top: 2em;
 text-align: center;
 }
+#chore_list{
+  position: relative;
+  margin-left: 10%;
+  margin-right: 10%;
+}
 
 .chore_issue{
 position: relative;
 float: left;
 margin: .5%;
 }
-
-
 .delete_chore {
 position: relative;
 float: right;
 margin: .5%;
 }
-
 #chore_title {
-margin: auto;
+position: relative;
 text-align: center;
+margin-right: 20%
 }
 .user_chore_count {
 clear: both;
 position: relative;
-margin-left: auto;  
+margin-left: auto;
 margin-right: auto;
 top: 2.5em;
 border-collapse: collapse;
 }
 th{
-  background-color: #4E99A3;
+background-color: #4E99A3;
 }
 tr{
-  background-color: #0BBCE3;
+background-color: #0BBCE3;
 }
 .user_chore_count td {
-  text-align: center;
+text-align: center;
 }
-
 #chore_form{
-position: fixed
-float: right;
+  top: 4em;
+position: relative;
+margin: 10%;
+clear: both;
 }
 h4#chore_form{
 position: fixed
 float: right;
 }
-
 ul.button-group.round.even-4{
-  position: relative;
+position: relative;
 margin-right: auto;
 margin-left: 1%;
 top: 3.35em;
 }
-/*#chore_list {
-float: right;
-}
 
-.
-
-/*.chore{
-  background: rgba(212,228,239,1);
+.chore{
+background: rgba(212,228,239,1);
 background: -moz-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
 background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(134,174,204,1)));
 background: -webkit-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
@@ -83,7 +89,28 @@ background: -ms-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, r
 background: radial-gradient(ellipse at center, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=1 );
 }
-*/
-body{
-  background-color: #D5E8FF;
+
+.user_logs{
+  position: relative;
+margin-top: 2%;
+margin-left: 10%;
+float: left;
+margin-top: 2%;
+}
+.return_chore{
+  position: relative;
+margin-left: 65%;
+
+  clear: both;
+}
+#chore_log{
+  top: 1em;
+position: relative;
+margin-left: auto;
+margin-right: auto;
+clear: both;
+}
+#logged_chore_title{
+margin-left: auto;
+margin-right: auto;
 }
