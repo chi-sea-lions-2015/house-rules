@@ -34,10 +34,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
-    @user.update_attributes(user_params)
-    @user.save!
-    redirect_to user_path(@user)
+    if @user = current_user
+      @user = User.find(current_user.id)
+      @user.update_attributes(user_params)
+      @user.save!
+      redirect_to user_path(@user)
+    else
+      redirect_to '/login'
+    end
   end
 
   # def destroy

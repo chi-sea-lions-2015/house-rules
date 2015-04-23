@@ -17,14 +17,18 @@ class ChoresController < ApplicationController
 
 
   def update
-    chore = Chore.find(params[:id])
-    chore.update_attributes(chore_params)
-    @house = chore.house
-    if chore.save!
-      redirect_to "/houses/#{@house.id}/chores"
+    if @user = current_user
+      chore = Chore.find(params[:id])
+      chore.update_attributes(chore_params)
+      @house = chore.house
+      if chore.save!
+        redirect_to "/houses/#{@house.id}/chores"
+      else
+        flash.now[:error] = "chore did not save"
+        redirect_to house_path(@house)
+      end
     else
-      flash.now[:error] = "chore did not save"
-      redirect_to house_path(@house)
+      redirect_to '/login'
     end
   end
 
@@ -39,26 +43,33 @@ class ChoresController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @house = House.find_by(id: params[:house_id])
-    @chore = @house.chores.new(chore_params)
-    @users = @house.users
-    if @chore.save
-      redirect_to "/houses/#{@house.id}/chores"
+    if @user = current_user
+      @house = House.find_by(id: params[:house_id])
+      @chore = @house.chores.new(chore_params)
+      @users = @house.users
+      if @chore.save
+        redirect_to "/houses/#{@house.id}/chores"
+      else
+        flash.now[:error] = "chore did not save"
+        redirect_to house_path(@house)
+      end
     else
-      flash.now[:error] = "chore did not save"
-      redirect_to house_path(@house)
+      redirect_to '/login'
     end
   end
 
   def destroy
-    chore = Chore.find(params[:id])
-    @house = chore.house
-    @chore_logs = ChoreLog.where(chore_id: chore.id)
-    @chore_logs.each{|log| log.destroy}
-    params[:house_id] = @house.id
-    chore.destroy
-    redirect_to "/houses/#{@house.id}/chores"
+    if @user = current_user
+      chore = Chore.find(params[:id])
+      @house = chore.house
+      @chore_logs = ChoreLog.where(chore_id: chore.id)
+      @chore_logs.each{|log| log.destroy}
+      params[:house_id] = @house.id
+      chore.destroy
+      redirect_to "/houses/#{@house.id}/chores"
+    else
+      redirect_to '/login'
+    end
   end
 
   private

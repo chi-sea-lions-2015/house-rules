@@ -8,14 +8,16 @@ class CommunalItemsController < ApplicationController
   end
 
   def create
-    @house = House.find(params[:house_id])
-    @item = @house.communal_items.create(item_params)
-    if @item
-
-      redirect_to house_communal_items_path(@house)
-
+    if @user = current_user
+      @house = House.find(params[:house_id])
+      @item = @house.communal_items.create(item_params)
+      if @item
+        redirect_to house_communal_items_path(@house)
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      redirect_to '/login'
     end
   end
 
@@ -25,45 +27,65 @@ class CommunalItemsController < ApplicationController
   end
 
   def update
-    @house = House.find(params[:house_id])
-    @item = CommunalItem.find(params[:id])
-    @item.update(item_params)
-    redirect_to house_communal_items_path(@house)
+    if @user = current_user
+      @house = House.find(params[:house_id])
+      @item = CommunalItem.find(params[:id])
+      @item.update(item_params)
+      redirect_to house_communal_items_path(@house)
+    else
+      redirect_to '/login'
+    end
   end
 
   def destroy
-    @house = House.find(params[:house_id])
-    @item = CommunalItem.find(params[:id])
-    @item.destroy
-    redirect_to house_communal_items_path(@house)
+    if @user = current_user
+      @house = House.find(params[:house_id])
+      @item = CommunalItem.find(params[:id])
+      @item.destroy
+      redirect_to house_communal_items_path(@house)
+    else
+      redirect_to '/login'
+    end
   end
 
   def high
-    @house = House.find(params[:house_id])
-    @item = CommunalItem.find(params[:id])
-    @item.stock_level = "high"
-    @item.save
-    @user_promise = @item.user_promise
-    if @user_promise
-      @user_promise.destroy
+    if @user = current_user
+      @house = House.find(params[:house_id])
+      @item = CommunalItem.find(params[:id])
+      @item.stock_level = "high"
+      @item.save
+      @user_promise = @item.user_promise
+      if @user_promise
+        @user_promise.destroy
+      end
+      redirect_to house_communal_items_path(@house)
+    else
+      redirect_to '/login'
     end
-    redirect_to house_communal_items_path(@house)
   end
 
   def low
-    @house = House.find(params[:house_id])
-    @item = CommunalItem.find(params[:id])
-    @item.stock_level = "low"
-    @item.save
-    redirect_to house_communal_items_path(@house)
+    if @user = current_user
+      @house = House.find(params[:house_id])
+      @item = CommunalItem.find(params[:id])
+      @item.stock_level = "low"
+      @item.save
+      redirect_to house_communal_items_path(@house)
+    else
+      redirect_to '/login'
+    end
   end
 
   def out
-    @house = House.find(params[:house_id])
-    @item = CommunalItem.find(params[:id])
-    @item.stock_level = "out"
-    @item.save
-    redirect_to house_communal_items_path(@house)
+    if @user = current_user
+      @house = House.find(params[:house_id])
+      @item = CommunalItem.find(params[:id])
+      @item.stock_level = "out"
+      @item.save
+      redirect_to house_communal_items_path(@house)
+    else
+      redirect_to '/login'
+    end
   end
 
   private
