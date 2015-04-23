@@ -12,6 +12,7 @@ $(document).ready(function() {
 
   $("form.event_issue").submit(function(e){
 	e.preventDefault();
+	debugger;
 	var form = $(this);
 	var list = form.parent().find("div.issue_body");
   debugger;

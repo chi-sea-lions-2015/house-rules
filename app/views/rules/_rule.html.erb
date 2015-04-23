@@ -3,11 +3,11 @@
   	<td class="rule-content"><%= rule.content %><br>
   	<%= form_for :issue, url: "/houses/#{@house.id}/rules/#{rule.id}/issue", html: { class: "rule_issue"} do |f| %>
     <%= f.text_area :reason, :placeholder => "Reason" %>
-    <%= f.submit "Submit Issue" %>
+    <%= f.submit "Submit Issue", class: "button tiny" %>
   <% end %>
   <% if rule.issues %>
     <% rule.issues.each do |issue| %>
-        <%= render partial: "issue", locals: { issue: issue } %>
+        <%= render partial: "issue", locals: { issue: issue, house: @house, rule: rule } %>
     <% end %>
   <% end %>
 </td>

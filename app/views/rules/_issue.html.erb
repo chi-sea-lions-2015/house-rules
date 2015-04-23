@@ -1,1 +1,2 @@
-<strong>Issue</strong>@<%= issue.user.first_name %>: <%= issue.reason %><br>
+@<%= issue.user.first_name %> - <%= issue.reason %> <%= link_to "Delete", "/houses/#{house.id}/rules/#{rule.id}/issues/#{issue.id}", method: :delete,
+      data: {confirm: "Are you sure?"}, :class => "destroy_event"%><br>
