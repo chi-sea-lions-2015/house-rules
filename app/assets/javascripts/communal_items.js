@@ -11,9 +11,10 @@ $(document).ready(function(){
 	});
 
 	$("form.item_issue").submit(function(e){
+		debugger;
 		e.preventDefault();
 		var form = $(this);
-		var list = form.parent().parent().find(".issue_body");
+		var list = form.parent().parent().parent().find(".issue-content");
 		$.ajax({
 	      url: form.attr("action"),
 	      method: form.attr("method"),
