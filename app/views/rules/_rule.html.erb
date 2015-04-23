@@ -1,5 +1,5 @@
   <table class="rule-table"><tr>
-  	<td class="rule-parts"><%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%> </td>
+  	<td class="rule-parts"><%= image_tag("old-issue-mark.png", size: "50x50", class: "issue-mark")%> </td>
   	<td class="rule-content"><%= rule.content %><br>
   	<%= form_for :issue, url: "/houses/#{@house.id}/rules/#{rule.id}/issue", html: { class: "rule_issue"} do |f| %>
     <%= f.text_area :reason, :placeholder => "Reason" %>

@@ -1,5 +1,6 @@
 <div class="each-event">
-      <%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%> <span class="item-name" id="high">@<%= event.user.first_name.capitalize %>: <%= event.name.split.map(&:capitalize).join(' ') %></span> <br>
+      <%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%>
+       <span class="item-name" id="high">@<%= event.user.first_name.capitalize %>: <%= event.name.split.map(&:capitalize).join(' ') %></span> <br>
       <div class="item-info">
       <strong>Description:</strong> <%= event.description %><br>
       <span id="low"><strong>Date:</strong> <%= event.date%></span><br>
