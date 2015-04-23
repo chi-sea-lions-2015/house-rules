@@ -43,7 +43,9 @@
         <li><%= link_to 'Logs', chore_path(chore),method: :get, :class => ["button tiny", "view_log"] %></li>
       </ul>
       <div class="chore_issues">
+        <% chore.issues.each do |issue| %>
         
+        <%= 
       </div>
     </div>
     <% end %>
