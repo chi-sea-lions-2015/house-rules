@@ -21,7 +21,7 @@ $(document).ready(function() {
 	    method: form.attr("method"),
 	    data: form.serialize(),
 	    success: function(response){
-	        list.append(response);
+	        list.prepend(response);
         	form[0].reset();
         	form.css("display","none");
       	}
