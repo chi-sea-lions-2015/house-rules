@@ -40,6 +40,10 @@ class HousesController < ApplicationController
           @address = @house.address=Address.new(address_params)
           if @address.save
             @user.housing_assignments.create(user: @user, house: @house)
+              @notification = Notification.create(alert: "You have successfully created #{@house.name}!", category: "", house_id: @house.id)
+              HousingAssignment.where(house_id: @house.id).select do |assignment|
+                assignment.user.user_notifications.create(notification: @notification)
+              end
             redirect_to house_path(@house)
           else
             render "new"
@@ -63,6 +67,10 @@ class HousesController < ApplicationController
       @house = House.find(params[:id])
       @house.update_attributes(house_params)
       @house.address.update_attributes(address_params)
+          @notification = Notification.create(alert: "#{current_user.first_name} has updated #{@house.name}.", category: "", house_id: @house.id)
+          HousingAssignment.where(house_id: @house.id).select do |assignment|
+            assignment.user.user_notifications.create(notification: @notification)
+          end
       redirect_to house_path(@house)
     else
       redirect_to '/login'
