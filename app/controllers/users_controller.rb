@@ -6,7 +6,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if @currentuser = current_user
+      @user = User.find(params[:id])
+      if @user.id != @currentuser.id
+        redirect_to @currentuser
+      end
+    else
+      redirect_to "/login"
+    end
   end
 
   # def index
@@ -15,7 +22,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    if @user = current_user
+      redirect_to @user
+    else
+      @user = User.new
+    end
   end
 
   def edit

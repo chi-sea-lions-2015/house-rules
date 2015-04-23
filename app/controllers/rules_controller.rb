@@ -3,7 +3,16 @@ skip_before_action :authenticate_user_from_token!
 
   def index
     @house = House.find_by(id: params[:house_id])
-    @rules = @house.rules
+    if @user = current_user
+      @user_house = @user.houses.first
+      if @user_house == @house
+        @rules = @house.rules
+      else
+        redirect_to "/houses/#{@user_house.id}/rules"
+      end
+    else
+      redirect_to "/login"
+    end
   end
 
   def create
