@@ -11,10 +11,12 @@ class CommunalItemsController < ApplicationController
   def create
     @house = House.find(params[:house_id])
     @item = @house.communal_items.create(item_params)
-    if @item
-
+    if @item.save
+      @notification = Notification.create(alert: "#{current_user.first_name} has added a new item to the inventory.")
+      HousingAssignment.where(house_id: @house.id).select do |assignment|
+        assignment.user.user_notifications.create(notification: @notification)
+      end
       redirect_to house_communal_items_path(@house)
-
     else
       render 'new'
     end
@@ -29,6 +31,10 @@ class CommunalItemsController < ApplicationController
     @house = House.find(params[:house_id])
     @item = CommunalItem.find(params[:id])
     @item.update(item_params)
+    @notification = Notification.create(alert: "#{current_user.first_name} has changed an item in the inventory.")
+      HousingAssignment.where(house_id: @house.id).select do |assignment|
+        assignment.user.user_notifications.create(notification: @notification)
+      end
     redirect_to house_communal_items_path(@house)
   end
 
@@ -36,6 +42,10 @@ class CommunalItemsController < ApplicationController
     @house = House.find(params[:house_id])
     @item = CommunalItem.find(params[:id])
     @item.destroy
+    @notification = Notification.create(alert: "#{current_user.first_name} has deleted an item from the inventory.")
+      HousingAssignment.where(house_id: @house.id).select do |assignment|
+        assignment.user.user_notifications.create(notification: @notification)
+      end
     redirect_to house_communal_items_path(@house)
   end
 

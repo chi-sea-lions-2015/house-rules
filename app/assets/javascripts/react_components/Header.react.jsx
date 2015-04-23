@@ -54,11 +54,25 @@ var Header = React.createClass({
     this.refs.left.hide();
   },
 
+  showRight: function() {
+    this.refs.right.show();
+  },
+
+  hideRight: function() {
+    this.refs.right.hide();
+  },
+
   render: function() {
     var rightNav = this.props.isLoggedIn ? (
       <ul className="right">
-        <li><a href="#">{this.props.email}</a></li>
-        <li><form action="/logout" method="post"><input type="hidden" name="_method" value="delete"/><button className="logout" type="submit">Logout</button></form></li>
+        <div>
+          <button className="menu-button" onMouseOver={this.showRight}>{this.props.email}</button>
+
+          <Menu ref="right" alignment="right">
+            <MenuItem hash={"/houses/"+this.props.houseID+"/messages"}>Fridge</MenuItem>
+            <MenuItem hash={"/logout"}><form action="/logout" method="post"><input type="hidden" name="_method" value="delete"/><button className="logout" type="submit">Logout</button></form></MenuItem>
+          </Menu>
+        </div>
       </ul>
     ) : (
       <ul className="right">

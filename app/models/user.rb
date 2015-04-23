@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_many :messages
+  has_many :user_notifications
+  has_many :notifications, through: :user_notifications
   has_many :housing_assignments
   has_many :houses, through: :housing_assignments
   has_many :events

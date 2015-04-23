@@ -35,6 +35,10 @@ class HousesController < ApplicationController
       @address = @house.address=Address.new(address_params)
       if @address.save
         @user.housing_assignments.create(user: @user, house: @house)
+        @notification = Notification.create(alert: "#{current_user.first_name} has created a new house.")
+          HousingAssignment.where(house_id: @house.id).select do |assignment|
+        assignment.user.user_notifications.create(notification: @notification)
+      end
         redirect_to house_path(@house)
       else
         render "new"
@@ -53,6 +57,10 @@ class HousesController < ApplicationController
   def update
     @house = House.find(params[:id])
     @house.update_attributes(house_params)
+    @notification = Notification.create(alert: "#{current_user.first_name} has updated the house.")
+      HousingAssignment.where(house_id: @house.id).select do |assignment|
+        assignment.user.user_notifications.create(notification: @notification)
+      end
     redirect_to house_path(@house)
   end
 
@@ -72,6 +80,10 @@ class HousesController < ApplicationController
     @user = current_user
     if params[:join][:house_key] == @house.house_key
       HousingAssignment.create(user_id: @user.id, house_id: @house.id)
+      @notification = Notification.create(alert: "#{current_user.first_name} has joined #{@house.name}.")
+      HousingAssignment.where(house_id: @house.id).select do |assignment|
+        assignment.user.user_notifications.create(notification: @notification)
+      end
       redirect_to house_path(@house)
     else
       render 'join'
