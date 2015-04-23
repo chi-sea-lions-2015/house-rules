@@ -1,12 +1,12 @@
 class NotificationsController < ApplicationController
 
-  def index
-    @user = current_user
-    @user_notifications = current_user.user_notifications.pluck(:notification_id)
-    @notifications = []
-    @user_notifications.each do |notify|
-      @notifications << Notification.find(notify)
-    end
-  end
 
+  def destroy
+      @house = current_user.houses.first
+      @notification = Notification.find(params[:id])
+      @user_notification = UserNotification.find_by(notification_id: @notification.id)
+      @user_notification.destroy
+      @notification.destroy
+      redirect_to "/houses/#{@house.id}/#{@notification.category}"
+  end
 end

@@ -6,6 +6,9 @@
 
     <h3><div class="page_header">Sign up</div></h3>
     <br>
+    <% if flash[:error] %>
+    <%= flash[:error] %>
+    <% end %>
 
     <%= form_for :user, url: '/users', :html => { :multipart => true } do |f|%>
     <fieldset>

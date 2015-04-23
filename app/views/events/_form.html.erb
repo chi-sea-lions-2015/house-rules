@@ -1,4 +1,4 @@
-<%= form_for [@house, @event || Event.new], remote: true do |f| %>
+<%= form_for [@house, @event || Event.new] do |f| %>
 <fieldset>
   <legend>Events</legend>
   <%= f.label :name %>

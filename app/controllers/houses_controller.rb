@@ -6,13 +6,18 @@ class HousesController < ApplicationController
 
   def show
     @user = current_user
+    @current_house = @user.houses.first
     @house = House.find_by(id: params[:id])
     @address = @house.address
     if HousingAssignment.find_by(user_id: @user.id, house_id: @house.id)
       @property_manager = @house.property_manager
       @assignment = HousingAssignment.where(user: current_user, house: @house.id)
     else
+      if @user.houses.nil?
       redirect_to "/houses/#{@house.id}/join"
+      else
+        redirect_to "/houses/#{@current_house.id}"
+      end
     end
   end
 
@@ -57,6 +62,7 @@ class HousesController < ApplicationController
     if @user = current_user
       @house = House.find(params[:id])
       @house.update_attributes(house_params)
+      @house.address.update_attributes(address_params)
       redirect_to house_path(@house)
     else
       redirect_to '/login'

@@ -29,7 +29,8 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome!"
       redirect_to user_path(@user)
     else
-      render "new"
+      flash.now[:error] = "All fields except phone must be present"
+      render "users/new"
     end
   end
 

@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	$(".issue-mark").click(function(e){
 		e.preventDefault();
-		debugger;
 		var form = $(this).parent().parent().find("form.item_issue");
 		if (form.css("display")=="none"){
 			form.css("display", "block");
@@ -11,7 +10,6 @@ $(document).ready(function(){
 	});
 
 	$("form.item_issue").submit(function(e){
-		debugger;
 		e.preventDefault();
 		var form = $(this);
 		var list = form.parent().parent().parent().find(".issue-content");
