@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/houses/:id/roommates" => 'houses#roommates'
   get "/request_login" => "users#request_login"
 
+  delete 'notifications/:id' => 'notifications#destroy'
+
   resources :users do
     resources :notifications, only: [:index]
   end

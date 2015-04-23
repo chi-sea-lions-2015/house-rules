@@ -66,11 +66,19 @@ var Header = React.createClass({
     var rightNav = this.props.isLoggedIn ? (
       <ul className="right">
         <div>
-          <button className="menu-button" onMouseOver={this.showRight}><span id="notes">{this.props.notes}</span> {this.props.email}</button>
+          <button className="notes">
+          {this.props.notes}
+          </button>
+          <button className="menu-button" onMouseOver={this.showRight}>
+          {this.props.email}
+          </button>
 
           <Menu ref="right" alignment="right">
-            <MenuItem hash={"/users/"+this.props.userID+"/notifications"}>Notifications</MenuItem>
-            <MenuItem hash={"/logout"}><form action="/logout" method="post"><input type="hidden" name="_method" value="delete"/><input className="logout" type="submit" value="Logout" /></form></MenuItem>
+            <MenuItem hash={"#"}>Notifications</MenuItem>
+              { this.props.notifications.map(function(object, i){
+                return <MenuItem hash={"#"}><form action={"/notifications/" + object.id } method="post"><input type="hidden" name="_method" value="delete"/><button className="right-links" type="submit">{ object.alert }</button></form></MenuItem>
+              })}
+            <MenuItem hash={"/logout"}><form action="/logout" method="post"><input type="hidden" name="_method" value="delete"/><button className="right-links" type="submit">Logout</button></form></MenuItem>
           </Menu>
         </div>
       </ul>

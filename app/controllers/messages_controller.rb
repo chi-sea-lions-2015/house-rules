@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 
+
   # def new
   #   @user = current_user
   #   @house = House.find_by(id: params[:id])

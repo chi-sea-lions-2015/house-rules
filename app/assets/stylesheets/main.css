@@ -1,3 +1,7 @@
+body {
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
 .top-logo {
   text-align: center;
   font-size: 18px;
@@ -5,7 +9,7 @@
 
 .top-logo a {
   color: #B0B0B0;
-  text-align: center;
+  position: absolute;
   margin: auto;
   font-size: 18px;
 }
@@ -39,14 +43,21 @@
   width: 20%;
 }
 
-.logout {
-  text-align: center;
-  font-size: 3em;
+.right-links {
+  min-height: 50px;
+  min-width: 250px;
+  display: block;
+  position: relative;
+  margin-top: -1em;
+  margin-left: -1em;
+  font-size: 18px;
+
   color: #B0B0B0;
   background-color: #333333;
 }
 
-.logout:hover {
+.right-links:hover {
+
   color:#F0F0F0;
   background-color: #333333;
 }
@@ -250,9 +261,12 @@
   margin-top: -3em;
 }
 
-#notes {
-  border-radius: 50%;
-  padding: 0.3em;
-  background: red;
+.notes {
+  background-color: red;
+  padding: 1em;
   margin-right: 1em;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(226, 176, 50, 0.75);
+  -moz-box-shadow:    3px 3px 5px 0px rgba(226, 176, 50, 0.75);
+  box-shadow:         3px 3px 5px 0px rgba(226, 176, 50, 0.75);
+
 }

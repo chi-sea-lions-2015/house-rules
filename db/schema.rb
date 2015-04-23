@@ -116,6 +116,11 @@ ActiveRecord::Schema.define(version: 20150423031307) do
 
   create_table "notifications", force: :cascade do |t|
     t.string   "alert"
+<<<<<<< HEAD
+=======
+    t.string   "category"
+    t.integer  "house_id"
+>>>>>>> 1f4414041906a5c227d4bb78e86971c4b7bf8877
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
