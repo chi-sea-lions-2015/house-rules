@@ -62,20 +62,11 @@
       <div id="issue-intro"></div>
       <div class="issue-content">
       <% item.issues.each do |issue| %>
-        <%= render partial: "issue", locals: { issue: issue, house: @house, item: item } %>
+        <%= render partial: "issue", locals: { issue: issue} %>
       <% end %>
       </div>
     <% end %>
     </div>
-    <div class="issue-body">
-      <% if item.issues.count > 0 %>
-        <div id="issue-intro">This item has some issues!</div>
-        <div class="issue-content">
-        <% item.issues.each do |issue| %>
-          <%= render partial: "issue", locals: { issue: issue } %>
-        <% end %>
-        </div>
-      <% end %>
-    </div>
+
   </div>
 <br>
