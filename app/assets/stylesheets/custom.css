@@ -16,13 +16,26 @@ margin-top: 2%;
 margin-bottom: 2%;
 margin-left: 5%;
 margin-right: 5%;
+padding: 2px;
 
+}
+.chore_task {
+position: relative;
+margin-right: 0%;
+margin-left: 0%;
+text-align: center;
+padding-top: 0em;
+padding-right: 1em;
+width: 50%;
+float: right;
 }
 .chore_task h5 {
 position: relative;
-margin: auto;
+margin-right: 0%;
+margin-left: 0%;
 text-align: center;
-padding-top: 1em;
+padding-top: 0em;
+
 }
 #chore_list{
   position: relative;
@@ -31,7 +44,7 @@ padding-top: 1em;
 }
 
 .chore_issue{
-position: relative;
+position: absolute;
 float: left;
 margin: .5%;
 }
@@ -78,16 +91,6 @@ margin-left: 1%;
 top: 1em;
 }
 
-.chore{
-background: rgba(212,228,239,1);
-background: -moz-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(134,174,204,1)));
-background: -webkit-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-background: -o-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-background: -ms-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-background: radial-gradient(ellipse at center, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=1 );
-}
 
 .user_logs{
   position: relative;
@@ -116,4 +119,20 @@ margin-right: auto;
 
 .chrore img.issue_mark {
   opacity: 0.4;
+}
+form.chore_issue{
+  display: none;
+  position: relative;
+}
+#Bills {
+   position: relative;
+  margin-left: 35% ;
+
+}
+img.coming_soon {
+  opacity: .4;
+}
+div#Bills h2{
+
+margin-left: 10% ;
 }
