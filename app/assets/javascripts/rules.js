@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $("img.issue-mark").click(function(e){
+  $(document).on("click", "img.issue-mark", function(e){
   	e.preventDefault();
   	var form = $(this).parent().parent().find("form.rule_issue");
 	if (form.css("display")=="none"){
