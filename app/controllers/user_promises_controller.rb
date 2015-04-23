@@ -47,7 +47,7 @@ class UserPromisesController < ApplicationController
 			redirect_to house_chores_path(@house)
 		else
 			flash.now[:error] = "promise did not save"
-      redirect_to house_chores_path(@house)
+      redirect_to house_chores_patrailsh(@house)
     end
 	end
 
