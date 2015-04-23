@@ -41,8 +41,14 @@ Rails.application.routes.draw do
   post '/houses/:house_id/communal_items/:communal_item_id/promise_fulfilled' => 'user_promises#update'
 
   post '/houses/:house_id/communal_items/:communal_item_id/issue' => 'issues#item_issue_create'
+  post '/houses/:house_id/rules/:rule_id/issue' => 'issues#rule_issue_create'
+  post '/houses/:house_id/events/:event_id/issue' => 'issues#event_issue_create'
+  post '/houses/:house_id/chores/:chore_id/issue' => 'issues#chore_issue_create'
 
-  post '/chores/:id/issue' => "issues#chore_issue_create"
+
+  get '/houses/search/:keyword' => 'houses#search'
+
   post '/chores/:id/promise' => "promise#chore_promise_create"
   post '/chores/:id/promise' => "promise#chore_promise_create"
+
 end

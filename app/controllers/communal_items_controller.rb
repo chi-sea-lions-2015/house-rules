@@ -9,7 +9,6 @@ class CommunalItemsController < ApplicationController
   end
 
   def create
-    if @user = current_user
       @house = House.find(params[:house_id])
       @item = @house.communal_items.create(item_params)
       if @item.save
@@ -21,9 +20,6 @@ class CommunalItemsController < ApplicationController
       else
           render 'new'
       end
-    else
-      redirect_to '/login'
-    end
   end
 
   def edit
@@ -32,7 +28,6 @@ class CommunalItemsController < ApplicationController
   end
 
   def update
-    if @user = current_user
       @house = House.find(params[:house_id])
       @item = CommunalItem.find(params[:id])
       @item.update(item_params)
@@ -41,9 +36,6 @@ class CommunalItemsController < ApplicationController
           assignment.user.user_notifications.create(notification: @notification)
         end
       redirect_to house_communal_items_path(@house)
-    else
-      redirect_to '/login'
-    end
   end
 
   def destroy

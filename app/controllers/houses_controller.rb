@@ -6,7 +6,7 @@ class HousesController < ApplicationController
 
   def show
     @user = current_user
-    @house = @user.houses.first
+    @house = House.find_by(id: params[:id])
     @address = @house.address
     if HousingAssignment.find_by(user_id: @user.id, house_id: @house.id)
       @property_manager = @house.property_manager
@@ -88,6 +88,15 @@ class HousesController < ApplicationController
       end
     else
       redirect_to '/login'
+    end
+  end
+
+  def search
+    houses = House.all.select{|house| house.name.downcase.include?(params[:keyword].downcase)}
+    if houses != []
+      render json: houses.to_json
+    else
+      render json: "No".to_json
     end
   end
 

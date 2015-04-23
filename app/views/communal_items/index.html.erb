@@ -5,7 +5,7 @@
     <% if @items.length != 0 %>
 
       <% @items_by_level.each do |level, items_in_level| %>
-
+      <div class="each-item">
         <% if level == "out" %>
           <div class="fridge-today"><span class="today">OUT OF STOCK</span></div>
           <% items_in_level.each do |item| %>
@@ -30,6 +30,7 @@
               <hr>
             <% end %>
         <% end %>
+      </div>
       <% end %>
     <% end %>
 

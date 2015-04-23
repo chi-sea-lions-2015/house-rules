@@ -1,6 +1,7 @@
 <div class="row">
   <div class="small-6 large-2 columns"><br></div>
   <div class="small-6 large-8 columns">
+
 <% if current_user == @user %>
 <h2>Hi, <%= current_user.first_name%>!</h2>
 <% if @user.avatar.url !="/images/original/missing.png"%>
@@ -43,9 +44,25 @@
 <%= link_to "New House", new_house_path %>
 <%end%>
 
-<br>
+<br><br><br>
 
-<%= link_to "All Houses", houses_path %>
+  <form id="search-form">
+    <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <input id="search" type="text" placeholder="Search House">
+        </div>
+        <div class="small-2 columns">
+          <a href="#" class="button postfix">Go</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form>
+
+  <section id="houses-container">   
+  </section>
 
   </div>
   <div class="small-12 large-2 columns"><br></div>
