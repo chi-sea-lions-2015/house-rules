@@ -16,6 +16,29 @@
   font-size: 18px;
 }
 
+#welcome-title {
+  text-align: center;
+}
+
+#login-welcome-login {
+  width: 20%;
+}
+
+#login-sign-up {
+  float:right;
+  width: 20%;
+}
+
+#welcome-sign-up {
+  float: right;
+  width: 20%;
+}
+
+#welcome-login {
+  float: left;
+  width: 20%;
+}
+
 .logout {
   text-align: center;
   font-size: 3em;

@@ -6,37 +6,54 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @house = House.find(params[:house_id])
-    @message = @house.messages.new(message_params)
-    @message.update_attributes(author: current_user)
-    if (params[:message][:picture])
-      @picture = Picture.new(picture_content: params[:message][:picture][:picture_content], message_id: @message.id)
-      if @picture.save
+    if @user = current_user
+      @house = House.find(params[:house_id])
+      @message = @house.messages.new(message_params)
+      @message.update_attributes(author: current_user)
+      if (params[:message][:picture])
+        @picture = Picture.new(picture_content: params[:message][:picture][:picture_content], message_id: @message.id)
+        if @picture.save
+          if @message.save
+            if request.xhr?
+              puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+              render @message, layout: false
+            else
+              redirect_to house_messages_path(@house)
+            end
+          else
+            flash.now[:error] = "Message did not save"
+            redirect_to house_messages_path(@house)
+          end
+        else
+            flash.now[:error] = "Picture did not save"
+            redirect_to house_messages_path(@house)
+        end
+      else
         if @message.save
-          redirect_to house_messages_path(@house)
+          if request.xhr?
+            render @message, layout: false
+          else
+            redirect_to house_messages_path(@house)
+          end
         else
           flash.now[:error] = "Message did not save"
           redirect_to house_messages_path(@house)
         end
-      else
-          flash.now[:error] = "Picture did not save"
-          redirect_to house_messages_path(@house)
       end
     else
-      if @message.save
-        redirect_to house_messages_path(@house)
-      else
-        flash.now[:error] = "Message did not save"
-        redirect_to house_messages_path(@house)
-      end
+      redirect_to '/login'
     end
   end
 
   def destroy
-    @house = House.find(params[:house_id])
-    @message = Message.find(params[:id])
-    @message.destroy
-    redirect_to house_messages_path(@house)
+    if @user = current_user
+      @house = House.find(params[:house_id])
+      @message = Message.find(params[:id])
+      @message.destroy
+      redirect_to house_messages_path(@house)
+    else
+      redirect_to '/login'
+    end
   end
 
 private

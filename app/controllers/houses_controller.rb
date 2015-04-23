@@ -28,20 +28,23 @@ class HousesController < ApplicationController
   end
 
   def create
-    @user = current_user
-    if @user.houses != nil
-    @house = House.new(house_params)
-    if @house.save
-      @address = @house.address=Address.new(address_params)
-      if @address.save
-        @user.housing_assignments.create(user: @user, house: @house)
-        redirect_to house_path(@house)
-      else
-        render "new"
+    if @user = current_user
+      if @user.houses != nil
+        @house = House.new(house_params)
+        if @house.save
+          @address = @house.address=Address.new(address_params)
+          if @address.save
+            @user.housing_assignments.create(user: @user, house: @house)
+            redirect_to house_path(@house)
+          else
+            render "new"
+          end
+        else
+          render "new"
+        end
       end
     else
-      render "new"
-    end
+      redirect_to '/login'
     end
   end
 
@@ -51,15 +54,22 @@ class HousesController < ApplicationController
   end
 
   def update
-    @house = House.find(params[:id])
-    @house.update_attributes(house_params)
-    redirect_to house_path(@house)
+    if @user = current_user
+      @house = House.find(params[:id])
+      @house.update_attributes(house_params)
+      redirect_to house_path(@house)
+    else
+      redirect_to '/login'
+    end
   end
 
   def destroy
-    @user = current_user
-    @house = House.find(params[:id])
-    redirect_to user_path(@user)
+    if @user = current_user
+      @house = House.find(params[:id])
+      redirect_to user_path(@user)
+    else
+      redirect_to '/login'
+    end
   end
 
   def join
@@ -68,13 +78,16 @@ class HousesController < ApplicationController
   end
 
   def join_update
-    @house = House.find(params[:id])
-    @user = current_user
-    if params[:join][:house_key] == @house.house_key
-      HousingAssignment.create(user_id: @user.id, house_id: @house.id)
-      redirect_to house_path(@house)
+    if @user = current_user
+      @house = House.find(params[:id])
+      if params[:join][:house_key] == @house.house_key
+        HousingAssignment.create(user_id: @user.id, house_id: @house.id)
+        redirect_to house_path(@house)
+      else
+        render 'join'
+      end
     else
-      render 'join'
+      redirect_to '/login'
     end
   end
 

@@ -29,9 +29,13 @@ skip_before_action :authenticate_user_from_token!, only: [:index, :edit, :create
   end
 
   def update
-    @event = Event.find_by(id: params[:id])
-    if @event.update_attributes(event_params)
-      redirect_to house_events_path
+    if @user = current_user
+      @event = Event.find_by(id: params[:id])
+      if @event.update_attributes(event_params)
+        redirect_to house_events_path
+      end
+    else
+      redirect_to '/login'
     end
   end
 
