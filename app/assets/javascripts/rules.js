@@ -19,7 +19,6 @@ $(document).ready(function() {
 	    method: form.attr("method"),
 	    data: form.serialize(),
 	    success: function(response){
-	    	debugger;
 	        list.append(response);
         	form[0].reset();
         	form.css("display","none");
