@@ -13,13 +13,13 @@ $(document).ready(function() {
   $("form.rule_issue").submit(function(e){
 	e.preventDefault();
 	var form = $(this);
-	var list = form.parent().parent().find("td.rule-content");
+	var list = form.parent().parent().find("div.rule-issue");
 	$.ajax({
 	    url: form.attr("action"),
 	    method: form.attr("method"),
 	    data: form.serialize(),
 	    success: function(response){
-	        list.append(response);
+	        list.prepend(response);
         	form[0].reset();
         	form.css("display","none");
       	}

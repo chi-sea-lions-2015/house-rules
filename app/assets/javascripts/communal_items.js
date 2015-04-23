@@ -18,8 +18,7 @@ $(document).ready(function(){
 	      method: form.attr("method"),
 	      data: form.serialize(),
 	      success: function(response){
-	      	form.next(".issue-body").show();
-	        list.append(response);
+	        list.prepend(response);
         	form[0].reset();
         	form.css("display","none");
       	  }
