@@ -1,15 +1,9 @@
-<div class="page_header">New Property Manager</div>
-<br>
+<div class="row">
+  <div class="small-6 large-2 columns"><br></div>
+  <div class="small-6 large-8 columns">
+<%= render 'property_managers/form' %>
 
-<%= form_for [@house, @manager] do |f|%>
-Landlord or Company Name: <br><%= f.text_field :name %><br><br>
-Phone Number: <br><%= f.text_field :phone %><br><br>
-Email: <br><%= f.text_field :email %><br><br>
-  <%= f.fields_for :address do |address_form| %>
-    Address: <br><%= address_form.text_field :street %><br><br>
-    City: <br><%= address_form.text_field :city %><br><br>
-    State:<br> <%= address_form.text_field :state %><br><br>
-    Zip Code: <br><%= address_form.text_field :zip_code %><br><br>
-  <%end%>
-<%= f.submit "Submit", :class => "button"  %>
-<%end%>
+
+  </div>
+  <div class="small-12 large-2 columns"><br></div>
+</div>

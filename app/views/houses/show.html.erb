@@ -1,57 +1,33 @@
+<div class="row">
+  <div class="small-6 large-2 columns"><br></div>
+  <div class="small-6 large-8 columns">
+<fieldset>
 <h1><%= @house.name %>!</h1>
-House Key: <%= @house.house_key %>
-<h3><%= link_to "Edit", edit_house_path(@house) %></h3>
+<%= @house.address.street%><br>
+<%= @house.address.city+ " " %><%= @house.address.state + " " %><%= @house.address.zip_code%><br><br>
+House Key: <%= @house.house_key %><br>
 
-<% if @property_manager == nil %>
+
+<%= link_to "Edit your house information", edit_house_path(@house), :id => "edit-house-link" %><br>
+<div id="edit-house-form-div">
+<%= render 'houses/form' %>
+</div><br>
+
+
+<% if @house.property_manager == nil %>
 <%= link_to "Add Property Management Info", new_house_property_manager_path(@house) %>
 <% else %>
-Your property manager:
-<%= @house.property_manager.name %>
-<%= link_to "Edit", edit_house_property_manager_path(@house, @property_manager) %>
-<% end %>
-<br><br>
-
-<div id="messages">
-<% if @messages.length != 0 %>
-  <h3>Messages:</h3>
-  <% @messages.each do |message| %>
-  @<%= message.housing_assignment.user.first_name %>: <%= message.content %> <%= link_to("Delete", house_message_path(@house, message), method: :delete) %> <br>
-  <% end %>
-<% end %>
+Your property manager:<br>
+<%= @house.property_manager.name %><br>
+<%= @house.property_manager.address.street%><br>
+<%= @house.property_manager.address.city+ " " %><%= @house.property_manager.address.state + " " %><%= @house.property_manager.address.zip_code%>
+<%= link_to "Edit", edit_house_property_manager_path(@house, @property_manager), :id => "edit-house-manager-link" %>
+<div id="edit-house-manager-form-div">
+<%= render 'property_managers/form' %>
 </div>
-
-<div>
-  <h4>New Message</h4>
-  <%= form_for :message, url: house_messages_path(@house) do |f| %>
-  <%= f.text_area :content %><br><br>
-  <%= f.submit "Send Message", :class => "button"  %>
-  <% end %>
-</div>
-
-<hr>
-
-<%= link_to "Rules", house_rules_path(@house) %>
-
-<hr>
-<div id="items">
-<% if @items.length != 0 %>
-  <h3>Communal Items:</h3>
-  <% @items.each do |item| %>
-  <%= item.name %>: <strong><%= item.stock_level %></strong>
-  <%= link_to("Edit", edit_house_communal_item_path(@house, item)) %> <%= link_to("Delete", house_communal_item_path(@house, item), method: :delete) %> <br>
-  <% end %>
 <% end %>
+</fieldset>
+
+  </div>
+  <div class="small-12 large-2 columns"><br></div>
 </div>
-<br>
-<%= link_to "Add Communal Item", new_house_communal_item_path(@house) %>
-
-<hr>
-
-<%= link_to "Chores", house_chores_path(@house) %>
-
-<hr>
-
-<%= link_to "Events", house_events_path(@house) %>
-
-
-

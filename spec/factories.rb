@@ -1,4 +1,14 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :user_notification do
+    
+  end
+  factory :notification do
+    
+  end
+  factory :picture do
+    
+  end
+
+
 
   factory :chore do
     task "do dishes"

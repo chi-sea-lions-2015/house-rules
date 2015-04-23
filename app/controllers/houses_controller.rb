@@ -6,51 +6,84 @@ class HousesController < ApplicationController
 
   def show
     @user = current_user
-    @house = House.find(params[:id])
+    @current_house = @user.houses.first
+    @house = House.find_by(id: params[:id])
+    @address = @house.address
     if HousingAssignment.find_by(user_id: @user.id, house_id: @house.id)
       @property_manager = @house.property_manager
       @assignment = HousingAssignment.where(user: current_user, house: @house.id)
-      @messages = @house.messages
-      @items = @house.communal_items
     else
+      if @user.houses.nil?
       redirect_to "/houses/#{@house.id}/join"
+      else
+        redirect_to "/houses/#{@current_house.id}"
+      end
     end
+  end
+
+  def roommates
+    @user = current_user
+    @house = House.find(params[:id])
+    @roommates = @house.users
   end
 
   def new
     @house = House.new
+    @address = Address.new
   end
 
   def create
-    @user = current_user
-    @address = Address.new(address_params)
-    if @address.save
-      @house = House.new(house_params)
-      if @house.save
-        @user.housing_assignments.create(user: @user, house: @house)
-        redirect_to house_path(@house)
-      else
-        render "new"
+    if @user = current_user
+      if @user.houses != nil
+        @house = House.new(house_params)
+        if @house.save
+          @address = @house.address=Address.new(address_params)
+          if @address.save
+            @user.housing_assignments.create(user: @user, house: @house)
+              @notification = Notification.create(alert: "You have successfully created #{@house.name}!", category: "", house_id: @house.id)
+              HousingAssignment.where(house_id: @house.id).select do |assignment|
+                assignment.user.user_notifications.create(notification: @notification)
+              end
+            redirect_to house_path(@house)
+          else
+            render "new"
+          end
+        else
+          render "new"
+        end
       end
     else
-      render "new"
+      redirect_to '/login'
     end
   end
 
   def edit
     @house = House.find(params[:id])
+    @address = @house.address
   end
 
   def update
-    @house = House.find(params[:id])
-    @house.update_attributes(house_params)
-    redirect_to house_path(@house)
+    if @user = current_user
+      @house = House.find(params[:id])
+      @house.update_attributes(house_params)
+      @house.address.update_attributes(address_params)
+          @notification = Notification.create(alert: "#{current_user.first_name} has updated #{@house.name}.", category: "", house_id: @house.id)
+          HousingAssignment.where(house_id: @house.id).select do |assignment|
+            assignment.user.user_notifications.create(notification: @notification)
+          end
+      redirect_to house_path(@house)
+    else
+      redirect_to '/login'
+    end
   end
 
   def destroy
-    @user = current_user
-    @house = House.find(params[:id])
-    redirect_to user_path(@user)
+    if @user = current_user
+      @house = House.find(params[:id])
+      redirect_to user_path(@user)
+    else
+      redirect_to '/login'
+    end
   end
 
   def join
@@ -59,13 +92,25 @@ class HousesController < ApplicationController
   end
 
   def join_update
-    @house = House.find(params[:id])
-    @user = current_user
-    if params[:join][:house_key] == @house.house_key
-      HousingAssignment.create(user_id: @user.id, house_id: @house.id)
-      redirect_to house_path(@house)
+    if @user = current_user
+      @house = House.find(params[:id])
+      if params[:join][:house_key] == @house.house_key
+        HousingAssignment.create(user_id: @user.id, house_id: @house.id)
+        redirect_to house_path(@house)
+      else
+        render 'join'
+      end
     else
-      render 'join'
+      redirect_to '/login'
+    end
+  end
+
+  def search
+    houses = House.all.select{|house| house.name.downcase.include?(params[:keyword].downcase)}
+    if houses != []
+      render json: houses.to_json
+    else
+      render json: "No".to_json
     end
   end
 

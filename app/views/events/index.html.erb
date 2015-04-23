@@ -1,25 +1,30 @@
-<div id="events">
-<% if @events != nil %>
-  <h4>Events:</h4>
-  <% @events.each do |event| %>
-    <%= event.housing_assignment.user.first_name %>: <%= event.name %> <br>
-    Description: <%= event.description %><br>
-    Date: <%= event.date%><br>
-      <%= link_to "Destroy", house_event_path(@house, event), method: :delete,
-      data: {confirm: "Are you sure?"} %><br>
-    <%= link_to 'Edit', edit_house_event_path(@house, event) %><br><br>
-    <% end %>
-<% end %>
-</div>
-<div>
-  <h4>New Event</h4>
-  <%= form_for :event, url: house_events_path(@house) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.label :description %>
-  <%= f.text_area :description %><br>
-  <%= f.label :date %>
-  <%= f.datetime_local_field :date %><br><br>
-  <%= f.submit "Create Event" %>
-  <% end %>
+<div class="row">
+  <div class="small-6 large-2 columns"><br></div>
+  <div class="small-6 large-8 columns">
+
+    <div id="event_list">
+      <h1 class="event-title">Events</h1>
+      <% if @events == nil %>
+      <p>Your house has has no events</p>
+      <% else %>
+      <% @events_by_date.each do |date, events_in_date| %>
+        <% if (date.year == @today.year) && (date.month == @today.month) && (date.day == @today.day) %>
+        <div class="fridge-today"><span class="today"> Today </span></div>
+        <% elsif (date.year == @today.year) && (date.month == @today.month) && (date.day - @today.day == 1) %>
+        <div class="fridge-today"><span class="today"> Tomorrow </span></div>
+        <% else %>
+        <div class="fridge-today"><span class="today"><%=date.year%> - <%=date.month%> - <%=date.day%></span></div>
+        <% end %>
+        <% events_in_date.each do |event| %>
+        <%= render partial: "event", locals: {event: event} %>
+        <% end %>
+      <% end %>
+      <% end %>
+    </div>
+    <div>
+      <%= render 'events/form' %>
+    </div>
+
+  </div>
+  <div class="small-12 large-2 columns"><br></div>
 </div>

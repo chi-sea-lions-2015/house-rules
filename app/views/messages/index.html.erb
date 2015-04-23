@@ -1,15 +1,38 @@
-<div id="messages">
-<% if @messages != nil %>
-  <h4>Messages:</h4>
-  <% @messages.each do |message| %>
-  <%= message.housing_assignment.user.first_name %>: <%= message.content %> <br>
-  <% end %>
-<% end %>
-</div>
-<div>
-  <h4>New Message</h4>
-  <%= form_for :message, url: house_messages_path(@house) do |f| %>
-  <%= f.text_area :content %><br><br>
-  <%= f.submit "Send Message", :class => "button"  %>
-  <% end %>
+
+<div class="row">
+  <div class="small-6 large-2 columns"><br></div>
+  <div class="small-6 large-8 columns">
+    <div id="fridge">
+      <% if @messages != nil %>
+        <div class="fridge-today"><span class="today">Today</span></div>
+        <% @messages.today.each do |message| %>
+        <table class="message-table">
+          <tr>
+            <td valign="top" class="message-pic"><%= image_tag message.author.avatar.url(:thumb) %></td>
+            <td valign="middle" class="message-text"><span id="fridge-author"><%= message.author.first_name.capitalize %> <%= message.author.last_name.capitalize[0] %>.</span> <span id="fridge-title">posted <%= time_ago_in_words(message.created_at) %> ago </span><br>
+              <% unless message.picture.nil? %>
+                <%= image_tag message.picture.picture_content.url(:medium) %><br>
+              <% end %>
+                <%= message.content %></td>
+            <td valign="bottom" class="message-delete">
+              <% if message.author == current_user %>
+                <%= link_to "Delete", house_message_path(@house, message), method: :delete, data: {confirm: "Are you sure?"}%></td>
+              <% end %>
+          </tr>
+        </table>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <%= form_for [@house, @message || Message.new], remote: true, :html => { :multipart => true } do |f| %>
+        <%= f.text_area :content, :id => "new-content"%>
+        <%= f.fields_for :picture do |pic| %>
+          <%= pic.file_field :picture_content %>
+        <% end %>
+        <%= f.submit "Post", :class => "button", :id => "submit-message" %>
+      <% end %>
+    </div>
+  <div class="message-content-valid"></div>
+  </div>
+  <div class="small-12 large-2 columns"><br></div>
 </div>

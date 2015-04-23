@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-  belongs_to :housing_assignment
+  belongs_to :user
+  belongs_to :house
   has_many :issues, as: :issuable
 
   validates :name, presence: true

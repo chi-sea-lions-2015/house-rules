@@ -1,17 +1,8 @@
-<% provide(:title, 'New House')%>
+<div class="row">
+  <div class="small-6 large-2 columns"><br></div>
+  <div class="small-6 large-8 columns">
+<%= render 'houses/form' %>
 
-<div class="page_header">New House</div>
-<br>
-
-<%= form_for @house, :html => { :multipart => true } do |f|%>
-House Name: <br><%= f.text_field :name %><br><br>
-House Key: <br><%= f.text_field :house_key %><br><br>
-Where is it located?<br><br>
-  <%= f.fields_for :address do |address_form| %>
-    Address: <br><%= address_form.text_field :street %><br><br>
-    City: <br><%= address_form.text_field :city %><br><br>
-    State:<br> <%= address_form.text_field :state %><br><br>
-    Zip Code: <br><%= address_form.text_field :zip_code %><br><br>
-  <%end%>
-  <%= f.submit "Submit", :class => "button"  %>
-<%end%>
+  </div>
+  <div class="small-12 large-2 columns"><br></div>
+</div>

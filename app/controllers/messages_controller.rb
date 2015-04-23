@@ -1,56 +1,86 @@
 class MessagesController < ApplicationController
 
-  # def index
-  #   @user = current_user
-  #   @house = House.find_by(id: params[:id])
-  #   @housing_assignment = HousingAssignment.where(house_id: @house.id)
-  #   @messages = @housing_assignment.map do |h_a|
-  #     h_a.messages
-  #   end
-  # end
-
-  def new
-    @user = current_user
-    @house = House.find_by(id: params[:id])
-    @housing_assignment = HousingAssignment.where(house_id: @house.id)
-  end
-#DO NOT ERASE DO NOT COMMENT OUT==============
   def index
     @house = House.find(params[:house_id])
-    @messages = @house.messages
-  end
-#============================
-  def create
-    @user = current_user
-    @house = House.find_by(id: params[:house_id])
-    @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
-    @message = @housing_assignment.messages.new(message_params)
-    if @message.save
-      redirect_to house_path(@house)
-    # else
-    #   flash.now[:error] = "Message did not save"
-    #   redirect_to house_path(@house)
+    if @user = current_user
+      if @user.houses.first == @house
+        @messages = @house.messages
+      else
+        render :nothing => true, :status => 400
+      end
+    else
+      redirect_to "/login"
     end
   end
 
-  # def update
-  #   @user = current_user
-  #   @house = House.find_by(id: params[:house_id])
-  #   @housing_assignment = HousingAssignment.find_by(house_id: @house.id, user_id: @user.id)
-  #   @message = Message.find_by(id: params)
-  # end
+  def create
+    @house = House.find(params[:house_id])
+    @user = current_user
+    if @user.houses.first == @house
+      @house = House.find(params[:house_id])
+      @message = @house.messages.new(message_params)
+      @message.update_attributes(author: current_user)
+      if (params[:message][:picture])
+        @picture = Picture.new(picture_content: params[:message][:picture][:picture_content], message_id: @message.id)
+        if @picture.save
+          if @message.save
+              @notification = Notification.create(alert: "#{current_user.first_name} has posted a new picture on the fridge.", category: "messages", house_id: @house.id)
+              HousingAssignment.where(house_id: @house.id).select do |assignment|
+                assignment.user.user_notifications.create(notification: @notification)
+              end
+            if request.xhr?
+              render @message, layout: false
+            else
+              redirect_to house_messages_path(@house)
+            end
+          else
+            if request.xhr?
+            flash.now[:error] = "Message did not save"
+            render '/messages'
+          end
+          end
+        else
+            flash.now[:error] = "Picture did not save"
+            redirect_to house_messages_path(@house)
+        end
+      else
+        if @message.save
+            @notification = Notification.create(alert: "#{current_user.first_name} has posted a new message on the fridge.", category: "messages", house_id: @house.id)
+            HousingAssignment.where(house_id: @house.id).select do |assignment|
+              assignment.user.user_notifications.create(notification: @notification)
+            end
+          if request.xhr?
+            render @message, layout: false
+          else
+            redirect_to house_messages_path(@house)
+          end
+        else
+          flash.now[:error] = "Message did not save"
+          render :nothing => true, :status => 400
+        end
+      end
+    else
+      if request.xhr?
+        render "users/login_failure", layout: false
+      end
+    end
+  end
 
   def destroy
-    @house = House.find_by(id: params[:house_id])
-    @message = Message.find_by(id: params[:id])
-    @message.destroy
-    redirect_to house_path(@house)  
+    if @user = current_user
+      @house = House.find(params[:house_id])
+      @message = Message.find(params[:id])
+      @message.destroy
+      redirect_to house_messages_path(@house)
+    else
+      redirect_to '/login'
+    end
   end
 
 private
 
     def message_params
-      params.require(:message).permit(:content, :picture_url)
+      params.require(:message).permit(:content)
     end
 
 end
