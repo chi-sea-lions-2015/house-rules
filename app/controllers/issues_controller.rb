@@ -43,7 +43,11 @@ class IssuesController < ApplicationController
       @house = House.find_by(id: params[:house_id])
       @chore = Chore.find_by(id: params[:chore_id])
       @issue = @chore.issues.create(reason: params[:issue][:task], user_id: @user.id)
+      if request.xhr?
+        render partial: "chore_issue_new", locals: { issue: @issue }, layout: false
+      else
       redirect_to house_chores_path(@house)
+    end
     else
       redirect_to '/login'
     end
