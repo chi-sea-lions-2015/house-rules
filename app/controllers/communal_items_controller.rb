@@ -1,11 +1,18 @@
 class CommunalItemsController < ApplicationController
 
   def index
-    @user = current_user
     @house = House.find(params[:house_id])
-    @items = @house.communal_items
-    @stock_levels = ["high","low","out"]
-    @items_by_level = @items.all.group_by(&:stock_level)
+    if @user = current_user
+      if @user.houses.first == @house
+          @items = @house.communal_items
+          @stock_levels = ["high","low","out"]
+          @items_by_level = @items.all.group_by(&:stock_level)
+      else
+        render :nothing => true, :status => 400
+      end
+    else
+      redirect_to "/login"
+    end
   end
 
   def create

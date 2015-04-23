@@ -2,10 +2,18 @@ class EventsController < ApplicationController
 skip_before_action :authenticate_user_from_token!, only: [:index, :edit, :create]
 
   def index
-    @house = House.find_by(id: params[:house_id])
-    @events = @house.events.order('date desc')
-    @events_by_date = @events.all.group_by(&:date)
-    @today = Date.today
+    @house = House.find(params[:house_id])
+    if @user = current_user
+      if @user.houses.first == @house
+        @events = @house.events.order('date desc')
+        @events_by_date = @events.all.group_by(&:date)
+        @today = Date.today
+      else
+        render :nothing => true, :status => 400
+      end
+    else
+      redirect_to "/login"
+    end
   end
 
   def create
