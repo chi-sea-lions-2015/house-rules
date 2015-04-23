@@ -19,7 +19,7 @@ $(document).ready(function(){
         $("#search").css('border','1px solid lightgray');
         var title = _.template('<h3>Searched House</h3>');
         housesListContainer.append(title());
-        var template = _.template('<%= name %> <a href="/houses/<%= id %>">Join</a><br>');
+        var template = _.template('<%= name %> <a href="/houses/<%= id %>/join">Join</a><br>');
         response.forEach(function(houseData){
         housesListContainer.append(template(houseData));
         form[0].reset();

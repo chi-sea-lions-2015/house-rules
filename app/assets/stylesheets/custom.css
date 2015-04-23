@@ -53,10 +53,10 @@ margin-right: auto;
 top: 2.5em;
 border-collapse: collapse;
 }
-.user_chore_count > th{
+.user_chore_count  th{
 background-color: #4E99A3;
 }
-.user_chore_count >tr{
+.user_chore_count tr{
 background-color: #0BBCE3;
 }
 .user_chore_count td {
@@ -69,7 +69,7 @@ margin: 10%;
 clear: both;
 }
 h4#chore_form{
-position: fixed
+position: fixed;
 float: right;
 }
 ul.button-group.round.even-4{
