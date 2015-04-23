@@ -1,7 +1,8 @@
 $(document).ready(function(){
 	$(".issue-mark").click(function(e){
 		e.preventDefault();
-		var form = $(this).parent().find("form.item_issue");
+		debugger;
+		var form = $(this).parent().parent().find("form.item_issue");
 		if (form.css("display")=="none"){
 			form.css("display", "block");
 		} else {
