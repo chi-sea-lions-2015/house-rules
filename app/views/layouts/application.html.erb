@@ -17,7 +17,7 @@
   <% if current_user%>
     <% if current_user.user_notifications.count == 0 %>
       <% @notes = nil %>
-      <% @notifications = [Notification.new(alert: "You have no new notifications.")]%>
+      <% @notifications = [Notification.first] %>
     <script type="text/javascript">window.showNotificationAlert = false;</script>
     <% else %>
     <script type="text/javascript">window.showNotificationAlert = true;</script>

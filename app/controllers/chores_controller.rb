@@ -23,6 +23,10 @@ class ChoresController < ApplicationController
       chore.update_attributes(chore_params)
       @house = chore.house
       if chore.save!
+        @notification = Notification.create(alert: "#{current_user.first_name} has updated #{@chore.task} in Chores.", category: "chores", house_id: @house.id)
+        HousingAssignment.where(house_id: @house.id).select do |assignment|
+          assignment.user.user_notifications.create(notification: @notification)
+        end
         redirect_to "/houses/#{@house.id}/chores"
       else
         flash.now[:error] = "chore did not save"
@@ -54,6 +58,10 @@ class ChoresController < ApplicationController
       @chore = @house.chores.new(chore_params)
       @users = @house.users
       if @chore.save
+          @notification = Notification.create(alert: "#{current_user.first_name} has added #{@chore.task} to Chores.", category: "chores", house_id: @house.id)
+            HousingAssignment.where(house_id: @house.id).select do |assignment|
+              assignment.user.user_notifications.create(notification: @notification)
+            end
         redirect_to "/houses/#{@house.id}/chores"
       else
         flash.now[:error] = "chore did not save"
@@ -72,6 +80,10 @@ class ChoresController < ApplicationController
       @chore_logs.each{|log| log.destroy}
       params[:house_id] = @house.id
       chore.destroy
+        @notification = Notification.create(alert: "#{current_user.first_name} has deleted #{chore.task} in Chores.", category: "chores", house_id: @house.id)
+        HousingAssignment.where(house_id: @house.id).select do |assignment|
+          assignment.user.user_notifications.create(notification: @notification)
+        end
       redirect_to "/houses/#{@house.id}/chores"
     else
       redirect_to '/login'

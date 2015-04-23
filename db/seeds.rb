@@ -27,16 +27,18 @@ chore4 = Chore.create(task: "Get out of my face", house_id: 1)
 chore5 = Chore.create(task: "Say hello like a fucking normal person", house_id: 1)
 
 users_arry = []
-4.times do 
+4.times do
  users_arry << User.create(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "123456", phone: Faker::PhoneNumber.cell_phone)
 end
 h = House.create(name: "Trap House", house_key: "igeekallweek", address: address2, property_manager_id: property_manager.id)
 
-users_arry.each do |user| 
+users_arry.each do |user|
   HousingAssignment.create(user_id: user.id, house_id: h.id)
   end
 
 5.times do
 h.chores.create(task: Faker::Lorem.word)
 end
+
+Notification.create(alert: "You have no new notifications.", category: "")
 

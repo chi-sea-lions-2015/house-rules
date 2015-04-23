@@ -1,12 +1,5 @@
 class MessagesController < ApplicationController
 
-
-  # def new
-  #   @user = current_user
-  #   @house = House.find_by(id: params[:id])
-  #   @housing_assignment = HousingAssignment.where(house_id: @house.id)
-  # end
-
   def index
     @house = House.find(params[:house_id])
     if @user = current_user
@@ -31,6 +24,10 @@ class MessagesController < ApplicationController
         @picture = Picture.new(picture_content: params[:message][:picture][:picture_content], message_id: @message.id)
         if @picture.save
           if @message.save
+              @notification = Notification.create(alert: "#{current_user.first_name} has posted a new picture on the fridge.", category: "messages", house_id: @house.id)
+              HousingAssignment.where(house_id: @house.id).select do |assignment|
+                assignment.user.user_notifications.create(notification: @notification)
+              end
             if request.xhr?
               render @message, layout: false
             else
@@ -48,6 +45,10 @@ class MessagesController < ApplicationController
         end
       else
         if @message.save
+            @notification = Notification.create(alert: "#{current_user.first_name} has posted a new message on the fridge.", category: "messages", house_id: @house.id)
+            HousingAssignment.where(house_id: @house.id).select do |assignment|
+              assignment.user.user_notifications.create(notification: @notification)
+            end
           if request.xhr?
             render @message, layout: false
           else
