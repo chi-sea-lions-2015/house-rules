@@ -1,13 +1,15 @@
 $(document).ready(function() {
 
   $("#new_message").on("ajax:success", function(e, data, status, xhr) {
-  $("#fridge").append(xhr.responseText);
+      $("#fridge").append(xhr.responseText);
+      $("#fridge").find(".message-table:last").hide();
+      $("#fridge").find(".message-table:last").show(1000);
+
   $("#new-content").val("")
   $(".message-content-valid").hide();
   $("#message_picture_picture_content").val("")
   return console.log("stuff", xhr.responseText);
 }).on("ajax:error", function(e, xhr, status, error) {
-  console.log("Failure!!")
   return $("#fridge").append("<p class='message-content-valid'>Message length must be 6</p>");
 });
 });

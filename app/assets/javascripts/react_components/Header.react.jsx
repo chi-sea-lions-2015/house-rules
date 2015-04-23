@@ -66,7 +66,7 @@ var Header = React.createClass({
     var rightNav = this.props.isLoggedIn ? (
       <ul className="right">
         <div>
-          <button className="notes">
+          <button className="notes" onMouseOver={this.showRight}>
           {this.props.notes}
           </button>
           <button className="menu-button" onMouseOver={this.showRight}>
@@ -74,7 +74,7 @@ var Header = React.createClass({
           </button>
 
           <Menu ref="right" alignment="right">
-            <MenuItem hash={"#"}>Notifications</MenuItem>
+            <MenuItem hash={"#"}><form action={ "/notifications/all"} method="post"><input type="hidden" name="_method" value="delete"/><button className="right-links" type="submit">Clear All Notifications</button></form></MenuItem>
               { this.props.notifications.map(function(object, i){
                 return <MenuItem hash={"#"}><form action={"/notifications/" + object.id } method="post"><input type="hidden" name="_method" value="delete"/><button className="right-links" type="submit">{ object.alert }</button></form></MenuItem>
               })}

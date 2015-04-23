@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  get "/houses/:id/roommates" => 'houses#roommates'
-  get "/request_login" => "users#request_login"
+  get     "/houses/:id/roommates" => 'houses#roommates'
+  get     "/request_login" => "users#request_login"
 
-  delete 'notifications/:id' => 'notifications#destroy'
+  delete  'notifications/:id' => 'notifications#destroy'
+  delete  'houses/:house_id/notifications/all' => 'notifications#destroy'
 
   resources :users do
     resources :notifications, only: [:index]

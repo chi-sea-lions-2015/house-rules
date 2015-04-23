@@ -276,6 +276,10 @@ fieldset legend {
 
 }
 
+.notes:hover {
+  background-color: yellow;
+}
+
 .roommate-table {
   width: 100%;
 }
