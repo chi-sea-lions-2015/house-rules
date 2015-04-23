@@ -5,6 +5,7 @@ class CommunalItemsController < ApplicationController
     @house = House.find(params[:house_id])
     @items = @house.communal_items
     @stock_levels = ["high","low","out"]
+    @items_by_level = @items.all.group_by(&:stock_level)
   end
 
   def create

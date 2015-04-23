@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_attached_file :avatar, :styles => { :medium => "300x300#", :thumb => "75x75#" }, :default_url => "/house-rules/app/assets/images/missing.jpg"
+  has_attached_file :avatar, :styles => { :medium => "300x300#", :thumb => "75x75#" }, :default_url => ActionController::Base.new.view_context.asset_path("rsz_missing.jpg")
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_many :messages

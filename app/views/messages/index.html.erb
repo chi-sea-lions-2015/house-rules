@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="large-3 columns"><br />
   </div>
@@ -24,7 +25,7 @@
       <% end %>
     </div>
     <div>
-      <%= form_for :message, url: house_messages_path(@house), :html => { :multipart => true }, remote: true do |f| %>
+      <%= form_for :message, url: house_messages_path(@house), :html => { :multipart => true } do |f| %>
         <%= f.text_area :content, :id => "new-content"%>
         <%= f.fields_for :picture do |pic| %>
           <%= pic.file_field :picture_content %>
