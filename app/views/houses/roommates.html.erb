@@ -7,7 +7,7 @@
     <table class="roommate-table">
     <tr><td>
     <% if roommate.avatar.url != "/images/original/missing.png"%>
-    <%= image_tag roommate.avatar.url(:avatar) %>
+    <%= image_tag roommate.avatar.url(:thumb) %>
     <%end%>
     </td>
     <td><h3><%=roommate.first_name + " "%><%=roommate.last_name%></h3>
