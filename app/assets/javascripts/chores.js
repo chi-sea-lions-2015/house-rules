@@ -11,10 +11,10 @@ $(document).ready(function() {
     });
 
     $(".view_chore_issues").click(function(){
-        $(".view_issues").toggle();
+        $(this).siblings(".view_issues").toggle();
     });
      $(".view_chore_promises").click(function(){
-        $(".view_promises").toggle();
+        $(this).siblings(".view_promises").toggle();
     });
 
 
