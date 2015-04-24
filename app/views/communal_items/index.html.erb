@@ -9,7 +9,7 @@
           <div class="fridge-today"><span class="today">OUT OF STOCK</span></div>
           <% @items_out.each do |item| %>
           <div class="each-item">
-             <div class="item-issues"><%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%></div> <span class="item-name" id="out"><%= item.name.split.map(&:capitalize).join(' ') %></span>
+             <div class="item-issues"><%= image_tag("issue-mark-not-square.png", size: "50x50", class: "issue-mark")%></div> <span class="item-name" id="out"><%= item.name.split.map(&:capitalize).join(' ') %></span>
              <%= render partial: "item", locals: { item: item } %>
             <hr>
           </div>
@@ -18,7 +18,7 @@
           <div class="fridge-today"><span class="today">LOW STOCK</span></div>
           <% @items_low.each do |item| %>
           <div class="each-item">
-            <span class="item-name" id="low"><%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%> <%= item.name.split.map(&:capitalize).join(' ') %></span>
+            <span class="item-name" id="low"><%= image_tag("issue-mark-not-square.png", size: "50x50", class: "issue-mark")%> <%= item.name.split.map(&:capitalize).join(' ') %></span>
             <%= render partial: "item", locals: { item: item } %>
             <hr>
           </div>
@@ -27,7 +27,7 @@
           <div class="fridge-today"><span class="today">IN STOCK</span></div>
             <% @items_high.each do |item| %>
             <div class="each-item">
-              <span class="item-name" id="high"><%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%> <%= item.name.split.map(&:capitalize).join(' ') %></span>
+              <span class="item-name" id="high"><%= image_tag("issue-mark-not-square.png", size: "50x50", class: "issue-mark")%> <%= item.name.split.map(&:capitalize).join(' ') %></span>
               <%= render partial: "item", locals: { item: item } %>
               <hr>
             </div>
