@@ -1,9 +1,11 @@
 <div class="row">
   <div class="small-6 large-2 columns"><br></div>
   <div class="small-6 large-8 columns">
-<h1 class="item-title">Inventory</h1>
-    <% if @items.length != 0 %>
-
+    <% if @items.empty? %>
+      <h3 class="header-empty">There is nothing in your inventory.<br>
+      Let's go to the mall!</h3>
+    <% else %>
+        <h1 class="item-title">Inventory</h1>
           <div class="fridge-today"><span class="today">OUT OF STOCK</span></div>
           <% @items_out.each do |item| %>
           <div class="each-item">

@@ -3,8 +3,11 @@
   <div class="small-6 large-2 columns"><br></div>
   <div class="small-6 large-8 columns">
     <div id="fridge">
-      <% if @messages != nil %>
-        <div class="fridge-today"><span class="today">Today</span></div>
+      <% if @messages.empty? %>
+        <h3 class="header-empty">Nothing is posted to the fridge.<br>
+        Did you move in yesterday or do you just not like each other?</h3>
+      <% else %>
+      <div class="fridge-today"><span class="today">Today</span></div>
         <% @messages.today.each do |message| %>
         <table class="message-table">
           <tr>

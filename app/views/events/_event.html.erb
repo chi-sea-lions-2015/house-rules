@@ -1,10 +1,10 @@
 <div class="each-event">
 
-      <%= image_tag("issue-mark-not-square.png", size: "50x50", class: "issue-mark")%> <span class="item-name"> <%= event.name.split.map(&:capitalize).join(' ') %></span> <br>
+      <%= image_tag("issue-mark.png", size: "50x50", class: "issue-mark")%> <span class="item-name"> <%= event.name.split.map(&:capitalize).join(' ') %></span> <br>
       <div class="item-info">
       <b>Created by: </b><%= link_to "@#{event.user.first_name.capitalize}", user_path(event.user) %><br>
       <b>Description:</b> <%= event.description %><br>
-      <span id="low"><strong>Date:</strong> <%= event.date%></span><br>
+      <b>When:</b> <%= Date::MONTHNAMES[event.date.month] %> <%=event.date.day%>, <%=event.date.year%> <%=event.date.strftime("at %I:%M %p") %></span><br>
 
       <%= link_to 'Edit', edit_house_event_path(@house, event) %> /
       <%= link_to "Delete", house_event_path(@house, event), method: :delete,
