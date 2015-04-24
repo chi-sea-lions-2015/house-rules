@@ -58,9 +58,9 @@
   </div>
 
   <div class="issue-body">
-    <% if item.issues %>
-      <div id="issue-intro"></div>
+    <% if item.issues.count > 0%>
       <div class="issue-content">
+        <span id="issue-intro">This item has issues!</span><br>
       <% item.issues.each do |issue| %>
         <%= render partial: "issue", locals: { issue: issue} %>
       <% end %>

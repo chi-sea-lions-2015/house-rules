@@ -283,3 +283,21 @@ fieldset legend {
 .roommate-table {
   width: 100%;
 }
+
+.user-table {
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.header-empty {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: center;
+  position: relative;
+}
+
+.user-house {
+  float: right;
+  position: absolute;
+}
