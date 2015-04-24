@@ -19,6 +19,10 @@ class UsersController < ApplicationController
   # def index
   # end
   def welcome
+    @user = current_user
+    if @user
+      redirect_to user_path(@user)
+    end
   end
 
   def new

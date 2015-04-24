@@ -13,7 +13,8 @@ $(document).ready(function() {
       return $(fridge).append("<p class='message-content-valid'>Message length must be 6</p>");
     });
 
-  $('.delete-button').click(function(e) {
+$(document).on("click", ".delete-button", function(e) {
+  // $('.delete-button').click(function(e) {
     e.preventDefault();
     var parent = $(this).parent().parent().parent().parent();
     var url = $(this).attr("id")
