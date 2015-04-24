@@ -6,7 +6,9 @@ class CommunalItemsController < ApplicationController
       if @user.houses.first == @house
           @items = @house.communal_items
           @stock_levels = ["high","low","out"]
-          @items_by_level = @items.all.group_by(&:stock_level)
+           @items_out = @items.select {|i| i.stock_level == "out"}
+          @items_low = @items.select {|i| i.stock_level == "low"}
+          @items_high = @items.select {|i| i.stock_level == "high"}
       else
         render :nothing => true, :status => 400
       end
