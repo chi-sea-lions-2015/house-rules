@@ -3,9 +3,9 @@
   <div class="small-6 large-8 columns">
 
     <div id="event_list">
-      <h1 class="event-title">Events</h1>
-      <% if @events == nil %>
-      <p>Your house has has no events</p>
+      <% if @events.empty? %>
+      <h3 class="header-empty">Your house has has no events!<br>
+      Maybe you should throw a party?</h3>
       <% else %>
       <% @events_by_date.each do |date, events_in_date| %>
         <% if (date.year == @today.year) && (date.month == @today.month) && (date.day == @today.day) %>
@@ -13,7 +13,7 @@
         <% elsif (date.year == @today.year) && (date.month == @today.month) && (date.day - @today.day == 1) %>
         <div class="fridge-today"><span class="today"> Tomorrow </span></div>
         <% else %>
-        <div class="fridge-today"><span class="today"><%=date.year%> - <%=date.month%> - <%=date.day%></span></div>
+        <div class="fridge-today"><span class="today"> <b><%= Date::MONTHNAMES[date.month] %> <%=date.day%>, <%=date.year%></b> </span></div>
         <% end %>
         <% events_in_date.each do |event| %>
         <%= render partial: "event", locals: {event: event} %>

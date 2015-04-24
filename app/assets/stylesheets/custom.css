@@ -11,13 +11,13 @@ border-color: rgba(0, 140, 186, 0.27);
 border-width: .25em;
 width: 20em;
 height: auto;
-float: left;
-margin-top: 2%;
-margin-bottom: 2%;
-margin-left: 5%;
-margin-right: 5%;
+display: inline-block;
+margin-top: 1%;
+margin-bottom: 1%;
+margin-left: 3%;
+margin-right: 3%;
 padding: 2px;
-
+overflow: none;
 }
 .chore_task {
 position: relative;
@@ -35,14 +35,12 @@ margin-right: 0%;
 margin-left: 0%;
 text-align: center;
 padding-top: 0em;
-
 }
 #chore_list{
-  position: relative;
-  margin-left: 10%;
-  margin-right: 10%;
+position: relative;
+margin-left: 15%;
+margin-right: 5%;
 }
-
 .chore_issue{
 position: absolute;
 float: left;
@@ -90,23 +88,20 @@ margin-right: auto;
 margin-left: 1%;
 top: 1em;
 }
-
-
 .user_logs{
-  position: relative;
+position: relative;
 margin-top: 2%;
 margin-left: 10%;
 float: left;
 margin-top: 2%;
 }
 .return_chore{
-  position: relative;
+position: relative;
 margin-left: 65%;
-
-  clear: both;
+clear: both;
 }
 #chore_log{
-  top: 1em;
+top: 1em;
 position: relative;
 margin-left: auto;
 margin-right: auto;
@@ -116,23 +111,53 @@ clear: both;
 margin-left: auto;
 margin-right: auto;
 }
-
 .chrore img.issue_mark {
-  opacity: 0.4;
+opacity: 0.4;
 }
 form.chore_issue{
-  display: none;
-  position: relative;
+display: none;
+position: relative;
 }
 #Bills {
-   position: relative;
-  margin-left: 35% ;
-
+position: relative;
+margin-left: 35% ;
 }
 img.coming_soon {
-  opacity: .4;
+opacity: .4;
 }
 div#Bills h2{
-
 margin-left: 10% ;
+}
+.chore_issues li {
+list-style-type: none;
+text-align: center;
+}
+.view_issues{
+display:none;
+}
+.view_chore_issues{
+display: block;
+position: relative;
+margin: auto;
+}
+.view_issues{
+position: relative;
+margin: auto;
+text-align: center;
+}
+.view_promises{
+display:none;
+position: relative;
+margin: auto;
+text-align: center;
+}
+.view_chore_promise{
+display: block;
+overflow: none;
+position: relative;
+margin-right: 25%;
+}
+.promise_issues{
+margin-left: 35%;
+margin-right: 30%;
 }

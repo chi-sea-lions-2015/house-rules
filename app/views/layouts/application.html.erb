@@ -3,17 +3,11 @@
 <head>
   <title>House Rules</title>
 
- <script src="http://anijs.github.io/lib/anijs/anijs-min.js"></script>
-
-  <!-- Include to use $addClass, $toggleClass or $removeClass -->
-  <script src="http://anijs.github.io/lib/anijs/helpers/dom/anijs-helper-dom-min.js"></script>
-  <link rel="stylesheet" href="http://anijs.github.io/lib/anicollection/anicollection.css">
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
 <body>
-
   <% if current_user%>
     <% if current_user.user_notifications.count == 0 %>
       <% @notes = nil %>

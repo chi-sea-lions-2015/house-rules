@@ -19,8 +19,11 @@
 
 //= require rails-timeago
 
-//= require_tree .
+//= require_tree ./
+
 //= require underscore
+
+
 
 $(function(){
   if(window.showNotificationAlert){

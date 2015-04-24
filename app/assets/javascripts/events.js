@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $(document).on("click", "img.issue-mark", function(e){
+  $(document).on("click", ".issue-mark", function(e){
   	e.preventDefault();
   	var form = $(this).parent().find("form.event_issue");
 	if (form.css("display")=="none"){
@@ -12,10 +12,8 @@ $(document).ready(function() {
 
   $("form.event_issue").submit(function(e){
 	e.preventDefault();
-	debugger;
 	var form = $(this);
 	var list = form.parent().find("div.issue_body");
-  debugger;
 	$.ajax({
 	    url: form.attr("action"),
 	    method: form.attr("method"),
