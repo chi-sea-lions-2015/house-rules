@@ -70,8 +70,12 @@ class MessagesController < ApplicationController
     if @user = current_user
       @house = House.find(params[:house_id])
       @message = Message.find(params[:id])
-      @message.destroy
-      redirect_to house_messages_path(@house)
+      if request.xhr?
+        @message.destroy
+        render :nothing => true, :status => 200
+      else
+        redirect_to house_messages_path(@house)
+      end
     else
       redirect_to '/login'
     end

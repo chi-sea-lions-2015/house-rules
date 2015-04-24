@@ -32,7 +32,6 @@ $(document).ready(function() {
   $(".rule-length").css("display", "none")
   return console.log("stuff", xhr.responseText);
 }).on("ajax:error", function(e, xhr, status, error) {
-  console.log("Failure!!")
   return $("#new_rule").prepend("<p class='rule-length'>Must be a length of 6 or greater.</p>");
 });
 
