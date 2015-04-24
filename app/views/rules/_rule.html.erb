@@ -13,11 +13,8 @@
   <% end %>
 </div>
 </td>
-  	<td class="rule-parts"><%= link_to "Destroy", house_rule_path(@house, rule), method: :delete,
-  	data: {confirm: "Are you sure?"} %></td>
+  	<td class="rule-parts"><%= link_to "Delete", house_rule_path(@house, rule), method: :delete, class: "delete-button" %></td>
   	<td class="rule-parts"><%= link_to 'Edit', edit_house_rule_path(@house, rule) %></td>
-  	<td class="rule-parts"></td>
 </tr>
   </table>
 
-  
