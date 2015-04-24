@@ -1,4 +1,5 @@
 <div class="each-event">
+
       <%= image_tag("issue-mark-not-square.png", size: "50x50", class: "issue-mark")%> <span class="item-name"> <%= event.name.split.map(&:capitalize).join(' ') %></span> <br>
       <div class="item-info">
       <b>Created by: </b><%= link_to "@#{event.user.first_name.capitalize}", user_path(event.user) %><br>
@@ -17,7 +18,7 @@
       <div class="issue_body">
       <% if event.issues %>
       <% event.issues.each do |issue| %>
-      <%= render partial: "issue", locals: { issue: issue }, layout: false %>
+      <%= render partial: "issue", locals: { issue: issue, house: @house, event: event }, layout: false %>
       <% end %>
       <% end %>
       </div>

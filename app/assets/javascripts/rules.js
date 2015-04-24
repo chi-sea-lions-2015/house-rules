@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $("img.issue-mark").click(function(e){
+  $(document).on("click", "img.issue-mark", function(e){
   	e.preventDefault();
   	var form = $(this).parent().parent().find("form.rule_issue");
 	if (form.css("display")=="none"){
@@ -19,7 +19,6 @@ $(document).ready(function() {
 	    method: form.attr("method"),
 	    data: form.serialize(),
 	    success: function(response){
-	    	debugger;
 	        list.append(response);
         	form[0].reset();
         	form.css("display","none");

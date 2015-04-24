@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$(".issue-mark").click(function(e){
+	$(document).on("click", "img.issue-mark", function(e){
 		e.preventDefault();
 		var form = $(this).parent().parent().find("form.item_issue");
 		if (form.css("display")=="none"){
