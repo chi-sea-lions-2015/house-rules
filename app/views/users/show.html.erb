@@ -32,21 +32,21 @@
         <%= f.label :avatar %>
         <%= f.file_field :avatar %>
         <%= f.submit "Save Change", :class => "button"  %>
-      <% end %>
+    <% end %>
     </div>
     </td></tr>
     <tr>
     <br><br>
     <div class="user-house"><td>
     <% if @user.houses.length != 0 %>
-    <h4>Your House:</h4>
-    <% end %>
-    <% @user.houses.each do |house| %>
-    <%= link_to(house.name, house_messages_path(house)) %>
+      <h4>Your House:</h4>
+      <% @user.houses.each do |house| %>
+      <%= link_to(house.name, house_messages_path(house)) %>
+      <% end %>
     <% end %>
     <% if @user.houses.length == 0 %>
-    <%= link_to "New House", new_house_path %>
-    <br><br><br>
+      <%= link_to "New House", new_house_path %>
+      <br><br><br>
 
       <form id="search-form">
         <div class="row">
@@ -63,8 +63,9 @@
       </div>
       <form>
     <%end%>
-    <%end%> </div></td></tr>
+    </div></td></tr>
   </table>
+  <%end%>
       <section id="houses-container">
       </section>
 
