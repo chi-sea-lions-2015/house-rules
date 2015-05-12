@@ -41,9 +41,8 @@
     <% if @user.houses.length != 0 %>
       <h4>Your House:</h4>
       <% @user.houses.each do |house| %>
-      <%= link_to(house.name, house_messages_path(house)) %>
-      <br>
-      <%= link_to "Exit the House", house_path(@house), method: :delete, data: {confirm: "Are you sure? You will never enter the house again!"}%>
+      <%= link_to(house.name, house_messages_path(house)) %> | 
+      <%= link_to "Exit the House", house_path(house), method: :delete, data: {confirm: "Are you sure? You will never enter the house again!"}%>
       <% end %>
     <% end %>
     <% if @user.houses.length == 0 %>
