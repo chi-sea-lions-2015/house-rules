@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150423031307) do
   end
 
   add_index "events", ["house_id"], name: "index_events_on_house_id", using: :btree
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "houses", force: :cascade do |t|
     t.string   "name"
@@ -190,6 +191,7 @@ ActiveRecord::Schema.define(version: 20150423031307) do
   add_foreign_key "chores", "houses"
   add_foreign_key "communal_items", "houses"
   add_foreign_key "events", "houses"
+  add_foreign_key "events", "users"
   add_foreign_key "houses", "property_managers"
   add_foreign_key "housing_assignments", "houses"
   add_foreign_key "housing_assignments", "users"

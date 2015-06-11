@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Notification, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:notification) { Notification.new }
+    it { expect(notification).to have_many(:users)}
+    it { expect(notification).to have_many(:user_notifications)}
 end

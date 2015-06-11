@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UserNotification, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user_notification) { UserNotification.new }
+    it { expect(user_notification).to belong_to(:user)}
+    it { expect(user_notification).to belong_to(:notification)}
 end

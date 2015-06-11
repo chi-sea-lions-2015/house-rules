@@ -10,15 +10,17 @@ class User < ActiveRecord::Base
   has_many :housing_assignments
   has_many :houses, through: :housing_assignments
   has_many :events
+  has_many :events, through: :houses
   has_many :chore_logs
   has_many :chores, through: :chore_logs
   has_many :issues
   has_many :user_promises
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :email, presence: true
-  validates :password, presence: true
-  # validates :email, :uniqueness => true, :format => /.+@.+\..+/
-  validates :password, :length => { :minimum => 6 }
+  validates :first_name, presence: {message: "Must include first name"}
+  validates :last_name, presence: {message: "Must include last name"}
+  validates :email, presence: {message: "Must include email"}
+  validates :email, format: { with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/, message: "Must be valid email" }
+  validates :password, presence: { message: "Must include password" }
+  validates :email, :uniqueness => { message: "Account for that email already exists" }
+  validates :password, :length => { :minimum => 6, message: "Must have length of 6 or greater" }
 end

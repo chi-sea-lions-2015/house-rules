@@ -1,11 +1,15 @@
-FactoryGirl.define do  factory :user_notification do
-    
+require 'Faker'
+
+FactoryGirl.define do
+
+  factory :user_notification do
+
   end
   factory :notification do
-    
+
   end
   factory :picture do
-    
+
   end
 
 
@@ -49,7 +53,7 @@ FactoryGirl.define do  factory :user_notification do
     name "halloween"
     date "2013-09-12 22:49:27"
     description "Costume party!!"
-    housing_assignment
+    house
   end
 
 
@@ -81,7 +85,7 @@ FactoryGirl.define do  factory :user_notification do
 
   factory :message do
     content "you're the best"
-    housing_assignment
+    house
   end
 
   # Message End
@@ -164,7 +168,7 @@ FactoryGirl.define do  factory :user_notification do
   factory :user do
     first_name "Paul"
     last_name "Clegg"
-    email "clegg@clegg.com"
+    email {Faker::Internet.email}
     password "123456"
 
     factory :user_chore_logs do

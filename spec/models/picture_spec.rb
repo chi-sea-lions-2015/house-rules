@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Picture, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:picture) { Picture.new }
+    it { expect(picture).to belong_to(:message)}
 end

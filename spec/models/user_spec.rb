@@ -1,11 +1,15 @@
 require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { User.new }
-  it { expect(user).to validate_presence_of(:first_name) }
-  it { expect(user).to validate_presence_of(:last_name)}
-  it { expect(user).to validate_presence_of(:email)}
-  it { expect(user).to validate_presence_of(:password)}
-  # it { expect(user).to validate_uniqueness_of(:email)}
+  it { expect(user).to validate_presence_of(:first_name).
+            with_message("Must include first name") }
+  it { expect(user).to validate_presence_of(:last_name).
+            with_message("Must include last name") }
+  it { expect(user).to validate_presence_of(:password).
+            with_message("Must include password") }
+  it { expect(user).to validate_presence_of(:email).
+            with_message("Must include email") }
+  it { expect(FactoryGirl.build(:user)).to validate_uniqueness_of(:email).with_message("Account for that email already exists")}
   it { expect(user).to validate_length_of(:password)}
   it { expect(user).to have_many(:housing_assignments) }
   it { expect(user).to have_many(:houses) }

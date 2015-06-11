@@ -8,7 +8,7 @@
   <%= yield :head %>
 </head>
 <body>
-  <% if current_user%>
+    <% if current_user%>
     <% if current_user.user_notifications.count == 0 %>
       <% @notes = nil %>
       <% @notifications = [Notification.first] %>
@@ -25,7 +25,6 @@
   <% end %>
 
   <%= react_component('Header', isLoggedIn: !!current_user, email: current_user.try(:email), houseName: current_user.try(:houses).try(:first).try(:name), houseID: current_user.try(:houses).try(:first).try(:id), userID: current_user.try(:id), notes: @notes, notifications: @notifications) %>
-
 
   <div class="content">
     <%= yield %>
